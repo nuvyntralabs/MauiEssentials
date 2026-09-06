@@ -42,7 +42,7 @@ Requirement → package matching for MauiEssentials.
 | Hide / show keyboard, dismiss on tap, resize vs pan, keyboard height | Plugin.Maui.KeyboardManager | https://www.nuget.org/packages/Plugin.Maui.KeyboardManager | https://github.com/nuvyntralabs/Plugin.Maui.KeyboardManager |
 | Lock / unlock landscape or portrait, per-page orientation | Plugin.Maui.DeviceOrientationPlus | https://www.nuget.org/packages/Plugin.Maui.DeviceOrientationPlus | https://github.com/nuvyntralabs/Plugin.Maui.DeviceOrientationPlus |
 | CommunityToolkit.Maui extras (a11y audit, restore, integrity, wallet, consent) | Plugin.Maui.CommunityToolkitPlus | https://www.nuget.org/packages/Plugin.Maui.CommunityToolkitPlus | https://github.com/nuvyntralabs/Plugin.Maui.CommunityToolkitPlus |
-| MVVM application shell (ViewModels, async state, Shell or NavigationPage; Android, iOS, Mac Catalyst, Windows) | Plugin.Maui.MVVMExpress | https://www.nuget.org/packages/Plugin.Maui.MVVMExpress | https://github.com/nuvyntralabs/Plugin.Maui.MVVMExpress |
+| MVVM application shell (ViewModels, async state, Shell or NavigationPage; Android, iOS, Mac Catalyst, Windows). Scaffold with `dotnet new mvvmexpress` | Plugin.Maui.MVVMExpress | https://www.nuget.org/packages/Plugin.Maui.MVVMExpress | https://github.com/nuvyntralabs/Plugin.Maui.MVVMExpress |
 
 Papers: `https://niladripadhy.vercel.app/opensource/<slug>` — slugs are listed in [llms.txt](../../llms.txt).
 

@@ -1183,6 +1183,7 @@ Alternatives: MAUI `DeviceDisplay.MainDisplayInfo.Orientation` (read-only), plat
 Modular MVVM application shell for .NET MAUI on Android, iOS, Mac Catalyst, and Windows (single-window): ViewModels, commands (UI-thread marshal, weak CanExecuteChanged), async state, Shell or page navigation, dialogs, Window.AddOverlay toasts, validation (ILLink trim roots), pagination. Stable `1.0.0`. Not a fork of CommunityToolkit.Mvvm, Prism.Maui, or ReactiveUI.
 
 Install: `dotnet add package Plugin.Maui.MVVMExpress`
+Template: `dotnet new install Plugin.Maui.MVVMExpress.Templates` then `dotnet new mvvmexpress`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.MVVMExpress
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.MVVMExpress
 Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-mvvmexpress
