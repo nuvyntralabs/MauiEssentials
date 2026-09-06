@@ -404,7 +404,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.MVVMExpress
 - Docs: https://nuvyntralabs.github.io/packages/plugin-maui-mvvmexpress/
 - Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-mvvmexpress
-- Version: `1.0.0`
+- Version: `1.0.1`
 - Install: `dotnet add package Plugin.Maui.MVVMExpress`
 - Template: `dotnet new install Plugin.Maui.MVVMExpress.Templates` then `dotnet new mvvmexpress`
 
