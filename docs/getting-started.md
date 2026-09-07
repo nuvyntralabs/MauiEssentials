@@ -93,13 +93,13 @@ The hub workflow at `.github/workflows/ci.yml` is **manual only** (`workflow_dis
 
 Store a GitHub token that can dispatch workflows on `nuvyntralabs/Plugin.Maui.*` as the `HUB_DISPATCH_TOKEN` Actions secret on the hub (or the `nuvyntralabs` organization). The optional **plugin** input limits the dispatch to one submodule folder.
 
-Publish from the plugin repository that owns the package (for example `Plugin.Maui.MVVMExpress`, which ships several `Plugin.Maui.MVVMExpress.*` packages). Each dispatched submodule pipeline runs in this order:
+Publish from the plugin repository that owns the package (for example `Plugin.Maui.MVVMExpress`, which ships several `Plugin.Maui.MVVMExpress.*` packages). Each dispatched submodule pipeline is fail-fast and runs in this order:
 
-1. Validate `NUGET_KEY`. An empty, expired, or rejected key fails the pipeline and does not start tests or pack.
-2. Compare each packable csproj `Version` / `PackageVersion` with NuGet.org. If that version is already deployed, the pipeline fails and does not start tests or pack. Bump the csproj version to continue.
-3. Run unit tests. Any failing test fails the pipeline and does not start pack.
-4. Build and pack `.nupkg` and `.snupkg` files.
-5. Merge the Windows-packed `net*-windows*` TFMs into the macOS `.nupkg` / `.snupkg`, then push to NuGet.org (`--skip-duplicate`). Without that merge, NuGet.org shows `net10.0-windows` only as a compatibility hint.
+1. **Version alignment.** All packable `src` `Version` / `PackageVersion` values must match.
+2. **NuGet release.** Validate `NUGET_KEY`, then compare each packable csproj version with NuGet.org. An empty, expired, or rejected key fails the pipeline. If that version is already deployed, the pipeline fails. Bump the csproj version to continue. Tests and pack do not start after this job fails.
+3. **Unit tests.** Any failing test fails the pipeline and does not start pack.
+4. **linux / macos / windows packs** in parallel. A failed pack skips **NuGet.org**. Unmatched Windows TFMs are skipped on native Android/iOS plugins.
+5. **NuGet.org.** Merge the Windows-packed `net*-windows*` TFMs into the macOS `.nupkg` / `.snupkg` when those artifacts exist, then push (`--skip-duplicate`). Without that merge, NuGet.org shows `net10.0-windows` only as a compatibility hint.
 
 Store the API key as the `NUGET_KEY` Actions secret on the `nuvyntralabs` organization or on that plugin repo — never in YAML. Copy `.github/plugin-repo-ci.yml` when adding a new plugin repo.
 
