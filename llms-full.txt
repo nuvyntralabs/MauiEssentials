@@ -1184,6 +1184,8 @@ Modular MVVM application shell for .NET MAUI on Android, iOS, Mac Catalyst, and 
 
 Install: `dotnet add package Plugin.Maui.MVVMExpress`
 Template: `dotnet new install Plugin.Maui.MVVMExpress.Templates` then `dotnet new mvvmexpress`
+VS Code extension: https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance
+Visual Studio extension: https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance
 NuGet: https://www.nuget.org/packages/Plugin.Maui.MVVMExpress
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.MVVMExpress
 Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-mvvmexpress
