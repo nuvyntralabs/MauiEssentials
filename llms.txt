@@ -164,13 +164,14 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Install: `dotnet add package Plugin.Maui.ApiResilience`
 
 ### Plugin.Maui.HttpForge
-- Problem: source-generated typed REST client (Refit-style interfaces over HttpClient)
+- Problem: source-generated typed REST client (Refit-style interfaces over HttpClient). 1.1.0 adds query objects, collection formats, naming presets, [Timeout]/[Url]/[PathPrefix], optional segments, [QueryName]/[FormObject], IAsyncEnumerable streaming, request compression, AuthorizationHeaderValueGetter, plus optional Testing / Newtonsoft / XML packages. No reflection fallback.
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.HttpForge
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.HttpForge
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.HttpForge#readme
+- Comparison: https://github.com/nuvyntralabs/Plugin.Maui.HttpForge/blob/main/Docs/refit-comparison.md
 - Integration: https://github.com/nuvyntralabs/Plugin.Maui.HttpForge/blob/main/Docs/integration.md
 - Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-httpforge
-- Version: 1.0.1
+- Version: 1.1.0
 - Install: `dotnet add package Plugin.Maui.HttpForge`
 
 ### Plugin.Maui.ApiCache

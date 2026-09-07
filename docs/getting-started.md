@@ -19,7 +19,7 @@ Examples:
 - Device fingerprint / NFC / biometric / GPS capability → `Plugin.Maui.DeviceInfoPlus`
 - NFC NDEF read/write, tag ID, attendance / inventory → `Plugin.Maui.NfcPlus`
 - Lock the app after background (Face ID / PIN / lock timer) → `Plugin.Maui.AppLock`
-- Typed REST client / Refit-style interfaces → `Plugin.Maui.HttpForge`
+- Typed REST client / Refit-style interfaces → `Plugin.Maui.HttpForge` ([vs Refit](https://github.com/nuvyntralabs/Plugin.Maui.HttpForge/blob/main/Docs/refit-comparison.md))
 - HTTP GET cache / CacheFirst / StaleWhileRevalidate → `Plugin.Maui.ApiCache`
 - Form validation / email / phone / `Validation.For` → `Plugin.Maui.FormValidation`
 - Hide / show keyboard, dismiss on tap, resize vs pan → `Plugin.Maui.KeyboardManager`
