@@ -5,7 +5,7 @@ alwaysApply: true
 
 # NuGet publish is pipeline-only
 
-Do not deploy packages to NuGet.org from this workspace.
+Do not deploy packages to nuget.org or GitHub Packages from this workspace.
 
 This applies to **every plugin submodule** (LeakAnalyser, HttpForge, GeoLocator, and the rest).
 
@@ -13,5 +13,6 @@ This applies to **every plugin submodule** (LeakAnalyser, HttpForge, GeoLocator,
 - Do not use a local `NUGET_KEY` to publish
 - Bump `Version` / `PackageVersion` in the plugin csproj and update docs here
 - Publishing happens when that plugin repo's GitHub Actions CI runs (push to the plugin `main`, tag, or hub dispatch)
+- Each successful publish job pushes to nuget.org (`NUGET_KEY`) and GitHub Packages (`GITHUB_TOKEN`)
 
 The hub repo does not publish packages. See `docs/getting-started.md` (Continuous integration).

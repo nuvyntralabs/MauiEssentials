@@ -232,7 +232,7 @@ Do **not** bump for tests-only or samples-only changes.
 3. Set `Version` and, when present, `PackageVersion` to the same value.
 4. If `CHANGELOG.md` exists, add a top section for the new version.
 5. If the README mentions an `artifacts/Plugin.Maui.*.nupkg` version, update that string to match.
-6. Leave NuGet.org to the plugin repo’s GitHub Actions CI. Do not `dotnet nuget push`.
+6. Leave nuget.org and GitHub Packages to the plugin repo’s GitHub Actions CI. Do not `dotnet nuget push`.
 
 Hub catalog versions (`README.md`, `llms.txt`, `docs/hardened-releases.md`) are a follow-up after the plugin repo is tagged — not part of the per-plugin coding pass.
 

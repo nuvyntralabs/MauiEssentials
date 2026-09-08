@@ -98,10 +98,12 @@ Publish from the plugin repository that owns the package (for example `Plugin.Ma
 1. **Version alignment.** All packable `src` `Version` / `PackageVersion` values must match.
 2. **NuGet release.** Validate `NUGET_KEY`, then compare each packable csproj version with NuGet.org. An empty, expired, or rejected key fails the pipeline. If that version is already deployed, the pipeline fails. Bump the csproj version to continue. Tests and pack do not start after this job fails.
 3. **Unit tests.** Any failing test fails the pipeline and does not start pack.
-4. **linux / macos / windows packs** in parallel. A failed pack skips **NuGet.org**. Unmatched Windows TFMs are skipped on native Android/iOS plugins.
-5. **NuGet.org.** Merge the Windows-packed `net*-windows*` TFMs into the macOS `.nupkg` / `.snupkg` when those artifacts exist, then push (`--skip-duplicate`). Without that merge, NuGet.org shows `net10.0-windows` only as a compatibility hint.
+4. **linux / macos / windows packs** in parallel. A failed pack skips **nuget.org and GitHub Packages**. Unmatched Windows TFMs are skipped on native Android/iOS plugins.
+5. **nuget.org and GitHub Packages.** Merge the Windows-packed `net*-windows*` TFMs into the macOS `.nupkg` / `.snupkg` when those artifacts exist, then push (`--skip-duplicate`) to both feeds. nuget.org gets the nupkg and snupkg. GitHub Packages gets the nupkg at `https://nuget.pkg.github.com/nuvyntralabs/index.json`. Without the Windows merge, nuget.org shows `net10.0-windows` only as a compatibility hint.
 
-Store the API key as the `NUGET_KEY` Actions secret on the `nuvyntralabs` organization or on that plugin repo — never in YAML. Copy `.github/plugin-repo-ci.yml` when adding a new plugin repo.
+Store the nuget.org API key as the `NUGET_KEY` Actions secret on the `nuvyntralabs` organization or on that plugin repo — never in YAML. GitHub Packages uses the job’s `GITHUB_TOKEN` (`packages: write`). Copy `.github/plugin-repo-ci.yml` when adding a new plugin repo.
+
+The first GitHub Packages version is private. After CI publishes, open [nuvyntralabs packages](https://github.com/orgs/nuvyntralabs/packages), open the package, and set visibility to Public if the plugin repo is public. Restoring from GitHub Packages still requires a GitHub token (`read:packages`); nuget.org stays the unauthenticated public feed.
 
 - Ubuntu: `net10.0`
 - macOS: `net10.0`, `net10.0-android`, `net10.0-ios` (and Mac Catalyst when the plugin declares it)
