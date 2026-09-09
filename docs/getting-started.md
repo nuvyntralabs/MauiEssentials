@@ -25,7 +25,7 @@ Examples:
 - Hide / show keyboard, dismiss on tap, resize vs pan → `Plugin.Maui.KeyboardManager`
 - Lock / unlock landscape or portrait, per-page orientation → `Plugin.Maui.DeviceOrientationPlus`
 - MAUI visual-tree leak detection after navigation → `Plugin.Maui.LeakAnalyser`
-- WPF MVVM application shell (Frame navigation, dialogs) → `Plugin.Wpf.MVVMExpress`
+- WPF MVVM application shell (Frame navigation, dialogs) → `Plugin.Wpf.MVVMExpress` (`dotnet new wpf-mvvmexpress`)
 
 ## 2. Install
 

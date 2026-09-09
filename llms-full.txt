@@ -1216,9 +1216,12 @@ Alternatives: CommunityToolkit.Mvvm (properties/commands), Prism.Maui (page navi
 
 ## Plugin.Wpf.MVVMExpress
 
-Independent WPF MVVM family (`0.1.1-preview`). No PackageReference to Plugin.Maui.MVVMExpress.*. Core is `net10.0`. Host / Navigation / Dialogs are `net10.0-windows10.0.17763.0` + UseWPF. Frame navigation (no Shell). MessageBox dialogs. AdornerLayer toasts. Multi-window via IWindowContext.
+Independent WPF MVVM family (`0.1.2-preview`). No PackageReference to Plugin.Maui.MVVMExpress.*. Core is `net10.0`. Host / Navigation / Dialogs are `net10.0-windows10.0.17763.0` + UseWPF. Frame navigation (no Shell). MessageBox dialogs. AdornerLayer toasts. Multi-window via IWindowContext.
 
 Install: `dotnet add package Plugin.Wpf.MVVMExpress`
+Template: `dotnet new install Plugin.Wpf.MVVMExpress.Templates` then `dotnet new wpf-mvvmexpress`
+VS Code: https://marketplace.visualstudio.com/search?term=WPF%20MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance
+Visual Studio: https://marketplace.visualstudio.com/search?term=WPF%20MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance
 NuGet: https://www.nuget.org/packages/Plugin.Wpf.MVVMExpress.Core
 GitHub: https://github.com/nuvyntralabs/Plugin.Wpf.MVVMExpress
 Docs: https://nuvyntralabs.github.io/packages/plugin-wpf-mvvmexpress/
