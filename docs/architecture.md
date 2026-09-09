@@ -1,6 +1,6 @@
 # Architecture
 
-MauiEssentials is a **catalog**, not a monorepo product. Each plugin is an independent git repository, NuGet package, and submodule.
+MauiEssentials is a **catalog**, not a monorepo product. Each plugin is an independent git repository, NuGet package, and submodule. Most plugins target .NET MAUI. `Plugin.Wpf.MVVMExpress` is a separate WPF family in the same catalog — it is not a Windows TFM of `Plugin.Maui.MVVMExpress`.
 
 ```
 Developer requirement

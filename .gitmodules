@@ -115,3 +115,6 @@
 [submodule "HttpForge"]
 	path = HttpForge
 	url = https://github.com/nuvyntralabs/Plugin.Maui.HttpForge.git
+[submodule "WpfMVVMExpress"]
+	path = WpfMVVMExpress
+	url = https://github.com/nuvyntralabs/Plugin.Wpf.MVVMExpress.git

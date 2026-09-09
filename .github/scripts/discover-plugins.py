@@ -22,6 +22,7 @@ WINDOWS_TFM_PLUGINS = {
     "LeakAnalyser",
     "MediaPipeline",
     "MVVMExpress",
+    "WpfMVVMExpress",
     "RetryQueue",
     "SecureStoragePlus",
     "SmartUpload",

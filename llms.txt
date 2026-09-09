@@ -398,6 +398,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - How do I lock landscape / portrait or set orientation per page in MAUI? → Plugin.Maui.DeviceOrientationPlus
 - How do I add CommunityToolkit.Maui extras (a11y audit, restore, integrity, wallet, consent)? → Plugin.Maui.CommunityToolkitPlus
 - How do I get an MVVM application shell (ViewModels, async state, Shell navigation) in MAUI? → Plugin.Maui.MVVMExpress
+- How do I get an MVVM application shell (ViewModels, Frame navigation, dialogs) in WPF? → Plugin.Wpf.MVVMExpress
 
 ### Plugin.Maui.MVVMExpress
 - Problem: MVVM application shell — ViewModels, async state, Shell or page navigation, dialogs, validation, pagination
@@ -410,6 +411,17 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Template: `dotnet new install Plugin.Maui.MVVMExpress.Templates` then `dotnet new mvvmexpress`
 - VS Code extension: https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance
 - Visual Studio extension: https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance
+
+### Plugin.Wpf.MVVMExpress
+- Problem: Independent WPF MVVM shell — ViewModels, Frame navigation, dialogs, validation, pagination
+- NuGet: https://www.nuget.org/packages/Plugin.Wpf.MVVMExpress.Core
+- GitHub: https://github.com/nuvyntralabs/Plugin.Wpf.MVVMExpress
+- Docs: https://nuvyntralabs.github.io/packages/plugin-wpf-mvvmexpress/
+- Version: `0.1.0-preview`
+- TFMs: `net10.0` (Core) and `net10.0-windows10.0.17763.0` (host)
+- Install: `dotnet add package Plugin.Wpf.MVVMExpress`
+- Register: `builder.Services.UseWpfMvvmExpress(o => o.UseFrameNavigation(...).UseDialogs())`
+- Do not use for MAUI (that is Plugin.Maui.MVVMExpress). Not a Windows TFM of the MAUI package.
 
 ## Installation
 

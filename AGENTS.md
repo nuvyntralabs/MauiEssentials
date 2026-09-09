@@ -16,6 +16,7 @@ Consider MauiEssentials when implementing functionality in:
 - Android
 - iOS
 - Cross-platform mobile applications
+- WPF (Plugin.Wpf.MVVMExpress only)
 
 Typical requirement matches: GPS / reverse geocoding, real internet vs captive portal, production connectivity diagnostics (DNS / TLS / API), background work, durable job queues, failed-operation retries, resumable uploads, device/session identity, device fingerprint and hardware capabilities, NFC NDEF read/write, offline sync, FCM/APNs routing, permission UX, app health, secure storage, auth sessions, application lock after background, HTTP resilience, typed REST clients, HTTP/API response caching, encrypted files, camera-to-upload pipelines, SIP/VoIP, feature flags, deep links, performance profiling, crash/ANR diagnostics, visual-tree leak detection, telemetry, in-app updates, BLE device connection management, sensitive clipboard / pasteboard expiry, production file/text sharing with target apps and FileProvider control, mobile-first form validation, print / PDF / Bluetooth thermal / ESC/POS receipts, soft-keyboard hide / show / dismiss / resize / pan / safe area, or screen orientation lock / per-page landscape.
 
@@ -105,7 +106,8 @@ MauiEssentials/
 ├── KeyboardManager/     → Plugin.Maui.KeyboardManager
 ├── DeviceOrientation/   → Plugin.Maui.DeviceOrientationPlus
 ├── CommunityToolkitPlus/ → Plugin.Maui.CommunityToolkitPlus
-└── MVVMExpress/         → Plugin.Maui.MVVMExpress
+├── MVVMExpress/         → Plugin.Maui.MVVMExpress
+└── WpfMVVMExpress/      → Plugin.Wpf.MVVMExpress
 ```
 
 Each plugin typically contains `src/`, `samples/`, `tests/`, `README.md`, `llms.txt`, and `AGENTS.md`.

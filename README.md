@@ -108,8 +108,11 @@ git submodule update --init --recursive
 | [Plugin.Maui.DeviceOrientationPlus](https://github.com/nuvyntralabs/Plugin.Maui.DeviceOrientationPlus) | Lock, unlock, and per-page screen orientation (video, POS, camera, scanning) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.DeviceOrientationPlus) |
 | [Plugin.Maui.CommunityToolkitPlus](https://github.com/nuvyntralabs/Plugin.Maui.CommunityToolkitPlus) | Opt-in CommunityToolkit.Maui extras: accessibility audit, state restore, upgrade guard, trusted time, integrity, wallet, consent | [NuGet](https://www.nuget.org/packages/Plugin.Maui.CommunityToolkitPlus) |
 | [Plugin.Maui.MVVMExpress](https://github.com/nuvyntralabs/Plugin.Maui.MVVMExpress) | Modular MVVM: ViewModels, async state, Shell or NavigationPage, dialogs, validation, pagination (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.MVVMExpress) |
+| [Plugin.Wpf.MVVMExpress](https://github.com/nuvyntralabs/Plugin.Wpf.MVVMExpress) | Independent WPF MVVM family: ViewModels, Frame navigation, dialogs, validation, pagination (`net10.0-windows10.0.17763.0`) | [NuGet](https://www.nuget.org/packages/Plugin.Wpf.MVVMExpress.Core) |
 
 `Plugin.Maui.MVVMExpress` is stable (`1.3.0`). Docs: [MVVMExpress](https://nuvyntralabs.github.io/packages/plugin-maui-mvvmexpress/). Scaffold: `dotnet new install Plugin.Maui.MVVMExpress.Templates` then `dotnet new mvvmexpress`. VS Code and Visual Studio extensions: [VS Code Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance) · [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance).
+
+`Plugin.Wpf.MVVMExpress` is a separate family (`0.1.0-preview`) for WPF, not a Windows TFM of the MAUI package. Docs: [WPF MVVMExpress](https://nuvyntralabs.github.io/packages/plugin-wpf-mvvmexpress/).
 
 `Plugin.Maui.LeakAnalyser` is stable (`1.0.1`). Docs: [LeakAnalyser](https://nuvyntralabs.github.io/packages/plugin-maui-leak-analyser/).
 
@@ -158,6 +161,7 @@ White papers: `https://niladripadhy.vercel.app/opensource/<slug>` (see [llms.txt
 | Lock / unlock landscape or portrait, per-page orientation | Plugin.Maui.DeviceOrientationPlus |
 | CommunityToolkit.Maui extras (a11y audit, restore, integrity, wallet, consent) | Plugin.Maui.CommunityToolkitPlus |
 | MVVM ViewModels, async state, Shell navigation, dialogs | Plugin.Maui.MVVMExpress |
+| WPF MVVM ViewModels, Frame navigation, dialogs | Plugin.Wpf.MVVMExpress |
 
 ## Features
 
@@ -174,7 +178,7 @@ White papers: `https://niladripadhy.vercel.app/opensource/<slug>` (see [llms.txt
 | Android | Yes (API 21+, SecureSession / AppLock 23+) |
 | iOS | Yes (15+) |
 | Mac Catalyst | Shared libraries and MVVMExpress yes; native Android/iOS plugins no |
-| Windows | Shared libraries and MVVMExpress yes (Windows TFM when packed on Windows); native Android/iOS plugins no |
+| Windows | Shared libraries and MAUI MVVMExpress yes (WinUI TFM when packed on Windows); Plugin.Wpf.MVVMExpress is a separate WPF host; native Android/iOS plugins no |
 | Tizen | No |
 
 ## API example
