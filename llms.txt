@@ -417,7 +417,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Wpf.MVVMExpress.Core
 - GitHub: https://github.com/nuvyntralabs/Plugin.Wpf.MVVMExpress
 - Docs: https://nuvyntralabs.github.io/packages/plugin-wpf-mvvmexpress/
-- Version: `0.1.2-preview`
+- Version: `1.0.0`
 - TFMs: `net10.0` (Core) and `net10.0-windows10.0.17763.0` (host)
 - Install: `dotnet add package Plugin.Wpf.MVVMExpress`
 - Template: `dotnet new install Plugin.Wpf.MVVMExpress.Templates` then `dotnet new wpf-mvvmexpress`
