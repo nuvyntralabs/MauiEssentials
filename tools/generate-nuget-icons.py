@@ -436,6 +436,9 @@ ICONS: dict[str, tuple[str, object]] = {
     "SmartUpload": ("cyan", glyph_upload),
     "VoipCore": ("green", glyph_phone),
     "WpfMVVMExpress": ("navy", glyph_window),
+    "WinUIMVVMExpress": ("indigo", glyph_window),
+    "AvaloniaMVVMExpress": ("purple", glyph_layers),
+    "UnoMVVMExpress": ("cyan", glyph_layers),
 }
 
 

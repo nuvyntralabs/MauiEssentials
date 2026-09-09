@@ -399,6 +399,9 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - How do I add CommunityToolkit.Maui extras (a11y audit, restore, integrity, wallet, consent)? → Plugin.Maui.CommunityToolkitPlus
 - How do I get an MVVM application shell (ViewModels, async state, Shell navigation) in MAUI? → Plugin.Maui.MVVMExpress
 - How do I get an MVVM application shell (ViewModels, Frame navigation, dialogs) in WPF? → Plugin.Wpf.MVVMExpress
+- How do I get an MVVM application shell in native WinUI 3? → Plugin.WinUI.MVVMExpress
+- How do I get an MVVM application shell in Avalonia? → Plugin.Avalonia.MVVMExpress
+- How do I get an MVVM application shell in Uno Platform? → Plugin.Uno.MVVMExpress
 
 ### Plugin.Maui.MVVMExpress
 - Problem: MVVM application shell — ViewModels, async state, Shell or page navigation, dialogs, validation, pagination
@@ -425,6 +428,42 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Visual Studio extension: https://marketplace.visualstudio.com/search?term=WPF%20MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance
 - Register: `builder.Services.UseWpfMvvmExpress(o => o.UseFrameNavigation(...).UseDialogs())`
 - Do not use for MAUI (that is Plugin.Maui.MVVMExpress). Not a Windows TFM of the MAUI package.
+
+### Plugin.WinUI.MVVMExpress
+- Problem: Independent native WinUI 3 MVVM shell — ViewModels, Frame navigation, ContentDialog, overlay toasts
+- NuGet: https://www.nuget.org/packages/Plugin.WinUI.MVVMExpress.Core
+- GitHub: https://github.com/nuvyntralabs/Plugin.WinUI.MVVMExpress
+- Docs: https://nuvyntralabs.github.io/packages/plugin-winui-mvvmexpress/
+- Version: `1.0.0`
+- TFMs: `net10.0` (Core) and `net10.0-windows10.0.19041.0` (host)
+- Install: `dotnet add package Plugin.WinUI.MVVMExpress`
+- Template: `dotnet new install Plugin.WinUI.MVVMExpress.Templates` then `dotnet new winui-mvvmexpress`
+- Register: `builder.Services.UseWinUIMvvmExpress(o => o.UseFrameNavigation(...).UseDialogs())`
+- Do not use for MAUI-on-Windows (that is Plugin.Maui.MVVMExpress) or Uno (that is Plugin.Uno.MVVMExpress).
+
+### Plugin.Avalonia.MVVMExpress
+- Problem: Independent Avalonia MVVM shell — ViewModels, Frame host, modal Window dialogs, overlay toasts
+- NuGet: https://www.nuget.org/packages/Plugin.Avalonia.MVVMExpress.Core
+- GitHub: https://github.com/nuvyntralabs/Plugin.Avalonia.MVVMExpress
+- Docs: https://nuvyntralabs.github.io/packages/plugin-avalonia-mvvmexpress/
+- Version: `1.0.0`
+- TFMs: `net10.0` (all libraries; Host packs on Linux)
+- Install: `dotnet add package Plugin.Avalonia.MVVMExpress`
+- Template: `dotnet new install Plugin.Avalonia.MVVMExpress.Templates` then `dotnet new avalonia-mvvmexpress`
+- Register: `builder.Services.UseAvaloniaMvvmExpress(o => o.UseFrameNavigation(...).UseDialogs())`
+- Desktop-only 1.0 (Windows / macOS / Linux). Do not use for WPF or MAUI.
+
+### Plugin.Uno.MVVMExpress
+- Problem: Independent Uno Platform MVVM shell — ViewModels, Frame navigation, ContentDialog, overlay toasts
+- NuGet: https://www.nuget.org/packages/Plugin.Uno.MVVMExpress.Core
+- GitHub: https://github.com/nuvyntralabs/Plugin.Uno.MVVMExpress
+- Docs: https://nuvyntralabs.github.io/packages/plugin-uno-mvvmexpress/
+- Version: `1.0.0`
+- TFMs: `net10.0` (Core) and Uno.Sdk heads for Host
+- Install: `dotnet add package Plugin.Uno.MVVMExpress`
+- Template: `dotnet new install Plugin.Uno.MVVMExpress.Templates` then `dotnet new uno-mvvmexpress`
+- Register: `builder.Services.UseUnoMvvmExpress(o => o.UseFrameNavigation(...).UseDialogs())`
+- Do not use the WinUI nupkg on Uno. Do not wrap Uno.Extensions.Navigation.
 
 ## Installation
 

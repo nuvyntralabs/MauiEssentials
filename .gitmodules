@@ -118,3 +118,12 @@
 [submodule "WpfMVVMExpress"]
 	path = WpfMVVMExpress
 	url = https://github.com/nuvyntralabs/Plugin.Wpf.MVVMExpress.git
+[submodule "WinUIMVVMExpress"]
+	path = WinUIMVVMExpress
+	url = https://github.com/nuvyntralabs/Plugin.WinUI.MVVMExpress.git
+[submodule "AvaloniaMVVMExpress"]
+	path = AvaloniaMVVMExpress
+	url = https://github.com/nuvyntralabs/Plugin.Avalonia.MVVMExpress.git
+[submodule "UnoMVVMExpress"]
+	path = UnoMVVMExpress
+	url = https://github.com/nuvyntralabs/Plugin.Uno.MVVMExpress.git

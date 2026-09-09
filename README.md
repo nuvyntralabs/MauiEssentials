@@ -109,10 +109,15 @@ git submodule update --init --recursive
 | [Plugin.Maui.CommunityToolkitPlus](https://github.com/nuvyntralabs/Plugin.Maui.CommunityToolkitPlus) | Opt-in CommunityToolkit.Maui extras: accessibility audit, state restore, upgrade guard, trusted time, integrity, wallet, consent | [NuGet](https://www.nuget.org/packages/Plugin.Maui.CommunityToolkitPlus) |
 | [Plugin.Maui.MVVMExpress](https://github.com/nuvyntralabs/Plugin.Maui.MVVMExpress) | Modular MVVM: ViewModels, async state, Shell or NavigationPage, dialogs, validation, pagination (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.MVVMExpress) |
 | [Plugin.Wpf.MVVMExpress](https://github.com/nuvyntralabs/Plugin.Wpf.MVVMExpress) | Independent WPF MVVM family: ViewModels, Frame navigation, dialogs, validation, pagination (`net10.0-windows10.0.17763.0`) | [NuGet](https://www.nuget.org/packages/Plugin.Wpf.MVVMExpress.Core) |
+| [Plugin.WinUI.MVVMExpress](https://github.com/nuvyntralabs/Plugin.WinUI.MVVMExpress) | Independent WinUI 3 MVVM family: ViewModels, Frame navigation, ContentDialog, overlay toasts (`net10.0-windows10.0.19041.0`) | [NuGet](https://www.nuget.org/packages/Plugin.WinUI.MVVMExpress.Core) |
+| [Plugin.Avalonia.MVVMExpress](https://github.com/nuvyntralabs/Plugin.Avalonia.MVVMExpress) | Independent Avalonia MVVM family: ViewModels, Frame host, modal Window dialogs, overlay toasts (`net10.0`) | [NuGet](https://www.nuget.org/packages/Plugin.Avalonia.MVVMExpress.Core) |
+| [Plugin.Uno.MVVMExpress](https://github.com/nuvyntralabs/Plugin.Uno.MVVMExpress) | Independent Uno Platform MVVM family: ViewModels, Frame navigation, ContentDialog, overlay toasts (Uno.Sdk) | [NuGet](https://www.nuget.org/packages/Plugin.Uno.MVVMExpress.Core) |
 
 `Plugin.Maui.MVVMExpress` is stable (`1.3.0`). Docs: [MVVMExpress](https://nuvyntralabs.github.io/packages/plugin-maui-mvvmexpress/). Scaffold: `dotnet new install Plugin.Maui.MVVMExpress.Templates` then `dotnet new mvvmexpress`. VS Code and Visual Studio extensions: [VS Code Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance) · [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance).
 
 `Plugin.Wpf.MVVMExpress` is a separate family (`1.0.0`, stable) for WPF, not a Windows TFM of the MAUI package. Docs: [WPF MVVMExpress](https://nuvyntralabs.github.io/packages/plugin-wpf-mvvmexpress/). Scaffold: `dotnet new install Plugin.Wpf.MVVMExpress.Templates` then `dotnet new wpf-mvvmexpress`. VS Code and Visual Studio extensions: [VS Code Marketplace](https://marketplace.visualstudio.com/search?term=WPF%20MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance) · [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=WPF%20MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance).
+
+`Plugin.WinUI.MVVMExpress`, `Plugin.Avalonia.MVVMExpress`, and `Plugin.Uno.MVVMExpress` are independent desktop families (`1.0.0`). They are not Windows TFMs of the MAUI package and do not PackageReference each other. Scaffold: `dotnet new winui-mvvmexpress`, `avalonia-mvvmexpress`, or `uno-mvvmexpress`.
 
 `Plugin.Maui.LeakAnalyser` is stable (`1.0.1`). Docs: [LeakAnalyser](https://nuvyntralabs.github.io/packages/plugin-maui-leak-analyser/).
 
@@ -162,6 +167,9 @@ White papers: `https://niladripadhy.vercel.app/opensource/<slug>` (see [llms.txt
 | CommunityToolkit.Maui extras (a11y audit, restore, integrity, wallet, consent) | Plugin.Maui.CommunityToolkitPlus |
 | MVVM ViewModels, async state, Shell navigation, dialogs | Plugin.Maui.MVVMExpress |
 | WPF MVVM ViewModels, Frame navigation, dialogs | Plugin.Wpf.MVVMExpress |
+| Native WinUI 3 MVVM ViewModels, Frame navigation, dialogs | Plugin.WinUI.MVVMExpress |
+| Avalonia MVVM ViewModels, Frame host, dialogs | Plugin.Avalonia.MVVMExpress |
+| Uno Platform MVVM ViewModels, Frame navigation, dialogs | Plugin.Uno.MVVMExpress |
 
 ## Features
 
@@ -178,7 +186,9 @@ White papers: `https://niladripadhy.vercel.app/opensource/<slug>` (see [llms.txt
 | Android | Yes (API 21+, SecureSession / AppLock 23+) |
 | iOS | Yes (15+) |
 | Mac Catalyst | Shared libraries and MVVMExpress yes; native Android/iOS plugins no |
-| Windows | Shared libraries and MAUI MVVMExpress yes (WinUI TFM when packed on Windows); Plugin.Wpf.MVVMExpress is a separate WPF host; native Android/iOS plugins no |
+| Windows | Shared libraries and MAUI MVVMExpress yes (WinUI TFM when packed on Windows); Plugin.Wpf.MVVMExpress is a separate WPF host; Plugin.WinUI.MVVMExpress is native WinUI 3; native Android/iOS plugins no |
+| Avalonia desktop | Plugin.Avalonia.MVVMExpress (Windows / macOS / Linux) |
+| Uno Platform | Plugin.Uno.MVVMExpress (WinAppSDK / Skia desktop; mobile heads in 1.0) |
 | Tizen | No |
 
 ## API example

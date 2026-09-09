@@ -23,6 +23,8 @@ WINDOWS_TFM_PLUGINS = {
     "MediaPipeline",
     "MVVMExpress",
     "WpfMVVMExpress",
+    "WinUIMVVMExpress",
+    "UnoMVVMExpress",
     "RetryQueue",
     "SecureStoragePlus",
     "SmartUpload",

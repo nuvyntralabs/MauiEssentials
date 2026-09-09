@@ -26,6 +26,9 @@ Examples:
 - Lock / unlock landscape or portrait, per-page orientation → `Plugin.Maui.DeviceOrientationPlus`
 - MAUI visual-tree leak detection after navigation → `Plugin.Maui.LeakAnalyser`
 - WPF MVVM application shell (Frame navigation, dialogs) → `Plugin.Wpf.MVVMExpress` (`dotnet new wpf-mvvmexpress`)
+- Native WinUI 3 MVVM application shell → `Plugin.WinUI.MVVMExpress` (`dotnet new winui-mvvmexpress`)
+- Avalonia MVVM application shell → `Plugin.Avalonia.MVVMExpress` (`dotnet new avalonia-mvvmexpress`)
+- Uno Platform MVVM application shell → `Plugin.Uno.MVVMExpress` (`dotnet new uno-mvvmexpress`)
 
 ## 2. Install
 
@@ -97,18 +100,18 @@ Store a GitHub token that can dispatch workflows on `nuvyntralabs/Plugin.Maui.*`
 Publish from the plugin repository that owns the package (for example `Plugin.Maui.MVVMExpress`, which ships several `Plugin.Maui.MVVMExpress.*` packages). Each dispatched submodule pipeline is fail-fast and runs in this order:
 
 1. **Version alignment.** All packable `src` `Version` / `PackageVersion` values must match.
-2. **NuGet release.** Validate `NUGET_KEY` (or `NUGET_KEY_WPF` for `Plugin.Wpf.MVVMExpress`), then compare each packable csproj version with NuGet.org. An empty, expired, or rejected key fails the pipeline. If that version is already deployed, the pipeline fails. Bump the csproj version to continue. Tests and pack do not start after this job fails.
+2. **NuGet release.** Validate `NUGET_KEY` (or `NUGET_KEY_WPF` / `NUGET_KEY_WINUI` / `NUGET_KEY_AVALONIA` / `NUGET_KEY_UNO` for those families), then compare each packable csproj version with NuGet.org. An empty, expired, or rejected key fails the pipeline. If that version is already deployed, the pipeline fails. Bump the csproj version to continue. Tests and pack do not start after this job fails.
 3. **Unit tests.** Any failing test fails the pipeline and does not start pack.
 4. **linux / macos / windows packs** in parallel. A failed pack skips **nuget.org and GitHub Packages**. Unmatched Windows TFMs are skipped on native Android/iOS plugins.
 5. **nuget.org and GitHub Packages.** Merge the Windows-packed `net*-windows*` TFMs into the macOS `.nupkg` / `.snupkg` when those artifacts exist, then push (`--skip-duplicate`) to both feeds. nuget.org gets the nupkg and snupkg. GitHub Packages gets the nupkg at `https://nuget.pkg.github.com/nuvyntralabs/index.json`. Without the Windows merge, nuget.org shows `net10.0-windows` only as a compatibility hint.
 
-Store the nuget.org API key as the `NUGET_KEY` Actions secret on the `nuvyntralabs` organization or on that plugin repo — never in YAML. `Plugin.Wpf.MVVMExpress` uses a separate `NUGET_KEY_WPF` secret (glob `Plugin.Wpf.*`). Both families still push GitHub Packages with the job’s `GITHUB_TOKEN` (`packages: write`). Copy `.github/plugin-repo-ci.yml` when adding a new MAUI plugin repo.
+Store the nuget.org API key as the `NUGET_KEY` Actions secret on the `nuvyntralabs` organization or on that plugin repo — never in YAML. Desktop MVVMExpress families use scoped keys: `NUGET_KEY_WPF` (`Plugin.Wpf.*`), `NUGET_KEY_WINUI` (`Plugin.WinUI.*`), `NUGET_KEY_AVALONIA` (`Plugin.Avalonia.*`), `NUGET_KEY_UNO` (`Plugin.Uno.*`). All families still push GitHub Packages with the job’s `GITHUB_TOKEN` (`packages: write`). Copy `.github/plugin-repo-ci.yml` when adding a new MAUI plugin repo.
 
 The first GitHub Packages version is private. After CI publishes, open [nuvyntralabs packages](https://github.com/orgs/nuvyntralabs/packages), open the package, and set visibility to Public if the plugin repo is public. Restoring from GitHub Packages still requires a GitHub token (`read:packages`); nuget.org stays the unauthenticated public feed.
 
 - Ubuntu: `net10.0`
 - macOS: `net10.0`, `net10.0-android`, `net10.0-ios` (and Mac Catalyst when the plugin declares it)
-- Windows: `net10.0` plus `net10.0-windows` for shared libraries and MAUI MVVMExpress. `Plugin.Wpf.MVVMExpress` Host / Navigation / Dialogs pack on Windows only (`net10.0-windows10.0.17763.0` + `UseWPF`).
+- Windows: `net10.0` plus `net10.0-windows` for shared libraries and MAUI MVVMExpress. `Plugin.Wpf.MVVMExpress` Host / Navigation / Dialogs pack on Windows only (`net10.0-windows10.0.17763.0` + `UseWPF`). `Plugin.WinUI.MVVMExpress` Host / Navigation / Dialogs pack on Windows (`net10.0-windows10.0.19041.0` + `UseWinUI`). `Plugin.Avalonia.MVVMExpress` packs all libraries on Linux. `Plugin.Uno.MVVMExpress` packs Core on Linux and Host heads that the runner can build.
 
 Each plugin repo can reuse the same job via `.github/plugin-repo-ci.yml`.
 
