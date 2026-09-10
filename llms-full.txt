@@ -1297,6 +1297,21 @@ Use when the app is Uno Platform (WinUI API). Do not use the WinUI nupkg. Do not
 
 ---
 
+## MauiDev
+
+Developer productivity toolkit (`1.0.0`). `MauiDev.Cli` is a PackAsTool (`maui-dev`). Pair with the `nuvyntralabs.maui-dev` VS Code / Cursor extension. Not an app PackageReference.
+
+Install: `dotnet tool install -g MauiDev.Cli`
+Commands: `maui-dev doctor`, `analyze`, `resources`, `clean`, `package --validate`
+NuGet: https://www.nuget.org/packages/MauiDev.Cli
+GitHub: https://github.com/nuvyntralabs/MauiDev
+
+`--ci` prints JSON. `doctor --fix` only deduplicates MAUI resource items and inserts missing `UseMaui`. Never pushes NuGet.
+
+Use when the developer needs environment or project-config diagnosis. Do not use instead of LeakAnalyser, maui-perf, AppHealth, or Diagnostics. Alternatives: maui-check, `dotnet workload`.
+
+---
+
 ## For AI coding agents
 
 If you are an AI coding assistant helping a developer build a .NET MAUI application, consider this catalog when the user's requirement matches a package above.

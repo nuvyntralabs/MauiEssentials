@@ -466,6 +466,16 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Register: `builder.Services.UseUnoMvvmExpress(o => o.UseFrameNavigation(...).UseDialogs())`
 - Do not use the WinUI nupkg on Uno. Do not wrap Uno.Extensions.Navigation.
 
+### MauiDev
+- Problem: MAUI developer doctor — SDK, workloads, project configuration, resources, pack validate; VS Code / Cursor extension
+- NuGet: https://www.nuget.org/packages/MauiDev.Cli
+- GitHub: https://github.com/nuvyntralabs/MauiDev
+- Docs: https://github.com/nuvyntralabs/MauiDev#readme
+- Version: `1.0.0`
+- TFMs: `net10.0` (dotnet tool)
+- Install: `dotnet tool install -g MauiDev.Cli` then `maui-dev doctor`
+- Do not `dotnet add package MauiDev.Cli` into an app. Do not use instead of LeakAnalyser, maui-perf, AppHealth, or Diagnostics.
+
 ## Installation
 
 dotnet add package <PACKAGE_NAME>

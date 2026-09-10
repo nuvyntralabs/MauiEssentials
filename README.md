@@ -113,6 +113,14 @@ git submodule update --init --recursive
 | [Plugin.Avalonia.MVVMExpress](https://github.com/nuvyntralabs/Plugin.Avalonia.MVVMExpress) | Independent Avalonia MVVM family: ViewModels, Frame host, modal Window dialogs, overlay toasts (`net10.0`) | [NuGet](https://www.nuget.org/packages/Plugin.Avalonia.MVVMExpress.Core) |
 | [Plugin.Uno.MVVMExpress](https://github.com/nuvyntralabs/Plugin.Uno.MVVMExpress) | Independent Uno Platform MVVM family: ViewModels, Frame navigation, ContentDialog, overlay toasts (Uno.Sdk) | [NuGet](https://www.nuget.org/packages/Plugin.Uno.MVVMExpress.Core) |
 
+## Developer tools
+
+These are not app PackageReferences. Install the CLI with `dotnet tool install`.
+
+| Tool | Purpose | Install |
+| --- | --- | --- |
+| [MauiDev](https://github.com/nuvyntralabs/MauiDev) (`maui-dev`) | Diagnose MAUI SDK, workloads, project configuration, resources, and pack metadata. VS Code / Cursor extension: `nuvyntralabs.maui-dev`. | `dotnet tool install -g MauiDev.Cli` · [NuGet](https://www.nuget.org/packages/MauiDev.Cli) |
+
 `Plugin.Maui.MVVMExpress` is stable (`1.3.0`). Docs: [MVVMExpress](https://nuvyntralabs.github.io/packages/plugin-maui-mvvmexpress/). Scaffold: `dotnet new install Plugin.Maui.MVVMExpress.Templates` then `dotnet new mvvmexpress`. VS Code and Visual Studio extensions: [VS Code Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance) · [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance).
 
 `Plugin.Wpf.MVVMExpress` is a separate family (`1.0.0`, stable) for WPF, not a Windows TFM of the MAUI package. Docs: [WPF MVVMExpress](https://nuvyntralabs.github.io/packages/plugin-wpf-mvvmexpress/). Scaffold: `dotnet new install Plugin.Wpf.MVVMExpress.Templates` then `dotnet new wpf-mvvmexpress`. VS Code and Visual Studio extensions: [VS Code Marketplace](https://marketplace.visualstudio.com/search?term=WPF%20MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance) · [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=WPF%20MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance).
@@ -170,6 +178,7 @@ White papers: `https://niladripadhy.vercel.app/opensource/<slug>` (see [llms.txt
 | Native WinUI 3 MVVM ViewModels, Frame navigation, dialogs | Plugin.WinUI.MVVMExpress |
 | Avalonia MVVM ViewModels, Frame host, dialogs | Plugin.Avalonia.MVVMExpress |
 | Uno Platform MVVM ViewModels, Frame navigation, dialogs | Plugin.Uno.MVVMExpress |
+| Diagnose MAUI SDK / workloads / project config / resources / pack (CLI + VS Code) | MauiDev (`dotnet tool install -g MauiDev.Cli`) |
 
 ## Features
 

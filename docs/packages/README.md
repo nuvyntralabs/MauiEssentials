@@ -47,6 +47,7 @@ Requirement → package matching for MauiEssentials.
 | Native WinUI 3 MVVM application shell (ViewModels, Frame navigation, ContentDialog; `net10.0-windows10.0.19041.0`). Independent of Plugin.Maui.MVVMExpress. Scaffold with `dotnet new winui-mvvmexpress` | Plugin.WinUI.MVVMExpress | https://www.nuget.org/packages/Plugin.WinUI.MVVMExpress.Core | https://github.com/nuvyntralabs/Plugin.WinUI.MVVMExpress |
 | Avalonia MVVM application shell (ViewModels, Frame host, modal Window dialogs; `net10.0`). Independent of Plugin.Maui.MVVMExpress. Scaffold with `dotnet new avalonia-mvvmexpress` | Plugin.Avalonia.MVVMExpress | https://www.nuget.org/packages/Plugin.Avalonia.MVVMExpress.Core | https://github.com/nuvyntralabs/Plugin.Avalonia.MVVMExpress |
 | Uno Platform MVVM application shell (ViewModels, Frame navigation, ContentDialog; Uno.Sdk). Independent of Plugin.Maui.MVVMExpress and Plugin.WinUI.MVVMExpress. Scaffold with `dotnet new uno-mvvmexpress` | Plugin.Uno.MVVMExpress | https://www.nuget.org/packages/Plugin.Uno.MVVMExpress.Core | https://github.com/nuvyntralabs/Plugin.Uno.MVVMExpress |
+| Diagnose MAUI SDK, workloads, project configuration, resources, or pack metadata (`maui-dev doctor` / `--ci`). Not an app PackageReference. | MauiDev.Cli | https://www.nuget.org/packages/MauiDev.Cli | https://github.com/nuvyntralabs/MauiDev |
 
 Papers: `https://niladripadhy.vercel.app/opensource/<slug>` — slugs are listed in [llms.txt](../../llms.txt).
 

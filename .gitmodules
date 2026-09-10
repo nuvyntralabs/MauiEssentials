@@ -127,3 +127,6 @@
 [submodule "UnoMVVMExpress"]
 	path = UnoMVVMExpress
 	url = https://github.com/nuvyntralabs/Plugin.Uno.MVVMExpress.git
+[submodule "MauiDev"]
+	path = MauiDev
+	url = https://github.com/nuvyntralabs/MauiDev.git

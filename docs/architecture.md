@@ -17,6 +17,8 @@ llms.txt      LLM index
 AGENTS.md     coding-agent guide
 ```
 
+`MauiDev/` is a developer tool (`MauiDev.Cli` / `maui-dev`), not a runtime plugin.
+
 ## Design rules
 
 1. **One problem per package.** Descriptions name the problem (captive portal, durable queue, resumable upload), not “part of MauiEssentials”.

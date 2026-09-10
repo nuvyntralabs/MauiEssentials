@@ -1,4 +1,10 @@
-# MVVMExpress platform family plans
+# Design plans
+
+| Product | Plan | Status |
+| --- | --- | --- |
+| MauiDev CLI + VS Code extension | [maudev.md](maudev.md) | Implemented at `1.0.0` |
+
+## MVVMExpress platform family plans
 
 Planning documents for the desktop MVVMExpress families. Repositories and hub submodules exist at `1.0.0`. Each family is an independent git repository and NuGet prefix — the same model as `Plugin.Wpf.MVVMExpress`.
 
