@@ -30,3 +30,5 @@ Global: `--path`, `--format human|json|sarif`, `--ci`, `--fix`, `--dry-run`, `--
 CI on the plugin repo: version align (CLI + extension `package.json`), NuGet key check, unit tests, Linux pack, nuget.org + GitHub Packages, `vsce package`. Marketplace/Open VSX when `VSCE_PAT` / `OVSX_PAT` exist.
 
 Never `dotnet nuget push` or `vsce publish` from a local clone.
+
+Next slice: [maudev-next.md](maudev-next.md) (1.1 / 1.2). Implemented at `1.2.0`.

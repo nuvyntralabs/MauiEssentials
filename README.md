@@ -119,7 +119,7 @@ These are not app PackageReferences. Install the CLI with `dotnet tool install`.
 
 | Tool | Purpose | Install |
 | --- | --- | --- |
-| [MauiDev](https://github.com/nuvyntralabs/MauiDev) (`maui-dev`) | Diagnose MAUI SDK, workloads, project configuration, resources, and pack metadata. VS Code / Cursor extension: `nuvyntralabs.maui-dev`. | `dotnet tool install -g Plugin.Maui.MauiDev.Cli` · [NuGet](https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli) |
+| [MauiDev](https://github.com/nuvyntralabs/MauiDev) (`maui-dev`) | Diagnose MAUI SDK, workloads, project configuration, permissions, platform layout, resources, and pack metadata. VS Code / Cursor extension: `nuvyntralabs.maui-dev`. | `dotnet tool install -g Plugin.Maui.MauiDev.Cli` · [NuGet](https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli) |
 
 `Plugin.Maui.MVVMExpress` is stable (`1.3.0`). Docs: [MVVMExpress](https://nuvyntralabs.github.io/packages/plugin-maui-mvvmexpress/). Scaffold: `dotnet new install Plugin.Maui.MVVMExpress.Templates` then `dotnet new mvvmexpress`. VS Code and Visual Studio extensions: [VS Code Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance) · [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance).
 
@@ -178,7 +178,7 @@ White papers: `https://niladripadhy.vercel.app/opensource/<slug>` (see [llms.txt
 | Native WinUI 3 MVVM ViewModels, Frame navigation, dialogs | Plugin.WinUI.MVVMExpress |
 | Avalonia MVVM ViewModels, Frame host, dialogs | Plugin.Avalonia.MVVMExpress |
 | Uno Platform MVVM ViewModels, Frame navigation, dialogs | Plugin.Uno.MVVMExpress |
-| Diagnose MAUI SDK / workloads / project config / resources / pack (CLI + VS Code) | MauiDev (`dotnet tool install -g Plugin.Maui.MauiDev.Cli`) |
+| Diagnose MAUI SDK / workloads / project config / permissions / platform / resources / pack (CLI + VS Code) | MauiDev (`dotnet tool install -g Plugin.Maui.MauiDev.Cli`) |
 
 ## Features
 

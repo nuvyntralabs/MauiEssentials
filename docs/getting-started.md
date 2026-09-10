@@ -29,7 +29,7 @@ Examples:
 - Native WinUI 3 MVVM application shell → `Plugin.WinUI.MVVMExpress` (`dotnet new winui-mvvmexpress`)
 - Avalonia MVVM application shell → `Plugin.Avalonia.MVVMExpress` (`dotnet new avalonia-mvvmexpress`)
 - Uno Platform MVVM application shell → `Plugin.Uno.MVVMExpress` (`dotnet new uno-mvvmexpress`)
-- Diagnose MAUI SDK / workloads / project config → `Plugin.Maui.MauiDev.Cli` (`dotnet tool install -g Plugin.Maui.MauiDev.Cli` then `maui-dev doctor`)
+- Diagnose MAUI SDK / workloads / project config / permissions / platform layout → `Plugin.Maui.MauiDev.Cli` (`dotnet tool install -g Plugin.Maui.MauiDev.Cli` then `maui-dev doctor`)
 
 ## 2. Install
 
