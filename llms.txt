@@ -471,7 +471,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/MauiDev.Cli
 - GitHub: https://github.com/nuvyntralabs/MauiDev
 - Docs: https://github.com/nuvyntralabs/MauiDev#readme
-- Version: `1.0.0`
+- Version: `1.0.1`
 - TFMs: `net10.0` (dotnet tool)
 - Install: `dotnet tool install -g MauiDev.Cli` then `maui-dev doctor`
 - Do not `dotnet add package MauiDev.Cli` into an app. Do not use instead of LeakAnalyser, maui-perf, AppHealth, or Diagnostics.

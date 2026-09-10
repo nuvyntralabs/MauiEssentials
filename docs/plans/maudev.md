@@ -1,6 +1,6 @@
 # MauiDev — design plan
 
-**Status:** Repository and hub submodule `MauiDev` exist at `1.0.0`.  
+**Status:** Repository and hub submodule `MauiDev` exist at `1.0.1`.  
 **Product:** MauiDev — developer productivity toolkit for .NET MAUI  
 **Package:** `MauiDev.Cli` (`PackAsTool`, command `maui-dev`)  
 **Extension:** `nuvyntralabs.maui-dev`  

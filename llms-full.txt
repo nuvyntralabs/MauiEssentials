@@ -1299,7 +1299,7 @@ Use when the app is Uno Platform (WinUI API). Do not use the WinUI nupkg. Do not
 
 ## MauiDev
 
-Developer productivity toolkit (`1.0.0`). `MauiDev.Cli` is a PackAsTool (`maui-dev`). Pair with the `nuvyntralabs.maui-dev` VS Code / Cursor extension. Not an app PackageReference.
+Developer productivity toolkit (`1.0.1`). `MauiDev.Cli` is a PackAsTool (`maui-dev`). Pair with the `nuvyntralabs.maui-dev` VS Code / Cursor extension. Not an app PackageReference.
 
 Install: `dotnet tool install -g MauiDev.Cli`
 Commands: `maui-dev doctor`, `analyze`, `resources`, `clean`, `package --validate`

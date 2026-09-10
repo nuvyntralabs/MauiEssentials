@@ -2,7 +2,7 @@
 
 | Product | Plan | Status |
 | --- | --- | --- |
-| MauiDev CLI + VS Code extension | [maudev.md](maudev.md) | Implemented at `1.0.0` |
+| MauiDev CLI + VS Code extension | [maudev.md](maudev.md) | Implemented at `1.0.1` |
 
 ## MVVMExpress platform family plans
 
