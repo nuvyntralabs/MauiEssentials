@@ -26,7 +26,7 @@ Requirement → package matching for MauiEssentials.
 | SIP / VoIP session model | Plugin.Maui.VoipCore | https://www.nuget.org/packages/Plugin.Maui.VoipCore | https://github.com/nuvyntralabs/Plugin.Maui.VoipCore |
 | Feature flags / remote config | Plugin.Maui.FeatureFlags | https://www.nuget.org/packages/Plugin.Maui.FeatureFlags | https://github.com/nuvyntralabs/Plugin.Maui.FeatureFlags |
 | App Links, Universal Links, schemes | Plugin.Maui.DeepLinks | https://www.nuget.org/packages/Plugin.Maui.DeepLinks | https://github.com/nuvyntralabs/Plugin.Maui.DeepLinks |
-| Startup / page / API profiler | Plugin.Maui.Performance | https://www.nuget.org/packages/Plugin.Maui.Performance | https://github.com/nuvyntralabs/Plugin.Maui.Performance |
+| Startup / page / API profiler, or wrap `maui profile` | Plugin.Maui.Performance | https://www.nuget.org/packages/Plugin.Maui.Performance | https://github.com/nuvyntralabs/Plugin.Maui.Performance |
 | Crash, ANR, breadcrumbs | Plugin.Maui.Diagnostics | https://www.nuget.org/packages/Plugin.Maui.Diagnostics | https://github.com/nuvyntralabs/Plugin.Maui.Diagnostics |
 | MAUI visual-tree leak detection / handler teardown | Plugin.Maui.LeakAnalyser | https://www.nuget.org/packages/Plugin.Maui.LeakAnalyser | https://github.com/nuvyntralabs/Plugin.Maui.LeakAnalyser |
 | Umbrella telemetry for the suite | Plugin.Maui.Observability | https://www.nuget.org/packages/Plugin.Maui.Observability | https://github.com/nuvyntralabs/Plugin.Maui.Observability |

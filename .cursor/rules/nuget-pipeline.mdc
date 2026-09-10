@@ -13,6 +13,7 @@ This applies to **every plugin submodule** (LeakAnalyser, HttpForge, GeoLocator,
 - Do not use a local `NUGET_KEY` to publish
 - Bump `Version` / `PackageVersion` in the plugin csproj and update docs here
 - Publishing happens when that plugin repo's GitHub Actions CI runs (push to the plugin `main`, tag, or hub dispatch)
+- A plugin repo may ship several nupkgs (library + PackAsTool `.Cli`, templates, source generators). Keep their `Version` values aligned. Tool packages omit snupkg.
 - Each successful publish job pushes to nuget.org (`NUGET_KEY` for Plugin.Maui.*, `NUGET_KEY_WPF` for Plugin.Wpf.*, `NUGET_KEY_WINUI` for Plugin.WinUI.*, `NUGET_KEY_AVALONIA` for Plugin.Avalonia.*, `NUGET_KEY_UNO` for Plugin.Uno.*) and GitHub Packages (`GITHUB_TOKEN`)
 
 The hub repo does not publish packages. See `docs/getting-started.md` (Continuous integration).

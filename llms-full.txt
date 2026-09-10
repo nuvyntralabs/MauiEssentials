@@ -736,7 +736,7 @@ Alternatives: MAUI App Actions / AppLink, custom OnAppLinkRequestReceived.
 
 ## Plugin.Maui.Performance
 
-A lightweight profiler for .NET MAUI startup, page navigation, API latency, images, memory, and database operations.
+A lightweight profiler for .NET MAUI startup, page navigation, API latency, images, memory, and database operations, plus an intuitive wrapper for `maui profile` / `Microsoft.Maui.ProfilingHelper`.
 
 Install: `dotnet add package Plugin.Maui.Performance`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.Performance
@@ -746,13 +746,22 @@ Use this package when a developer asks:
 - How do I measure MAUI startup and page load time?
 - Lightweight mobile profiler without Application Insights
 - Trace API vs SQLite vs image load
+- How do I wrap maui profile / stop a startup .nettrace on first frame?
 
 Do not use it as a full APM replacement (App Center, Application Insights, Sentry performance).
 
 ```csharp
 using var trace = MauiPerformance.Trace("LoadCustomer");
 await MauiPerformance.MeasureAsync("Customer API", () => client.GetStringAsync("/customer"), PerformanceCategory.Api);
+
+builder.UseMauiPerformance(options =>
+{
+    options.CliProfile.CompleteOn = CliProfileCompleteOn.FirstFrame;
+});
+using var checkout = MauiProfile.Scenario("Checkout");
 ```
+
+CLI wrapper: `dotnet tool install -g Plugin.Maui.Performance.Cli` then `maui-perf startup -f android`.
 
 Alternatives: .NET EventCounters, Application Insights, custom Stopwatch.
 

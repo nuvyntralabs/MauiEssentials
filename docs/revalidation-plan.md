@@ -73,7 +73,7 @@ Every in-scope plugin already has `src/`, `tests/`, `samples/`, and `README.md`.
 | Nfc | 1.0.3 | 28 | MainPage | Android, iOS | NFC hardware; README pack path `1.0.0` |
 | Observability | 1.0.7 | 23 | MainPage | Android, iOS | Last wave — sibling refs |
 | OfflineSync | 1.0.9 | 13 | MainPage | Android, iOS | Thin vs 9 public interfaces; no CHANGELOG |
-| Performance | 1.0.5 | 28 | 2 pages | Android, iOS | README pack path `1.0.0` |
+| Performance | 1.0.7 | 62 | 2 pages | Android, iOS | `MauiProfile` / `maui-perf` |
 | PermissionFlow | 1.0.5 | 24 | MainPage | Android, iOS | One test class; no CHANGELOG |
 | Printing | 1.0.3 | 23 | MainPage | Android, iOS | Thermal / AirPrint hardware; README pack path `1.0.0` |
 | PushRouter | 1.0.6 | 24 | 3 pages | Android, iOS | Hardened mapped routes only |
@@ -596,6 +596,7 @@ Use these as the **minimum** public-feature lists. If the README or public API h
 | Auto page / startup | `AutoMeasureTests` | Navigate `CustomerPage` |
 | HTTP handler | `HttpHandlerTests` | Sample API |
 | Report | `ReportTests` | Show report |
+| `MauiProfile` / `maui-perf` | `MauiProfileTests` / `MauiProfileCommandTests` | First-frame stop, `LoadCustomer` scenario |
 
 ### PermissionFlow
 
@@ -733,7 +734,7 @@ Copy into the PR description for each plugin (or keep a running hub note).
 | Nfc | existing 32 cover session/NDEF | Start/Read/Write + payloads | Release OK | 32 pass | Android device (Unsupported / no NFC hardware) | patch 1.0.4 (README pack path) | Yes |
 | Observability | existing 23 cover registration/bridge/exporter/pipeline | existing 8 demo buttons | Release OK | 23 pass | Android device (network Offline, API Opened retries=1; Crash skipped) | none | Yes |
 | OfflineSync | existing 13 cover queue/sync | Add note, offline queue, Sync now | Release OK | 13 pass | Android device | none (sample Gray SourceGen hex) | Yes |
-| Performance | existing 28 cover measure/trace/report | Load customer, CustomerPage, example timings, clear | Release OK | 28 pass | Android device | patch 1.0.6 (README pack path) | Yes |
+| Performance | existing 28 plus MauiProfile / maui-perf | Load customer, CustomerPage, example timings, clear, first-frame CLI stop | Release OK | tests pass | Android device | 1.0.7 (`MauiProfile`) | Yes |
 | PermissionFlow | existing 24 cover rationale/cooldown/settings | Scan/Location/Notifications/Photos + Refresh | Release OK | 24 pass | Android device (location/alerts/library/scan satisfied) | none | Yes |
 | Printing | existing 23 cover PDF/builders/ESC/POS | Discover, Permissions, Print PDF (system), Invoice thermal unavailable | Release OK | 23 pass | Android device (system print sheet; thermal Blocked) | patch 1.0.4 (README + empty AAR) | Yes |
 | PushRouter | existing 24 cover map/unmapped/silent | Shell //order //chat + Back to inbox | Release OK | 24 pass | Android device (FCM order 1842, APNs thread-22, fail-closed path) | none (sample routes only) | Yes |

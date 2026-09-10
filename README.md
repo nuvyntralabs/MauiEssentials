@@ -91,7 +91,7 @@ git submodule update --init --recursive
 | [Plugin.Maui.VoipCore](https://github.com/nuvyntralabs/Plugin.Maui.VoipCore) | SIP/VoIP session model with a pluggable signaling stack | [NuGet](https://www.nuget.org/packages/Plugin.Maui.VoipCore) |
 | [Plugin.Maui.FeatureFlags](https://github.com/nuvyntralabs/Plugin.Maui.FeatureFlags) | Mobile-first feature flags with MAUI targeting and remote config (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.FeatureFlags) |
 | [Plugin.Maui.DeepLinks](https://github.com/nuvyntralabs/Plugin.Maui.DeepLinks) | App Links, Universal Links, custom schemes, and auth-restore | [NuGet](https://www.nuget.org/packages/Plugin.Maui.DeepLinks) |
-| [Plugin.Maui.Performance](https://github.com/nuvyntralabs/Plugin.Maui.Performance) | Lightweight profiler for startup, pages, APIs, images, and memory | [NuGet](https://www.nuget.org/packages/Plugin.Maui.Performance) |
+| [Plugin.Maui.Performance](https://github.com/nuvyntralabs/Plugin.Maui.Performance) | Lightweight profiler for startup, pages, APIs, images, memory, and `maui profile` | [NuGet](https://www.nuget.org/packages/Plugin.Maui.Performance) |
 | [Plugin.Maui.Diagnostics](https://github.com/nuvyntralabs/Plugin.Maui.Diagnostics) | Crash, ANR, unhandled exceptions, and pre-crash breadcrumbs | [NuGet](https://www.nuget.org/packages/Plugin.Maui.Diagnostics) |
 | [Plugin.Maui.LeakAnalyser](https://github.com/nuvyntralabs/Plugin.Maui.LeakAnalyser) | Visual-tree leak detection and handler teardown (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.LeakAnalyser) |
 | [Plugin.Maui.Observability](https://github.com/nuvyntralabs/Plugin.Maui.Observability) | Umbrella telemetry over AppHealth, Network, API, Upload, Sync, Background, Device, and Crash | [NuGet](https://www.nuget.org/packages/Plugin.Maui.Observability) |
@@ -149,7 +149,7 @@ White papers: `https://niladripadhy.vercel.app/opensource/<slug>` (see [llms.txt
 | SIP / VoIP session model | Plugin.Maui.VoipCore |
 | Feature flags / remote config | Plugin.Maui.FeatureFlags |
 | App Links, Universal Links, schemes | Plugin.Maui.DeepLinks |
-| Startup / page / API profiler | Plugin.Maui.Performance |
+| Startup / page / API profiler, or wrap `maui profile` | Plugin.Maui.Performance |
 | Crash, ANR, breadcrumbs | Plugin.Maui.Diagnostics |
 | MAUI visual-tree leak detection / handler teardown | Plugin.Maui.LeakAnalyser |
 | Umbrella telemetry for the suite | Plugin.Maui.Observability |

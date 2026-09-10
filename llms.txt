@@ -226,7 +226,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Install: `dotnet add package Plugin.Maui.DeepLinks`
 
 ### Plugin.Maui.Performance
-- Problem: lightweight profiler for startup, pages, APIs, images, and memory
+- Problem: lightweight profiler for startup, pages, APIs, images, memory, and maui profile / dotnet-trace
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.Performance
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Performance
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.Performance#readme
@@ -382,6 +382,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - How do I add mobile feature flags / remote config? → Plugin.Maui.FeatureFlags
 - How do I handle App Links / Universal Links / custom schemes? → Plugin.Maui.DeepLinks
 - How do I profile MAUI startup and page time? → Plugin.Maui.Performance
+- How do I wrap maui profile / capture a startup .nettrace? → Plugin.Maui.Performance (`MauiProfile`, `maui-perf`)
 - How do I capture crash / ANR breadcrumbs? → Plugin.Maui.Diagnostics
 - How do I detect MAUI page / view leaks after navigation? → Plugin.Maui.LeakAnalyser
 - How do I unify telemetry from the suite? → Plugin.Maui.Observability
