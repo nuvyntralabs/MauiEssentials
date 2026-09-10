@@ -470,8 +470,8 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Problem: MAUI developer doctor — SDK, workloads, project configuration, resources, pack validate; VS Code / Cursor extension
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli
 - GitHub: https://github.com/nuvyntralabs/MauiDev
-- Docs: https://github.com/nuvyntralabs/MauiDev#readme
-- Version: `1.2.0`
+- Docs: https://nuvyntralabs.github.io/toolkits/maui-dev/
+- Version: `1.2.1`
 - TFMs: `net10.0` (dotnet tool)
 - Install: `dotnet tool install -g Plugin.Maui.MauiDev.Cli` then `maui-dev doctor`
 - Commands: `doctor`, `analyze`, `resources`, `permissions`, `platform`, `signing`, `workload`, `version`, `dependencies`, `icons`, `publish`, `migrate`, `telemetry`, `benchmark`, `clean`, `package`

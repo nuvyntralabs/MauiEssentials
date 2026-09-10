@@ -1299,12 +1299,13 @@ Use when the app is Uno Platform (WinUI API). Do not use the WinUI nupkg. Do not
 
 ## MauiDev
 
-Developer productivity toolkit (`1.2.0`). `Plugin.Maui.MauiDev.Cli` is a PackAsTool (`maui-dev`). Pair with the `nuvyntralabs.maui-dev` VS Code / Cursor extension. Not an app PackageReference. nuget.org reserved `MauiDev.Cli`.
+Developer productivity toolkit (`1.2.1`). `Plugin.Maui.MauiDev.Cli` is a PackAsTool (`maui-dev`). Pair with the `nuvyntralabs.maui-dev` VS Code / Cursor extension. Not an app PackageReference. nuget.org reserved `MauiDev.Cli`.
 
 Install: `dotnet tool install -g Plugin.Maui.MauiDev.Cli`
 Commands: `maui-dev doctor`, `analyze`, `resources`, `permissions`, `platform`, `signing`, `workload`, `version`, `dependencies`, `icons`, `publish --validate`, `migrate`, `telemetry`, `benchmark`, `clean`, `package --validate`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli
 GitHub: https://github.com/nuvyntralabs/MauiDev
+Docs: https://nuvyntralabs.github.io/toolkits/maui-dev/
 
 `--ci` prints JSON. `doctor --fix` only deduplicates MAUI resource items and inserts missing `UseMaui`. Never pushes NuGet.
 
