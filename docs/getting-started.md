@@ -29,7 +29,7 @@ Examples:
 - Native WinUI 3 MVVM application shell → `Plugin.WinUI.MVVMExpress` (`dotnet new winui-mvvmexpress`)
 - Avalonia MVVM application shell → `Plugin.Avalonia.MVVMExpress` (`dotnet new avalonia-mvvmexpress`)
 - Uno Platform MVVM application shell → `Plugin.Uno.MVVMExpress` (`dotnet new uno-mvvmexpress`)
-- Diagnose MAUI SDK / workloads / project config → `MauiDev.Cli` (`dotnet tool install -g MauiDev.Cli` then `maui-dev doctor`)
+- Diagnose MAUI SDK / workloads / project config → `Plugin.Maui.MauiDev.Cli` (`dotnet tool install -g Plugin.Maui.MauiDev.Cli` then `maui-dev doctor`)
 
 ## 2. Install
 
@@ -106,7 +106,7 @@ Publish from the plugin repository that owns the package (for example `Plugin.Ma
 4. **linux / macos / windows packs** in parallel. A failed pack skips **nuget.org and GitHub Packages**. Unmatched Windows TFMs are skipped on native Android/iOS plugins.
 5. **nuget.org and GitHub Packages.** Merge the Windows-packed `net*-windows*` TFMs into the macOS `.nupkg` / `.snupkg` when those artifacts exist, then push (`--skip-duplicate`) to both feeds. nuget.org gets the nupkg and snupkg. GitHub Packages gets the nupkg at `https://nuget.pkg.github.com/nuvyntralabs/index.json`. Without the Windows merge, nuget.org shows `net10.0-windows` only as a compatibility hint. PackAsTool packages (`Plugin.Maui.*.Cli`, for example `Plugin.Maui.Performance.Cli`) publish the nupkg only.
 
-Store the nuget.org API key as the `NUGET_KEY` Actions secret on the `nuvyntralabs` organization or on that plugin repo — never in YAML. Desktop MVVMExpress families use scoped keys: `NUGET_KEY_WPF` (`Plugin.Wpf.*`), `NUGET_KEY_WINUI` (`Plugin.WinUI.*`), `NUGET_KEY_AVALONIA` (`Plugin.Avalonia.*`), `NUGET_KEY_UNO` (`Plugin.Uno.*`). All families still push GitHub Packages with the job’s `GITHUB_TOKEN` (`packages: write`). Copy `.github/plugin-repo-ci.yml` when adding a new MAUI plugin repo.
+Store the nuget.org API key as the `NUGET_KEY` Actions secret on the `nuvyntralabs` organization or on that plugin repo — never in YAML. Desktop MVVMExpress families use scoped keys: `NUGET_KEY_WPF` (`Plugin.Wpf.*`), `NUGET_KEY_WINUI` (`Plugin.WinUI.*`), `NUGET_KEY_AVALONIA` (`Plugin.Avalonia.*`), `NUGET_KEY_UNO` (`Plugin.Uno.*`). MauiDev (`Plugin.Maui.MauiDev.Cli`) uses `NUGET_KEY_MAUIDEV_CLI`. All families still push GitHub Packages with the job’s `GITHUB_TOKEN` (`packages: write`). Copy `.github/plugin-repo-ci.yml` when adding a new MAUI plugin repo.
 
 The first GitHub Packages version is private. After CI publishes, open [nuvyntralabs packages](https://github.com/orgs/nuvyntralabs/packages), open the package, and set visibility to Public if the plugin repo is public. Restoring from GitHub Packages still requires a GitHub token (`read:packages`); nuget.org stays the unauthenticated public feed.
 

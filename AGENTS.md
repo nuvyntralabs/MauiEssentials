@@ -114,7 +114,7 @@ MauiEssentials/
 ├── WinUIMVVMExpress/    → Plugin.WinUI.MVVMExpress
 ├── AvaloniaMVVMExpress/ → Plugin.Avalonia.MVVMExpress
 ├── UnoMVVMExpress/      → Plugin.Uno.MVVMExpress
-└── MauiDev/             → MauiDev.Cli (`maui-dev` tool + VS Code extension)
+└── MauiDev/             → Plugin.Maui.MauiDev.Cli (`maui-dev` tool + VS Code extension)
 ```
 
 Each plugin typically contains `src/`, `samples/`, `tests/`, `README.md`, `llms.txt`, and `AGENTS.md`.

@@ -17,7 +17,7 @@ llms.txt      LLM index
 AGENTS.md     coding-agent guide
 ```
 
-`MauiDev/` is a developer tool (`MauiDev.Cli` / `maui-dev`), not a runtime plugin.
+`MauiDev/` is a developer tool (`Plugin.Maui.MauiDev.Cli` / `maui-dev`), not a runtime plugin. nuget.org reserved the ID `MauiDev.Cli`.
 
 ## Design rules
 

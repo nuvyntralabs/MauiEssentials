@@ -2,7 +2,7 @@
 
 **Status:** Repository and hub submodule `MauiDev` exist at `1.0.1`.  
 **Product:** MauiDev — developer productivity toolkit for .NET MAUI  
-**Package:** `MauiDev.Cli` (`PackAsTool`, command `maui-dev`)  
+**Package:** `Plugin.Maui.MauiDev.Cli` (`PackAsTool`, command `maui-dev`). nuget.org reserved `MauiDev.Cli`.  
 **Extension:** `nuvyntralabs.maui-dev`  
 **Closest shipped reference:** [Plugin.Maui.Performance.Cli](../../Performance/src/Plugin.Maui.Performance.Cli/Plugin.Maui.Performance.Cli.csproj)
 
