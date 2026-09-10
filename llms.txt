@@ -435,7 +435,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.WinUI.MVVMExpress.Core
 - GitHub: https://github.com/nuvyntralabs/Plugin.WinUI.MVVMExpress
 - Docs: https://nuvyntralabs.github.io/packages/plugin-winui-mvvmexpress/
-- Version: `1.0.0`
+- Version: `1.0.1`
 - TFMs: `net10.0` (Core) and `net10.0-windows10.0.19041.0` (host)
 - Install: `dotnet add package Plugin.WinUI.MVVMExpress`
 - Template: `dotnet new install Plugin.WinUI.MVVMExpress.Templates` then `dotnet new winui-mvvmexpress`
@@ -447,7 +447,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Avalonia.MVVMExpress.Core
 - GitHub: https://github.com/nuvyntralabs/Plugin.Avalonia.MVVMExpress
 - Docs: https://nuvyntralabs.github.io/packages/plugin-avalonia-mvvmexpress/
-- Version: `1.0.0`
+- Version: `1.0.1`
 - TFMs: `net10.0` (all libraries; Host packs on Linux)
 - Install: `dotnet add package Plugin.Avalonia.MVVMExpress`
 - Template: `dotnet new install Plugin.Avalonia.MVVMExpress.Templates` then `dotnet new avalonia-mvvmexpress`
@@ -459,7 +459,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Uno.MVVMExpress.Core
 - GitHub: https://github.com/nuvyntralabs/Plugin.Uno.MVVMExpress
 - Docs: https://nuvyntralabs.github.io/packages/plugin-uno-mvvmexpress/
-- Version: `1.0.0`
+- Version: `1.0.1`
 - TFMs: `net10.0` (Core) and Uno.Sdk heads for Host
 - Install: `dotnet add package Plugin.Uno.MVVMExpress`
 - Template: `dotnet new install Plugin.Uno.MVVMExpress.Templates` then `dotnet new uno-mvvmexpress`

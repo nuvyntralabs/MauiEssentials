@@ -125,7 +125,7 @@ These are not app PackageReferences. Install the CLI with `dotnet tool install`.
 
 `Plugin.Wpf.MVVMExpress` is a separate family (`1.0.0`, stable) for WPF, not a Windows TFM of the MAUI package. Docs: [WPF MVVMExpress](https://nuvyntralabs.github.io/packages/plugin-wpf-mvvmexpress/). Scaffold: `dotnet new install Plugin.Wpf.MVVMExpress.Templates` then `dotnet new wpf-mvvmexpress`. VS Code and Visual Studio extensions: [VS Code Marketplace](https://marketplace.visualstudio.com/search?term=WPF%20MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance) · [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=WPF%20MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance).
 
-`Plugin.WinUI.MVVMExpress`, `Plugin.Avalonia.MVVMExpress`, and `Plugin.Uno.MVVMExpress` are independent desktop families (`1.0.0`). They are not Windows TFMs of the MAUI package and do not PackageReference each other. Scaffold: `dotnet new winui-mvvmexpress`, `avalonia-mvvmexpress`, or `uno-mvvmexpress`.
+`Plugin.WinUI.MVVMExpress`, `Plugin.Avalonia.MVVMExpress`, and `Plugin.Uno.MVVMExpress` are independent desktop families (`1.0.1`). They are not Windows TFMs of the MAUI package and do not PackageReference each other. Scaffold: `dotnet new winui-mvvmexpress`, `avalonia-mvvmexpress`, or `uno-mvvmexpress`.
 
 `Plugin.Maui.LeakAnalyser` is stable (`1.0.1`). Docs: [LeakAnalyser](https://nuvyntralabs.github.io/packages/plugin-maui-leak-analyser/).
 
