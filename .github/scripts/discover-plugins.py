@@ -28,6 +28,8 @@ WINDOWS_TFM_PLUGINS = {
     "RetryQueue",
     "SecureStoragePlus",
     "SmartUpload",
+    "TlsPin",
+    "VideoPipeline",
 }
 
 

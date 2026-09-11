@@ -130,3 +130,30 @@
 [submodule "MauiDev"]
 	path = MauiDev
 	url = https://github.com/nuvyntralabs/MauiDev.git
+[submodule "Biometric"]
+	path = Biometric
+	url = https://github.com/nuvyntralabs/Plugin.Maui.Biometric.git
+[submodule "KeepAwake"]
+	path = KeepAwake
+	url = https://github.com/nuvyntralabs/Plugin.Maui.KeepAwake.git
+[submodule "ScreenGuard"]
+	path = ScreenGuard
+	url = https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard.git
+[submodule "AppReview"]
+	path = AppReview
+	url = https://github.com/nuvyntralabs/Plugin.Maui.AppReview.git
+[submodule "LocalNotifications"]
+	path = LocalNotifications
+	url = https://github.com/nuvyntralabs/Plugin.Maui.LocalNotifications.git
+[submodule "Geofence"]
+	path = Geofence
+	url = https://github.com/nuvyntralabs/Plugin.Maui.Geofence.git
+[submodule "BluetoothSerial"]
+	path = BluetoothSerial
+	url = https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial.git
+[submodule "VideoPipeline"]
+	path = VideoPipeline
+	url = https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline.git
+[submodule "TlsPin"]
+	path = TlsPin
+	url = https://github.com/nuvyntralabs/Plugin.Maui.TlsPin.git
