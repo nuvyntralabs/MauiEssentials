@@ -66,10 +66,12 @@ Resolve the interface from DI, or use the static `Current` / `Default` accessor 
 
 ## 4. Platform setup
 
-Read the plugin README before generating code. Many plugins need:
+Read the plugin README before generating code. Every Android + iOS plugin lists **both** platforms under Permissions / Host app setup — including when a platform needs no extra key.
+
+Typical host declarations:
 
 - Android `AndroidManifest.xml` permissions
-- iOS `Info.plist` usage strings or background modes
+- iOS `Info.plist` usage strings or background modes (Face ID, location, camera, Bluetooth, NFC)
 - iOS privacy manifest entries for User Defaults
 - Host-app Firebase / APNs / Play Core setup (PushRouter, AppUpdate)
 

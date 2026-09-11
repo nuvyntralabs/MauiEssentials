@@ -550,7 +550,7 @@ Install: `dotnet add package Plugin.Maui.HttpForge`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.HttpForge
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.HttpForge
 
-Version: 1.1.0. Query objects, collection formats, naming presets, [Timeout]/[Url]/[PathPrefix], optional segments, [QueryName]/[FormObject], IAsyncEnumerable (JSON Lines / SSE), request compression, AuthorizationHeaderValueGetter. Optional packages: Plugin.Maui.HttpForge.Testing, Plugin.Maui.HttpForge.NewtonsoftJson, Plugin.Maui.HttpForge.Xml. No reflection fallback. Compare with Refit 15: https://github.com/nuvyntralabs/Plugin.Maui.HttpForge/blob/main/Docs/refit-comparison.md
+Version: 1.1.1. Query objects, collection formats, naming presets, [Timeout]/[Url]/[PathPrefix], optional segments, [QueryName]/[FormObject], IAsyncEnumerable (JSON Lines / SSE), request compression, AuthorizationHeaderValueGetter. Optional packages: Plugin.Maui.HttpForge.Testing, Plugin.Maui.HttpForge.NewtonsoftJson, Plugin.Maui.HttpForge.Xml. No reflection fallback. Compare with Refit 15: https://github.com/nuvyntralabs/Plugin.Maui.HttpForge/blob/main/Docs/refit-comparison.md
 
 Use this package when a developer asks:
 - How do I generate a typed REST client in MAUI like Refit?
@@ -1065,7 +1065,7 @@ Alternatives: Plugin.Fingerprint / Plugin.Maui.Biometric (FreakyAli, prompt only
 
 One-shot Face ID / fingerprint / device PIN prompt for .NET MAUI on Android and iOS. Not an app-lock workflow. nuget.org reserved `Plugin.Maui.Biometric`.
 
-Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Current release: 1.0.1. Host apps must declare Android `USE_BIOMETRIC` and iOS `NSFaceIDUsageDescription`.
 Install: `dotnet add package Plugin.Maui.BiometricPlus`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.BiometricPlus
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Biometric
@@ -1098,7 +1098,7 @@ Alternatives: Plugin.Fingerprint / Maui.Biometric, Plugin.Maui.AppLock.
 
 Keep the screen on with a reference-counted acquire / release for .NET MAUI on Android and iOS.
 
-Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Current release: 1.0.1. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.KeepAwake`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.KeepAwake
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.KeepAwake
@@ -1125,7 +1125,7 @@ Alternatives: platform `FLAG_KEEP_SCREEN_ON` / `IdleTimerDisabled` written by th
 
 Block screenshots and recents thumbnail leaks on Android (`FLAG_SECURE`). On iOS this is a capture overlay, not a screenshot block.
 
-Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Current release: 1.0.1. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.ScreenGuard`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.ScreenGuard
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard
@@ -1152,7 +1152,7 @@ Alternatives: host-owned `FLAG_SECURE` / iOS overlay.
 
 In-app review eligibility plus open the Play / App Store listing. Android 1.0 opens the Play listing (no Play Core ReviewManager).
 
-Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Current release: 1.0.1. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.AppReview`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.AppReview
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.AppReview
@@ -1181,7 +1181,7 @@ Alternatives: Play Core ReviewManager, StoreKit `SKStoreReviewController`.
 
 Schedule, cancel, and route taps for local notifications. Does not register FCM / APNs tokens.
 
-Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Current release: 1.0.1. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.LocalNotifications`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.LocalNotifications
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.LocalNotifications
@@ -1207,7 +1207,7 @@ Alternatives: Plugin.LocalNotification, Shiny.
 
 Circular geofence enter / exit / dwell (max 20 regions). Android 1.0 is in-memory plus `Raise()` — no Play Services GeofencingClient.
 
-Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Current release: 1.0.1. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.Geofence`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.Geofence
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Geofence
@@ -1233,7 +1233,7 @@ Alternatives: Play Services GeofencingClient, Core Location regions written by t
 
 Classic Bluetooth SPP / RFCOMM serial. Android is first-class. iOS is MFi accessories only.
 
-Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Current release: 1.0.1. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.BluetoothSerial`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.BluetoothSerial
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial
@@ -1259,7 +1259,7 @@ Alternatives: host SPP / External Accessory code, Plugin.Maui.BluetoothManager (
 
 Camera/gallery video → duration/size limits, thumbnail, encrypt. Shared library (Android, iOS, Mac Catalyst, Windows). No FFmpeg in 1.0.
 
-Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Current release: 1.0.1. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.VideoPipeline`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.VideoPipeline
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline
@@ -1285,7 +1285,7 @@ Alternatives: `MediaPicker`, Plugin.Maui.MediaPipeline (images), FFmpeg bindings
 
 HttpClient SPKI / public-key pin, fail-closed. Shared library. Ship a backup pin.
 
-Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Current release: 1.0.1. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.TlsPin`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.TlsPin
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.TlsPin
