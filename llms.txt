@@ -323,7 +323,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Biometric
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.Biometric#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-biometric/
-- Version: 1.0.1
+- Version: 1.0.2
 - Install: `dotnet add package Plugin.Maui.BiometricPlus`
 - Do not use for app lock after background (that is Plugin.Maui.AppLock)
 - nuget.org reserved `Plugin.Maui.Biometric` (FreakyAli); this package id is `Plugin.Maui.BiometricPlus`
@@ -334,7 +334,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.KeepAwake
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.KeepAwake#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-keep-awake/
-- Version: 1.0.1
+- Version: 1.0.2
 - Install: `dotnet add package Plugin.Maui.KeepAwake`
 
 ### Plugin.Maui.ScreenGuard
@@ -343,7 +343,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-screen-guard/
-- Version: 1.0.1
+- Version: 1.0.2
 - Install: `dotnet add package Plugin.Maui.ScreenGuard`
 
 ### Plugin.Maui.AppReview
@@ -352,7 +352,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.AppReview
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.AppReview#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-app-review/
-- Version: 1.0.1
+- Version: 1.0.2
 - Install: `dotnet add package Plugin.Maui.AppReview`
 - Do not use for binary in-app updates (that is Plugin.Maui.AppUpdate)
 
@@ -362,7 +362,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.LocalNotifications
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.LocalNotifications#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-local-notifications/
-- Version: 1.0.1
+- Version: 1.0.2
 - Install: `dotnet add package Plugin.Maui.LocalNotifications`
 - Does not register FCM / APNs tokens (that is the host / Firebase)
 
@@ -372,7 +372,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Geofence
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.Geofence#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-geofence/
-- Version: 1.0.1
+- Version: 1.0.2
 - Install: `dotnet add package Plugin.Maui.Geofence`
 - Do not use for on-demand GPS (that is Plugin.Maui.GeoLocator)
 
@@ -382,7 +382,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-bluetooth-serial/
-- Version: 1.0.1
+- Version: 1.0.2
 - Install: `dotnet add package Plugin.Maui.BluetoothSerial`
 - Do not use for BLE GATT (that is Plugin.Maui.BluetoothManager)
 
@@ -392,7 +392,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-video-pipeline/
-- Version: 1.0.1
+- Version: 1.0.2
 - Install: `dotnet add package Plugin.Maui.VideoPipeline`
 - No FFmpeg in 1.0. Do not use for images (that is Plugin.Maui.MediaPipeline)
 
@@ -402,7 +402,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.TlsPin
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.TlsPin#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-tls-pin/
-- Version: 1.0.1
+- Version: 1.0.2
 - Install: `dotnet add package Plugin.Maui.TlsPin`
 - Do not use for HTTP retry (that is Plugin.Maui.ApiResilience)
 
