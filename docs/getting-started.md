@@ -99,8 +99,8 @@ Fourteen plugins shipped fail-closed and correctness fixes on 3 September 2026. 
 dotnet add package Plugin.Maui.DeepLinks --version 1.0.6
 dotnet add package Plugin.Maui.PushRouter --version 1.0.6
 dotnet add package Plugin.Maui.SmartUpload --version 1.0.6
-dotnet add package Plugin.Maui.FeatureFlags --version 1.0.7
-dotnet add package Plugin.Maui.ApiResilience --version 1.0.8
+dotnet add package Plugin.Maui.FeatureFlags --version 1.0.9
+dotnet add package Plugin.Maui.ApiResilience --version 1.0.10
 ```
 
 ## Continuous integration

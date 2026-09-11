@@ -160,7 +160,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.ApiResilience
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.ApiResilience#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-api-resilience/
-- Version: 1.0.9
+- Version: 1.0.10
 - Install: `dotnet add package Plugin.Maui.ApiResilience`
 
 ### Plugin.Maui.HttpForge
@@ -213,7 +213,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.FeatureFlags
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.FeatureFlags#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-feature-flags/
-- Version: 1.0.8
+- Version: 1.0.9
 - Install: `dotnet add package Plugin.Maui.FeatureFlags`
 
 ### Plugin.Maui.DeepLinks

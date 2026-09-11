@@ -516,7 +516,7 @@ Alternatives: MSAL, Auth0 MAUI SDK, custom token store.
 
 HTTP resilience for .NET MAUI: retry with jitter, circuit breaker, offline request queue, and bearer token refresh.
 
-Current release: 1.0.8. Offline queue file is AES-256-GCM (EncryptQueue = true). Existing plaintext queues still load. PersistRequestBodies = false stores a redacted placeholder. The queue key lives next to the queue file in the app sandbox.
+Current release: 1.0.10. Offline queue file is AES-256-GCM (EncryptQueue = true). Existing plaintext queues still load. PersistRequestBodies = false stores a redacted placeholder. The queue key lives next to the queue file in the app sandbox.
 Install: `dotnet add package Plugin.Maui.ApiResilience`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.ApiResilience
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.ApiResilience
@@ -687,7 +687,7 @@ Alternatives: Twilio Voice, Linphone, PJSIP bindings, native SIP SDKs.
 
 Mobile-first feature flags for .NET MAUI with remote configuration, device/OS/country/user targeting, percentage rollout, and offline cache.
 
-Current release: 1.0.7. RemoteUri must be https (RequireHttps = true). Optional SignatureKey verifies X-FeatureFlags-Signature as HMAC-SHA256 hex over the response body.
+Current release: 1.0.9. RemoteUri must be https (RequireHttps = true). Optional SignatureKey verifies X-FeatureFlags-Signature as HMAC-SHA256 hex over the response body.
 Install: `dotnet add package Plugin.Maui.FeatureFlags`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.FeatureFlags
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.FeatureFlags
