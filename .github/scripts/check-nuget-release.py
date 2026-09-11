@@ -20,6 +20,7 @@ NUGET_FLAT = "https://api.nuget.org/v3-flatcontainer"
 CREATE_KEY = NUGET_ORG + "/api/v2/package/create-verification-key/{id}"
 CREATE_KEY_VERSION = NUGET_ORG + "/api/v2/package/create-verification-key/{id}/{version}"
 PUBLISH = NUGET_ORG + "/api/v2/package"
+OWNED_AUTHOR_MARKERS = ("niladri", "mauiessentials", "nuvyntralabs")
 
 
 def load_ci():
@@ -237,6 +238,38 @@ def published_versions(package_id: str) -> set[str]:
     return {normalize_version(str(item)) for item in versions}
 
 
+def nuspec_authors(package_id: str, version: str) -> str | None:
+    url = f"{NUGET_FLAT}/{package_id.lower()}/{version}/{package_id.lower()}.nuspec"
+    status, body = http("GET", url)
+    if status != 200:
+        print(f"::warning::Could not read nuspec for {package_id} {version} (HTTP {status})")
+        return None
+    try:
+        root = ET.fromstring(body)
+    except ET.ParseError:
+        print(f"::warning::Invalid nuspec XML for {package_id} {version}")
+        return None
+    for element in root.iter():
+        if local_name(element.tag) == "authors" and element.text and element.text.strip():
+            return element.text.strip()
+    return None
+
+
+def author_markers(*values: str) -> set[str]:
+    markers = {item for item in OWNED_AUTHOR_MARKERS}
+    for value in values:
+        for part in value.replace(";", ",").split(","):
+            token = part.strip().lower()
+            if token:
+                markers.add(token)
+    return markers
+
+
+def authors_are_ours(authors: str, markers: set[str]) -> bool:
+    text = authors.lower()
+    return any(marker in text for marker in markers if marker)
+
+
 def self_test() -> None:
     assert compare_nuget_versions("1.0.4", "1.0.3") > 0
     assert compare_nuget_versions("1.0.10", "1.0.9") > 0
@@ -246,6 +279,9 @@ def self_test() -> None:
     assert compare_nuget_versions("1.0.4", "1.0.5") < 0
     assert max_nuget_version(set()) is None
     assert max_nuget_version({"1.0.3", "1.0.10", "1.0.9"}) == "1.0.10"
+    assert authors_are_ours("Niladri", author_markers())
+    assert authors_are_ours("MauiEssentials", author_markers("Niladri"))
+    assert not authors_are_ours("FreakyAli", author_markers())
     print("self-test passed")
 
 
@@ -277,6 +313,14 @@ def main() -> int:
 
     validate_key(api_key, packages[0][0], packages[0][1])
 
+    markers = author_markers(
+        *(
+            value
+            for csproj in src_projects
+            for value in property_text(csproj, {"Authors", "Company"}).values()
+        )
+    )
+
     already = []
     for package_id, version in packages:
         listed = published_versions(package_id)
@@ -285,6 +329,13 @@ def main() -> int:
         if deployed is None:
             print(f"{package_id} has no versions on NuGet.org; csproj {version} will publish")
             continue
+        owners = nuspec_authors(package_id, deployed)
+        if owners and not authors_are_ours(owners, markers):
+            fail(
+                f"PackageId {package_id} is already on nuget.org (authors: {owners}). "
+                "IDs are unique; rename PackageId (catalog convention: "
+                f"{package_id}Plus)."
+            )
         print(f"{package_id}: NuGet.org {deployed}; csproj {version}")
         if present or compare_nuget_versions(version, deployed) == 0:
             already.append(f"{package_id} {version}")

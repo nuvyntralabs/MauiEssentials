@@ -33,7 +33,7 @@ Exceptions:
 - Plugin.Maui.NetworkMonitor also ships net8.0, net9.0, net9.0-android, net9.0-ios
 - Plugin.Maui.SecureSession requires Android API 23+
 - Plugin.Maui.AppLock requires Android API 23+
-- Plugin.Maui.Biometric requires Android API 23+
+- Plugin.Maui.BiometricPlus requires Android API 23+
 - Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, LeakAnalyser, TlsPin) also ship net10.0-maccatalyst and Windows (Windows TFM when packed on Windows)
 - Plugin.Maui.MVVMExpress Host / Navigation / Dialogs also ship net10.0-maccatalyst and Windows (single-window; Windows RID when packed on Windows)
 
@@ -1057,17 +1057,17 @@ builder.UseMauiApp<App>().UseAppLock(options =>
 await AppLock.RequireAuthenticationAsync();
 ```
 
-Alternatives: Plugin.Fingerprint / Maui.Biometric (prompt only), Plugin.Maui.SecureSession (token session lock), Plugin.Maui.Biometric (one-shot prompt).
+Alternatives: Plugin.Fingerprint / Plugin.Maui.Biometric (FreakyAli, prompt only), Plugin.Maui.SecureSession (token session lock), Plugin.Maui.BiometricPlus (one-shot prompt).
 
 ---
 
-## Plugin.Maui.Biometric
+## Plugin.Maui.BiometricPlus
 
-One-shot Face ID / fingerprint / device PIN prompt for .NET MAUI on Android and iOS. Not an app-lock workflow.
+One-shot Face ID / fingerprint / device PIN prompt for .NET MAUI on Android and iOS. Not an app-lock workflow. nuget.org reserved `Plugin.Maui.Biometric`.
 
 Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
-Install: `dotnet add package Plugin.Maui.Biometric`
-NuGet: https://www.nuget.org/packages/Plugin.Maui.Biometric
+Install: `dotnet add package Plugin.Maui.BiometricPlus`
+NuGet: https://www.nuget.org/packages/Plugin.Maui.BiometricPlus
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Biometric
 Paper: https://nuvyntralabs.github.io/packages/plugin-maui-biometric/
 

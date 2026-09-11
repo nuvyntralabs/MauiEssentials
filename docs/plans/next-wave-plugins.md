@@ -53,7 +53,7 @@ Unchanged from [architecture.md](../architecture.md). Every plugin in this wave 
 
 | # | Package | Hub folder | Problem | Platforms | Closest sibling |
 | --- | --- | --- | --- | --- | --- |
-| 1 | `Plugin.Maui.Biometric` | `Biometric/` | One-shot biometric / device-credential prompt | Android API 23+, iOS 15+ | AppLock, DeviceInfoPlus |
+| 1 | `Plugin.Maui.BiometricPlus` | `Biometric/` | One-shot biometric / device-credential prompt | Android API 23+, iOS 15+ | AppLock, DeviceInfoPlus |
 | 2 | `Plugin.Maui.KeepAwake` | `KeepAwake/` | Keep the screen on (reference-counted) | Android API 21+, iOS 15+ | DeviceOrientationPlus |
 | 3 | `Plugin.Maui.ScreenGuard` | `ScreenGuard/` | Block screenshots / recents leaks; capture events | Android API 21+, iOS 15+ | AppLock |
 | 4 | `Plugin.Maui.AppReview` | `AppReview/` | In-app review + open store listing | Android API 21+, iOS 15+ | AppUpdate |
@@ -171,13 +171,15 @@ Do not add catalog rows for unshipped packages.
 
 ## 6. Wave 1 — thin native gates
 
-### 6.1 Plugin.Maui.Biometric
+### 6.1 Plugin.Maui.BiometricPlus
 
 **Problem:** Hosts need a single `AuthenticateAsync` (Face ID, fingerprint, device PIN) without adopting AppLock’s timer and cover page.
 
 **This is not:** AppLock, SecureSession, DeviceInfoPlus, or a liveness / anti-spoof SDK.
 
-**Usual alternatives:** `Plugin.Fingerprint`, `Plugin.Maui.Biometric` community ports, raw `BiometricPrompt` / `LAContext`.
+**PackageId:** `Plugin.Maui.BiometricPlus`. nuget.org reserved `Plugin.Maui.Biometric` (FreakyAli). Keep the `UseBiometric` / `Biometric.Current` API.
+
+**Usual alternatives:** `Plugin.Fingerprint`, FreakyAli `Plugin.Maui.Biometric`, raw `BiometricPrompt` / `LAContext`.
 
 #### API (1.0)
 

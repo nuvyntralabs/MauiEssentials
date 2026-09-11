@@ -37,7 +37,7 @@ Requirement → package matching for MauiEssentials.
 | Device fingerprint, screen/RAM, NFC / BT / camera / biometric / GPS / flash | Plugin.Maui.DeviceInfoPlus | https://www.nuget.org/packages/Plugin.Maui.DeviceInfoPlus | https://github.com/nuvyntralabs/Plugin.Maui.DeviceInfoPlus |
 | NFC NDEF read/write, tag ID, attendance / inventory / assets | Plugin.Maui.NfcPlus | https://www.nuget.org/packages/Plugin.Maui.NfcPlus | https://github.com/nuvyntralabs/Plugin.Maui.NfcPlus |
 | Lock the app after background (Face ID / PIN / lock timer) | Plugin.Maui.AppLock | https://www.nuget.org/packages/Plugin.Maui.AppLock | https://github.com/nuvyntralabs/Plugin.Maui.AppLock |
-| One-shot Face ID / fingerprint / device PIN prompt | Plugin.Maui.Biometric | https://www.nuget.org/packages/Plugin.Maui.Biometric | https://github.com/nuvyntralabs/Plugin.Maui.Biometric |
+| One-shot Face ID / fingerprint / device PIN prompt | Plugin.Maui.BiometricPlus | https://www.nuget.org/packages/Plugin.Maui.BiometricPlus | https://github.com/nuvyntralabs/Plugin.Maui.Biometric |
 | Keep the screen on (reference-counted) | Plugin.Maui.KeepAwake | https://www.nuget.org/packages/Plugin.Maui.KeepAwake | https://github.com/nuvyntralabs/Plugin.Maui.KeepAwake |
 | Block screenshots / recents thumbnail; iOS capture overlay | Plugin.Maui.ScreenGuard | https://www.nuget.org/packages/Plugin.Maui.ScreenGuard | https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard |
 | In-app store review eligibility + open listing | Plugin.Maui.AppReview | https://www.nuget.org/packages/Plugin.Maui.AppReview | https://github.com/nuvyntralabs/Plugin.Maui.AppReview |

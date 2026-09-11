@@ -102,7 +102,7 @@ git submodule update --init --recursive
 | [Plugin.Maui.DeviceInfoPlus](https://github.com/nuvyntralabs/Plugin.Maui.DeviceInfoPlus) | Device fingerprint and hardware capabilities (NFC, Bluetooth, camera, biometric, GPS, flash) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.DeviceInfoPlus) |
 | [Plugin.Maui.NfcPlus](https://github.com/nuvyntralabs/Plugin.Maui.NfcPlus) | Session-based NFC: NDEF text / URI / MIME, tag ID, read/write, Android/iOS sessions | [NuGet](https://www.nuget.org/packages/Plugin.Maui.NfcPlus) |
 | [Plugin.Maui.AppLock](https://github.com/nuvyntralabs/Plugin.Maui.AppLock) | App lock after background: timer, Face ID / fingerprint / device PIN, `RequireAuthenticationAsync` | [NuGet](https://www.nuget.org/packages/Plugin.Maui.AppLock) |
-| [Plugin.Maui.Biometric](https://github.com/nuvyntralabs/Plugin.Maui.Biometric) | One-shot Face ID / fingerprint / device PIN prompt | [NuGet](https://www.nuget.org/packages/Plugin.Maui.Biometric) |
+| [Plugin.Maui.BiometricPlus](https://github.com/nuvyntralabs/Plugin.Maui.Biometric) | One-shot Face ID / fingerprint / device PIN prompt | [NuGet](https://www.nuget.org/packages/Plugin.Maui.BiometricPlus) |
 | [Plugin.Maui.KeepAwake](https://github.com/nuvyntralabs/Plugin.Maui.KeepAwake) | Keep the screen on (reference-counted) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.KeepAwake) |
 | [Plugin.Maui.ScreenGuard](https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard) | Block screenshots / recents leaks; iOS capture overlay | [NuGet](https://www.nuget.org/packages/Plugin.Maui.ScreenGuard) |
 | [Plugin.Maui.AppReview](https://github.com/nuvyntralabs/Plugin.Maui.AppReview) | In-app review eligibility + open the store listing | [NuGet](https://www.nuget.org/packages/Plugin.Maui.AppReview) |
@@ -177,7 +177,7 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 | Device fingerprint, screen/RAM, NFC / BT / camera / biometric / GPS / flash | Plugin.Maui.DeviceInfoPlus |
 | NFC NDEF read/write, tag ID, attendance / inventory / assets | Plugin.Maui.NfcPlus |
 | Lock the app after background (Face ID / PIN / lock timer) | Plugin.Maui.AppLock |
-| One-shot Face ID / fingerprint / device PIN prompt | Plugin.Maui.Biometric |
+| One-shot Face ID / fingerprint / device PIN prompt | Plugin.Maui.BiometricPlus |
 | Keep the screen on during scan / POS / video | Plugin.Maui.KeepAwake |
 | Block screenshots / recents thumbnail | Plugin.Maui.ScreenGuard |
 | In-app store review / open listing | Plugin.Maui.AppReview |

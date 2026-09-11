@@ -19,7 +19,7 @@ Examples:
 - Device fingerprint / NFC / biometric / GPS capability → `Plugin.Maui.DeviceInfoPlus`
 - NFC NDEF read/write, tag ID, attendance / inventory → `Plugin.Maui.NfcPlus`
 - Lock the app after background (Face ID / PIN / lock timer) → `Plugin.Maui.AppLock`
-- One-shot Face ID / fingerprint / device PIN → `Plugin.Maui.Biometric`
+- One-shot Face ID / fingerprint / device PIN → `Plugin.Maui.BiometricPlus`
 - Keep the screen on during scan / POS / video → `Plugin.Maui.KeepAwake`
 - Block screenshots / recents thumbnail → `Plugin.Maui.ScreenGuard`
 - In-app store review / open listing → `Plugin.Maui.AppReview`

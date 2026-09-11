@@ -105,7 +105,7 @@ MauiEssentials/
 ├── DeviceInfoPlus/      → Plugin.Maui.DeviceInfoPlus
 ├── Nfc/                 → Plugin.Maui.NfcPlus
 ├── AppLock/             → Plugin.Maui.AppLock
-├── Biometric/           → Plugin.Maui.Biometric
+├── Biometric/           → Plugin.Maui.BiometricPlus
 ├── KeepAwake/           → Plugin.Maui.KeepAwake
 ├── ScreenGuard/         → Plugin.Maui.ScreenGuard
 ├── AppReview/           → Plugin.Maui.AppReview

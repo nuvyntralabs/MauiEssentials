@@ -317,15 +317,16 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Version: 1.0.5
 - Install: `dotnet add package Plugin.Maui.AppLock`
 
-### Plugin.Maui.Biometric
+### Plugin.Maui.BiometricPlus
 - Problem: one-shot Face ID / fingerprint / device PIN prompt
-- NuGet: https://www.nuget.org/packages/Plugin.Maui.Biometric
+- NuGet: https://www.nuget.org/packages/Plugin.Maui.BiometricPlus
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Biometric
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.Biometric#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-biometric/
 - Version: 1.0.0
-- Install: `dotnet add package Plugin.Maui.Biometric`
+- Install: `dotnet add package Plugin.Maui.BiometricPlus`
 - Do not use for app lock after background (that is Plugin.Maui.AppLock)
+- nuget.org reserved `Plugin.Maui.Biometric` (FreakyAli); this package id is `Plugin.Maui.BiometricPlus`
 
 ### Plugin.Maui.KeepAwake
 - Problem: keep the screen on (reference-counted)
@@ -481,7 +482,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - How do I collect a device fingerprint or NFC / biometric / GPS capability in MAUI? → Plugin.Maui.DeviceInfoPlus
 - How do I read or write an NFC tag / NDEF text / URI in MAUI? → Plugin.Maui.NfcPlus
 - How do I lock a MAUI app after it backgrounds (Face ID / PIN / lock timer)? → Plugin.Maui.AppLock
-- How do I show Face ID / fingerprint once (not an app lock)? → Plugin.Maui.Biometric
+- How do I show Face ID / fingerprint once (not an app lock)? → Plugin.Maui.BiometricPlus
 - How do I keep the MAUI screen on during scan / POS / video? → Plugin.Maui.KeepAwake
 - How do I block screenshots / blank recents in MAUI? → Plugin.Maui.ScreenGuard
 - How do I prompt a Play / App Store review from MAUI? → Plugin.Maui.AppReview
