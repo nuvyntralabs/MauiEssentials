@@ -37,6 +37,15 @@ Requirement → package matching for MauiEssentials.
 | Device fingerprint, screen/RAM, NFC / BT / camera / biometric / GPS / flash | Plugin.Maui.DeviceInfoPlus | https://www.nuget.org/packages/Plugin.Maui.DeviceInfoPlus | https://github.com/nuvyntralabs/Plugin.Maui.DeviceInfoPlus |
 | NFC NDEF read/write, tag ID, attendance / inventory / assets | Plugin.Maui.NfcPlus | https://www.nuget.org/packages/Plugin.Maui.NfcPlus | https://github.com/nuvyntralabs/Plugin.Maui.NfcPlus |
 | Lock the app after background (Face ID / PIN / lock timer) | Plugin.Maui.AppLock | https://www.nuget.org/packages/Plugin.Maui.AppLock | https://github.com/nuvyntralabs/Plugin.Maui.AppLock |
+| One-shot Face ID / fingerprint / device PIN prompt | Plugin.Maui.Biometric | https://www.nuget.org/packages/Plugin.Maui.Biometric | https://github.com/nuvyntralabs/Plugin.Maui.Biometric |
+| Keep the screen on (reference-counted) | Plugin.Maui.KeepAwake | https://www.nuget.org/packages/Plugin.Maui.KeepAwake | https://github.com/nuvyntralabs/Plugin.Maui.KeepAwake |
+| Block screenshots / recents thumbnail; iOS capture overlay | Plugin.Maui.ScreenGuard | https://www.nuget.org/packages/Plugin.Maui.ScreenGuard | https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard |
+| In-app store review eligibility + open listing | Plugin.Maui.AppReview | https://www.nuget.org/packages/Plugin.Maui.AppReview | https://github.com/nuvyntralabs/Plugin.Maui.AppReview |
+| Schedule / cancel local notifications (not FCM) | Plugin.Maui.LocalNotifications | https://www.nuget.org/packages/Plugin.Maui.LocalNotifications | https://github.com/nuvyntralabs/Plugin.Maui.LocalNotifications |
+| Circular geofence enter / exit / dwell (max 20) | Plugin.Maui.Geofence | https://www.nuget.org/packages/Plugin.Maui.Geofence | https://github.com/nuvyntralabs/Plugin.Maui.Geofence |
+| Classic Bluetooth SPP / RFCOMM serial (Android first-class; iOS MFi) | Plugin.Maui.BluetoothSerial | https://www.nuget.org/packages/Plugin.Maui.BluetoothSerial | https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial |
+| Camera/gallery video → size/duration limits, thumbnail, encrypt | Plugin.Maui.VideoPipeline | https://www.nuget.org/packages/Plugin.Maui.VideoPipeline | https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline |
+| HttpClient SPKI / public-key pin (fail-closed) | Plugin.Maui.TlsPin | https://www.nuget.org/packages/Plugin.Maui.TlsPin | https://github.com/nuvyntralabs/Plugin.Maui.TlsPin |
 | Form validation, email / phone / required, `Validation.For` | Plugin.Maui.FormValidation | https://www.nuget.org/packages/Plugin.Maui.FormValidation | https://github.com/nuvyntralabs/Plugin.Maui.FormValidation |
 | Print PDF / image / receipt / invoice / Bluetooth thermal | Plugin.Maui.Printing | https://www.nuget.org/packages/Plugin.Maui.Printing | https://github.com/nuvyntralabs/Plugin.Maui.Printing |
 | Hide / show keyboard, dismiss on tap, resize vs pan, keyboard height | Plugin.Maui.KeyboardManager | https://www.nuget.org/packages/Plugin.Maui.KeyboardManager | https://github.com/nuvyntralabs/Plugin.Maui.KeyboardManager |
@@ -49,7 +58,7 @@ Requirement → package matching for MauiEssentials.
 | Uno Platform MVVM application shell (ViewModels, Frame navigation, ContentDialog; Uno.Sdk). Independent of Plugin.Maui.MVVMExpress and Plugin.WinUI.MVVMExpress. Scaffold with `dotnet new uno-mvvmexpress` | Plugin.Uno.MVVMExpress | https://www.nuget.org/packages/Plugin.Uno.MVVMExpress.Core | https://github.com/nuvyntralabs/Plugin.Uno.MVVMExpress |
 | Diagnose MAUI SDK, workloads, project configuration, permissions, platform layout, resources, or pack metadata (`maui-dev doctor` / `permissions` / `platform` / `--ci`). Not an app PackageReference. | Plugin.Maui.MauiDev.Cli | https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli | https://github.com/nuvyntralabs/MauiDev |
 
-Papers: `https://niladripadhy.vercel.app/opensource/<slug>` — slugs are listed in [llms.txt](../../llms.txt).
+Docs: `https://nuvyntralabs.github.io/packages/<slug>/` — slugs are listed in [llms.txt](../../llms.txt).
 
 Fourteen plugins shipped hardened NuGet versions on 3 September 2026. See [Hardened releases](../hardened-releases.md) for versions, breaking defaults, and the upgrade order.
 

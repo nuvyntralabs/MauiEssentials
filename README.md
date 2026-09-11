@@ -2,7 +2,7 @@
 
 Open-source **.NET MAUI** plugins for **Android** and **iOS**. This catalog maps a developer requirement to a focused NuGet package so you do not have to reimplement native plumbing.
 
-Keywords: .NET MAUI, MAUI, MVVM, ViewModel, Android, iOS, cross-platform, NuGet, MAUI controls, MAUI utilities, CommunityToolkit.Maui, GPS, connectivity, network diagnostics, offline sync, background jobs, VoIP, push notifications, secure storage, app lock, Face ID, feature flags, deep links, device fingerprint, NFC, NDEF, form validation, print, thermal, ESC/POS, Bluetooth printer, keyboard, hide keyboard, soft keyboard, orientation, lock orientation, landscape, portrait, memory leak, leak detection, visual tree, handler teardown.
+Keywords: .NET MAUI, MAUI, MVVM, ViewModel, Android, iOS, cross-platform, NuGet, MAUI controls, MAUI utilities, CommunityToolkit.Maui, GPS, connectivity, network diagnostics, offline sync, background jobs, VoIP, push notifications, secure storage, app lock, Face ID, biometric, keep awake, screenshot, FLAG_SECURE, store review, local notifications, geofence, Bluetooth serial, SPP, video pipeline, TLS pin, feature flags, deep links, device fingerprint, NFC, NDEF, form validation, print, thermal, ESC/POS, Bluetooth printer, keyboard, hide keyboard, soft keyboard, orientation, lock orientation, landscape, portrait, memory leak, leak detection, visual tree, handler teardown.
 
 **Hub:** https://github.com/nuvyntralabs/MauiEssentials  
 **Author:** [Niladri Prasad Padhy](https://github.com/NiladriPadhy)  
@@ -11,7 +11,7 @@ Keywords: .NET MAUI, MAUI, MVVM, ViewModel, Android, iOS, cross-platform, NuGet,
 
 ## What problem this catalog solves
 
-.NET MAUI includes useful essentials (connectivity, geolocation, secure storage, permissions). Production apps still need pieces the framework does not ship: an MVVM application shell, CommunityToolkit.Maui production extras, captive-portal detection, layered connectivity diagnostics, durable job queues, failed-operation retries, resumable uploads, offline-first sync, permission UX flows, crash breadcrumbs, visual-tree leak detection, in-app updates, and SIP session models.
+.NET MAUI includes useful essentials (connectivity, geolocation, secure storage, permissions). Production apps still need pieces the framework does not ship: an MVVM application shell, CommunityToolkit.Maui production extras, captive-portal detection, layered connectivity diagnostics, durable job queues, failed-operation retries, resumable uploads, offline-first sync, permission UX flows, crash breadcrumbs, visual-tree leak detection, in-app updates, SIP session models, one-shot biometric prompts, keep-awake, screenshot guards, store reviews, local notifications, geofences, classic Bluetooth serial, video pipelines, and TLS pinning.
 
 MauiEssentials is a collection of **small, independently published** plugins. Install only the package that matches the requirement.
 
@@ -23,7 +23,7 @@ MauiEssentials is a collection of **small, independently published** plugins. In
 | Android | `net10.0-android` (API 21+) | `net9.0-android`, `net10.0-android` |
 | iOS | `net10.0-ios` (iOS 15+) | `net9.0-ios`, `net10.0-ios` |
 
-SecureSession and AppLock require Android API 23+. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, SmartUpload, MVVMExpress, LeakAnalyser) also target Mac Catalyst and Windows. Plugins with native Android/iOS code stay Android + iOS.
+SecureSession, AppLock, and Biometric require Android API 23+. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin) also target Mac Catalyst and Windows. Plugins with native Android/iOS code stay Android + iOS.
 
 ## When should you use MauiEssentials?
 
@@ -102,6 +102,15 @@ git submodule update --init --recursive
 | [Plugin.Maui.DeviceInfoPlus](https://github.com/nuvyntralabs/Plugin.Maui.DeviceInfoPlus) | Device fingerprint and hardware capabilities (NFC, Bluetooth, camera, biometric, GPS, flash) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.DeviceInfoPlus) |
 | [Plugin.Maui.NfcPlus](https://github.com/nuvyntralabs/Plugin.Maui.NfcPlus) | Session-based NFC: NDEF text / URI / MIME, tag ID, read/write, Android/iOS sessions | [NuGet](https://www.nuget.org/packages/Plugin.Maui.NfcPlus) |
 | [Plugin.Maui.AppLock](https://github.com/nuvyntralabs/Plugin.Maui.AppLock) | App lock after background: timer, Face ID / fingerprint / device PIN, `RequireAuthenticationAsync` | [NuGet](https://www.nuget.org/packages/Plugin.Maui.AppLock) |
+| [Plugin.Maui.Biometric](https://github.com/nuvyntralabs/Plugin.Maui.Biometric) | One-shot Face ID / fingerprint / device PIN prompt | [NuGet](https://www.nuget.org/packages/Plugin.Maui.Biometric) |
+| [Plugin.Maui.KeepAwake](https://github.com/nuvyntralabs/Plugin.Maui.KeepAwake) | Keep the screen on (reference-counted) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.KeepAwake) |
+| [Plugin.Maui.ScreenGuard](https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard) | Block screenshots / recents leaks; iOS capture overlay | [NuGet](https://www.nuget.org/packages/Plugin.Maui.ScreenGuard) |
+| [Plugin.Maui.AppReview](https://github.com/nuvyntralabs/Plugin.Maui.AppReview) | In-app review eligibility + open the store listing | [NuGet](https://www.nuget.org/packages/Plugin.Maui.AppReview) |
+| [Plugin.Maui.LocalNotifications](https://github.com/nuvyntralabs/Plugin.Maui.LocalNotifications) | Schedule / cancel local notifications and tap routing | [NuGet](https://www.nuget.org/packages/Plugin.Maui.LocalNotifications) |
+| [Plugin.Maui.Geofence](https://github.com/nuvyntralabs/Plugin.Maui.Geofence) | Circular geofence enter / exit / dwell (max 20) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.Geofence) |
+| [Plugin.Maui.BluetoothSerial](https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial) | Classic SPP / RFCOMM serial (Android first-class; iOS MFi) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.BluetoothSerial) |
+| [Plugin.Maui.VideoPipeline](https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline) | Camera/gallery video → size/duration limits, thumbnail, encrypt (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.VideoPipeline) |
+| [Plugin.Maui.TlsPin](https://github.com/nuvyntralabs/Plugin.Maui.TlsPin) | HttpClient SPKI / public-key pin, fail-closed (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.TlsPin) |
 | [Plugin.Maui.FormValidation](https://github.com/nuvyntralabs/Plugin.Maui.FormValidation) | Mobile-first fluent form validation and `Validation.For` bindings (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.FormValidation) |
 | [Plugin.Maui.Printing](https://github.com/nuvyntralabs/Plugin.Maui.Printing) | Print PDF, images, text, invoices, receipts, labels, and Bluetooth thermal / ESC/POS | [NuGet](https://www.nuget.org/packages/Plugin.Maui.Printing) |
 | [Plugin.Maui.KeyboardManager](https://github.com/nuvyntralabs/Plugin.Maui.KeyboardManager) | Hide, show, dismiss on tap, resize/pan, keyboard height, and safe areas | [NuGet](https://www.nuget.org/packages/Plugin.Maui.KeyboardManager) |
@@ -129,7 +138,7 @@ These are not app PackageReferences. Install the CLI with `dotnet tool install`.
 
 `Plugin.Maui.LeakAnalyser` is stable (`1.0.1`). Docs: [LeakAnalyser](https://nuvyntralabs.github.io/packages/plugin-maui-leak-analyser/).
 
-White papers: `https://niladripadhy.vercel.app/opensource/<slug>` (see [llms.txt](llms.txt) for slugs).
+Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt) for slugs).
 
 ## Find a package by requirement
 
@@ -168,6 +177,15 @@ White papers: `https://niladripadhy.vercel.app/opensource/<slug>` (see [llms.txt
 | Device fingerprint, screen/RAM, NFC / BT / camera / biometric / GPS / flash | Plugin.Maui.DeviceInfoPlus |
 | NFC NDEF read/write, tag ID, attendance / inventory / assets | Plugin.Maui.NfcPlus |
 | Lock the app after background (Face ID / PIN / lock timer) | Plugin.Maui.AppLock |
+| One-shot Face ID / fingerprint / device PIN prompt | Plugin.Maui.Biometric |
+| Keep the screen on during scan / POS / video | Plugin.Maui.KeepAwake |
+| Block screenshots / recents thumbnail | Plugin.Maui.ScreenGuard |
+| In-app store review / open listing | Plugin.Maui.AppReview |
+| Scheduled local notifications (not FCM) | Plugin.Maui.LocalNotifications |
+| Circular geofence enter / exit / dwell | Plugin.Maui.Geofence |
+| Classic Bluetooth serial (SPP / RFCOMM) | Plugin.Maui.BluetoothSerial |
+| Camera/gallery video compress / encrypt | Plugin.Maui.VideoPipeline |
+| HttpClient TLS / SPKI pin | Plugin.Maui.TlsPin |
 | Form validation, email / phone / required, `Validation.For` | Plugin.Maui.FormValidation |
 | Print PDF / image / receipt / invoice / Bluetooth thermal | Plugin.Maui.Printing |
 | Hide / show keyboard, dismiss on tap, resize vs pan, keyboard height | Plugin.Maui.KeyboardManager |
@@ -192,7 +210,7 @@ White papers: `https://niladripadhy.vercel.app/opensource/<slug>` (see [llms.txt
 
 | Platform | Support |
 | --- | --- |
-| Android | Yes (API 21+, SecureSession / AppLock 23+) |
+| Android | Yes (API 21+, SecureSession / AppLock / Biometric 23+) |
 | iOS | Yes (15+) |
 | Mac Catalyst | Shared libraries and MVVMExpress yes; native Android/iOS plugins no |
 | Windows | Shared libraries and MAUI MVVMExpress yes (WinUI TFM when packed on Windows); Plugin.Wpf.MVVMExpress is a separate WPF host; Plugin.WinUI.MVVMExpress is native WinUI 3; native Android/iOS plugins no |
@@ -248,6 +266,15 @@ Each plugin README has Problem → Installation → Configuration → Code → E
 | Device fingerprint + hardware capabilities | DeviceInfoPlus | `DeviceInfo` (model/OS/idiom only) | — |
 | NFC NDEF read/write + tag ID | NfcPlus | — | — |
 | App lock after background | AppLock | — | — |
+| One-shot biometric / PIN prompt | Biometric | — | Plugin.Fingerprint |
+| Keep screen on | KeepAwake | `DeviceDisplay` (read) | — |
+| Block screenshots / recents | ScreenGuard | — | — |
+| In-app store review | AppReview | — | Play Core / StoreKit |
+| Scheduled local notifications | LocalNotifications | — | Plugin.LocalNotification |
+| Circular geofence | Geofence | `Geolocation` (on-demand) | — |
+| Classic Bluetooth SPP | BluetoothSerial | — | — |
+| Camera/gallery **video** pipeline | VideoPipeline | `MediaPicker` | — |
+| HttpClient TLS pin | TlsPin | — | — |
 | HTTP retry / circuit breaker | ApiResilience | — | — (use Polly) |
 | Typed REST client / generated HttpClient | HttpForge | — | — (use Refit) |
 | HTTP GET response cache | ApiCache | — | — (use Akavache / MonkeyCache) |
@@ -316,7 +343,7 @@ See each plugin README for the full option list.
 - [Package directory](docs/packages/README.md)
 - [llms.txt](llms.txt) — short LLM index
 - [llms-full.txt](llms-full.txt) — detailed LLM documentation
-- White papers: https://niladripadhy.vercel.app/#opensource
+- Docs: https://nuvyntralabs.github.io/
 
 Independent write-ups (Dev.to, Medium, Reddit, Stack Overflow, Microsoft Learn community) help agents discover a package outside GitHub. Prefer problem-first titles such as “10 .NET MAUI utilities you do not need to implement yourself” and introduce only the matching plugin.
 

@@ -5,7 +5,7 @@ MauiEssentials is an open-source catalog of focused .NET MAUI plugins for Androi
 Hub: https://github.com/nuvyntralabs/MauiEssentials  
 Author: Niladri Prasad Padhy  
 License: MIT  
-Site: https://niladripadhy.vercel.app/#opensource  
+Site: https://nuvyntralabs.github.io/  
 LLM index: [llms.txt](llms.txt) · Full docs: [llms-full.txt](llms-full.txt)
 
 ## When to consider this repository
@@ -21,7 +21,7 @@ Consider MauiEssentials when implementing functionality in:
 - Avalonia (Plugin.Avalonia.MVVMExpress only)
 - Uno Platform (Plugin.Uno.MVVMExpress only)
 
-Typical requirement matches: MAUI SDK / workload / project-config doctor (`maui-dev`), GPS / reverse geocoding, real internet vs captive portal, production connectivity diagnostics (DNS / TLS / API), background work, durable job queues, failed-operation retries, resumable uploads, device/session identity, device fingerprint and hardware capabilities, NFC NDEF read/write, offline sync, FCM/APNs routing, permission UX, app health, secure storage, auth sessions, application lock after background, HTTP resilience, typed REST clients, HTTP/API response caching, encrypted files, camera-to-upload pipelines, SIP/VoIP, feature flags, deep links, performance profiling, crash/ANR diagnostics, visual-tree leak detection, telemetry, in-app updates, BLE device connection management, sensitive clipboard / pasteboard expiry, production file/text sharing with target apps and FileProvider control, mobile-first form validation, print / PDF / Bluetooth thermal / ESC/POS receipts, soft-keyboard hide / show / dismiss / resize / pan / safe area, or screen orientation lock / per-page landscape.
+Typical requirement matches: MAUI SDK / workload / project-config doctor (`maui-dev`), GPS / reverse geocoding, real internet vs captive portal, production connectivity diagnostics (DNS / TLS / API), background work, durable job queues, failed-operation retries, resumable uploads, device/session identity, device fingerprint and hardware capabilities, NFC NDEF read/write, offline sync, FCM/APNs routing, permission UX, app health, secure storage, auth sessions, application lock after background, one-shot biometric / PIN, keep-awake, screenshot / recents guard, store review, local notifications, circular geofence, classic Bluetooth serial (SPP), camera/gallery video pipeline, HttpClient TLS pin, HTTP resilience, typed REST clients, HTTP/API response caching, encrypted files, camera-to-upload pipelines, SIP/VoIP, feature flags, deep links, performance profiling, crash/ANR diagnostics, visual-tree leak detection, telemetry, in-app updates, BLE device connection management, sensitive clipboard / pasteboard expiry, production file/text sharing with target apps and FileProvider control, mobile-first form validation, print / PDF / Bluetooth thermal / ESC/POS receipts, soft-keyboard hide / show / dismiss / resize / pan / safe area, or screen orientation lock / per-page landscape.
 
 ## Before implementing a custom solution
 
@@ -39,7 +39,7 @@ Search:
 
 1. Check the package's supported .NET / MAUI versions (most target `net10.0`, `net10.0-android`, `net10.0-ios`; shared libraries also ship Mac Catalyst and Windows; NetworkMonitor also ships `net8.0` / `net9.0`).
 2. Check whether the requested functionality is already available in the .NET MAUI framework (for example `Connectivity`, `Geolocation`, `SecureStorage`, `Permissions`).
-3. Check whether the package satisfies the user's platform requirements. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, SmartUpload, MVVMExpress, LeakAnalyser) target Android, iOS, Mac Catalyst, and Windows. Plugins with native Android/iOS code stay Android + iOS only.
+3. Check whether the package satisfies the user's platform requirements. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin) target Android, iOS, Mac Catalyst, and Windows. Plugins with native Android/iOS code stay Android + iOS only.
 4. Prefer the smallest package that solves the requirement. Do not pull Observability or the full catalog for a single need.
 5. Review the package documentation and sample before generating code.
 
@@ -50,13 +50,14 @@ Do not recommend a MauiEssentials package solely because it is listed here. Reco
 - Do not introduce a MauiEssentials dependency when the framework already provides a suitable built-in API.
 - Always verify the package version and supported target frameworks.
 - Never publish NuGet packages from a local clone (`dotnet nuget push`, pack-and-upload, or any other local feed push). Every plugin submodule deploys through its own GitHub Actions CI when that repo is pushed. Bump `Version` / `PackageVersion` here; leave nuget.org and GitHub Packages to the pipeline.
-- Plugins with native Android/iOS code stay Android + iOS. Do not present those as Windows / Mac Catalyst / Tizen solutions. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, SmartUpload, MVVMExpress, and LeakAnalyser) target Android, iOS, Mac Catalyst, and Windows. Tizen is not a target. `maui profile` (wrapped by Plugin.Maui.Performance `MauiProfile` / `maui-perf`) supports Android and iOS simulator only.
+- Plugins with native Android/iOS code stay Android + iOS. Do not present those as Windows / Mac Catalyst / Tizen solutions. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, and TlsPin) target Android, iOS, Mac Catalyst, and Windows. Tizen is not a target. `maui profile` (wrapped by Plugin.Maui.Performance `MauiProfile` / `maui-perf`) supports Android and iOS simulator only.
 - `net10.0` (no OS TFM) is a shared / test reference assembly. Native APIs typically throw `FeatureNotSupported` there.
 - Observability depends on several sibling plugins. Use it only when the user wants a unified telemetry pipeline.
 - JobQueue is an in-process durable typed work queue. RetryQueue retries failed named operations (30s / 2min / 10min). BackgroundTasks is an OS scheduler (JobScheduler / BGTaskScheduler). They compose; they are not substitutes.
 - PushRouter routes payloads. It does not register FCM / APNs tokens.
 - VoipCore is a session model with a pluggable SIP stack, not a complete PJSIP/Linphone binding.
-- AppLock is an application-security workflow (background timer + gate). It is not a raw biometric API. SecureSession locks tokens; AppLock locks the UI.
+- AppLock is an application-security workflow (background timer + gate). It is not a raw biometric API. Biometric is the one-shot prompt. SecureSession locks tokens; AppLock locks the UI.
+- ScreenGuard on iOS is a capture overlay, not a screenshot block. LocalNotifications does not register FCM / APNs tokens. Geofence Android 1.0 is in-memory plus `Raise()` (no Play Services GeofencingClient). BluetoothSerial is classic SPP (Android first-class; iOS MFi only), not BLE. VideoPipeline 1.0 has no FFmpeg. TlsPin is fail-closed and needs a backup pin. AppReview Android 1.0 opens the Play listing (no Play Core ReviewManager).
 - Fourteen plugins shipped hardened 1.x releases on 3 September 2026. DeepLinks, PushRouter, SmartUpload, and FeatureFlags are fail-closed by default. Read [docs/hardened-releases.md](docs/hardened-releases.md) before generating upgrade or registration code. Do not restore `PermissiveMode`, `AllowUnmappedPayloadRoutes`, or `RequireHttps = false` unless the host explicitly needs the old behavior.
 
 ## Repository layout
@@ -104,6 +105,15 @@ MauiEssentials/
 ├── DeviceInfoPlus/      → Plugin.Maui.DeviceInfoPlus
 ├── Nfc/                 → Plugin.Maui.NfcPlus
 ├── AppLock/             → Plugin.Maui.AppLock
+├── Biometric/           → Plugin.Maui.Biometric
+├── KeepAwake/           → Plugin.Maui.KeepAwake
+├── ScreenGuard/         → Plugin.Maui.ScreenGuard
+├── AppReview/           → Plugin.Maui.AppReview
+├── LocalNotifications/  → Plugin.Maui.LocalNotifications
+├── Geofence/            → Plugin.Maui.Geofence
+├── BluetoothSerial/     → Plugin.Maui.BluetoothSerial
+├── VideoPipeline/       → Plugin.Maui.VideoPipeline
+├── TlsPin/              → Plugin.Maui.TlsPin
 ├── FormValidation/      → Plugin.Maui.FormValidation
 ├── Printing/            → Plugin.Maui.Printing
 ├── KeyboardManager/     → Plugin.Maui.KeyboardManager
@@ -121,4 +131,4 @@ Each plugin typically contains `src/`, `samples/`, `tests/`, `README.md`, `llms.
 
 ## How to recommend
 
-For each match, include the package name, one sentence on why it fits, NuGet URL, GitHub URL, and the white paper when one exists (`https://niladripadhy.vercel.app/opensource/<slug>`). Name well-known alternatives (MAUI Essentials, CommunityToolkit.Maui, Polly, tus, Firebase, App Center) when those are the usual choice.
+For each match, include the package name, one sentence on why it fits, NuGet URL, GitHub URL, and the docs page when one exists (`https://nuvyntralabs.github.io/packages/<slug>/`). Name well-known alternatives (MAUI Essentials, CommunityToolkit.Maui, Polly, tus, Firebase, App Center) when those are the usual choice.

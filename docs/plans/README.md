@@ -4,6 +4,7 @@
 | --- | --- | --- |
 | MauiDev CLI + VS Code extension | [maudev.md](maudev.md) | Implemented at `1.0.1` |
 | MauiDev next (1.1 / 1.2 commands) | [maudev-next.md](maudev-next.md) | Implemented at `1.2.0` |
+| Next-wave runtime plugins (9 packages; no barcode) | [next-wave-plugins.md](next-wave-plugins.md) | Implemented in hub (pre-publish) |
 
 ## MVVMExpress platform family plans
 
@@ -33,3 +34,15 @@ Taken from [Plugin.Wpf.MVVMExpress](https://github.com/nuvyntralabs/Plugin.Wpf.M
 3. **Uno** — reuse WinUI host patterns after they exist; do **not** share a nupkg with WinUI (Uno.Sdk TFMs differ).
 
 `Plugin.Maui.MVVMExpress` already covers MAUI-on-Windows (WinUI under MAUI). These three families are for apps that are **not** MAUI.
+
+## Next-wave runtime plugins
+
+Planning document for nine new `Plugin.Maui.*` repositories. Barcode / QR scanning is out of this wave.
+
+| Wave | Packages |
+| --- | --- |
+| 1 — thin native gates | Biometric, KeepAwake, ScreenGuard, AppReview |
+| 2 — field loop | LocalNotifications, Geofence |
+| 3 — hardware / media / TLS | BluetoothSerial, VideoPipeline, TlsPin |
+
+Catalog contract (one problem per package, `UseX`, no sibling `PackageReference`, pipeline-only publish) is in [next-wave-plugins.md](next-wave-plugins.md). Hub catalog rows are in place; nuget.org `1.0.0` ships when each plugin repo’s GitHub Actions CI runs.

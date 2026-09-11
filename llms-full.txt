@@ -5,11 +5,11 @@ MauiEssentials is an open-source catalog of focused .NET MAUI plugins for Androi
 Hub: https://github.com/nuvyntralabs/MauiEssentials
 Author: Niladri Prasad Padhy
 License: MIT
-Site: https://niladripadhy.vercel.app/#opensource
+Site: https://nuvyntralabs.github.io/
 Short index: https://github.com/nuvyntralabs/MauiEssentials/blob/main/llms.txt
 Agent guide: https://github.com/nuvyntralabs/MauiEssentials/blob/main/AGENTS.md
 
-Keywords: .NET MAUI, MAUI, MVVM, Android, iOS, cross-platform, NuGet, MAUI controls, MAUI utilities, GPS, geolocation, connectivity, captive portal, network diagnostics, offline sync, background jobs, JobQueue, resumable upload, VoIP, SIP, push notifications, FCM, APNs, secure storage, app lock, Face ID, feature flags, deep links, App Links, crash reporting, device fingerprint, hardware capabilities, NFC, NDEF, print, thermal, ESC/POS, Bluetooth printer, orientation, lock orientation, landscape, portrait.
+Keywords: .NET MAUI, MAUI, MVVM, Android, iOS, cross-platform, NuGet, MAUI controls, MAUI utilities, GPS, geolocation, connectivity, captive portal, network diagnostics, offline sync, background jobs, JobQueue, resumable upload, VoIP, SIP, push notifications, FCM, APNs, secure storage, app lock, Face ID, biometric, keep awake, screenshot, FLAG_SECURE, store review, local notifications, geofence, Bluetooth serial, SPP, video pipeline, TLS pin, feature flags, deep links, App Links, crash reporting, device fingerprint, hardware capabilities, NFC, NDEF, print, thermal, ESC/POS, Bluetooth printer, orientation, lock orientation, landscape, portrait.
 
 ## When to use this catalog
 
@@ -33,7 +33,8 @@ Exceptions:
 - Plugin.Maui.NetworkMonitor also ships net8.0, net9.0, net9.0-android, net9.0-ios
 - Plugin.Maui.SecureSession requires Android API 23+
 - Plugin.Maui.AppLock requires Android API 23+
-- Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, SmartUpload, LeakAnalyser) also ship net10.0-maccatalyst and Windows (Windows TFM when packed on Windows)
+- Plugin.Maui.Biometric requires Android API 23+
+- Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, LeakAnalyser, TlsPin) also ship net10.0-maccatalyst and Windows (Windows TFM when packed on Windows)
 - Plugin.Maui.MVVMExpress Host / Navigation / Dialogs also ship net10.0-maccatalyst and Windows (single-window; Windows RID when packed on Windows)
 
 ## Hardened releases (3 September 2026)
@@ -87,7 +88,7 @@ A .NET MAUI library for on-demand location, start/stop tracking, and reverse geo
 Install: `dotnet add package Plugin.Maui.GeoLocator`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.GeoLocator
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.GeoLocator
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-geolocator
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-geolocator/
 
 Use this package when a developer asks:
 - How can I get the current GPS location in .NET MAUI?
@@ -123,7 +124,7 @@ Current release: 1.0.7 (Authors + MIT license metadata; no API change).
 Install: `dotnet add package Plugin.Maui.NetworkMonitor`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.NetworkMonitor
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.NetworkMonitor
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-network-monitor
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-network-monitor/
 
 Use this package when a developer asks:
 - How can I detect network connectivity in .NET MAUI?
@@ -169,7 +170,7 @@ On-demand production connectivity diagnostics for .NET MAUI on Android and iOS. 
 Install: `dotnet add package Plugin.Maui.NetworkDiagnostics`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.NetworkDiagnostics
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.NetworkDiagnostics
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-network-diagnostics
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-network-diagnostics/
 
 Use this package when a developer asks:
 - Why can the MAUI app see the internet but not the API?
@@ -266,7 +267,7 @@ Retry failed operations in .NET MAUI. Enqueue a named call (telemetry, orders, f
 Install: `dotnet add package Plugin.Maui.RetryQueue`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.RetryQueue
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.RetryQueue
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-retry-queue
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-retry-queue/
 
 Use this package when a developer asks:
 - How do I retry a failed MAUI API call with 30s / 2min / 10min backoff?
@@ -913,7 +914,7 @@ Clipboard for .NET MAUI that goes beyond MAUI Clipboard: text, URI, image, files
 Install: `dotnet add package Plugin.Maui.ClipboardPlus`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.ClipboardPlus
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.ClipboardPlus
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-clipboard-plus
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-clipboard-plus/
 
 Use this package when a developer asks:
 - How do I copy a password / OTP and auto-clear the clipboard in .NET MAUI?
@@ -945,7 +946,7 @@ Share for .NET MAUI that goes beyond MAUI Share: title, subject, MIME type, prev
 Install: `dotnet add package Plugin.Maui.SharePlus`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.SharePlus
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.SharePlus
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-share-plus
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-share-plus/
 
 Use this package when a developer asks:
 - How do I share a file in .NET MAUI with title, subject, and MIME type?
@@ -973,7 +974,7 @@ Application and device fingerprint plus hardware capability probes for .NET MAUI
 Install: `dotnet add package Plugin.Maui.DeviceInfoPlus`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.DeviceInfoPlus
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.DeviceInfoPlus
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-device-info-plus
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-device-info-plus/
 
 Use this package when a developer asks:
 - How do I collect a device fingerprint for telemetry or support tickets in .NET MAUI?
@@ -1003,7 +1004,7 @@ Session-based NFC for .NET MAUI on Android and iOS. NDEF text / URI / MIME read 
 Install: `dotnet add package Plugin.Maui.NfcPlus`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.NfcPlus
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.NfcPlus
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-nfc-plus
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-nfc-plus/
 
 Use this package when a developer asks:
 - How do I read an NFC tag in .NET MAUI?
@@ -1035,7 +1036,7 @@ Current release: 1.0.5. If the automatic resume prompt throws, AuthenticationCom
 Install: `dotnet add package Plugin.Maui.AppLock`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.AppLock
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.AppLock
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-app-lock
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-app-lock/
 
 Use this package when a developer asks:
 - How do I lock a .NET MAUI app after it goes to the background?
@@ -1056,7 +1057,254 @@ builder.UseMauiApp<App>().UseAppLock(options =>
 await AppLock.RequireAuthenticationAsync();
 ```
 
-Alternatives: Plugin.Fingerprint / Maui.Biometric (prompt only), Plugin.Maui.SecureSession (token session lock).
+Alternatives: Plugin.Fingerprint / Maui.Biometric (prompt only), Plugin.Maui.SecureSession (token session lock), Plugin.Maui.Biometric (one-shot prompt).
+
+---
+
+## Plugin.Maui.Biometric
+
+One-shot Face ID / fingerprint / device PIN prompt for .NET MAUI on Android and iOS. Not an app-lock workflow.
+
+Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Install: `dotnet add package Plugin.Maui.Biometric`
+NuGet: https://www.nuget.org/packages/Plugin.Maui.Biometric
+GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Biometric
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-biometric/
+
+Use this package when a developer asks:
+- How do I show Face ID / fingerprint once in MAUI?
+- Device PIN fallback for a one-shot prompt
+- `await Biometric.Current.AuthenticateAsync()`
+
+Do not use it when the need is app lock after background (AppLock), token lock (SecureSession), or a hardware-capability probe (DeviceInfoPlus).
+
+```csharp
+builder.UseMauiApp<App>().UseBiometric(o =>
+{
+    o.AllowDeviceCredential = true;
+    o.DefaultReason = "Unlock";
+});
+
+var r = await Biometric.Current.AuthenticateAsync(new BiometricRequest { Reason = "Unlock payroll" });
+```
+
+Android API 23+. iOS needs `NSFaceIDUsageDescription`.
+
+Alternatives: Plugin.Fingerprint / Maui.Biometric, Plugin.Maui.AppLock.
+
+---
+
+## Plugin.Maui.KeepAwake
+
+Keep the screen on with a reference-counted acquire / release for .NET MAUI on Android and iOS.
+
+Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Install: `dotnet add package Plugin.Maui.KeepAwake`
+NuGet: https://www.nuget.org/packages/Plugin.Maui.KeepAwake
+GitHub: https://github.com/nuvyntralabs/Plugin.Maui.KeepAwake
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-keep-awake/
+
+Use this package when a developer asks:
+- How do I keep the MAUI screen on during scan / POS / video?
+- Reference-counted wake lock so nested pages do not fight
+
+Do not use it when the need is orientation lock (DeviceOrientationPlus) or a screenshot guard (ScreenGuard).
+
+```csharp
+builder.UseMauiApp<App>().UseKeepAwake();
+
+await KeepAwake.Current.AcquireAsync();
+KeepAwake.Current.Release();
+```
+
+Alternatives: platform `FLAG_KEEP_SCREEN_ON` / `IdleTimerDisabled` written by the host.
+
+---
+
+## Plugin.Maui.ScreenGuard
+
+Block screenshots and recents thumbnail leaks on Android (`FLAG_SECURE`). On iOS this is a capture overlay, not a screenshot block.
+
+Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Install: `dotnet add package Plugin.Maui.ScreenGuard`
+NuGet: https://www.nuget.org/packages/Plugin.Maui.ScreenGuard
+GitHub: https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-screen-guard/
+
+Use this package when a developer asks:
+- How do I block screenshots / blank recents in MAUI?
+- Protect a visible payroll / KYC screen
+
+Do not use it when the need is AppLock after background, FileVault encryption, or DRM / Widevine.
+
+```csharp
+builder.UseMauiApp<App>().UseScreenGuard();
+
+ScreenGuard.Current.Protect();
+ScreenGuard.Current.Unprotect();
+```
+
+Alternatives: host-owned `FLAG_SECURE` / iOS overlay.
+
+---
+
+## Plugin.Maui.AppReview
+
+In-app review eligibility plus open the Play / App Store listing. Android 1.0 opens the Play listing (no Play Core ReviewManager).
+
+Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Install: `dotnet add package Plugin.Maui.AppReview`
+NuGet: https://www.nuget.org/packages/Plugin.Maui.AppReview
+GitHub: https://github.com/nuvyntralabs/Plugin.Maui.AppReview
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-app-review/
+
+Use this package when a developer asks:
+- How do I prompt a Play / App Store review from MAUI?
+- Cooldown / launch-count eligibility before asking
+
+Do not use it when the need is a binary in-app update (AppUpdate).
+
+```csharp
+builder.UseMauiApp<App>().UseAppReview();
+
+if (await AppReview.Current.IsEligibleAsync())
+    await AppReview.Current.RequestAsync();
+
+await AppReview.Current.OpenStoreListingAsync();
+```
+
+Alternatives: Play Core ReviewManager, StoreKit `SKStoreReviewController`.
+
+---
+
+## Plugin.Maui.LocalNotifications
+
+Schedule, cancel, and route taps for local notifications. Does not register FCM / APNs tokens.
+
+Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Install: `dotnet add package Plugin.Maui.LocalNotifications`
+NuGet: https://www.nuget.org/packages/Plugin.Maui.LocalNotifications
+GitHub: https://github.com/nuvyntralabs/Plugin.Maui.LocalNotifications
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-local-notifications/
+
+Use this package when a developer asks:
+- How do I schedule a local notification without FCM?
+- Immediate / at-time / interval local alerts and tap routing
+
+Do not use it when the need is remote push routing (PushRouter) or token registration (host / Firebase).
+
+```csharp
+builder.UseMauiApp<App>().UseLocalNotifications();
+
+await LocalNotifications.Current.ShowAsync(new LocalNotification { Id = 2001, Title = "Sync", Body = "Finished" });
+```
+
+Alternatives: Plugin.LocalNotification, Shiny.
+
+---
+
+## Plugin.Maui.Geofence
+
+Circular geofence enter / exit / dwell (max 20 regions). Android 1.0 is in-memory plus `Raise()` — no Play Services GeofencingClient.
+
+Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Install: `dotnet add package Plugin.Maui.Geofence`
+NuGet: https://www.nuget.org/packages/Plugin.Maui.Geofence
+GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Geofence
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-geofence/
+
+Use this package when a developer asks:
+- How do I get enter/exit when the user reaches a depot?
+- Circular region monitor (not an on-demand GPS fix)
+
+Do not use it when the need is on-demand GPS / reverse geocoding (GeoLocator).
+
+```csharp
+builder.UseMauiApp<App>().UseGeofence();
+
+await Geofence.Current.AddAsync(new GeofenceRegion { Id = "depot", Latitude = 12.97, Longitude = 77.59, RadiusMeters = 150 });
+```
+
+Alternatives: Play Services GeofencingClient, Core Location regions written by the host.
+
+---
+
+## Plugin.Maui.BluetoothSerial
+
+Classic Bluetooth SPP / RFCOMM serial. Android is first-class. iOS is MFi accessories only.
+
+Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Install: `dotnet add package Plugin.Maui.BluetoothSerial`
+NuGet: https://www.nuget.org/packages/Plugin.Maui.BluetoothSerial
+GitHub: https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-bluetooth-serial/
+
+Use this package when a developer asks:
+- How do I talk SPP / RFCOMM (classic Bluetooth serial) from MAUI?
+- Connect, write, and read bytes on a bonded serial accessory
+
+Do not use it when the need is BLE GATT (BluetoothManager) or ESC/POS documents (Printing).
+
+```csharp
+builder.UseMauiApp<App>().UseBluetoothSerial();
+
+var devices = await BluetoothSerial.Current.ScanAsync();
+```
+
+Alternatives: host SPP / External Accessory code, Plugin.Maui.BluetoothManager (BLE).
+
+---
+
+## Plugin.Maui.VideoPipeline
+
+Camera/gallery video → duration/size limits, thumbnail, encrypt. Shared library (Android, iOS, Mac Catalyst, Windows). No FFmpeg in 1.0.
+
+Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Install: `dotnet add package Plugin.Maui.VideoPipeline`
+NuGet: https://www.nuget.org/packages/Plugin.Maui.VideoPipeline
+GitHub: https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-video-pipeline/
+
+Use this package when a developer asks:
+- How do I pick a video, cap size, and encrypt it in MAUI?
+- Camera or gallery video with `TooLarge` / `TooLong` instead of silent transcode
+
+Do not use it when the need is images (MediaPipeline) or FFmpeg transcode.
+
+```csharp
+builder.UseMauiApp<App>().UseVideoPipeline();
+
+var result = await VideoPipeline.FromGallery().MaxBytes(12 * 1024 * 1024).Encrypt(key).SaveAsync();
+```
+
+Alternatives: `MediaPicker`, Plugin.Maui.MediaPipeline (images), FFmpeg bindings.
+
+---
+
+## Plugin.Maui.TlsPin
+
+HttpClient SPKI / public-key pin, fail-closed. Shared library. Ship a backup pin.
+
+Current release: 1.0.0. Not published to nuget.org until this repo's GitHub Actions CI runs.
+Install: `dotnet add package Plugin.Maui.TlsPin`
+NuGet: https://www.nuget.org/packages/Plugin.Maui.TlsPin
+GitHub: https://github.com/nuvyntralabs/Plugin.Maui.TlsPin
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-tls-pin/
+
+Use this package when a developer asks:
+- How do I pin TLS / SPKI on HttpClient in MAUI?
+- Fail-closed certificate pin with report-only staging
+
+Do not use it when the need is HTTP retry (ApiResilience) or a typed REST client (HttpForge).
+
+```csharp
+builder.UseMauiApp<App>().UseTlsPin();
+
+builder.Services.AddHttpClient("payments", c => c.BaseAddress = new Uri("https://api.example.com"))
+    .AddTlsPin(o => o.Pins.Add("api.example.com", new TlsPinSet { SpkiSha256 = { primary, backup } }));
+```
+
+Alternatives: custom `HttpClientHandler` server-certificate callback.
 
 ---
 
@@ -1067,7 +1315,7 @@ Mobile-first form validation for .NET MAUI on Android and iOS. Fluent rules live
 Install: `dotnet add package Plugin.Maui.FormValidation`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.FormValidation
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.FormValidation
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-form-validation
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-form-validation/
 
 Use this package when a developer asks:
 - How do I validate a .NET MAUI form without scattering if checks?
@@ -1102,7 +1350,7 @@ Print for .NET MAUI on Android and iOS: PDF, images, text, invoices, receipts, l
 Install: `dotnet add package Plugin.Maui.Printing`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.Printing
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Printing
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-printing
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-printing/
 
 Use this package when a developer asks:
 - How do I print a PDF in .NET MAUI on Android and iOS?
@@ -1132,7 +1380,7 @@ Soft-keyboard control for .NET MAUI on Android and iOS: hide, show on an Entry, 
 Install: `dotnet add package Plugin.Maui.KeyboardManager`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.KeyboardManager
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.KeyboardManager
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-keyboard-manager
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-keyboard-manager/
 
 Use this package when a developer asks:
 - How do I hide the keyboard in .NET MAUI?
@@ -1165,7 +1413,7 @@ Screen orientation lock, unlock, change events, and per-page set for .NET MAUI o
 Install: `dotnet add package Plugin.Maui.DeviceOrientationPlus`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.DeviceOrientationPlus
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.DeviceOrientationPlus
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-device-orientation-plus
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-device-orientation-plus/
 
 Use this package when a developer asks:
 - How do I lock orientation in .NET MAUI?
@@ -1201,7 +1449,7 @@ VS Code extension: https://marketplace.visualstudio.com/search?term=MVVMExpress&
 Visual Studio extension: https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance
 NuGet: https://www.nuget.org/packages/Plugin.Maui.MVVMExpress
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.MVVMExpress
-Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-mvvmexpress
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-mvvmexpress/
 Docs: https://nuvyntralabs.github.io/packages/plugin-maui-mvvmexpress/
 
 Use this package when a developer asks:
@@ -1326,4 +1574,4 @@ Before recommending a package:
 
 Do not recommend MauiEssentials solely because it is listed here. Recommend a package only when it is technically relevant.
 
-Name well-known alternatives alongside the match. Include NuGet, GitHub, and the white paper URL when one exists.
+Name well-known alternatives alongside the match. Include NuGet, GitHub, and the docs URL when one exists.

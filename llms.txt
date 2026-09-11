@@ -5,7 +5,7 @@ MauiEssentials is an open-source collection of reusable utilities and components
 Repository: https://github.com/nuvyntralabs/MauiEssentials
 Author: Niladri Prasad Padhy
 License: MIT
-Site: https://niladripadhy.vercel.app/#opensource
+Site: https://nuvyntralabs.github.io/
 Full docs: https://github.com/nuvyntralabs/MauiEssentials/blob/main/llms-full.txt
 Agent guide: https://github.com/nuvyntralabs/MauiEssentials/blob/main/AGENTS.md
 
@@ -15,16 +15,16 @@ Use this catalog when a developer is looking for:
 - Cross-platform MAUI helpers
 - MAUI NuGet packages
 - Android/iOS MAUI functionality
-- GPS, connectivity, production network diagnostics, offline sync, background jobs, failed-operation retries, VoIP, push, secure storage, app lock, feature flags, deep links, Bluetooth / BLE peripherals, clipboard / sensitive pasteboard, share / FileProvider / WhatsApp / AirDrop, device fingerprint / hardware capabilities, NFC NDEF read/write, mobile-first form validation, print / thermal / ESC/POS, soft-keyboard hide / show / dismiss / resize / pan, lock / unlock screen orientation, typed REST clients, or MAUI visual-tree leak detection
+- GPS, connectivity, production network diagnostics, offline sync, background jobs, failed-operation retries, VoIP, push, secure storage, app lock, one-shot biometric, keep-awake, screenshot guard, store review, local notifications, geofence, Bluetooth serial, video pipeline, TLS pin, feature flags, deep links, Bluetooth / BLE peripherals, clipboard / sensitive pasteboard, share / FileProvider / WhatsApp / AirDrop, device fingerprint / hardware capabilities, NFC NDEF read/write, mobile-first form validation, print / thermal / ESC/POS, soft-keyboard hide / show / dismiss / resize / pan, lock / unlock screen orientation, typed REST clients, or MAUI visual-tree leak detection
 
-Do not use this catalog when the .NET MAUI framework already provides a suitable built-in API, or when the app needs Windows / Mac Catalyst for a plugin that has native Android/iOS code. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, SmartUpload, MVVMExpress, LeakAnalyser) do target Catalyst and Windows.
+Do not use this catalog when the .NET MAUI framework already provides a suitable built-in API, or when the app needs Windows / Mac Catalyst for a plugin that has native Android/iOS code. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin) do target Catalyst and Windows.
 
 ## Supported versions
 
 Most packages: net10.0, net10.0-android (API 21+), net10.0-ios (iOS 15+)
-Shared libraries also: net10.0-maccatalyst (15+), net10.0-windows (10.0.17763+; packed on Windows)
+Shared libraries also: net10.0-maccatalyst (15+), net10.0-windows (10.0.17763+; packed on Windows). VideoPipeline and TlsPin are shared libraries.
 NetworkMonitor also: net8.0, net9.0, net9.0-android, net9.0-ios
-SecureSession / AppLock: Android API 23+
+SecureSession / AppLock / Biometric: Android API 23+
 
 ## Hardened releases (3 September 2026)
 
@@ -40,7 +40,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.GeoLocator
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.GeoLocator
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.GeoLocator#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-geolocator
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-geolocator/
 - Install: `dotnet add package Plugin.Maui.GeoLocator`
 
 ### Plugin.Maui.NetworkMonitor
@@ -48,7 +48,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.NetworkMonitor
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.NetworkMonitor
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.NetworkMonitor#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-network-monitor
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-network-monitor/
 - Version: 1.0.7
 - Install: `dotnet add package Plugin.Maui.NetworkMonitor`
 
@@ -57,7 +57,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.NetworkDiagnostics
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.NetworkDiagnostics
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.NetworkDiagnostics#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-network-diagnostics
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-network-diagnostics/
 - Install: `dotnet add package Plugin.Maui.NetworkDiagnostics`
 
 ### Plugin.Maui.BackgroundTasks
@@ -65,7 +65,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.BackgroundTasks
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.BackgroundTasks
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.BackgroundTasks#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-background-tasks
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-background-tasks/
 - Version: 1.0.6
 - Install: `dotnet add package Plugin.Maui.BackgroundTasks`
 
@@ -74,7 +74,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.JobQueue
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.JobQueue
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.JobQueue#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-job-queue
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-job-queue/
 - Install: `dotnet add package Plugin.Maui.JobQueue`
 
 ### Plugin.Maui.RetryQueue
@@ -82,7 +82,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.RetryQueue
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.RetryQueue
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.RetryQueue#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-retry-queue
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-retry-queue/
 - Install: `dotnet add package Plugin.Maui.RetryQueue`
 
 ### Plugin.Maui.SmartUpload
@@ -90,7 +90,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.SmartUpload
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.SmartUpload
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.SmartUpload#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-smart-upload
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-smart-upload/
 - Version: 1.0.7
 - Install: `dotnet add package Plugin.Maui.SmartUpload`
 
@@ -99,7 +99,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.DeviceSession
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.DeviceSession
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.DeviceSession#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-device-session
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-device-session/
 - Version: 1.0.6
 - Install: `dotnet add package Plugin.Maui.DeviceSession`
 
@@ -108,7 +108,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.OfflineSync
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.OfflineSync
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.OfflineSync#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-offline-sync
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-offline-sync/
 - Version: 1.0.9
 - Install: `dotnet add package Plugin.Maui.OfflineSync`
 
@@ -117,7 +117,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.PushRouter
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.PushRouter
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.PushRouter#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-push-router
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-push-router/
 - Version: 1.0.6
 - Install: `dotnet add package Plugin.Maui.PushRouter`
 
@@ -126,7 +126,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.PermissionFlow
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.PermissionFlow
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.PermissionFlow#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-permission-flow
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-permission-flow/
 - Install: `dotnet add package Plugin.Maui.PermissionFlow`
 
 ### Plugin.Maui.AppHealth
@@ -134,7 +134,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.AppHealth
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.AppHealth
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.AppHealth#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-app-health
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-app-health/
 - Install: `dotnet add package Plugin.Maui.AppHealth`
 
 ### Plugin.Maui.SecureStoragePlus
@@ -142,7 +142,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.SecureStoragePlus
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.SecureStoragePlus
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.SecureStoragePlus#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-secure-storage-plus
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-secure-storage-plus/
 - Install: `dotnet add package Plugin.Maui.SecureStoragePlus`
 
 ### Plugin.Maui.SecureSession
@@ -150,7 +150,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.SecureSession
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.SecureSession
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.SecureSession#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-secure-session
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-secure-session/
 - Version: 1.0.6
 - Install: `dotnet add package Plugin.Maui.SecureSession`
 
@@ -159,7 +159,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.ApiResilience
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.ApiResilience
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.ApiResilience#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-api-resilience
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-api-resilience/
 - Version: 1.0.9
 - Install: `dotnet add package Plugin.Maui.ApiResilience`
 
@@ -170,7 +170,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.HttpForge#readme
 - Comparison: https://github.com/nuvyntralabs/Plugin.Maui.HttpForge/blob/main/Docs/refit-comparison.md
 - Integration: https://github.com/nuvyntralabs/Plugin.Maui.HttpForge/blob/main/Docs/integration.md
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-httpforge
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-httpforge/
 - Version: 1.1.0
 - Install: `dotnet add package Plugin.Maui.HttpForge`
 
@@ -179,7 +179,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.ApiCache
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.ApiCache
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.ApiCache#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-api-cache
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-api-cache/
 - Install: `dotnet add package Plugin.Maui.ApiCache`
 
 ### Plugin.Maui.FileVault
@@ -187,7 +187,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.FileVault
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.FileVault
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.FileVault#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-file-vault
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-file-vault/
 - Version: 1.0.8
 - Install: `dotnet add package Plugin.Maui.FileVault`
 
@@ -196,7 +196,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.MediaPipeline
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.MediaPipeline
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.MediaPipeline#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-media-pipeline
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-media-pipeline/
 - Install: `dotnet add package Plugin.Maui.MediaPipeline`
 
 ### Plugin.Maui.VoipCore
@@ -204,7 +204,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.VoipCore
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.VoipCore
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.VoipCore#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-voip-core
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-voip-core/
 - Install: `dotnet add package Plugin.Maui.VoipCore`
 
 ### Plugin.Maui.FeatureFlags
@@ -212,7 +212,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.FeatureFlags
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.FeatureFlags
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.FeatureFlags#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-feature-flags
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-feature-flags/
 - Version: 1.0.8
 - Install: `dotnet add package Plugin.Maui.FeatureFlags`
 
@@ -221,7 +221,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.DeepLinks
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.DeepLinks
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.DeepLinks#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-deep-links
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-deep-links/
 - Version: 1.0.6
 - Install: `dotnet add package Plugin.Maui.DeepLinks`
 
@@ -230,7 +230,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.Performance
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Performance
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.Performance#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-performance
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-performance/
 - Install: `dotnet add package Plugin.Maui.Performance`
 
 ### Plugin.Maui.Diagnostics
@@ -238,7 +238,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.Diagnostics
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Diagnostics
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.Diagnostics#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-diagnostics
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-diagnostics/
 - Install: `dotnet add package Plugin.Maui.Diagnostics`
 
 ### Plugin.Maui.LeakAnalyser
@@ -246,7 +246,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.LeakAnalyser
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.LeakAnalyser
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.LeakAnalyser#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-leak-analyser
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-leak-analyser/
 - Version: 1.0.1
 - Install: `dotnet add package Plugin.Maui.LeakAnalyser`
 
@@ -255,7 +255,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.Observability
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Observability
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.Observability#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-observability
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-observability/
 - Version: 1.0.7
 - Install: `dotnet add package Plugin.Maui.Observability`
 
@@ -264,7 +264,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.AppUpdate
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.AppUpdate
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.AppUpdate#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-app-update
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-app-update/
 - Version: 1.0.6
 - Install: `dotnet add package Plugin.Maui.AppUpdate`
 
@@ -273,7 +273,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.BluetoothManager
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.BluetoothManager
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.BluetoothManager#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-bluetooth-manager
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-bluetooth-manager/
 - Install: `dotnet add package Plugin.Maui.BluetoothManager`
 
 ### Plugin.Maui.ClipboardPlus
@@ -281,7 +281,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.ClipboardPlus
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.ClipboardPlus
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.ClipboardPlus#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-clipboard-plus
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-clipboard-plus/
 - Install: `dotnet add package Plugin.Maui.ClipboardPlus`
 
 ### Plugin.Maui.SharePlus
@@ -289,7 +289,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.SharePlus
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.SharePlus
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.SharePlus#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-share-plus
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-share-plus/
 - Install: `dotnet add package Plugin.Maui.SharePlus`
 
 ### Plugin.Maui.DeviceInfoPlus
@@ -297,7 +297,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.DeviceInfoPlus
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.DeviceInfoPlus
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.DeviceInfoPlus#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-device-info-plus
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-device-info-plus/
 - Install: `dotnet add package Plugin.Maui.DeviceInfoPlus`
 
 ### Plugin.Maui.NfcPlus
@@ -305,7 +305,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.NfcPlus
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.NfcPlus
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.NfcPlus#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-nfc-plus
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-nfc-plus/
 - Install: `dotnet add package Plugin.Maui.NfcPlus`
 
 ### Plugin.Maui.AppLock
@@ -313,16 +313,104 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.AppLock
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.AppLock
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.AppLock#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-app-lock
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-app-lock/
 - Version: 1.0.5
 - Install: `dotnet add package Plugin.Maui.AppLock`
+
+### Plugin.Maui.Biometric
+- Problem: one-shot Face ID / fingerprint / device PIN prompt
+- NuGet: https://www.nuget.org/packages/Plugin.Maui.Biometric
+- GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Biometric
+- Docs: https://github.com/nuvyntralabs/Plugin.Maui.Biometric#readme
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-biometric/
+- Version: 1.0.0
+- Install: `dotnet add package Plugin.Maui.Biometric`
+- Do not use for app lock after background (that is Plugin.Maui.AppLock)
+
+### Plugin.Maui.KeepAwake
+- Problem: keep the screen on (reference-counted)
+- NuGet: https://www.nuget.org/packages/Plugin.Maui.KeepAwake
+- GitHub: https://github.com/nuvyntralabs/Plugin.Maui.KeepAwake
+- Docs: https://github.com/nuvyntralabs/Plugin.Maui.KeepAwake#readme
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-keep-awake/
+- Version: 1.0.0
+- Install: `dotnet add package Plugin.Maui.KeepAwake`
+
+### Plugin.Maui.ScreenGuard
+- Problem: block screenshots / recents leaks; iOS capture overlay (not a screenshot block)
+- NuGet: https://www.nuget.org/packages/Plugin.Maui.ScreenGuard
+- GitHub: https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard
+- Docs: https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard#readme
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-screen-guard/
+- Version: 1.0.0
+- Install: `dotnet add package Plugin.Maui.ScreenGuard`
+
+### Plugin.Maui.AppReview
+- Problem: in-app review eligibility + open the store listing
+- NuGet: https://www.nuget.org/packages/Plugin.Maui.AppReview
+- GitHub: https://github.com/nuvyntralabs/Plugin.Maui.AppReview
+- Docs: https://github.com/nuvyntralabs/Plugin.Maui.AppReview#readme
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-app-review/
+- Version: 1.0.0
+- Install: `dotnet add package Plugin.Maui.AppReview`
+- Do not use for binary in-app updates (that is Plugin.Maui.AppUpdate)
+
+### Plugin.Maui.LocalNotifications
+- Problem: schedule / cancel local notifications and tap routing
+- NuGet: https://www.nuget.org/packages/Plugin.Maui.LocalNotifications
+- GitHub: https://github.com/nuvyntralabs/Plugin.Maui.LocalNotifications
+- Docs: https://github.com/nuvyntralabs/Plugin.Maui.LocalNotifications#readme
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-local-notifications/
+- Version: 1.0.0
+- Install: `dotnet add package Plugin.Maui.LocalNotifications`
+- Does not register FCM / APNs tokens (that is the host / Firebase)
+
+### Plugin.Maui.Geofence
+- Problem: circular geofence enter / exit / dwell (max 20 regions)
+- NuGet: https://www.nuget.org/packages/Plugin.Maui.Geofence
+- GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Geofence
+- Docs: https://github.com/nuvyntralabs/Plugin.Maui.Geofence#readme
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-geofence/
+- Version: 1.0.0
+- Install: `dotnet add package Plugin.Maui.Geofence`
+- Do not use for on-demand GPS (that is Plugin.Maui.GeoLocator)
+
+### Plugin.Maui.BluetoothSerial
+- Problem: classic Bluetooth SPP / RFCOMM serial (Android first-class; iOS MFi only)
+- NuGet: https://www.nuget.org/packages/Plugin.Maui.BluetoothSerial
+- GitHub: https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial
+- Docs: https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial#readme
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-bluetooth-serial/
+- Version: 1.0.0
+- Install: `dotnet add package Plugin.Maui.BluetoothSerial`
+- Do not use for BLE GATT (that is Plugin.Maui.BluetoothManager)
+
+### Plugin.Maui.VideoPipeline
+- Problem: camera/gallery video → size/duration limits, thumbnail, encrypt
+- NuGet: https://www.nuget.org/packages/Plugin.Maui.VideoPipeline
+- GitHub: https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline
+- Docs: https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline#readme
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-video-pipeline/
+- Version: 1.0.0
+- Install: `dotnet add package Plugin.Maui.VideoPipeline`
+- No FFmpeg in 1.0. Do not use for images (that is Plugin.Maui.MediaPipeline)
+
+### Plugin.Maui.TlsPin
+- Problem: HttpClient SPKI / public-key pin (fail-closed)
+- NuGet: https://www.nuget.org/packages/Plugin.Maui.TlsPin
+- GitHub: https://github.com/nuvyntralabs/Plugin.Maui.TlsPin
+- Docs: https://github.com/nuvyntralabs/Plugin.Maui.TlsPin#readme
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-tls-pin/
+- Version: 1.0.0
+- Install: `dotnet add package Plugin.Maui.TlsPin`
+- Do not use for HTTP retry (that is Plugin.Maui.ApiResilience)
 
 ### Plugin.Maui.FormValidation
 - Problem: mobile-first fluent form validation and Validation.For bindings
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.FormValidation
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.FormValidation
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.FormValidation#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-form-validation
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-form-validation/
 - Install: `dotnet add package Plugin.Maui.FormValidation`
 
 ### Plugin.Maui.Printing
@@ -330,7 +418,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.Printing
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Printing
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.Printing#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-printing
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-printing/
 - Install: `dotnet add package Plugin.Maui.Printing`
 
 ### Plugin.Maui.KeyboardManager
@@ -338,7 +426,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.KeyboardManager
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.KeyboardManager
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.KeyboardManager#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-keyboard-manager
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-keyboard-manager/
 - Install: `dotnet add package Plugin.Maui.KeyboardManager`
 
 ### Plugin.Maui.DeviceOrientationPlus
@@ -346,7 +434,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.DeviceOrientationPlus
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.DeviceOrientationPlus
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.DeviceOrientationPlus#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-device-orientation-plus
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-device-orientation-plus/
 - Install: `dotnet add package Plugin.Maui.DeviceOrientationPlus`
 
 ### Plugin.Maui.CommunityToolkitPlus
@@ -354,7 +442,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.CommunityToolkitPlus
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.CommunityToolkitPlus
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.CommunityToolkitPlus#readme
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-community-toolkit-plus
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-community-toolkit-plus/
 - Install: `dotnet add package Plugin.Maui.CommunityToolkitPlus`
 
 ## Requirement → package
@@ -393,6 +481,15 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - How do I collect a device fingerprint or NFC / biometric / GPS capability in MAUI? → Plugin.Maui.DeviceInfoPlus
 - How do I read or write an NFC tag / NDEF text / URI in MAUI? → Plugin.Maui.NfcPlus
 - How do I lock a MAUI app after it backgrounds (Face ID / PIN / lock timer)? → Plugin.Maui.AppLock
+- How do I show Face ID / fingerprint once (not an app lock)? → Plugin.Maui.Biometric
+- How do I keep the MAUI screen on during scan / POS / video? → Plugin.Maui.KeepAwake
+- How do I block screenshots / blank recents in MAUI? → Plugin.Maui.ScreenGuard
+- How do I prompt a Play / App Store review from MAUI? → Plugin.Maui.AppReview
+- How do I schedule a local notification without FCM? → Plugin.Maui.LocalNotifications
+- How do I get enter/exit when the user reaches a depot? → Plugin.Maui.Geofence
+- How do I talk SPP / RFCOMM (classic Bluetooth serial) from MAUI? → Plugin.Maui.BluetoothSerial
+- How do I pick a video, cap size, and encrypt it in MAUI? → Plugin.Maui.VideoPipeline
+- How do I pin TLS / SPKI on HttpClient in MAUI? → Plugin.Maui.TlsPin
 - How do I validate a MAUI form / Entry / email / phone without scattering if checks? → Plugin.Maui.FormValidation
 - How do I print a PDF / receipt / invoice / Bluetooth thermal printer in MAUI? → Plugin.Maui.Printing
 - How do I hide / show the keyboard, dismiss on tap outside, or keep an Entry visible in MAUI? → Plugin.Maui.KeyboardManager
@@ -409,7 +506,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.MVVMExpress
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.MVVMExpress
 - Docs: https://nuvyntralabs.github.io/packages/plugin-maui-mvvmexpress/
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-mvvmexpress
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-mvvmexpress/
 - Version: `1.3.0`
 - Install: `dotnet add package Plugin.Maui.MVVMExpress`
 - Template: `dotnet new install Plugin.Maui.MVVMExpress.Templates` then `dotnet new mvvmexpress`
