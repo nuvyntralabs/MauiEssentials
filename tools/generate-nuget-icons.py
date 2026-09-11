@@ -75,6 +75,27 @@ def in_triangle(x: float, y: float, a: tuple[float, float], b: tuple[float, floa
     return not (has_neg and has_pos)
 
 
+def in_polygon(x: float, y: float, verts: list[tuple[float, float]]) -> bool:
+    inside = False
+    j = len(verts) - 1
+    for i, (xi, yi) in enumerate(verts):
+        xj, yj = verts[j]
+        if (yi > y) != (yj > y) and x < (xj - xi) * (y - yi) / (yj - yi + 1e-9) + xi:
+            inside = not inside
+        j = i
+    return inside
+
+
+def in_ellipse(x: float, y: float, cx: float, cy: float, rx: float, ry: float) -> bool:
+    if rx <= 0 or ry <= 0:
+        return False
+    return ((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2 <= 1.0
+
+
+def in_ellipse_ring(x: float, y: float, cx: float, cy: float, rx_in: float, ry_in: float, rx_out: float, ry_out: float) -> bool:
+    return in_ellipse(x, y, cx, cy, rx_out, ry_out) and not in_ellipse(x, y, cx, cy, rx_in, ry_in)
+
+
 def in_arc(x: float, y: float, cx: float, cy: float, inner: float, outer: float, start: float, end: float) -> bool:
     if not in_ring(x, y, cx, cy, inner, outer):
         return False
@@ -379,6 +400,86 @@ def glyph_window(x: float, y: float) -> bool:
     return not (in_circle(x, y, 44, 44, 3.2) or in_circle(x, y, 54, 44, 3.2))
 
 
+def glyph_fingerprint(x: float, y: float) -> bool:
+    if in_ellipse_ring(x, y, 64, 60, 4.5, 5.5, 8.5, 10.5):
+        return True
+    ridges = (
+        (64, 62, 11, 13, 15, 18, -0.35, 0.75),
+        (64, 64, 19, 23, 23, 28, -0.25, 0.95),
+        (64, 66, 27, 33, 31, 38, -0.15, 1.15),
+        (64, 68, 35, 42, 39, 47, 0.05, 1.25),
+    )
+    for cx, cy, rxi, ryi, rxo, ryo, gap0, gap1 in ridges:
+        if not in_ellipse_ring(x, y, cx, cy, rxi, ryi, rxo, ryo):
+            continue
+        angle = math.atan2(y - cy, x - cx)
+        if gap0 <= angle <= gap1:
+            continue
+        return True
+    return False
+
+
+def glyph_sun(x: float, y: float) -> bool:
+    if in_circle(x, y, 64, 64, 16):
+        return True
+    for i in range(8):
+        angle = i * math.pi / 4
+        x1, y1 = 64 + 22 * math.cos(angle), 64 + 22 * math.sin(angle)
+        x2, y2 = 64 + 38 * math.cos(angle), 64 + 38 * math.sin(angle)
+        if in_line(x, y, x1, y1, x2, y2, 3.6):
+            return True
+    return False
+
+
+def glyph_screen_slash(x: float, y: float) -> bool:
+    phone = in_rounded_rect(x, y, 46, 30, 82, 98, 8) and not in_rounded_rect(x, y, 52, 38, 76, 84, 3)
+    slash = in_line(x, y, 34, 94, 94, 34, 4.4)
+    return phone or slash
+
+
+def glyph_star(x: float, y: float) -> bool:
+    verts: list[tuple[float, float]] = []
+    for i in range(10):
+        radius = 34 if i % 2 == 0 else 14
+        angle = -math.pi / 2 + i * math.pi / 5
+        verts.append((64 + radius * math.cos(angle), 64 + radius * math.sin(angle)))
+    return in_polygon(x, y, verts)
+
+
+def glyph_alarm(x: float, y: float) -> bool:
+    if in_ring(x, y, 64, 70, 20, 26):
+        return True
+    if in_line(x, y, 64, 70, 64, 54, 3.2) or in_line(x, y, 64, 70, 78, 70, 3.2) or in_circle(x, y, 64, 70, 3.6):
+        return True
+    return in_circle(x, y, 46, 44, 8) or in_circle(x, y, 82, 44, 8)
+
+
+def glyph_geofence(x: float, y: float) -> bool:
+    if in_ring(x, y, 64, 64, 32, 38):
+        return True
+    if in_circle(x, y, 64, 52, 11):
+        return not in_circle(x, y, 64, 52, 4.5)
+    return in_triangle(x, y, (54, 56), (74, 56), (64, 80))
+
+
+def glyph_video(x: float, y: float) -> bool:
+    if in_rounded_rect(x, y, 26, 44, 78, 88, 8):
+        return not in_circle(x, y, 52, 66, 11)
+    if in_rounded_rect(x, y, 78, 54, 92, 78, 3):
+        return True
+    return in_rounded_rect(x, y, 36, 32, 58, 46, 4)
+
+
+def glyph_certificate(x: float, y: float) -> bool:
+    nx = (x - 64) / 28
+    progress = (y - 30) / 72
+    if not (30 <= y <= 102 and abs(nx) <= 1.0 - progress * 0.55):
+        return False
+    if in_circle(x, y, 64, 56, 8) or in_rect(x, y, 61, 56, 67, 76):
+        return False
+    return True
+
+
 Theme = tuple[tuple[int, int, int], tuple[int, int, int], tuple[int, int, int], tuple[int, int, int]]
 
 THEMES: dict[str, Theme] = {
@@ -400,9 +501,12 @@ ICONS: dict[str, tuple[str, object]] = {
     "ApiResilience": ("blue", glyph_circuit),
     "AppHealth": ("green", glyph_heart),
     "AppLock": ("navy", glyph_app_lock),
+    "AppReview": ("orange", glyph_star),
     "AppUpdate": ("green", glyph_refresh),
+    "Biometric": ("indigo", glyph_fingerprint),
     "BackgroundTasks": ("indigo", glyph_clock),
     "BluetoothManager": ("blue", glyph_bluetooth),
+    "BluetoothSerial": ("slate", glyph_bluetooth),
     "ClipboardPlus": ("slate", glyph_clipboard),
     "CommunityToolkitPlus": ("purple", glyph_toolkit),
     "DeepLinks": ("blue", glyph_link),
@@ -413,10 +517,13 @@ ICONS: dict[str, tuple[str, object]] = {
     "FeatureFlags": ("orange", glyph_flag),
     "FileVault": ("amber", glyph_vault),
     "FormValidation": ("green", glyph_check),
+    "Geofence": ("teal", glyph_geofence),
     "GeoLocator": ("green", glyph_pin),
     "HttpForge": ("indigo", glyph_bolt),
     "JobQueue": ("blue", glyph_queue),
+    "KeepAwake": ("amber", glyph_sun),
     "KeyboardManager": ("indigo", glyph_keyboard),
+    "LocalNotifications": ("cyan", glyph_alarm),
     "LeakAnalyser": ("cyan", glyph_drop),
     "MVVMExpress": ("indigo", glyph_layers),
     "MediaPipeline": ("rose", glyph_camera),
@@ -430,10 +537,13 @@ ICONS: dict[str, tuple[str, object]] = {
     "Printing": ("slate", glyph_printer),
     "PushRouter": ("rose", glyph_bell),
     "RetryQueue": ("orange", glyph_retry),
+    "ScreenGuard": ("rose", glyph_screen_slash),
     "SecureSession": ("teal", glyph_key),
     "SecureStoragePlus": ("teal", glyph_lock),
     "SharePlus": ("teal", glyph_share),
     "SmartUpload": ("cyan", glyph_upload),
+    "TlsPin": ("navy", glyph_certificate),
+    "VideoPipeline": ("purple", glyph_video),
     "VoipCore": ("green", glyph_phone),
     "WpfMVVMExpress": ("navy", glyph_window),
     "WinUIMVVMExpress": ("indigo", glyph_window),
