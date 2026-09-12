@@ -5,6 +5,7 @@
 | MauiDev CLI + VS Code extension | [maudev.md](maudev.md) | Implemented at `1.0.1` |
 | MauiDev next (1.1 / 1.2 commands) | [maudev-next.md](maudev-next.md) | Implemented at `1.2.0` |
 | Next-wave runtime plugins (9 packages; no barcode) | [next-wave-plugins.md](next-wave-plugins.md) | Implemented in hub (pre-publish) |
+| NuvexaDB embedded `.nvx` document database | Hub module `NuvexaDB/` (`Nuventra.NuvexaDB`) | Implemented at `1.0.0` (related product; not `Plugin.Maui.*`) |
 
 ## MVVMExpress platform family plans
 

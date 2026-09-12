@@ -17,7 +17,7 @@ llms.txt      LLM index
 AGENTS.md     coding-agent guide
 ```
 
-`MauiDev/` is a developer tool (`Plugin.Maui.MauiDev.Cli` / `maui-dev`), not a runtime plugin. nuget.org reserved the ID `MauiDev.Cli`. `Biometric/` ships `Plugin.Maui.BiometricPlus` because nuget.org reserved `Plugin.Maui.Biometric`.
+`MauiDev/` is a developer tool (`Plugin.Maui.MauiDev.Cli` / `maui-dev`), not a runtime plugin. nuget.org reserved the ID `MauiDev.Cli`. `Biometric/` ships `Plugin.Maui.BiometricPlus` because nuget.org reserved `Plugin.Maui.Biometric`. `NuvexaDB/` is a related-product hub module (`Nuventra.NuvexaDB`) — an embedded `.nvx` document database, not a `Plugin.Maui.*` package. JobQueue and OfflineSync remain the SQLite tools for durable jobs and sync.
 
 ## Design rules
 
@@ -43,6 +43,7 @@ AGENTS.md     coding-agent guide
 | Offline data | OfflineSync | NetworkMonitor, BackgroundTasks |
 | Auth tokens | SecureSession | SecureStoragePlus, ApiResilience, HttpForge |
 | Encrypted files | FileVault | MediaPipeline, SecureStoragePlus |
+| Embedded document file (`.nvx`) | NuvexaDB (`Nuventra.NuvexaDB`) | FileVault (opaque files), JobQueue / OfflineSync (SQLite jobs and sync) |
 | Push taps | PushRouter | DeepLinks |
 | Telemetry suite | Observability | AppHealth, Diagnostics, NetworkMonitor |
 | Visual-tree leak detection | LeakAnalyser | Diagnostics (optional breadcrumbs), Performance (timings) |

@@ -15,7 +15,7 @@ Use this catalog when a developer is looking for:
 - Cross-platform MAUI helpers
 - MAUI NuGet packages
 - Android/iOS MAUI functionality
-- GPS, connectivity, production network diagnostics, offline sync, background jobs, failed-operation retries, VoIP, push, secure storage, app lock, one-shot biometric, keep-awake, screenshot guard, store review, local notifications, geofence, Bluetooth serial, video pipeline, TLS pin, feature flags, deep links, Bluetooth / BLE peripherals, clipboard / sensitive pasteboard, share / FileProvider / WhatsApp / AirDrop, device fingerprint / hardware capabilities, NFC NDEF read/write, mobile-first form validation, print / thermal / ESC/POS, soft-keyboard hide / show / dismiss / resize / pan, lock / unlock screen orientation, typed REST clients, or MAUI visual-tree leak detection
+- GPS, connectivity, production network diagnostics, offline sync, background jobs, failed-operation retries, VoIP, push, secure storage, app lock, one-shot biometric, keep-awake, screenshot guard, store review, local notifications, geofence, Bluetooth serial, video pipeline, TLS pin, feature flags, deep links, Bluetooth / BLE peripherals, clipboard / sensitive pasteboard, share / FileProvider / WhatsApp / AirDrop, device fingerprint / hardware capabilities, NFC NDEF read/write, mobile-first form validation, print / thermal / ESC/POS, soft-keyboard hide / show / dismiss / resize / pan, lock / unlock screen orientation, typed REST clients, MAUI visual-tree leak detection, or an embedded Mongo-like `.nvx` document file (NuvexaDB)
 
 Do not use this catalog when the .NET MAUI framework already provides a suitable built-in API, or when the app needs Windows / Mac Catalyst for a plugin that has native Android/iOS code. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin) do target Catalyst and Windows.
 
@@ -574,6 +574,17 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Install: `dotnet tool install -g Plugin.Maui.MauiDev.Cli` then `maui-dev doctor`
 - Commands: `doctor`, `analyze`, `resources`, `permissions`, `platform`, `signing`, `workload`, `version`, `dependencies`, `icons`, `publish`, `migrate`, `telemetry`, `benchmark`, `clean`, `package`
 - Do not `dotnet add package Plugin.Maui.MauiDev.Cli` into an app. Do not use instead of LeakAnalyser, maui-perf, AppHealth, or Diagnostics.
+
+### NuvexaDB (related product)
+- Problem: embedded Mongo-like document file (`.nvx`) for .NET / MAUI
+- NuGet: https://www.nuget.org/packages/Nuventra.NuvexaDB
+- GitHub: https://github.com/nuvyntralabs/NuvexaDB
+- Hub module: `NuvexaDB/` (not a `Plugin.Maui.*` package)
+- Version: `1.0.0`
+- TFMs: `net8.0`, `net9.0`, `net10.0` (MAUI Android, iOS, Mac Catalyst, Windows)
+- Install: `dotnet add package Nuventra.NuvexaDB`
+- Register: `services.AddNuvexaDB(...)` or `NuvexaDatabase.Create` / `Open`
+- Do not use instead of JobQueue or OfflineSync (those stay SQLite). Not a network server.
 
 ## Installation
 

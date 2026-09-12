@@ -57,6 +57,7 @@ Requirement → package matching for MauiEssentials.
 | Avalonia MVVM application shell (ViewModels, Frame host, modal Window dialogs; `net10.0`). Independent of Plugin.Maui.MVVMExpress. Scaffold with `dotnet new avalonia-mvvmexpress` | Plugin.Avalonia.MVVMExpress | https://www.nuget.org/packages/Plugin.Avalonia.MVVMExpress.Core | https://github.com/nuvyntralabs/Plugin.Avalonia.MVVMExpress |
 | Uno Platform MVVM application shell (ViewModels, Frame navigation, ContentDialog; Uno.Sdk). Independent of Plugin.Maui.MVVMExpress and Plugin.WinUI.MVVMExpress. Scaffold with `dotnet new uno-mvvmexpress` | Plugin.Uno.MVVMExpress | https://www.nuget.org/packages/Plugin.Uno.MVVMExpress.Core | https://github.com/nuvyntralabs/Plugin.Uno.MVVMExpress |
 | Diagnose MAUI SDK, workloads, project configuration, permissions, platform layout, resources, or pack metadata (`maui-dev doctor` / `permissions` / `platform` / `--ci`). Not an app PackageReference. | Plugin.Maui.MauiDev.Cli | https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli | https://github.com/nuvyntralabs/MauiDev |
+| Embedded Mongo-like document file (`.nvx`), AES-256-GCM, Avalonia Explorer. Hub module; not a `Plugin.Maui.*` package. JobQueue / OfflineSync stay SQLite. | Nuventra.NuvexaDB | https://www.nuget.org/packages/Nuventra.NuvexaDB | https://github.com/nuvyntralabs/NuvexaDB |
 
 Docs: `https://nuvyntralabs.github.io/packages/<slug>/` — slugs are listed in [llms.txt](../../llms.txt).
 

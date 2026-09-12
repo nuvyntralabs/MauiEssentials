@@ -157,3 +157,6 @@
 [submodule "TlsPin"]
 	path = TlsPin
 	url = https://github.com/nuvyntralabs/Plugin.Maui.TlsPin.git
+[submodule "NuvexaDB"]
+	path = NuvexaDB
+	url = https://github.com/nuvyntralabs/NuvexaDB.git
