@@ -1,0 +1,23 @@
+---
+description: On every NuvexaDB commit, ask whether it should publish a GitHub Release
+alwaysApply: true
+---
+
+# NuvexaDB commit — ask before releasing
+
+Before any `git commit` in the **NuvexaDB** repo (the `NuvexaDB/` submodule or a clone of `nuvyntralabs/NuvexaDB`):
+
+1. **Stop.** Do not run `git commit` yet.
+2. Ask with `AskQuestion` (required):
+
+   **Should this NuvexaDB commit make a GitHub Release?**
+
+   - **No — commit only** (default). Commit as usual. Do not create a `v*` tag. Do not push tags. [Releases](https://github.com/nuvyntralabs/NuvexaDB/releases) must not change.
+   - **Yes — commit and release.** After the commit succeeds, create and push `v<Version>` from `NuvexaDB/Directory.Build.props` (example `v1.0.0`). Only that tag updates the Releases page.
+
+3. Wait for the answer. Never assume Yes.
+4. Retry the commit prefixed with `NUVEXA_RELEASE=no` or `NUVEXA_RELEASE=yes` (the Cursor hook requires this). Example: `NUVEXA_RELEASE=no git commit ...`
+
+A MauiEssentials hub commit that only moves the submodule pointer is **not** a NuvexaDB release unless the user also committed inside `NuvexaDB/` and chose Yes.
+
+Never `git tag` / `git push` a `v*` tag for NuvexaDB unless the user chose Yes in this conversation. Prefix those commands with `NUVEXA_RELEASE=yes`.
