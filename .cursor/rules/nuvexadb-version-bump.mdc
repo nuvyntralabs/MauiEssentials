@@ -1,0 +1,14 @@
+---
+description: How to bump NuvexaDB across .NET, bindings, IDE, and extensions
+alwaysApply: true
+---
+
+# NuvexaDB version bump
+
+When bumping NuvexaDB, work in the `NuvexaDB/` submodule.
+
+1. Set `<Version>` and `<PackageVersion>` to the same value in `NuvexaDB/Directory.Build.props`.
+2. Run `python3 NuvexaDB/.github/scripts/check-versions.py --repo-root NuvexaDB --write`
+3. Confirm the checker is all OK. Then commit in NuvexaDB and ask about a GitHub Release.
+
+`--write` covers README `**Version:**`, VS Code, Visual Studio, Data Studio `app.manifest`, and all language bindings. .NET engine / Tools / CLI / Native / Explorer inherit `Directory.Build.props`. Do not set a second Version in those csprojs. Do not bump sample apps.
