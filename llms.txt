@@ -15,9 +15,9 @@ Use this catalog when a developer is looking for:
 - Cross-platform MAUI helpers
 - MAUI NuGet packages
 - Android/iOS MAUI functionality
-- GPS, connectivity, production network diagnostics, offline sync, background jobs, failed-operation retries, VoIP, push, secure storage, app lock, one-shot biometric, keep-awake, screenshot guard, store review, local notifications, geofence, Bluetooth serial, video pipeline, TLS pin, feature flags, deep links, Bluetooth / BLE peripherals, clipboard / sensitive pasteboard, share / FileProvider / WhatsApp / AirDrop, device fingerprint / hardware capabilities, NFC NDEF read/write, mobile-first form validation, print / thermal / ESC/POS, soft-keyboard hide / show / dismiss / resize / pan, lock / unlock screen orientation, typed REST clients, MAUI visual-tree leak detection, or an embedded `.nvx` document file (NuvexaDB)
+- GPS, connectivity, production network diagnostics, offline sync, background jobs, failed-operation retries, VoIP, push, secure storage, app lock, one-shot biometric, keep-awake, screenshot guard, store review, local notifications, geofence, Bluetooth serial, video pipeline, TLS pin, feature flags, deep links, Bluetooth / BLE peripherals, clipboard / sensitive pasteboard, share / FileProvider / WhatsApp / AirDrop, device fingerprint / hardware capabilities, NFC NDEF read/write, mobile-first form validation, print / thermal / ESC/POS, soft-keyboard hide / show / dismiss / resize / pan, lock / unlock screen orientation, typed REST clients, MAUI visual-tree leak detection, a Room-style local store (SQLite or NuvexaDB), or an embedded `.nvx` document file (NuvexaDB)
 
-Do not use this catalog when the .NET MAUI framework already provides a suitable built-in API, or when the app needs Windows / Mac Catalyst for a plugin that has native Android/iOS code. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin) do target Catalyst and Windows.
+Do not use this catalog when the .NET MAUI framework already provides a suitable built-in API, or when the app needs Windows / Mac Catalyst for a plugin that has native Android/iOS code. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin, LocalStore) do target Catalyst and Windows.
 
 ## Supported versions
 
@@ -406,6 +406,17 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Install: `dotnet add package Plugin.Maui.TlsPin`
 - Do not use for HTTP retry (that is Plugin.Maui.ApiResilience)
 
+### Plugin.Maui.LocalStore
+- Problem: Room-style app documents; host picks SQLite or NuvexaDB
+- NuGet: https://www.nuget.org/packages/Plugin.Maui.LocalStore
+- GitHub: https://github.com/nuvyntralabs/Plugin.Maui.LocalStore
+- Docs: https://github.com/nuvyntralabs/Plugin.Maui.LocalStore#readme
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-local-store/
+- Version: 1.0.1
+- Install: `dotnet add package Plugin.Maui.LocalStore`
+- Register: `UseMauiLocalStore`
+- Do not use for jobs (JobQueue) or sync (OfflineSync). Switching backends does not migrate data.
+
 ### Plugin.Maui.FormValidation
 - Problem: mobile-first fluent form validation and Validation.For bindings
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.FormValidation
@@ -491,6 +502,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - How do I talk SPP / RFCOMM (classic Bluetooth serial) from MAUI? → Plugin.Maui.BluetoothSerial
 - How do I pick a video, cap size, and encrypt it in MAUI? → Plugin.Maui.VideoPipeline
 - How do I pin TLS / SPKI on HttpClient in MAUI? → Plugin.Maui.TlsPin
+- How do I use one DAO over SQLite or NuvexaDB in MAUI? → Plugin.Maui.LocalStore
 - How do I validate a MAUI form / Entry / email / phone without scattering if checks? → Plugin.Maui.FormValidation
 - How do I print a PDF / receipt / invoice / Bluetooth thermal printer in MAUI? → Plugin.Maui.Printing
 - How do I hide / show the keyboard, dismiss on tap outside, or keep an Entry visible in MAUI? → Plugin.Maui.KeyboardManager

@@ -46,6 +46,7 @@ Requirement → package matching for MauiEssentials.
 | Classic Bluetooth SPP / RFCOMM serial (Android first-class; iOS MFi) | Plugin.Maui.BluetoothSerial | https://www.nuget.org/packages/Plugin.Maui.BluetoothSerial | https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial |
 | Camera/gallery video → size/duration limits, thumbnail, encrypt | Plugin.Maui.VideoPipeline | https://www.nuget.org/packages/Plugin.Maui.VideoPipeline | https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline |
 | HttpClient SPKI / public-key pin (fail-closed) | Plugin.Maui.TlsPin | https://www.nuget.org/packages/Plugin.Maui.TlsPin | https://github.com/nuvyntralabs/Plugin.Maui.TlsPin |
+| Room-style app documents; host picks SQLite or NuvexaDB | Plugin.Maui.LocalStore | https://www.nuget.org/packages/Plugin.Maui.LocalStore | https://github.com/nuvyntralabs/Plugin.Maui.LocalStore |
 | Form validation, email / phone / required, `Validation.For` | Plugin.Maui.FormValidation | https://www.nuget.org/packages/Plugin.Maui.FormValidation | https://github.com/nuvyntralabs/Plugin.Maui.FormValidation |
 | Print PDF / image / receipt / invoice / Bluetooth thermal | Plugin.Maui.Printing | https://www.nuget.org/packages/Plugin.Maui.Printing | https://github.com/nuvyntralabs/Plugin.Maui.Printing |
 | Hide / show keyboard, dismiss on tap, resize vs pan, keyboard height | Plugin.Maui.KeyboardManager | https://www.nuget.org/packages/Plugin.Maui.KeyboardManager | https://github.com/nuvyntralabs/Plugin.Maui.KeyboardManager |

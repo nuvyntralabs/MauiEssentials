@@ -30,6 +30,7 @@ WINDOWS_TFM_PLUGINS = {
     "SmartUpload",
     "TlsPin",
     "VideoPipeline",
+    "LocalStore",
 }
 
 

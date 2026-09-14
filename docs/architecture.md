@@ -44,6 +44,7 @@ AGENTS.md     coding-agent guide
 | Auth tokens | SecureSession | SecureStoragePlus, ApiResilience, HttpForge |
 | Encrypted files | FileVault | MediaPipeline, SecureStoragePlus |
 | Embedded document file (`.nvx`) | NuvexaDB (`Nuventra.NuvexaDB`) | FileVault (opaque files), JobQueue / OfflineSync (SQLite jobs and sync) |
+| App documents (SQLite or `.nvx`) | LocalStore | NuvexaDB (direct), OfflineSync, JobQueue |
 | Push taps | PushRouter | DeepLinks |
 | Telemetry suite | Observability | AppHealth, Diagnostics, NetworkMonitor |
 | Visual-tree leak detection | LeakAnalyser | Diagnostics (optional breadcrumbs), Performance (timings) |

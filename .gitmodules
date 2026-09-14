@@ -160,3 +160,6 @@
 [submodule "NuvexaDB"]
 	path = NuvexaDB
 	url = https://github.com/nuvyntralabs/NuvexaDB.git
+[submodule "LocalStore"]
+	path = LocalStore
+	url = https://github.com/nuvyntralabs/Plugin.Maui.LocalStore.git

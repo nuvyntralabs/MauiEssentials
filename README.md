@@ -23,7 +23,7 @@ MauiEssentials is a collection of **small, independently published** plugins. In
 | Android | `net10.0-android` (API 21+) | `net9.0-android`, `net10.0-android` |
 | iOS | `net10.0-ios` (iOS 15+) | `net9.0-ios`, `net10.0-ios` |
 
-SecureSession, AppLock, and Biometric require Android API 23+. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin) also target Mac Catalyst and Windows. Plugins with native Android/iOS code stay Android + iOS.
+SecureSession, AppLock, and Biometric require Android API 23+. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin, LocalStore) also target Mac Catalyst and Windows. Plugins with native Android/iOS code stay Android + iOS.
 
 ## When should you use MauiEssentials?
 
@@ -111,6 +111,7 @@ git submodule update --init --recursive
 | [Plugin.Maui.BluetoothSerial](https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial) | Classic SPP / RFCOMM serial (Android first-class; iOS MFi) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.BluetoothSerial) |
 | [Plugin.Maui.VideoPipeline](https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline) | Camera/gallery video → size/duration limits, thumbnail, encrypt (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.VideoPipeline) |
 | [Plugin.Maui.TlsPin](https://github.com/nuvyntralabs/Plugin.Maui.TlsPin) | HttpClient SPKI / public-key pin, fail-closed (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.TlsPin) |
+| [Plugin.Maui.LocalStore](https://github.com/nuvyntralabs/Plugin.Maui.LocalStore) | Room-style app documents; host picks SQLite or NuvexaDB (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.LocalStore) |
 | [Plugin.Maui.FormValidation](https://github.com/nuvyntralabs/Plugin.Maui.FormValidation) | Mobile-first fluent form validation and `Validation.For` bindings (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.FormValidation) |
 | [Plugin.Maui.Printing](https://github.com/nuvyntralabs/Plugin.Maui.Printing) | Print PDF, images, text, invoices, receipts, labels, and Bluetooth thermal / ESC/POS | [NuGet](https://www.nuget.org/packages/Plugin.Maui.Printing) |
 | [Plugin.Maui.KeyboardManager](https://github.com/nuvyntralabs/Plugin.Maui.KeyboardManager) | Hide, show, dismiss on tap, resize/pan, keyboard height, and safe areas | [NuGet](https://www.nuget.org/packages/Plugin.Maui.KeyboardManager) |
@@ -191,6 +192,7 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 | Classic Bluetooth serial (SPP / RFCOMM) | Plugin.Maui.BluetoothSerial |
 | Camera/gallery video compress / encrypt | Plugin.Maui.VideoPipeline |
 | HttpClient TLS / SPKI pin | Plugin.Maui.TlsPin |
+| Local documents with a selectable SQLite or NuvexaDB backend | Plugin.Maui.LocalStore |
 | Form validation, email / phone / required, `Validation.For` | Plugin.Maui.FormValidation |
 | Print PDF / image / receipt / invoice / Bluetooth thermal | Plugin.Maui.Printing |
 | Hide / show keyboard, dismiss on tap, resize vs pan, keyboard height | Plugin.Maui.KeyboardManager |

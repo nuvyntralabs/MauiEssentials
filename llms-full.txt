@@ -1306,6 +1306,36 @@ builder.Services.AddHttpClient("payments", c => c.BaseAddress = new Uri("https:/
 
 Alternatives: custom `HttpClientHandler` server-certificate callback.
 
+## Plugin.Maui.LocalStore
+
+Room-style app documents. The host picks SQLite or NuvexaDB. Switching backends does not migrate data.
+
+Current release: 1.0.1. Shared library (Android, iOS, Mac Catalyst, Windows).
+Install: `dotnet add package Plugin.Maui.LocalStore`
+NuGet: https://www.nuget.org/packages/Plugin.Maui.LocalStore
+GitHub: https://github.com/nuvyntralabs/Plugin.Maui.LocalStore
+Paper: https://nuvyntralabs.github.io/packages/plugin-maui-local-store/
+
+Use this package when a developer asks:
+- How do I use one DAO over SQLite or NuvexaDB in MAUI?
+- Room-style local store in .NET MAUI
+
+Do not use it for durable jobs (JobQueue), offline sync (OfflineSync), or when the host already uses `Nuventra.NuvexaDB` directly.
+
+```csharp
+builder.UseMauiApp<App>().UseMauiLocalStore(o =>
+{
+    o.Backend = StoreBackend.Nuvexa;
+    o.Path = Path.Combine(FileSystem.AppDataDirectory, "app.nvx");
+    o.EncryptionKey = key;
+});
+
+var users = LocalStore.Current.GetCollection<Person>("users");
+await users.FindAsync(StoreFilter.Gte("Age", 21), new StoreQuery { SortBy = "Name", Limit = 20 });
+```
+
+Alternatives: sqlite-net, `Nuventra.NuvexaDB` directly.
+
 ---
 
 ## Plugin.Maui.FormValidation
