@@ -1563,7 +1563,7 @@ Use when the developer needs environment or project-config diagnosis. Do not use
 
 ## NuvexaDB (related product)
 
-Embedded Mongo-inspired document database (`1.0.0`). Package `Nuventra.NuvexaDB`. One portable `.nvx` file, optional AES-256-GCM (fail-closed: missing key throws `NuvexaEncryptionException`). Hub module `NuvexaDB/`, not a `Plugin.Maui.*` package.
+Embedded document database (`1.0.0`). Package `Nuventra.NuvexaDB`. One portable `.nvx` file, optional AES-256-GCM (fail-closed: missing key throws `NuvexaEncryptionException`). Hub module `NuvexaDB/`, not a `Plugin.Maui.*` package.
 
 Install: `dotnet add package Nuventra.NuvexaDB`
 Register: `services.AddNuvexaDB(...)` or `NuvexaDatabase.Create` / `Open`

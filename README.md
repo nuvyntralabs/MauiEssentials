@@ -142,7 +142,7 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 
 ## Related products
 
-[NuvexaDB](https://github.com/nuvyntralabs/NuvexaDB) (`Nuventra.NuvexaDB`) is a hub module: a standalone embedded, Mongo-inspired document database for .NET and MAUI (one encrypted `.nvx` file, Avalonia Explorer, VS / VS Code editors). It is not a `Plugin.Maui.*` package. JobQueue and OfflineSync remain the SQLite-backed tools for durable jobs and sync.
+[NuvexaDB](https://github.com/nuvyntralabs/NuvexaDB) (`Nuventra.NuvexaDB`) is a hub module: a standalone embedded document database for .NET and MAUI (one encrypted `.nvx` file, Avalonia Explorer, VS / VS Code editors). It is not a `Plugin.Maui.*` package. JobQueue and OfflineSync remain the SQLite-backed tools for durable jobs and sync.
 
 ## Find a package by requirement
 
@@ -166,7 +166,7 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 | Typed REST client / Refit-style interfaces | Plugin.Maui.HttpForge |
 | HTTP GET cache, CacheFirst / SWR | Plugin.Maui.ApiCache |
 | Encrypted local files | Plugin.Maui.FileVault |
-| Embedded Mongo-like document file (`.nvx`) | [NuvexaDB](https://github.com/nuvyntralabs/NuvexaDB) (`Nuventra.NuvexaDB`) — hub module, not a `Plugin.Maui.*` package |
+| Embedded document file (`.nvx`) | [NuvexaDB](https://github.com/nuvyntralabs/NuvexaDB) (`Nuventra.NuvexaDB`) — hub module, not a `Plugin.Maui.*` package |
 | Camera-to-upload image pipeline | Plugin.Maui.MediaPipeline |
 | SIP / VoIP session model | Plugin.Maui.VoipCore |
 | Feature flags / remote config | Plugin.Maui.FeatureFlags |

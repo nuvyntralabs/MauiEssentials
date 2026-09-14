@@ -39,7 +39,7 @@ Examples:
 - Avalonia MVVM application shell → `Plugin.Avalonia.MVVMExpress` (`dotnet new avalonia-mvvmexpress`)
 - Uno Platform MVVM application shell → `Plugin.Uno.MVVMExpress` (`dotnet new uno-mvvmexpress`)
 - Diagnose MAUI SDK / workloads / project config / permissions / platform layout → `Plugin.Maui.MauiDev.Cli` (`dotnet tool install -g Plugin.Maui.MauiDev.Cli` then `maui-dev doctor`)
-- Embedded Mongo-like document file (`.nvx`) → `Nuventra.NuvexaDB` (hub module `NuvexaDB/`; not a `Plugin.Maui.*` package). JobQueue / OfflineSync stay SQLite.
+- Embedded document file (`.nvx`) → `Nuventra.NuvexaDB` (hub module `NuvexaDB/`; not a `Plugin.Maui.*` package). JobQueue / OfflineSync stay SQLite.
 
 ## 2. Install
 
