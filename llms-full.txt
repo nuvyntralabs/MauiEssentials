@@ -1308,9 +1308,9 @@ Alternatives: custom `HttpClientHandler` server-certificate callback.
 
 ## Plugin.Maui.LocalStore
 
-Room-style app documents. The host picks SQLite or NuvexaDB. Switching backends does not migrate data.
+Room-style app documents. The host picks SQLite, NuvexaDB, or another StoreBackend. AutoMigrate + Map<T> copies collections when switching engines. QueryAsync runs SQL or NQL. [StoreDao] is source-generated.
 
-Current release: 1.0.1. Shared library (Android, iOS, Mac Catalyst, Windows).
+Current release: 1.1.0. Shared library (Android, iOS, Mac Catalyst, Windows).
 Install: `dotnet add package Plugin.Maui.LocalStore`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.LocalStore
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.LocalStore
@@ -1328,10 +1328,14 @@ builder.UseMauiApp<App>().UseMauiLocalStore(o =>
     o.Backend = StoreBackend.Nuvexa;
     o.Path = Path.Combine(FileSystem.AppDataDirectory, "app.nvx");
     o.EncryptionKey = key;
+    o.AutoMigrate = true;
+    o.MigrateFrom = StoreBackend.Sqlite;
+    o.Map<Person>("users");
 });
 
 var users = LocalStore.Current.GetCollection<Person>("users");
 await users.FindAsync(StoreFilter.Gte("Age", 21), new StoreQuery { SortBy = "Name", Limit = 20 });
+var adults = await LocalStore.Current.QueryAsync<Person>("db.users.find({ age: { $gte: 21 } })");
 ```
 
 Alternatives: sqlite-net, `Nuventra.NuvexaDB` directly.

@@ -412,10 +412,10 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.LocalStore
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.LocalStore#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-local-store/
-- Version: 1.0.1
+- Version: 1.1.0
 - Install: `dotnet add package Plugin.Maui.LocalStore`
 - Register: `UseMauiLocalStore`
-- Do not use for jobs (JobQueue) or sync (OfflineSync). Switching backends does not migrate data.
+- Do not use for jobs (JobQueue) or sync (OfflineSync). AutoMigrate + Map<T> copies collections when switching engines. QueryAsync is SQL or NQL. [StoreDao] is source-generated.
 
 ### Plugin.Maui.FormValidation
 - Problem: mobile-first fluent form validation and Validation.For bindings
