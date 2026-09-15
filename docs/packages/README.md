@@ -59,7 +59,7 @@ Requirement → package matching for MauiEssentials.
 | Uno Platform MVVM application shell (ViewModels, Frame navigation, ContentDialog; Uno.Sdk). Independent of Plugin.Maui.MVVMExpress and Plugin.WinUI.MVVMExpress. Scaffold with `dotnet new uno-mvvmexpress` | Plugin.Uno.MVVMExpress | https://www.nuget.org/packages/Plugin.Uno.MVVMExpress.Core | https://github.com/nuvyntralabs/Plugin.Uno.MVVMExpress |
 | Diagnose MAUI SDK, workloads, project configuration, permissions, platform layout, resources, or pack metadata (`maui-dev doctor` / `permissions` / `platform` / `--ci`). Not an app PackageReference. | Plugin.Maui.MauiDev.Cli | https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli | https://github.com/nuvyntralabs/MauiDev |
 | Embedded document file (`.nvx`), AES-256-GCM, Avalonia Explorer. Hub module; not a `Plugin.Maui.*` package. JobQueue / OfflineSync stay SQLite. | Nuventra.NuvexaDB | https://www.nuget.org/packages/Nuventra.NuvexaDB | https://github.com/nuvyntralabs/NuvexaDB |
-| Lumina MAUI UI kit (`NV*` controls and page recipes, basics → advanced). Hub module; not a `Plugin.Maui.*` package. 1.0.0 full catalog; pipeline-only publish. | NuvyntraLabs.UIKit | https://www.nuget.org/packages/NuvyntraLabs.UIKit | https://github.com/nuvyntralabs/NuvyntraLabs.UIKit |
+| Lumina MAUI UI kit (`NV*` controls and page recipes, basics → advanced). Hub module; not a `Plugin.Maui.*` package. 1.0.0 full catalog. | NuvyntraLabs.UIKit | https://www.nuget.org/packages/NuvyntraLabs.UIKit | https://github.com/nuvyntralabs/NuvyntraLabs.UIKit |
 
 Docs: `https://nuvyntralabs.github.io/packages/<slug>/` — slugs are listed in [llms.txt](../../llms.txt).
 

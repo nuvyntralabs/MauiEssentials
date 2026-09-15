@@ -17,7 +17,7 @@ llms.txt      LLM index
 AGENTS.md     coding-agent guide
 ```
 
-`MauiDev/` is a developer tool (`Plugin.Maui.MauiDev.Cli` / `maui-dev`), not a runtime plugin. nuget.org reserved the ID `MauiDev.Cli`. `Biometric/` ships `Plugin.Maui.BiometricPlus` because nuget.org reserved `Plugin.Maui.Biometric`. `NuvexaDB/` is a related-product hub module (`Nuventra.NuvexaDB`) — an embedded `.nvx` document database, not a `Plugin.Maui.*` package. JobQueue and OfflineSync remain the SQLite tools for durable jobs and sync.
+`MauiDev/` is a developer tool (`Plugin.Maui.MauiDev.Cli` / `maui-dev`), not a runtime plugin. nuget.org reserved the ID `MauiDev.Cli`. `Biometric/` ships `Plugin.Maui.BiometricPlus` because nuget.org reserved `Plugin.Maui.Biometric`. `NuvexaDB/` is a related-product hub module (`Nuventra.NuvexaDB`) — an embedded `.nvx` document database, not a `Plugin.Maui.*` package. `UIKit/` is a related-product hub module (`NuvyntraLabs.UIKit`) — Lumina MAUI controls and page recipes, not a `Plugin.Maui.*` package. JobQueue and OfflineSync remain the SQLite tools for durable jobs and sync.
 
 ## Design rules
 
@@ -65,6 +65,7 @@ AGENTS.md     coding-agent guide
 | Form validation / `Validation.For` | FormValidation | — |
 | Soft keyboard hide / show / dismiss / avoidance | KeyboardManager | FormValidation |
 | Screen orientation lock / per-page landscape | DeviceOrientationPlus | — |
+| Themed MAUI controls / page recipes | UIKit (`NuvyntraLabs.UIKit`) | FormValidation, KeyboardManager, MVVMExpress (host, not PackageReference) |
 
 ## Observability
 

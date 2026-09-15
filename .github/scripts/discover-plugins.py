@@ -31,6 +31,7 @@ WINDOWS_TFM_PLUGINS = {
     "TlsPin",
     "VideoPipeline",
     "LocalStore",
+    "UIKit",
 }
 
 

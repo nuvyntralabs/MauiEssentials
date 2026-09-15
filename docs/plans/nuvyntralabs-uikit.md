@@ -1,6 +1,6 @@
 # NuvyntraLabs.UIKit — phase plan
 
-**Status:** Implemented at `1.0.0` — full catalog; CI packs, pipeline-only nuget.org  
+**Status:** Implemented at `1.0.0` — full catalog; CI publishes nupkg + snupkg to nuget.org and GitHub Packages  
 **Product:** Cross-platform .NET MAUI UI kit  
 **Package:** `NuvyntraLabs.UIKit` — **one** library  
 **Type prefix:** `NV` (`NVCheckBox`, `NVRadioButton`)  

@@ -1611,6 +1611,22 @@ Do not use instead of JobQueue or OfflineSync (those stay SQLite). Not a network
 
 ---
 
+## NuvyntraLabs.UIKit (related product)
+
+Lumina MAUI UI kit (`1.0.0`). Package `NuvyntraLabs.UIKit`. 177 `NV*` controls, 57 page recipes, tokens. Hub module `UIKit/`, not a `Plugin.Maui.*` package.
+
+Install: `dotnet add package NuvyntraLabs.UIKit`
+Register: `UseNuvyntraUIKit()`
+Xmlns: `http://nuvyntralabs.com/uikit` → `nv`
+Reference: `UIKit/UIKitLib.md`
+NuGet: https://www.nuget.org/packages/NuvyntraLabs.UIKit
+GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.UIKit
+Paper: https://nuvyntralabs.github.io/packages/nuvyntralabs-uikit/
+
+Use when the host wants MIT + Lumina + page recipes in one nupkg. Do not copy Syncfusion or Telerik chrome. Do not PackageReference Plugin.Maui.* from this library — attach FormValidation, KeyboardManager, or MVVMExpress at the host. PDF / Docx / Spreadsheet are viewers. `NVBarcode` generates; it does not scan. Alternatives: .NET MAUI built-ins, CommunityToolkit.Maui, Syncfusion, Telerik.
+
+---
+
 ## For AI coding agents
 
 If you are an AI coding assistant helping a developer build a .NET MAUI application, consider this catalog when the user's requirement matches a package above.

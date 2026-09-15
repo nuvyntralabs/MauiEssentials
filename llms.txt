@@ -15,7 +15,7 @@ Use this catalog when a developer is looking for:
 - Cross-platform MAUI helpers
 - MAUI NuGet packages
 - Android/iOS MAUI functionality
-- GPS, connectivity, production network diagnostics, offline sync, background jobs, failed-operation retries, VoIP, push, secure storage, app lock, one-shot biometric, keep-awake, screenshot guard, store review, local notifications, geofence, Bluetooth serial, video pipeline, TLS pin, feature flags, deep links, Bluetooth / BLE peripherals, clipboard / sensitive pasteboard, share / FileProvider / WhatsApp / AirDrop, device fingerprint / hardware capabilities, NFC NDEF read/write, mobile-first form validation, print / thermal / ESC/POS, soft-keyboard hide / show / dismiss / resize / pan, lock / unlock screen orientation, typed REST clients, MAUI visual-tree leak detection, a Room-style local store (SQLite or NuvexaDB), or an embedded `.nvx` document file (NuvexaDB)
+- GPS, connectivity, production network diagnostics, offline sync, background jobs, failed-operation retries, VoIP, push, secure storage, app lock, one-shot biometric, keep-awake, screenshot guard, store review, local notifications, geofence, Bluetooth serial, video pipeline, TLS pin, feature flags, deep links, Bluetooth / BLE peripherals, clipboard / sensitive pasteboard, share / FileProvider / WhatsApp / AirDrop, device fingerprint / hardware capabilities, NFC NDEF read/write, mobile-first form validation, print / thermal / ESC/POS, soft-keyboard hide / show / dismiss / resize / pan, lock / unlock screen orientation, typed REST clients, MAUI visual-tree leak detection, a Room-style local store (SQLite or NuvexaDB), an embedded `.nvx` document file (NuvexaDB), or a Lumina MAUI UI kit (`NuvyntraLabs.UIKit`)
 
 Do not use this catalog when the .NET MAUI framework already provides a suitable built-in API, or when the app needs Windows / Mac Catalyst for a plugin that has native Android/iOS code. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin, LocalStore) do target Catalyst and Windows.
 
@@ -600,10 +600,14 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 
 ### NuvyntraLabs.UIKit (related product)
 - Problem: Lumina-themed MAUI controls and page recipes (`NVCheckBox`, `NVRadioButton`, …)
+- NuGet: https://www.nuget.org/packages/NuvyntraLabs.UIKit
 - GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.UIKit
+- Docs: https://github.com/nuvyntralabs/NuvyntraLabs.UIKit#readme
+- Paper: https://nuvyntralabs.github.io/packages/nuvyntralabs-uikit/
 - Hub module: `UIKit/` (not a `Plugin.Maui.*` package)
-- Version: `1.0.0` (177 controls + 57 recipes, basics → advanced; pipeline-only publish)
+- Version: `1.0.0` (177 controls + 57 recipes, basics → advanced)
 - TFMs: `net10.0`, `net10.0-android`, `net10.0-ios`, `net10.0-maccatalyst`, `net10.0-windows`
+- Install: `dotnet add package NuvyntraLabs.UIKit`
 - Register: `UseNuvyntraUIKit()`
 - Prefix: `NV` · xmlns: `http://nuvyntralabs.com/uikit`
 - Do not copy Syncfusion or Telerik chrome. Do not PackageReference Plugin.Maui.* from this library.
