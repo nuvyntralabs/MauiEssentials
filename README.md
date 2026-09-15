@@ -145,6 +145,8 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 
 [NuvexaDB](https://github.com/nuvyntralabs/NuvexaDB) (`Nuventra.NuvexaDB`) is a hub module: a standalone embedded document database for .NET and MAUI (one encrypted `.nvx` file, Avalonia Explorer, VS / VS Code editors). It is not a `Plugin.Maui.*` package. JobQueue and OfflineSync remain the SQLite-backed tools for durable jobs and sync.
 
+[NuvyntraLabs.UIKit](https://github.com/nuvyntralabs/NuvyntraLabs.UIKit) is a hub module: Lumina-themed MAUI controls and page recipes (`NVCheckBox`, `NVRadioButton`, …). It is not a `Plugin.Maui.*` package. nuget.org publish waits until every phase in [the plan](docs/plans/nuvyntralabs-uikit.md) is complete.
+
 ## Find a package by requirement
 
 | Developer requirement | Package |
@@ -168,6 +170,7 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 | HTTP GET cache, CacheFirst / SWR | Plugin.Maui.ApiCache |
 | Encrypted local files | Plugin.Maui.FileVault |
 | Embedded document file (`.nvx`) | [NuvexaDB](https://github.com/nuvyntralabs/NuvexaDB) (`Nuventra.NuvexaDB`) — hub module, not a `Plugin.Maui.*` package |
+| MAUI UI kit / themed controls / page recipes | [NuvyntraLabs.UIKit](https://github.com/nuvyntralabs/NuvyntraLabs.UIKit) (`NV*` types, Lumina) — hub module, not a `Plugin.Maui.*` package |
 | Camera-to-upload image pipeline | Plugin.Maui.MediaPipeline |
 | SIP / VoIP session model | Plugin.Maui.VoipCore |
 | Feature flags / remote config | Plugin.Maui.FeatureFlags |

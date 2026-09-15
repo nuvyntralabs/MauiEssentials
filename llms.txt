@@ -598,6 +598,16 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Register: `services.AddNuvexaDB(...)` or `NuvexaDatabase.Create` / `Open`
 - Do not use instead of JobQueue or OfflineSync (those stay SQLite). Not a network server.
 
+### NuvyntraLabs.UIKit (related product)
+- Problem: Lumina-themed MAUI controls and page recipes (`NVCheckBox`, `NVRadioButton`, …)
+- GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.UIKit
+- Hub module: `UIKit/` (not a `Plugin.Maui.*` package)
+- Version: `0.1.0` (nuget.org after all phases)
+- TFMs: `net10.0`, `net10.0-android`, `net10.0-ios`, `net10.0-maccatalyst`, `net10.0-windows`
+- Register: `UseNuvyntraUIKit()`
+- Prefix: `NV` · xmlns: `http://nuvyntralabs.com/uikit`
+- Do not copy Syncfusion or Telerik chrome. Do not PackageReference Plugin.Maui.* from this library.
+
 ## Installation
 
 dotnet add package <PACKAGE_NAME>

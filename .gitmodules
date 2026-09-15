@@ -163,3 +163,6 @@
 [submodule "LocalStore"]
 	path = LocalStore
 	url = https://github.com/nuvyntralabs/Plugin.Maui.LocalStore.git
+[submodule "UIKit"]
+	path = UIKit
+	url = https://github.com/nuvyntralabs/NuvyntraLabs.UIKit.git
