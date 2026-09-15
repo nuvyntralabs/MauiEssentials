@@ -1,6 +1,6 @@
 # NuvyntraLabs.UIKit — unique component catalog
 
-**Status:** Planning  
+**Status:** Implemented at `1.0.0`  
 **Product:** NuvyntraLabs.UIKit  
 **Package:** `NuvyntraLabs.UIKit` (single library)  
 **Type prefix:** `NV` (`NVCheckBox`, `NVRadioButton`)  
@@ -51,8 +51,10 @@ Vendor catalogs overlap heavily. This kit ships **one** type per problem.
 
 ## 2. Unique controls
 
-**Total unique controls: 96** (plus 2 helper types: `NVRadioGroup`, `NVFormField`)  
-**Total unique page recipes: 49**
+**Total unique controls: 177** (plus 2 helper types: `NVRadioGroup`, `NVFormField`)  
+**Total unique page recipes: 57**
+
+Vendor-shaped 1.0 (96) plus the everyday mobile surface (basics → advanced) so one kit can compose a typical app.
 
 ### 2.1 Foundation (8)
 
@@ -209,6 +211,23 @@ Vendor catalogs overlap heavily. This kit ships **one** type per problem.
 | NV-MED-08 | `NVDocxViewer` | Phase 6 — view / light edit |
 | NV-MED-09 | `NVSpreadsheet` | Phase 6 — grid of cells, not an Excel engine |
 | NV-MED-10 | `NVPromptInput` | Text area + send / stop / attach slots |
+
+### 2.11 Basics → advanced (complete mobile surface)
+
+These close the gap between a control catalog and “design any mobile app.”
+
+| Band | Types |
+| --- | --- |
+| Type and chrome | `NVHeading`, `NVBodyText`, `NVCaptionText`, `NVImage`, `NVSafeArea`, `NVSectionHeader`, `NVFormSection`, `NVAppScaffold`, `NVFloatingActionButton`, `NVDotIndicator` |
+| Rows | `NVListTile`, `NVSettingsTile`, `NVChipGroup`, `NVCheckList`, `NVGroupedList`, `NVIndexBar`, `NVSwipeTile`, `NVSelectionBar`, `NVSkeletonList`, `NVInfiniteFooter` |
+| Overlays | `NVDialog`, `NVActionSheet`, `NVMenu` |
+| Fields | `NVEmailField`, `NVPhoneField`, `NVPasswordField`, `NVPasswordStrength`, `NVQuantityStepper`, `NVDateRangePicker`, `NVMonthYearPicker`, `NVFilterBar`, `NVTagInput`, `NVPinPad`, `NVCopyable`, `NVLink`, `NVCountryPicker`, `NVLanguagePicker`, `NVThemePicker` |
+| Patterns | `NVCurrencyLabel`, `NVCountdown`, `NVQuote`, `NVCodeBlock`, `NVBulletList`, `NVStatCard`, `NVTimeline`, `NVWizard`, `NVStickyBar`, `NVCartBar`, `NVPriceTag`, `NVVariantPicker`, `NVCouponField`, `NVTicket`, `NVTimeSlotPicker`, `NVSeatPicker` |
+| Social | `NVProfileHeader`, `NVFeedCard`, `NVComposer`, `NVBubble`, `NVTypingIndicator`, `NVStoryRing`, `NVReactionBar`, `NVNotificationRow`, `NVContactTile` |
+| Media+ | `NVImageGallery`, `NVLightbox`, `NVVideoPlayer`, `NVAudioPlayer`, `NVWebView`, `NVVoiceNote`, `NVWaveform`, `NVBeforeAfter` |
+| Advanced | `NVMasterDetail`, `NVRetryView`, `NVOfflineBanner`, `NVPermissionCard`, `NVForceUpdate`, `NVLockPad`, `NVBiometricGate`, `NVDashboardGrid`, `NVGantt`, `NVOrgChart` |
+
+Extra recipes: `NVPinLockView`, `NVForceUpdateView`, `NVSearchResultsView`, `NVFilterSheetView`, `NVMediaPlayerView`, `NVSplitInboxView`, `NVOnboardingPermissionsView`, `NVOrderSummaryView`.
 
 ---
 

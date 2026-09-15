@@ -1,6 +1,6 @@
 # NuvyntraLabs.UIKit — phase plan
 
-**Status:** Phase 0 in progress — repo + submodule; nuget.org after all phases  
+**Status:** Implemented at `1.0.0` — full catalog; CI packs, pipeline-only nuget.org  
 **Product:** Cross-platform .NET MAUI UI kit  
 **Package:** `NuvyntraLabs.UIKit` — **one** library  
 **Type prefix:** `NV` (`NVCheckBox`, `NVRadioButton`)  
@@ -21,7 +21,7 @@ Locked decisions (15 September 2026):
 | 1.0 scope | Full catalog (96 controls + 49 recipes). Nothing deferred out of 1.0. |
 | Sample | Plain MAUI Shell + `NVNavigationView` (no MVVMExpress PackageReference) |
 | Fonts / icons | OFL defaults (Outfit + Lucide-style stroke icons) shipped in the nupkg |
-| Release | nuget.org only after every phase is complete. Dev version is `0.1.0`. CI tests and packs; it does not publish. |
+| Release | `1.0.0` catalog is complete. CI tests and packs. nuget.org stays pipeline-owned (no local push). |
 
 Publishing stays pipeline-only. Never `dotnet nuget push` from this workspace.
 

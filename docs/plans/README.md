@@ -6,7 +6,7 @@
 | MauiDev next (1.1 / 1.2 commands) | [maudev-next.md](maudev-next.md) | Implemented at `1.2.0` |
 | Next-wave runtime plugins (9 packages; no barcode) | [next-wave-plugins.md](next-wave-plugins.md) | Implemented in hub (pre-publish) |
 | NuvexaDB embedded `.nvx` document database | Hub module `NuvexaDB/` (`Nuventra.NuvexaDB`) | Implemented at `1.0.0` (related product; not `Plugin.Maui.*`) |
-| NuvyntraLabs.UIKit (MAUI controls + page recipes, `NV*` types) | [nuvyntralabs-uikit.md](nuvyntralabs-uikit.md) · [components](nuvyntralabs-uikit-components.md) | Phase 0 — repo + submodule; publish after all phases |
+| NuvyntraLabs.UIKit (MAUI controls + page recipes, `NV*` types) | [nuvyntralabs-uikit.md](nuvyntralabs-uikit.md) · [components](nuvyntralabs-uikit-components.md) | Implemented at `1.0.0` (related product; not `Plugin.Maui.*`; pipeline-only publish) |
 
 ## MVVMExpress platform family plans
 
