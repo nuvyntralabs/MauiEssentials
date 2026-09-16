@@ -6,7 +6,8 @@
 | MauiDev next (1.1 / 1.2 commands) | [maudev-next.md](maudev-next.md) | Implemented at `1.2.0` |
 | Next-wave runtime plugins (9 packages; no barcode) | [next-wave-plugins.md](next-wave-plugins.md) | Implemented in hub (pre-publish) |
 | NuvexaDB embedded `.nvx` document database | Hub module `NuvexaDB/` (`Nuventra.NuvexaDB`) | Implemented at `1.0.0` (related product; not `Plugin.Maui.*`) |
-| NuvyntraLabs.UIKit (MAUI controls + page recipes, `NV*` types) | [nuvyntralabs-uikit.md](nuvyntralabs-uikit.md) · [components](nuvyntralabs-uikit-components.md) | Implemented at `1.0.0` (related product; not `Plugin.Maui.*`; CI publishes nuget.org + GitHub Packages) |
+| NuvyntraLabs.UIKit (MAUI controls + page recipes, `NV*` types) | [nuvyntralabs-uikit.md](nuvyntralabs-uikit.md) · [components](nuvyntralabs-uikit-components.md) | Implemented at `1.4.0` (201 controls + 66 recipes; 1.1 deepen shipped; related product; not `Plugin.Maui.*`; CI publishes nuget.org + GitHub Packages) |
+| NuvyntraLabs.UIKit next (1.1 deepen + 1.2 / 1.3 names) | [nuvyntralabs-uikit-next.md](nuvyntralabs-uikit-next.md) | 1.2 / 1.3 catalog + 1.4 deepen shipped |
 
 ## MVVMExpress platform family plans
 

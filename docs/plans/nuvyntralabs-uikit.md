@@ -6,6 +6,7 @@
 **Type prefix:** `NV` (`NVCheckBox`, `NVRadioButton`)  
 **Hub submodule folder:** `UIKit/`  
 **Catalog of types:** [nuvyntralabs-uikit-components.md](nuvyntralabs-uikit-components.md)  
+**Next catalog (1.1+):** [nuvyntralabs-uikit-next.md](nuvyntralabs-uikit-next.md)  
 **Visual language:** **Lumina** (original; vendor sites are capability references only)
 
 References used for *what exists*, not *how it looks*:

@@ -145,7 +145,7 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 
 [NuvexaDB](https://github.com/nuvyntralabs/NuvexaDB) (`Nuventra.NuvexaDB`) is a hub module: a standalone embedded document database for .NET and MAUI (one encrypted `.nvx` file, Avalonia Explorer, VS / VS Code editors). It is not a `Plugin.Maui.*` package. JobQueue and OfflineSync remain the SQLite-backed tools for durable jobs and sync.
 
-[NuvyntraLabs.UIKit](https://github.com/nuvyntralabs/NuvyntraLabs.UIKit) (`NuvyntraLabs.UIKit`) is a hub module: Lumina-themed MAUI controls and page recipes (`NVCheckBox`, `NVRadioButton`, …). It is not a `Plugin.Maui.*` package. Version `1.0.0` is the full catalog. [NuGet](https://www.nuget.org/packages/NuvyntraLabs.UIKit) · [Docs](https://nuvyntralabs.github.io/packages/nuvyntralabs-uikit/). Publishing stays pipeline-only.
+[NuvyntraLabs.UIKit](https://github.com/nuvyntralabs/NuvyntraLabs.UIKit) (`NuvyntraLabs.UIKit`) is a hub module: Lumina-themed MAUI controls and page recipes (`NVCheckBox`, `NVRadioButton`, …). It is not a `Plugin.Maui.*` package. Version `1.4.0` is 201 controls + 66 recipes (1.0 types deepened). [NuGet](https://www.nuget.org/packages/NuvyntraLabs.UIKit) · [Docs](https://nuvyntralabs.github.io/packages/nuvyntralabs-uikit/). Publishing stays pipeline-only.
 
 ## Find a package by requirement
 

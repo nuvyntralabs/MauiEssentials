@@ -1,6 +1,6 @@
 # NuvyntraLabs.UIKit — unique component catalog
 
-**Status:** Implemented at `1.0.0`  
+**Status:** Implemented at `1.4.0` (201 controls + 66 recipes; 1.1 deepen shipped)  
 **Product:** NuvyntraLabs.UIKit  
 **Package:** `NuvyntraLabs.UIKit` (single library)  
 **Type prefix:** `NV` (`NVCheckBox`, `NVRadioButton`)  
@@ -16,7 +16,7 @@ Capability references only:
 - [Telerik UI for .NET MAUI](https://www.telerik.com/maui-ui#all-components) — control surface
 - [Syncfusion .NET MAUI Controls](https://www.syncfusion.com/maui-controls) and [Syncfusion Toolkit](https://github.com/syncfusion/maui-toolkit) — control surface
 
-Implementation order, reuse layers, tests, and the sample gallery live in [nuvyntralabs-uikit.md](nuvyntralabs-uikit.md).
+Implementation order, reuse layers, tests, and the sample gallery live in [nuvyntralabs-uikit.md](nuvyntralabs-uikit.md). Post-1.0 names and the 1.4 deepen notes live in [nuvyntralabs-uikit-next.md](nuvyntralabs-uikit-next.md).
 
 ---
 
@@ -51,8 +51,8 @@ Vendor catalogs overlap heavily. This kit ships **one** type per problem.
 
 ## 2. Unique controls
 
-**Total unique controls: 177** (plus 2 helper types: `NVRadioGroup`, `NVFormField`)  
-**Total unique page recipes: 57**
+**Total unique controls: 201** (plus 2 helper types: `NVRadioGroup`, `NVFormField`)  
+**Total unique page recipes: 66**
 
 Vendor-shaped 1.0 (96) plus the everyday mobile surface (basics → advanced) so one kit can compose a typical app.
 
@@ -229,6 +229,40 @@ These close the gap between a control catalog and “design any mobile app.”
 
 Extra recipes: `NVPinLockView`, `NVForceUpdateView`, `NVSearchResultsView`, `NVFilterSheetView`, `NVMediaPlayerView`, `NVSplitInboxView`, `NVOnboardingPermissionsView`, `NVOrderSummaryView`.
 
+### 2.12 App chrome and heat calendar (1.2)
+
+| ID | Type | Role |
+| --- | --- | --- |
+| NV-APP-01 | `NVCommandPalette` | ⌘K / spotlight; filter commands + recent |
+| NV-APP-02 | `NVCoachMark` | Spotlight hole + title/body/next on a real control |
+| NV-APP-03 | `NVContextMenu` | Long-press / right-click items (`NVMenu` stays a drop-down **button**) |
+| NV-APP-05 | `NVFileDrop` | Drop well + attach chips; host supplies pick/bytes |
+| NV-APP-06 | `NVWhatsNew` | Version title + bullet list + dismiss |
+| NV-APP-07 | `NVConsentBanner` | Privacy copy + accept / manage actions |
+| NV-APP-08 | `NVPaywall` | Blocking / sheet gate; slots for plan tiles |
+| NV-VIZ-08 | `NVHeatCalendar` | Contribution / habit day cells |
+| NV-APP-04 | `NVSpeedDial` | FAB that fans out 2–5 actions |
+| NV-APP-09 | `NVSubscriptionCard` | One plan: name, price, feature bullets, CTA |
+| NV-APP-10 | `NVEmojiPicker` | Searchable glyph grid |
+
+### 2.13 Data, media, and host chrome (1.3)
+
+| ID | Type | Role |
+| --- | --- | --- |
+| NV-DAT-08 | `NVPivotGrid` | Rows × columns aggregation |
+| NV-DAT-09 | `NVPropertyGrid` | Inspect key/value with `NV*` editors |
+| NV-DAT-10 | `NVJsonTree` | Expandable JSON |
+| NV-MED-11 | `NVDiffView` | Unified / side-by-side text |
+| NV-MED-12 | `NVCodeEditor` | Editable code |
+| NV-HST-01 | `NVCallBar` | Compact in-call overlay |
+| NV-HST-02 | `NVInCallView` | Full in-call chrome |
+| NV-HST-03 | `NVSyncConflictCard` | Local vs remote |
+| NV-HST-04 | `NVUploadTile` | File name, bytes, retry |
+| NV-HST-05 | `NVDeviceSheet` | Nearby device list |
+| NV-HST-06 | `NVPrintPreview` | Page image slot |
+| NV-HST-07 | `NVNfcPrompt` | Hold-near artwork |
+| NV-HST-08 | `NVReviewPrompt` | Stars + not now / review |
+
 ---
 
 ## 3. Unique page recipes (compositions)
@@ -313,6 +347,20 @@ Each recipe is a `ContentView`. Tile vs list vs card is `LayoutMode`, not a new 
 | NV-PG-47 | `NVAddressBookView` |
 | NV-PG-48 | `NVBookingView` |
 | NV-PG-49 | `NVDashboardView` | One layout; sample ships seven data presets |
+
+### 3.7 Next (1.2)
+
+| ID | Type | Built from |
+| --- | --- | --- |
+| NV-PG-50 | `NVInvoiceView` | `NVCollectionView`, `NVCurrencyLabel`, `NVStickyBar` |
+| NV-PG-51 | `NVReceiptView` | `NVTicket`, `NVCurrencyLabel`, `NVBarcode` |
+| NV-PG-52 | `NVCompareView` | two `NVCard` columns + `NVCheckList` |
+| NV-PG-53 | `NVStoreLocatorView` | `NVCollectionView` + `NVMap` slot |
+| NV-PG-54 | `NVSubscriptionView` | `NVPaywall` |
+| NV-PG-55 | `NVWhatsNewView` | `NVWhatsNew` |
+| NV-PG-56 | `NVConflictResolveView` | `NVSyncConflictCard` |
+| NV-PG-57 | `NVCallView` | `NVInCallView` |
+| NV-PG-58 | `NVAddressFormView` | `NVDataForm`, `NVCountryPicker`, `NVPhoneField` |
 
 ---
 
