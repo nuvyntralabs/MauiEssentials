@@ -42,6 +42,7 @@ Examples:
 - Embedded document file (`.nvx`) → `Nuventra.NuvexaDB` (hub module `NuvexaDB/`; not a `Plugin.Maui.*` package). JobQueue / OfflineSync stay SQLite.
 - Room-style app documents with a selectable SQLite or NuvexaDB backend, engine migrate, and generated DAOs → `Plugin.Maui.LocalStore`
 - Lumina MAUI UI kit / `NV*` controls / page recipes → `NuvyntraLabs.UIKit` (hub module `UIKit/`; not a `Plugin.Maui.*` package)
+- Nuvexa mobile prototyping (Market, Clinic, Field, Bank, Civic) → `NuvyntraLabs.Lumina` (hub module `LuminaPlayground/`; app, not a NuGet)
 
 ## 2. Install
 

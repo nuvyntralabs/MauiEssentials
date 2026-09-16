@@ -147,6 +147,8 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 
 [NuvyntraLabs.UIKit](https://github.com/nuvyntralabs/NuvyntraLabs.UIKit) (`NuvyntraLabs.UIKit`) is a hub module: Lumina-themed MAUI controls and page recipes (`NVCheckBox`, `NVRadioButton`, …). It is not a `Plugin.Maui.*` package. Version `1.4.0` is 201 controls + 66 recipes (1.0 types deepened). [NuGet](https://www.nuget.org/packages/NuvyntraLabs.UIKit) · [Docs](https://nuvyntralabs.github.io/packages/nuvyntralabs-uikit/). Publishing stays pipeline-only.
 
+[NuvyntraLabs.Lumina](LuminaPlayground/) is a hub module (`LuminaPlayground/`): the Nuvexa mobile prototyping playground — five standalone MAUI apps (Market, Clinic, Field, Bank, Civic), 130 screens, static NuvexaDB seed, MVVMExpress + UIKit + HttpForge. It is an app, not a NuGet package.
+
 ## Find a package by requirement
 
 | Developer requirement | Package |

@@ -166,3 +166,6 @@
 [submodule "UIKit"]
 	path = UIKit
 	url = https://github.com/nuvyntralabs/NuvyntraLabs.UIKit.git
+[submodule "LuminaPlayground"]
+	path = LuminaPlayground
+	url = https://github.com/nuvyntralabs/NuvyntraLabs.Lumina.git
