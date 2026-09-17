@@ -130,6 +130,7 @@ These are not app PackageReferences. Install the CLI with `dotnet tool install`.
 | Tool | Purpose | Install |
 | --- | --- | --- |
 | [MauiDev](https://github.com/nuvyntralabs/MauiDev) (`maui-dev`) | Diagnose MAUI SDK, workloads, project configuration, permissions, platform layout, resources, and pack metadata. VS Code / Cursor extension: `nuvyntralabs.maui-dev`. | `dotnet tool install -g Plugin.Maui.MauiDev.Cli` · [NuGet](https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli) |
+| [Nuvyn](Nuvyn/) (`nuvyn`) | Spec-driven CLI for a **new** Nuvyntra MAUI app: `nuvyn init ClinicApp`, pick an AI agent, then `/nuvyn.specify` → `/nuvyn.plan` → `/nuvyn.implement`. | `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli` |
 
 `Plugin.Maui.MVVMExpress` is stable (`1.3.0`). Docs: [MVVMExpress](https://nuvyntralabs.github.io/packages/plugin-maui-mvvmexpress/). Scaffold: `dotnet new install Plugin.Maui.MVVMExpress.Templates` then `dotnet new mvvmexpress`. VS Code and Visual Studio extensions: [VS Code Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance) · [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance).
 
@@ -145,9 +146,11 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 
 [NuvexaDB](https://github.com/nuvyntralabs/NuvexaDB) (`Nuventra.NuvexaDB`) is a hub module: a standalone embedded document database for .NET and MAUI (one encrypted `.nvx` file, Avalonia Explorer, VS / VS Code editors). It is not a `Plugin.Maui.*` package. JobQueue and OfflineSync remain the SQLite-backed tools for durable jobs and sync.
 
-[NuvyntraLabs.UIKit](https://github.com/nuvyntralabs/NuvyntraLabs.UIKit) (`NuvyntraLabs.UIKit`) is a hub module: Lumina-themed MAUI controls and page recipes (`NVCheckBox`, `NVRadioButton`, …). It is not a `Plugin.Maui.*` package. Version `1.4.0` is 201 controls + 66 recipes (1.0 types deepened). [NuGet](https://www.nuget.org/packages/NuvyntraLabs.UIKit) · [Docs](https://nuvyntralabs.github.io/packages/nuvyntralabs-uikit/). Publishing stays pipeline-only.
+[NuvyntraLabs.UIKit](https://github.com/nuvyntralabs/NuvyntraLabs.UIKit) (`NuvyntraLabs.UIKit`) is a hub module: Lumina-themed MAUI controls and page recipes (`NVCheckBox`, `NVRadioButton`, …). It is not a `Plugin.Maui.*` package. Version `1.5.0` is 201 controls + 66 recipes (`NVInputField` replaces `NVEmailField`). [NuGet](https://www.nuget.org/packages/NuvyntraLabs.UIKit) · [Docs](https://nuvyntralabs.github.io/packages/nuvyntralabs-uikit/). Publishing stays pipeline-only.
 
 [NuvyntraLabs.Lumina](LuminaPlayground/) is a hub module (`LuminaPlayground/`): the Nuvexa mobile prototyping playground — five standalone MAUI apps (Market, Clinic, Field, Bank, Civic), 130 screens, static NuvexaDB seed, MVVMExpress + UIKit + HttpForge. It is an app, not a NuGet package.
+
+**Nuvyn** (`NuvyntraLabs.Nuvyn.Cli`): spec-driven CLI for new MAUI apps on this stack. `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli` then `nuvyn init ClinicApp` (picks an AI agent). Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.analysis` → `/nuvyn.task` → `/nuvyn.implement`. See [Nuvyn/README.md](Nuvyn/README.md) and the [user guide](Nuvyn/USER-GUIDE.md).
 
 ## Find a package by requirement
 

@@ -587,6 +587,17 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Commands: `doctor`, `analyze`, `resources`, `permissions`, `platform`, `signing`, `workload`, `version`, `dependencies`, `icons`, `publish`, `migrate`, `telemetry`, `benchmark`, `clean`, `package`
 - Do not `dotnet add package Plugin.Maui.MauiDev.Cli` into an app. Do not use instead of LeakAnalyser, maui-perf, AppHealth, or Diagnostics.
 
+### Nuvyn
+- Problem: spec-driven CLI for a **new** MAUI app on the Nuvyntra stack (MVVMExpress, Lumina UIKit, catalog plugins)
+- NuGet: https://www.nuget.org/packages/NuvyntraLabs.Nuvyn.Cli
+- GitHub: https://github.com/nuvyntralabs/Nuvyn
+- Docs: https://nuvyntralabs.github.io/toolkits/nuvyn/
+- Version: `0.1.0`
+- TFMs: `net10.0` (dotnet tool)
+- Install: `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli` then `nuvyn init ClinicApp --agent cursor`
+- Commands: `init`, `version`, `check`. Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.analysis` → `/nuvyn.task` → `/nuvyn.implement`
+- Do not `dotnet add package NuvyntraLabs.Nuvyn.Cli` into an app. Do not overlay an existing project (no `--here` / `--force`). Do not use instead of MauiDev or a generic-stack spec CLI.
+
 ### NuvexaDB (related product)
 - Problem: embedded document file (`.nvx`) for .NET / MAUI
 - NuGet: https://www.nuget.org/packages/Nuventra.NuvexaDB
@@ -605,7 +616,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Docs: https://github.com/nuvyntralabs/NuvyntraLabs.UIKit#readme
 - Paper: https://nuvyntralabs.github.io/packages/nuvyntralabs-uikit/
 - Hub module: `UIKit/` (not a `Plugin.Maui.*` package)
-- Version: `1.4.0` (201 controls + 66 recipes, basics → advanced + 1.2 / 1.3 chrome; 1.1 deepen)
+- Version: `1.5.0` (201 controls + 66 recipes, basics → advanced + 1.2 / 1.3 chrome; `NVInputField` replaces `NVEmailField`)
 - TFMs: `net10.0`, `net10.0-android`, `net10.0-ios`, `net10.0-maccatalyst`, `net10.0-windows`
 - Install: `dotnet add package NuvyntraLabs.UIKit`
 - Register: `UseNuvyntraUIKit()`

@@ -1,6 +1,6 @@
 # NuvyntraLabs.UIKit — next catalog (1.1+)
 
-**Status:** 1.2.0 and 1.3.0 catalog names shipped (24 controls + 9 recipes). 1.1 deepen shipped as **1.4.0**.  
+**Status:** 1.2.0 and 1.3.0 catalog names shipped (24 controls + 9 recipes). 1.1 deepen shipped as **1.4.0**. `NVEmailField` renamed to `NVInputField` in **1.5.0**.  
 **Product:** NuvyntraLabs.UIKit  
 **Package:** `NuvyntraLabs.UIKit` (still **one** library; no `NuvyntraLabs.UIKit.Next` split)  
 **Type prefix:** `NV`  
@@ -84,6 +84,7 @@ Also continue Phase 7 from the 1.0 plan: RTL, contrast, font scale 80–200%, Wi
 | **1.1.0** → **1.4.0** | Deepen 1.0 (no new catalog names) | §4 types — **shipped** (Phase 7 RTL / contrast continues) |
 | **1.2.0** | Unique everyday chrome | 8 controls + 6 recipes (priority cut) — **shipped** |
 | **1.3.0** | Data / viz + remaining chrome | remaining 16 controls + remaining 3 recipes — **shipped** |
+| **1.5.0** | Rename confusing field | `NVEmailField` → `NVInputField` — **shipped** |
 
 Bump `Version` / `PackageVersion` in the UIKit project. Update hub counts in `UIKit/README.md`, `UIKit/UIKitLib.md`, `NVCatalog`, and [nuvyntralabs-uikit-components.md](nuvyntralabs-uikit-components.md) in the same release.
 
@@ -284,6 +285,7 @@ Work in the `UIKit/` submodule. One gallery page + tests per PR.
 | Release | Done when |
 | --- | --- |
 | 1.1.0 → 1.4.0 | Gallery proves list / grid / chart rows in §4; no new `NVCatalog` names — **done** |
+| 1.5.0 | `NVInputField` is the catalog name; no remaining `NVEmailField` type — **done** |
 | 1.2.0 | All NV-APP 1.2 IDs + NV-VIZ-08 + NV-PG-50…55 construct from the sample; `UIKitLib.md` lists new bindables |
 | 1.3.0 | All 24 + 9 IDs are in `NVCatalog`; README counts match; host types compile without `Plugin.Maui.*` — **done** |
 

@@ -1,6 +1,6 @@
 # NuvyntraLabs.UIKit — unique component catalog
 
-**Status:** Implemented at `1.4.0` (201 controls + 66 recipes; 1.1 deepen shipped)  
+**Status:** Implemented at `1.5.0` (201 controls + 66 recipes; `NVEmailField` renamed to `NVInputField`)  
 **Product:** NuvyntraLabs.UIKit  
 **Package:** `NuvyntraLabs.UIKit` (single library)  
 **Type prefix:** `NV` (`NVCheckBox`, `NVRadioButton`)  
@@ -221,7 +221,7 @@ These close the gap between a control catalog and “design any mobile app.”
 | Type and chrome | `NVHeading`, `NVBodyText`, `NVCaptionText`, `NVImage`, `NVSafeArea`, `NVSectionHeader`, `NVFormSection`, `NVAppScaffold`, `NVFloatingActionButton`, `NVDotIndicator` |
 | Rows | `NVListTile`, `NVSettingsTile`, `NVChipGroup`, `NVCheckList`, `NVGroupedList`, `NVIndexBar`, `NVSwipeTile`, `NVSelectionBar`, `NVSkeletonList`, `NVInfiniteFooter` |
 | Overlays | `NVDialog`, `NVActionSheet`, `NVMenu` |
-| Fields | `NVEmailField`, `NVPhoneField`, `NVPasswordField`, `NVPasswordStrength`, `NVQuantityStepper`, `NVDateRangePicker`, `NVMonthYearPicker`, `NVFilterBar`, `NVTagInput`, `NVPinPad`, `NVCopyable`, `NVLink`, `NVCountryPicker`, `NVLanguagePicker`, `NVThemePicker` |
+| Fields | `NVInputField`, `NVPhoneField`, `NVPasswordField`, `NVPasswordStrength`, `NVQuantityStepper`, `NVDateRangePicker`, `NVMonthYearPicker`, `NVFilterBar`, `NVTagInput`, `NVPinPad`, `NVCopyable`, `NVLink`, `NVCountryPicker`, `NVLanguagePicker`, `NVThemePicker` |
 | Patterns | `NVCurrencyLabel`, `NVCountdown`, `NVQuote`, `NVCodeBlock`, `NVBulletList`, `NVStatCard`, `NVTimeline`, `NVWizard`, `NVStickyBar`, `NVCartBar`, `NVPriceTag`, `NVVariantPicker`, `NVCouponField`, `NVTicket`, `NVTimeSlotPicker`, `NVSeatPicker` |
 | Social | `NVProfileHeader`, `NVFeedCard`, `NVComposer`, `NVBubble`, `NVTypingIndicator`, `NVStoryRing`, `NVReactionBar`, `NVNotificationRow`, `NVContactTile` |
 | Media+ | `NVImageGallery`, `NVLightbox`, `NVVideoPlayer`, `NVAudioPlayer`, `NVWebView`, `NVVoiceNote`, `NVWaveform`, `NVBeforeAfter` |
