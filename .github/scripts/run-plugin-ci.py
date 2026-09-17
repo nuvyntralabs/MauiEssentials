@@ -55,22 +55,43 @@ def is_dotnet_tool(csproj: Path) -> bool:
     return any(value.lower() == "true" for value in raw["PackAsTool"])
 
 
-def package_id(csproj: Path) -> str:
-    raw = parse_csproj_values(csproj, {"PackageId", "AssemblyName"})
-    if raw["PackageId"]:
-        return raw["PackageId"][0]
-    if raw["AssemblyName"]:
-        return raw["AssemblyName"][0]
-    return csproj.stem
+def directory_build_props(plugin_root: Path, csproj: Path) -> list[Path]:
+    props: list[Path] = []
+    current = csproj.parent.resolve()
+    root = plugin_root.resolve()
+    seen: set[Path] = set()
+    while True:
+        candidate = current / "Directory.Build.props"
+        if candidate.is_file() and candidate not in seen:
+            props.append(candidate)
+            seen.add(candidate)
+        if current == root or current.parent == current:
+            break
+        current = current.parent
+    props.reverse()
+    return props
 
 
-def package_version(csproj: Path) -> str:
-    raw = parse_csproj_values(csproj, {"PackageVersion", "Version"})
-    if raw["PackageVersion"]:
-        return raw["PackageVersion"][0]
-    if raw["Version"]:
-        return raw["Version"][0]
-    return ""
+def inherited_properties(plugin_root: Path, csproj: Path, names: set[str]) -> dict[str, str]:
+    merged: dict[str, str] = {}
+    for path in directory_build_props(plugin_root, csproj) + [csproj]:
+        raw = parse_csproj_values(path, names)
+        for name in names:
+            if raw[name]:
+                merged[name] = raw[name][0]
+    return merged
+
+
+def package_id(csproj: Path, plugin_root: Path | None = None) -> str:
+    root = plugin_root or csproj.parent
+    merged = inherited_properties(root, csproj, {"PackageId", "AssemblyName"})
+    return merged.get("PackageId") or merged.get("AssemblyName") or csproj.stem
+
+
+def package_version(csproj: Path, plugin_root: Path | None = None) -> str:
+    root = plugin_root or csproj.parent
+    merged = inherited_properties(root, csproj, {"PackageVersion", "Version"})
+    return merged.get("PackageVersion") or merged.get("Version") or ""
 
 
 def nupkg_for(package: str, version: str, outputs: list[Path]) -> Path | None:
@@ -357,8 +378,11 @@ def main() -> int:
         for csproj in src_projects:
             if not is_packable(csproj):
                 continue
-            identity = package_id(csproj)
-            version = package_version(csproj)
+            identity = package_id(csproj, plugin_root)
+            version = package_version(csproj, plugin_root)
+            if not version:
+                print(f"::error::No Version or PackageVersion for {identity} ({csproj.name})")
+                return 1
             found = nupkg_for(identity, version, packages)
             if found is None:
                 print(f"::error::Missing nupkg for {identity} {version} ({csproj.name})")
