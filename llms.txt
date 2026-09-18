@@ -338,7 +338,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Install: `dotnet add package Plugin.Maui.KeepAwake`
 
 ### Plugin.Maui.ScreenGuard
-- Problem: block screenshots / recents leaks; iOS capture overlay (not a screenshot block)
+- Problem: iOS is a capture overlay, not a screenshot block; Android FLAG_SECURE
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.ScreenGuard
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard#readme
@@ -347,7 +347,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Install: `dotnet add package Plugin.Maui.ScreenGuard`
 
 ### Plugin.Maui.AppReview
-- Problem: in-app review eligibility + open the store listing
+- Problem: iOS in-app review + open listing; Android 1.0 opens the Play listing
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.AppReview
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.AppReview
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.AppReview#readme
@@ -367,7 +367,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Does not register FCM / APNs tokens (that is the host / Firebase)
 
 ### Plugin.Maui.Geofence
-- Problem: circular geofence enter / exit / dwell (max 20 regions)
+- Problem: circular geofence (max 20; Android 1.0 is in-memory + Raise())
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.Geofence
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Geofence
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.Geofence#readme
@@ -377,17 +377,17 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Do not use for on-demand GPS (that is Plugin.Maui.GeoLocator)
 
 ### Plugin.Maui.BluetoothSerial
-- Problem: classic Bluetooth SPP / RFCOMM serial (Android first-class; iOS MFi only)
+- Problem: classic Bluetooth SPP / RFCOMM serial (Android first-class; iOS MFi only; not BLE UART)
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.BluetoothSerial
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-bluetooth-serial/
 - Version: 1.0.2
 - Install: `dotnet add package Plugin.Maui.BluetoothSerial`
-- Do not use for BLE GATT (that is Plugin.Maui.BluetoothManager)
+- Do not use for BLE GATT or BLE UART (that is Plugin.Maui.BluetoothManager)
 
 ### Plugin.Maui.VideoPipeline
-- Problem: camera/gallery video → size/duration limits, thumbnail, encrypt
+- Problem: camera/gallery video pick, reject-if-over-budget, encrypt (no transcode in 1.0)
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.VideoPipeline
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline#readme
@@ -592,11 +592,11 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/NuvyntraLabs.Nuvyn.Cli
 - GitHub: https://github.com/nuvyntralabs/Nuvyn
 - Docs: https://nuvyntralabs.github.io/toolkits/nuvyn/
-- Version: `0.2.0`
+- Version: `1.0.0`
 - TFMs: `net10.0` (dotnet tool)
 - Install: `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` then `nuvyn init ClinicApp --agent cursor`
-- Commands: `init`, `version`, `check`. Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.analysis` → `/nuvyn.task` → `/nuvyn.implement`
-- Do not `dotnet add package NuvyntraLabs.Nuvyn.Cli` into an app. Do not overlay an existing project (no `--here` / `--force`). Do not use instead of MauiDev or a generic-stack spec CLI.
+- Commands: `init`, `update`, `version`, `check`. Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.checklist` → `/nuvyn.task` → `/nuvyn.analysis` → `/nuvyn.implement` → `/nuvyn.converge`
+- Do not `dotnet add package NuvyntraLabs.Nuvyn.Cli` into an app. Do not overlay an existing project (no `--here` / `--force`). Use `nuvyn update` to refresh skills only. Do not use instead of MauiDev or a generic-stack spec CLI. `--vertical` is not in 1.0.
 
 ### NuvexaDB (related product)
 - Problem: embedded document file (`.nvx`) for .NET / MAUI

@@ -104,12 +104,12 @@ git submodule update --init --recursive
 | [Plugin.Maui.AppLock](https://github.com/nuvyntralabs/Plugin.Maui.AppLock) | App lock after background: timer, Face ID / fingerprint / device PIN, `RequireAuthenticationAsync` | [NuGet](https://www.nuget.org/packages/Plugin.Maui.AppLock) |
 | [Plugin.Maui.BiometricPlus](https://github.com/nuvyntralabs/Plugin.Maui.Biometric) | One-shot Face ID / fingerprint / device PIN prompt | [NuGet](https://www.nuget.org/packages/Plugin.Maui.BiometricPlus) |
 | [Plugin.Maui.KeepAwake](https://github.com/nuvyntralabs/Plugin.Maui.KeepAwake) | Keep the screen on (reference-counted) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.KeepAwake) |
-| [Plugin.Maui.ScreenGuard](https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard) | Block screenshots / recents leaks; iOS capture overlay | [NuGet](https://www.nuget.org/packages/Plugin.Maui.ScreenGuard) |
-| [Plugin.Maui.AppReview](https://github.com/nuvyntralabs/Plugin.Maui.AppReview) | In-app review eligibility + open the store listing | [NuGet](https://www.nuget.org/packages/Plugin.Maui.AppReview) |
+| [Plugin.Maui.ScreenGuard](https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard) | iOS is a capture overlay, not a screenshot block; Android FLAG_SECURE | [NuGet](https://www.nuget.org/packages/Plugin.Maui.ScreenGuard) |
+| [Plugin.Maui.AppReview](https://github.com/nuvyntralabs/Plugin.Maui.AppReview) | iOS in-app review + open listing; Android 1.0 opens the Play listing | [NuGet](https://www.nuget.org/packages/Plugin.Maui.AppReview) |
 | [Plugin.Maui.LocalNotifications](https://github.com/nuvyntralabs/Plugin.Maui.LocalNotifications) | Schedule / cancel local notifications and tap routing | [NuGet](https://www.nuget.org/packages/Plugin.Maui.LocalNotifications) |
-| [Plugin.Maui.Geofence](https://github.com/nuvyntralabs/Plugin.Maui.Geofence) | Circular geofence enter / exit / dwell (max 20) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.Geofence) |
-| [Plugin.Maui.BluetoothSerial](https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial) | Classic SPP / RFCOMM serial (Android first-class; iOS MFi) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.BluetoothSerial) |
-| [Plugin.Maui.VideoPipeline](https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline) | Camera/gallery video → size/duration limits, thumbnail, encrypt (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.VideoPipeline) |
+| [Plugin.Maui.Geofence](https://github.com/nuvyntralabs/Plugin.Maui.Geofence) | Circular geofence (max 20; Android 1.0 is in-memory + `Raise()`) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.Geofence) |
+| [Plugin.Maui.BluetoothSerial](https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial) | Classic SPP / RFCOMM serial (Android first-class; iOS MFi; not BLE UART) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.BluetoothSerial) |
+| [Plugin.Maui.VideoPipeline](https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline) | Camera/gallery video pick, reject-if-over-budget, encrypt (no transcode in 1.0) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.VideoPipeline) |
 | [Plugin.Maui.TlsPin](https://github.com/nuvyntralabs/Plugin.Maui.TlsPin) | HttpClient SPKI / public-key pin, fail-closed (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.TlsPin) |
 | [Plugin.Maui.LocalStore](https://github.com/nuvyntralabs/Plugin.Maui.LocalStore) | Room-style app documents; host picks SQLite or NuvexaDB; AutoMigrate + generated DAOs (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.LocalStore) |
 | [Plugin.Maui.FormValidation](https://github.com/nuvyntralabs/Plugin.Maui.FormValidation) | Mobile-first fluent form validation and `Validation.For` bindings (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.FormValidation) |
@@ -146,11 +146,11 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 
 [NuvexaDB](https://github.com/nuvyntralabs/NuvexaDB) (`Nuventra.NuvexaDB`) is a hub module: a standalone embedded document database for .NET and MAUI (one encrypted `.nvx` file, Avalonia Explorer, VS / VS Code editors). It is not a `Plugin.Maui.*` package. JobQueue and OfflineSync remain the SQLite-backed tools for durable jobs and sync.
 
-[NuvyntraLabs.UIKit](https://github.com/nuvyntralabs/NuvyntraLabs.UIKit) (`NuvyntraLabs.UIKit`) is a hub module: Lumina-themed MAUI controls and page recipes (`NVCheckBox`, `NVRadioButton`, …). It is not a `Plugin.Maui.*` package. Version `1.5.0` is 201 controls + 66 recipes (`NVInputField` replaces `NVEmailField`). [NuGet](https://www.nuget.org/packages/NuvyntraLabs.UIKit) · [Docs](https://nuvyntralabs.github.io/packages/nuvyntralabs-uikit/). Publishing stays pipeline-only.
+[NuvyntraLabs.UIKit](https://github.com/nuvyntralabs/NuvyntraLabs.UIKit) (`NuvyntraLabs.UIKit`) is a hub module: Lumina-themed MAUI controls and page recipes (`NVCheckBox`, `NVRadioButton`, …). It is not a `Plugin.Maui.*` package. Version `1.5.1` is 201 controls + 66 recipes (`NVInputField` replaces `NVEmailField`) plus Phase 7 harden (type scale, RTL, contrast, overlay keys). [NuGet](https://www.nuget.org/packages/NuvyntraLabs.UIKit) · [Docs](https://nuvyntralabs.github.io/packages/nuvyntralabs-uikit/). Publishing stays pipeline-only.
 
 [NuvyntraLabs.Lumina](LuminaPlayground/) is a hub module (`LuminaPlayground/`): the Nuvexa mobile prototyping playground — five standalone MAUI apps (Market, Clinic, Field, Bank, Civic), 130 screens, static NuvexaDB seed, MVVMExpress + UIKit + HttpForge. It is an app, not a NuGet package.
 
-**Nuvyn** (`NuvyntraLabs.Nuvyn.Cli`): spec-driven CLI for new MAUI apps on this stack. `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` then `nuvyn init ClinicApp` (picks an AI agent). Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.analysis` → `/nuvyn.task` → `/nuvyn.implement`. See [Nuvyn/README.md](Nuvyn/README.md) and the [user guide](Nuvyn/USER-GUIDE.md).
+**Nuvyn** (`NuvyntraLabs.Nuvyn.Cli`) 1.0: spec-driven CLI for new MAUI apps on this stack. `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` then `nuvyn init ClinicApp` (picks an AI agent). Existing apps: `nuvyn update` refreshes skills without overlaying host code. Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.checklist` → `/nuvyn.task` → `/nuvyn.analysis` → `/nuvyn.implement` → `/nuvyn.converge`. See [Nuvyn/README.md](Nuvyn/README.md) and the [user guide](Nuvyn/USER-GUIDE.md).
 
 ## Find a package by requirement
 
@@ -193,12 +193,12 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 | Lock the app after background (Face ID / PIN / lock timer) | Plugin.Maui.AppLock |
 | One-shot Face ID / fingerprint / device PIN prompt | Plugin.Maui.BiometricPlus |
 | Keep the screen on during scan / POS / video | Plugin.Maui.KeepAwake |
-| Block screenshots / recents thumbnail | Plugin.Maui.ScreenGuard |
-| In-app store review / open listing | Plugin.Maui.AppReview |
+| Block screenshots / recents (iOS is a capture overlay) | Plugin.Maui.ScreenGuard |
+| iOS in-app review / open listing (Android 1.0 opens Play listing) | Plugin.Maui.AppReview |
 | Scheduled local notifications (not FCM) | Plugin.Maui.LocalNotifications |
-| Circular geofence enter / exit / dwell | Plugin.Maui.Geofence |
-| Classic Bluetooth serial (SPP / RFCOMM) | Plugin.Maui.BluetoothSerial |
-| Camera/gallery video compress / encrypt | Plugin.Maui.VideoPipeline |
+| Circular geofence (Android 1.0 is in-memory + Raise()) | Plugin.Maui.Geofence |
+| Classic Bluetooth serial (SPP / RFCOMM; iOS MFi only) | Plugin.Maui.BluetoothSerial |
+| Camera/gallery video pick, reject-if-over-budget, encrypt | Plugin.Maui.VideoPipeline |
 | HttpClient TLS / SPKI pin | Plugin.Maui.TlsPin |
 | Local documents with a selectable SQLite or NuvexaDB backend | Plugin.Maui.LocalStore |
 | Form validation, email / phone / required, `Validation.For` | Plugin.Maui.FormValidation |
@@ -283,12 +283,12 @@ Each plugin README has Problem → Installation → Configuration → Code → E
 | App lock after background | AppLock | — | — |
 | One-shot biometric / PIN prompt | Biometric | — | Plugin.Fingerprint |
 | Keep screen on | KeepAwake | `DeviceDisplay` (read) | — |
-| Block screenshots / recents | ScreenGuard | — | — |
-| In-app store review | AppReview | — | Play Core / StoreKit |
+| Block screenshots / recents (iOS overlay) | ScreenGuard | — | — |
+| Store review (iOS in-app; Android listing) | AppReview | — | Play Core / StoreKit |
 | Scheduled local notifications | LocalNotifications | — | Plugin.LocalNotification |
 | Circular geofence | Geofence | `Geolocation` (on-demand) | — |
 | Classic Bluetooth SPP | BluetoothSerial | — | — |
-| Camera/gallery **video** pipeline | VideoPipeline | `MediaPicker` | — |
+| Camera/gallery **video** pick + reject-if-over-budget | VideoPipeline | `MediaPicker` | — |
 | HttpClient TLS pin | TlsPin | — | — |
 | HTTP retry / circuit breaker | ApiResilience | — | — (use Polly) |
 | Typed REST client / generated HttpClient | HttpForge | — | — (use Refit) |
