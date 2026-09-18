@@ -8,7 +8,7 @@
 | NuvexaDB embedded `.nvx` document database | Hub module `NuvexaDB/` (`Nuventra.NuvexaDB`) | Implemented at `1.0.0` (related product; not `Plugin.Maui.*`) |
 | NuvyntraLabs.UIKit (MAUI controls + page recipes, `NV*` types) | [nuvyntralabs-uikit.md](nuvyntralabs-uikit.md) · [components](nuvyntralabs-uikit-components.md) | Implemented at `1.5.0` (201 controls + 66 recipes; `NVInputField` replaces `NVEmailField`; related product; not `Plugin.Maui.*`; CI publishes nuget.org + GitHub Packages) |
 | NuvyntraLabs.UIKit next (1.1 deepen + 1.2 / 1.3 names) | [nuvyntralabs-uikit-next.md](nuvyntralabs-uikit-next.md) | 1.2 / 1.3 catalog + 1.4 deepen + 1.5 `NVInputField` rename shipped |
-| Nuvyn (Spec-driven CLI for Nuvyntra MAUI apps) | [nuvyn.md](nuvyn.md) | Implemented at `0.1.0` — `NuvyntraLabs.Nuvyn.Cli`, command `nuvyn`; CI packs and publishes from `Nuvyn/.github/workflows/ci.yml` |
+| Nuvyn (Spec-driven CLI for Nuvyntra MAUI apps) | [nuvyn.md](nuvyn.md) | Implemented at `0.2.0` — `NuvyntraLabs.Nuvyn.Cli`, command `nuvyn`; Spec Kit coding-agent set; CI packs and publishes from `Nuvyn/.github/workflows/ci.yml` |
 
 ## MVVMExpress platform family plans
 

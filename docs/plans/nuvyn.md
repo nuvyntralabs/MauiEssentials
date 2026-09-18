@@ -1,6 +1,6 @@
 # Nuvyn — design plan
 
-**Status:** Implemented at `0.1.0` (hub folder `Nuvyn/`; CI in `Nuvyn/.github/workflows/ci.yml`; nuget.org publish still pipeline-only via `NUGET_KEY_NUVYN`)  
+**Status:** Implemented at `0.2.0` (hub folder `Nuvyn/`; CI in `Nuvyn/.github/workflows/ci.yml`; nuget.org publish still pipeline-only via `NUGET_KEY_NUVYN`)  
 **Product:** Nuvyn — Spec-driven CLI for building .NET MAUI apps (Android, iOS, Windows, Mac Catalyst) on the Nuvyntra stack. Domain-agnostic: the user's requirements define the product.  
 **Package:** `NuvyntraLabs.Nuvyn.Cli` (`PackAsTool`, command `nuvyn`)  
 **Hub folder (proposed):** `Nuvyn/`  
@@ -80,10 +80,10 @@ Flags:
 
 | Flag | Default | Notes |
 | --- | --- | --- |
-| `--agent` | prompted | `cursor`, `copilot`, `claude`, `gemini`. Interactive picker when omitted. |
+| `--agent` | prompted | Spec Kit coding-agent keys (`cursor`, `copilot`, `claude`, `gemini`, `codex`, `cursor-agent`, …). Searchable picker when omitted. |
 | `--skip-workload-check` | off | Do not fail if MAUI workloads are missing |
 
-Out of 0.1: `--vertical market|clinic|field|bank|civic` (LuminaPlayground seed), GitHub issue export, `nuvyn update`. Agents not in the 0.1 picker are listed under **Roadmap — agents**.
+Out of 0.2: `--vertical market|clinic|field|bank|civic` (LuminaPlayground seed), GitHub issue export, `nuvyn update`.
 
 ## Locked stack (written into constitution + host csproj)
 
@@ -100,7 +100,7 @@ Nuvyn phases, with Nuvyntra-locked **plan** (packages + Lumina screens):
 
 `constitution` → `specify` → `clarify` → `plan` → `analysis` → `task` → `implement`
 
-0.1 writes files for Cursor, Copilot, Claude Code, and Gemini CLI. Other agents stay on the roadmap (see below).
+0.2 writes files for the Spec Kit coding-agent set (Cursor, Copilot, Claude Code, Gemini CLI, Codex, Windsurf, and the rest). Destinations follow each agent's usual project folder.
 
 ## Repo layout (proposed)
 
@@ -127,15 +127,11 @@ Hub module: `Nuvyn/` is a **standalone** product (same model as MauiDev / UIKit)
 3. `init` copies `payload/host` (MVVMExpress + Lumina `NV*` pages), adds UIKit, writes constitution and README
 4. Tests: init into a temp dir; assert csproj, `MauiProgram`, `.nuvyn/constitution.md`, skill files exist
 5. Hub submodule + catalog row (related product, not `Plugin.Maui.*`)
-6. Later: `nuvyn update`, optional `--vertical`, remaining agents
+6. Later: `nuvyn update`, optional `--vertical`
 
-## Roadmap — agents
+## Coding agents
 
-Shipped (`--agent`): `cursor`, `copilot`, `claude`, `gemini`.
-
-Deferred (do not implement in 0.1):
-
-`alquimia`, `amp`, `agy`, `auggie`, `cline`, `codebuddy`, `codex`, `command-code`, `dsh`, `devin`, `docker-agent`, `droid`, `firebender`, `forge`, `goose`, `grok`, `hermes`, `bob`, `junie`, `kilocode`, `kimi`, `kiro-cli`, `lingma`, `vibe`, `muse`, `omp`, `opencode`, `pi`, `qodercli`, `qwen`, `rovodev`, `shai`, `tabnine`, `trae`, `zcode`, `zed`, `generic`
+Shipped (`--agent`): Spec Kit keys plus `cursor` (alias `cursor-agent`), `iflow`, `roo`, and `windsurf`. Generic writes `.agents/commands/`.
 
 ## Decisions still open
 
