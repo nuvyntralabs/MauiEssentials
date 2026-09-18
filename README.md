@@ -129,8 +129,8 @@ These are not app PackageReferences. Install the CLI with `dotnet tool install`.
 
 | Tool | Purpose | Install |
 | --- | --- | --- |
-| [MauiDev](https://github.com/nuvyntralabs/MauiDev) (`maui-dev`) | Diagnose MAUI SDK, workloads, project configuration, permissions, platform layout, resources, and pack metadata. VS Code / Cursor extension: `nuvyntralabs.maui-dev`. | `dotnet tool install -g Plugin.Maui.MauiDev.Cli` · [NuGet](https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli) |
-| [Nuvyn](Nuvyn/) (`nuvyn`) | Spec-driven CLI for a **new** Nuvyntra MAUI app: `nuvyn init ClinicApp`, pick an AI agent, then `/nuvyn.specify` → `/nuvyn.plan` → `/nuvyn.implement`. | `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli` |
+| [MauiDev](https://github.com/nuvyntralabs/MauiDev) (`maui-dev`) | Diagnose MAUI SDK, workloads, project configuration, permissions, platform layout, resources, and pack metadata. VS Code / Cursor extension: `nuvyntralabs.maui-dev`. | `dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json` · [NuGet](https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli) |
+| [Nuvyn](Nuvyn/) (`nuvyn`) | Spec-driven CLI for a **new** Nuvyntra MAUI app: `nuvyn init ClinicApp`, pick an AI agent, then `/nuvyn.specify` → `/nuvyn.plan` → `/nuvyn.implement`. | `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` |
 
 `Plugin.Maui.MVVMExpress` is stable (`1.3.0`). Docs: [MVVMExpress](https://nuvyntralabs.github.io/packages/plugin-maui-mvvmexpress/). Scaffold: `dotnet new install Plugin.Maui.MVVMExpress.Templates` then `dotnet new mvvmexpress`. VS Code and Visual Studio extensions: [VS Code Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance) · [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance).
 
@@ -150,7 +150,7 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 
 [NuvyntraLabs.Lumina](LuminaPlayground/) is a hub module (`LuminaPlayground/`): the Nuvexa mobile prototyping playground — five standalone MAUI apps (Market, Clinic, Field, Bank, Civic), 130 screens, static NuvexaDB seed, MVVMExpress + UIKit + HttpForge. It is an app, not a NuGet package.
 
-**Nuvyn** (`NuvyntraLabs.Nuvyn.Cli`): spec-driven CLI for new MAUI apps on this stack. `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli` then `nuvyn init ClinicApp` (picks an AI agent). Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.analysis` → `/nuvyn.task` → `/nuvyn.implement`. See [Nuvyn/README.md](Nuvyn/README.md) and the [user guide](Nuvyn/USER-GUIDE.md).
+**Nuvyn** (`NuvyntraLabs.Nuvyn.Cli`): spec-driven CLI for new MAUI apps on this stack. `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` then `nuvyn init ClinicApp` (picks an AI agent). Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.analysis` → `/nuvyn.task` → `/nuvyn.implement`. See [Nuvyn/README.md](Nuvyn/README.md) and the [user guide](Nuvyn/USER-GUIDE.md).
 
 ## Find a package by requirement
 
@@ -211,7 +211,7 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 | Native WinUI 3 MVVM ViewModels, Frame navigation, dialogs | Plugin.WinUI.MVVMExpress |
 | Avalonia MVVM ViewModels, Frame host, dialogs | Plugin.Avalonia.MVVMExpress |
 | Uno Platform MVVM ViewModels, Frame navigation, dialogs | Plugin.Uno.MVVMExpress |
-| Diagnose MAUI SDK / workloads / project config / permissions / platform / resources / pack (CLI + VS Code) | MauiDev (`dotnet tool install -g Plugin.Maui.MauiDev.Cli`) |
+| Diagnose MAUI SDK / workloads / project config / permissions / platform / resources / pack (CLI + VS Code) | MauiDev (`dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json`) |
 
 ## Features
 

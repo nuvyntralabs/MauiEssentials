@@ -30,7 +30,7 @@ Command bodies and `.nuvyn/` templates live in `Nuvyn/payload/`. `nuvyn init` co
 ## User journey
 
 ```bash
-dotnet tool install -g NuvyntraLabs.Nuvyn.Cli
+dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json
 nuvyn init ClinicApp --agent cursor
 cd ClinicApp
 # optional: open in Cursor / VS / VS Code

@@ -762,7 +762,7 @@ builder.UseMauiPerformance(options =>
 using var checkout = MauiProfile.Scenario("Checkout");
 ```
 
-CLI wrapper: `dotnet tool install -g Plugin.Maui.Performance.Cli` then `maui-perf startup -f android`.
+CLI wrapper: `dotnet tool install -g Plugin.Maui.Performance.Cli --source https://api.nuget.org/v3/index.json` then `maui-perf startup -f android`.
 
 Alternatives: .NET EventCounters, Application Insights, custom Stopwatch.
 
@@ -1583,7 +1583,7 @@ Use when the app is Uno Platform (WinUI API). Do not use the WinUI nupkg. Do not
 
 Developer productivity toolkit (`1.2.1`). `Plugin.Maui.MauiDev.Cli` is a PackAsTool (`maui-dev`). Pair with the `nuvyntralabs.maui-dev` VS Code / Cursor extension. Not an app PackageReference. nuget.org reserved `MauiDev.Cli`.
 
-Install: `dotnet tool install -g Plugin.Maui.MauiDev.Cli`
+Install: `dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json`
 Commands: `maui-dev doctor`, `analyze`, `resources`, `permissions`, `platform`, `signing`, `workload`, `version`, `dependencies`, `icons`, `publish --validate`, `migrate`, `telemetry`, `benchmark`, `clean`, `package --validate`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli
 GitHub: https://github.com/nuvyntralabs/MauiDev

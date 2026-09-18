@@ -26,7 +26,7 @@ Those are still **developer-tool** problems. They are not runtime plugins.
 
 ## 2. Principles (unchanged)
 
-1. **Toolchain, not a PackageReference.** Install remains `dotnet tool install -g Plugin.Maui.MauiDev.Cli`.
+1. **Toolchain, not a PackageReference.** Install remains `dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json`.
 2. **`MauiDev.Core` stays internal** (`IsPackable=false`). Only the CLI nupkg publishes.
 3. **Same report contract.** Every new command emits `DoctorReport` → human / JSON / SARIF. Exit codes stay `0` pass/skip, `1` fail (or warning with `--warn-as-error` / `--ci`), `2` usage.
 4. **`--fix` is an allow-list.** New fixes must be named in this plan before they ship. Never bump min SDK, remove permissions, write signing secrets, install workloads, or push packages.
@@ -236,7 +236,7 @@ The CLI itself continues to collect nothing.
 **Behavior**
 
 - Resolve `maui-perf` on PATH (or `~/.dotnet/tools`).
-- If missing: `MD900` fail with `dotnet tool install -g Plugin.Maui.Performance.Cli`.
+- If missing: `MD900` fail with `dotnet tool install -g Plugin.Maui.Performance.Cli --source https://api.nuget.org/v3/index.json`.
 - If present: run `maui-perf --help` or forward remaining args (`startup`, `screen`, …). Do not reimplement `maui profile`.
 - Honor `--timeout`. Android / iOS simulator only — same constraint as `maui-perf`.
 

@@ -142,7 +142,7 @@ Each plugin typically contains `src/`, `samples/`, `tests/`, `README.md`, `llms.
 When the user wants a **host app** (not a plugin patch), use the **Nuvyn CLI** ([Nuvyn/README.md](Nuvyn/README.md)) — a spec-driven Nuvyntra tool, not a generic plan:
 
 ```bash
-dotnet tool install -g NuvyntraLabs.Nuvyn.Cli
+dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json
 nuvyn init <project_name>
 ```
 

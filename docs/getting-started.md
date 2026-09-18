@@ -38,8 +38,8 @@ Examples:
 - Native WinUI 3 MVVM application shell → `Plugin.WinUI.MVVMExpress` (`dotnet new winui-mvvmexpress`)
 - Avalonia MVVM application shell → `Plugin.Avalonia.MVVMExpress` (`dotnet new avalonia-mvvmexpress`)
 - Uno Platform MVVM application shell → `Plugin.Uno.MVVMExpress` (`dotnet new uno-mvvmexpress`)
-- Diagnose MAUI SDK / workloads / project config / permissions / platform layout → `Plugin.Maui.MauiDev.Cli` (`dotnet tool install -g Plugin.Maui.MauiDev.Cli` then `maui-dev doctor`)
-- Create a spec-driven MAUI app on this stack → `NuvyntraLabs.Nuvyn.Cli` (`dotnet tool install -g NuvyntraLabs.Nuvyn.Cli` then `nuvyn init ClinicApp`). Walkthrough: [Nuvyn user guide](../Nuvyn/USER-GUIDE.md).
+- Diagnose MAUI SDK / workloads / project config / permissions / platform layout → `Plugin.Maui.MauiDev.Cli` (`dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json` then `maui-dev doctor`)
+- Create a spec-driven MAUI app on this stack → `NuvyntraLabs.Nuvyn.Cli` (`dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` then `nuvyn init ClinicApp`). Walkthrough: [Nuvyn user guide](../Nuvyn/USER-GUIDE.md).
 - Embedded document file (`.nvx`) → `Nuventra.NuvexaDB` (hub module `NuvexaDB/`; not a `Plugin.Maui.*` package). JobQueue / OfflineSync stay SQLite.
 - Room-style app documents with a selectable SQLite or NuvexaDB backend, engine migrate, and generated DAOs → `Plugin.Maui.LocalStore`
 - Lumina MAUI UI kit / `NV*` controls / page recipes → `NuvyntraLabs.UIKit` (hub module `UIKit/`; not a `Plugin.Maui.*` package)
