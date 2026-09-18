@@ -1123,7 +1123,7 @@ Alternatives: platform `FLAG_KEEP_SCREEN_ON` / `IdleTimerDisabled` written by th
 
 ## Plugin.Maui.ScreenGuard
 
-Block screenshots and recents thumbnail leaks on Android (`FLAG_SECURE`). On iOS this is a capture overlay, not a screenshot block.
+iOS is a capture overlay, not a screenshot block. Android uses `FLAG_SECURE` to blank recents and block screenshots. The host supplies the iOS overlay view.
 
 Current release: 1.0.2. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.ScreenGuard`
@@ -1150,7 +1150,7 @@ Alternatives: host-owned `FLAG_SECURE` / iOS overlay.
 
 ## Plugin.Maui.AppReview
 
-In-app review eligibility plus open the Play / App Store listing. Android 1.0 opens the Play listing (no Play Core ReviewManager).
+iOS `SKStoreReviewController` plus open the store listing. Android 1.0 opens the Play listing (no Play Core ReviewManager).
 
 Current release: 1.0.2. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.AppReview`
@@ -1205,7 +1205,7 @@ Alternatives: Plugin.LocalNotification, Shiny.
 
 ## Plugin.Maui.Geofence
 
-Circular geofence enter / exit / dwell (max 20 regions). Android 1.0 is in-memory plus `Raise()` — no Play Services GeofencingClient.
+Circular geofence enter / exit / dwell (max 20). Android 1.0 is in-memory plus `Raise()` — no Play Services GeofencingClient and no process-death persistence.
 
 Current release: 1.0.2. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.Geofence`
@@ -1257,7 +1257,7 @@ Alternatives: host SPP / External Accessory code, Plugin.Maui.BluetoothManager (
 
 ## Plugin.Maui.VideoPipeline
 
-Camera/gallery video → duration/size limits, thumbnail, encrypt. Shared library (Android, iOS, Mac Catalyst, Windows). No FFmpeg in 1.0.
+Camera/gallery video pick, reject-if-over-budget, and encrypt. Shared library (Android, iOS, Mac Catalyst, Windows). 1.0 does not transcode or generate a thumbnail.
 
 Current release: 1.0.2. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.VideoPipeline`

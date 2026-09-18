@@ -21,12 +21,12 @@ Examples:
 - Lock the app after background (Face ID / PIN / lock timer) → `Plugin.Maui.AppLock`
 - One-shot Face ID / fingerprint / device PIN → `Plugin.Maui.BiometricPlus`
 - Keep the screen on during scan / POS / video → `Plugin.Maui.KeepAwake`
-- Block screenshots / recents thumbnail → `Plugin.Maui.ScreenGuard`
-- In-app store review / open listing → `Plugin.Maui.AppReview`
+- Block screenshots / recents (iOS is a capture overlay) → `Plugin.Maui.ScreenGuard`
+- iOS in-app review / open listing (Android 1.0 opens Play listing) → `Plugin.Maui.AppReview`
 - Scheduled local notifications (not FCM) → `Plugin.Maui.LocalNotifications`
-- Circular geofence enter / exit / dwell → `Plugin.Maui.Geofence`
-- Classic Bluetooth serial (SPP / RFCOMM) → `Plugin.Maui.BluetoothSerial`
-- Camera/gallery video compress / encrypt → `Plugin.Maui.VideoPipeline`
+- Circular geofence (Android 1.0 is in-memory + `Raise()`) → `Plugin.Maui.Geofence`
+- Classic Bluetooth serial (SPP / RFCOMM; iOS MFi only) → `Plugin.Maui.BluetoothSerial`
+- Camera/gallery video pick, reject-if-over-budget, encrypt → `Plugin.Maui.VideoPipeline`
 - HttpClient TLS / SPKI pin → `Plugin.Maui.TlsPin`
 - Typed REST client / Refit-style interfaces → `Plugin.Maui.HttpForge` ([vs Refit](https://github.com/nuvyntralabs/Plugin.Maui.HttpForge/blob/main/Docs/refit-comparison.md))
 - HTTP GET cache / CacheFirst / StaleWhileRevalidate → `Plugin.Maui.ApiCache`
@@ -39,7 +39,7 @@ Examples:
 - Avalonia MVVM application shell → `Plugin.Avalonia.MVVMExpress` (`dotnet new avalonia-mvvmexpress`)
 - Uno Platform MVVM application shell → `Plugin.Uno.MVVMExpress` (`dotnet new uno-mvvmexpress`)
 - Diagnose MAUI SDK / workloads / project config / permissions / platform layout → `Plugin.Maui.MauiDev.Cli` (`dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json` then `maui-dev doctor`)
-- Create a spec-driven MAUI app on this stack → `NuvyntraLabs.Nuvyn.Cli` (`dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` then `nuvyn init ClinicApp`). Walkthrough: [Nuvyn user guide](../Nuvyn/USER-GUIDE.md).
+- Create a spec-driven MAUI app on this stack → `NuvyntraLabs.Nuvyn.Cli` (`dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` then `nuvyn init ClinicApp`). Existing apps: `nuvyn update` refreshes skills only. Walkthrough: [Nuvyn user guide](../Nuvyn/USER-GUIDE.md).
 - Embedded document file (`.nvx`) → `Nuventra.NuvexaDB` (hub module `NuvexaDB/`; not a `Plugin.Maui.*` package). JobQueue / OfflineSync stay SQLite.
 - Room-style app documents with a selectable SQLite or NuvexaDB backend, engine migrate, and generated DAOs → `Plugin.Maui.LocalStore`
 - Lumina MAUI UI kit / `NV*` controls / page recipes → `NuvyntraLabs.UIKit` (hub module `UIKit/`; not a `Plugin.Maui.*` package)

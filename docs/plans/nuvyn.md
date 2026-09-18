@@ -1,6 +1,6 @@
 # Nuvyn — design plan
 
-**Status:** Implemented at `0.2.0` (hub folder `Nuvyn/`; CI in `Nuvyn/.github/workflows/ci.yml`; nuget.org publish still pipeline-only via `NUGET_KEY_NUVYN`)  
+**Status:** Implemented at `1.0.0` (hub folder `Nuvyn/`; CI in `Nuvyn/.github/workflows/ci.yml` proves `nuvyn init` + smallest package set + host build, then packs; nuget.org publish still pipeline-only via `NUGET_KEY_NUVYN`)  
 **Product:** Nuvyn — Spec-driven CLI for building .NET MAUI apps (Android, iOS, Windows, Mac Catalyst) on the Nuvyntra stack. Domain-agnostic: the user's requirements define the product.  
 **Package:** `NuvyntraLabs.Nuvyn.Cli` (`PackAsTool`, command `nuvyn`)  
 **Hub folder (proposed):** `Nuvyn/`  
@@ -73,7 +73,8 @@ Then in the coding agent:
 | --- | --- |
 | `nuvyn init <name>` | New directory only: MAUI host + `.nuvyn/` + agent files. Refuses if the folder already exists. |
 | `nuvyn version` | Tool version |
-| `nuvyn update` | Refresh `.nuvyn/templates`, `reference`, and agent skills; do not overwrite host code or `specs/` |
+| `nuvyn update` | Refresh `.nuvyn/templates`, `reference`, and agent skills; do not overwrite host code, `specs/`, or `.nuvyn/constitution.md` |
+| `nuvyn check` | dotnet + payload; inside a project, prove the host still uses the smallest set |
 | `nuvyn agent add <id>` | Write a second integration (1.1) |
 
 Flags:
@@ -83,7 +84,7 @@ Flags:
 | `--agent` | prompted | Spec Kit coding-agent keys (`cursor`, `copilot`, `claude`, `gemini`, `codex`, `cursor-agent`, …). Searchable picker when omitted. |
 | `--skip-workload-check` | off | Do not fail if MAUI workloads are missing |
 
-Out of 0.2: `--vertical market|clinic|field|bank|civic` (LuminaPlayground seed), GitHub issue export, `nuvyn update`.
+Out of 1.0: `--vertical market|clinic|field|bank|civic` (LuminaPlayground seed) and GitHub issue export. `--vertical` ships only after one playground head regenerates from Nuvyn without hand-edits. 1.0 stays domain-agnostic and does not dump the catalog into the csproj.
 
 ## Locked stack (written into constitution + host csproj)
 
@@ -127,7 +128,8 @@ Hub module: `Nuvyn/` is a **standalone** product (same model as MauiDev / UIKit)
 3. `init` copies `payload/host` (MVVMExpress + Lumina `NV*` pages), adds UIKit, writes constitution and README
 4. Tests: init into a temp dir; assert csproj, `MauiProgram`, `.nuvyn/constitution.md`, skill files exist
 5. Hub submodule + catalog row (related product, not `Plugin.Maui.*`)
-6. Later: `nuvyn update`, optional `--vertical`
+6. `nuvyn update` + CI prove-host (`init` → smallest set → `dotnet build` / `dotnet test` Core) shipped in 1.0
+7. Later: `--vertical` after one LuminaPlayground head regenerates without hand-edits
 
 ## Coding agents
 

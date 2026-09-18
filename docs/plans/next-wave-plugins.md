@@ -1,6 +1,6 @@
 # Next-wave plugins — design plan
 
-**Status:** Implemented in the hub (source, tests, samples). Separate plugin remotes and nuget.org `1.0.0` nupkgs are not published yet.  
+**Status:** Published on nuget.org at `1.0.2` (all nine). Catalog honesty pass: first paragraphs and NuGet descriptions match shipped 1.0. GeofencingClient, Play Core ReviewManager, and video transcode remain 1.1.  
 **Wave:** MauiEssentials next-wave runtime plugins (post MauiDev 1.2 / desktop MVVMExpress 1.0)  
 **Catalog:** [MauiEssentials](https://github.com/nuvyntralabs/MauiEssentials)  
 **Authoring rule:** one independent git repository, NuGet package, and hub submodule per plugin — same model as GeoLocator, AppLock, and BluetoothManager.
@@ -865,6 +865,7 @@ Do not publish from the hub. Do not share a nupkg across plugins.
 | N12 | TlsPin fail-closed; `ReportOnly` opt-in; `AllowUnpinnedHosts` default false | Proposed |
 | N13 | Shared TFMs only for VideoPipeline and TlsPin | Proposed |
 | N14 | Start every package at `1.0.0`; pipeline-only publish | Proposed |
+| N15 | Catalog and first paragraphs match shipped 1.0 (Android Geofence is `Raise()`, AppReview Android is listing, VideoPipeline is reject-if-over-budget). OS geofences / Play Core / transcode stay 1.1 | Done |
 
 ---
 

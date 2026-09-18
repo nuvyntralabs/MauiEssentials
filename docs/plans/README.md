@@ -4,11 +4,11 @@
 | --- | --- | --- |
 | MauiDev CLI + VS Code extension | [maudev.md](maudev.md) | Implemented at `1.0.1` |
 | MauiDev next (1.1 / 1.2 commands) | [maudev-next.md](maudev-next.md) | Implemented at `1.2.0` |
-| Next-wave runtime plugins (9 packages; no barcode) | [next-wave-plugins.md](next-wave-plugins.md) | Implemented in hub (pre-publish) |
+| Next-wave runtime plugins (9 packages; no barcode) | [next-wave-plugins.md](next-wave-plugins.md) | Published on nuget.org at `1.0.2`; catalog honesty pass for thin 1.0s |
 | NuvexaDB embedded `.nvx` document database | Hub module `NuvexaDB/` (`Nuventra.NuvexaDB`) | Implemented at `1.0.0` (related product; not `Plugin.Maui.*`) |
-| NuvyntraLabs.UIKit (MAUI controls + page recipes, `NV*` types) | [nuvyntralabs-uikit.md](nuvyntralabs-uikit.md) · [components](nuvyntralabs-uikit-components.md) | Implemented at `1.5.0` (201 controls + 66 recipes; `NVInputField` replaces `NVEmailField`; related product; not `Plugin.Maui.*`; CI publishes nuget.org + GitHub Packages) |
+| NuvyntraLabs.UIKit (MAUI controls + page recipes, `NV*` types) | [nuvyntralabs-uikit.md](nuvyntralabs-uikit.md) · [components](nuvyntralabs-uikit-components.md) | Implemented at `1.5.1` (201 controls + 66 recipes; Phase 7 harden; `NVInputField` replaces `NVEmailField`; related product; not `Plugin.Maui.*`; CI publishes nuget.org + GitHub Packages) |
 | NuvyntraLabs.UIKit next (1.1 deepen + 1.2 / 1.3 names) | [nuvyntralabs-uikit-next.md](nuvyntralabs-uikit-next.md) | 1.2 / 1.3 catalog + 1.4 deepen + 1.5 `NVInputField` rename shipped |
-| Nuvyn (Spec-driven CLI for Nuvyntra MAUI apps) | [nuvyn.md](nuvyn.md) | Implemented at `0.2.0` — `NuvyntraLabs.Nuvyn.Cli`, command `nuvyn`; Spec Kit coding-agent set; CI packs and publishes from `Nuvyn/.github/workflows/ci.yml` |
+| Nuvyn (Spec-driven CLI for Nuvyntra MAUI apps) | [nuvyn.md](nuvyn.md) | Implemented at `1.0.0` — `NuvyntraLabs.Nuvyn.Cli`, command `nuvyn`; `init` + `update` + host proof; Spec Kit coding-agent set; CI packs and publishes from `Nuvyn/.github/workflows/ci.yml` |
 
 ## MVVMExpress platform family plans
 
@@ -49,4 +49,4 @@ Planning document for nine new `Plugin.Maui.*` repositories. Barcode / QR scanni
 | 2 — field loop | LocalNotifications, Geofence |
 | 3 — hardware / media / TLS | BluetoothSerial, VideoPipeline, TlsPin |
 
-Catalog contract (one problem per package, `UseX`, no sibling `PackageReference`, pipeline-only publish) is in [next-wave-plugins.md](next-wave-plugins.md). Hub catalog rows are in place; nuget.org `1.0.0` ships when each plugin repo’s GitHub Actions CI runs.
+Catalog contract (one problem per package, `UseX`, no sibling `PackageReference`, pipeline-only publish) is in [next-wave-plugins.md](next-wave-plugins.md). All nine nupkgs are on nuget.org at `1.0.2`. First-paragraph copy matches shipped 1.0 (Geofence `Raise()`, AppReview Android listing, VideoPipeline reject-if-over-budget).

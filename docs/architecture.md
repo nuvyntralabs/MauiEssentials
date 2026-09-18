@@ -55,12 +55,12 @@ AGENTS.md     coding-agent guide
 | App lock after background | AppLock | SecureSession (tokens), DeviceInfoPlus (`HasBiometric`), Biometric (one-shot prompt) |
 | One-shot biometric / PIN | Biometric | AppLock (workflow), DeviceInfoPlus (`HasBiometric`) |
 | Keep screen on | KeepAwake | — |
-| Block screenshots / recents | ScreenGuard | AppLock (cover after background) |
-| In-app store review | AppReview | AppUpdate (binary update) |
+| iOS capture overlay / Android FLAG_SECURE | ScreenGuard | AppLock (cover after background) |
+| Store review (iOS in-app; Android listing) | AppReview | AppUpdate (binary update) |
 | Scheduled local notifications | LocalNotifications | PushRouter (remote FCM / APNs routing) |
-| Circular geofence | Geofence | GeoLocator (on-demand GPS) |
-| Classic Bluetooth SPP | BluetoothSerial | BluetoothManager (BLE GATT), Printing (ESC/POS documents) |
-| Camera/gallery video pipeline | VideoPipeline | MediaPipeline (images), FileVault, SmartUpload |
+| Circular geofence (Android 1.0 in-memory + Raise()) | Geofence | GeoLocator (on-demand GPS) |
+| Classic Bluetooth SPP (iOS MFi only) | BluetoothSerial | BluetoothManager (BLE GATT), Printing (ESC/POS documents) |
+| Camera/gallery video pick + reject-if-over-budget | VideoPipeline | MediaPipeline (images), FileVault, SmartUpload |
 | HttpClient TLS / SPKI pin | TlsPin | ApiResilience (retry), HttpForge (typed clients) |
 | Form validation / `Validation.For` | FormValidation | — |
 | Soft keyboard hide / show / dismiss / avoidance | KeyboardManager | FormValidation |

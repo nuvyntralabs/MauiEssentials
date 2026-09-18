@@ -1,6 +1,6 @@
 # NuvyntraLabs.UIKit — unique component catalog
 
-**Status:** Implemented at `1.5.0` (201 controls + 66 recipes; `NVEmailField` renamed to `NVInputField`)  
+**Status:** Implemented at `1.5.1` (201 controls + 66 recipes; Phase 7 harden; `NVEmailField` renamed to `NVInputField`)  
 **Product:** NuvyntraLabs.UIKit  
 **Package:** `NuvyntraLabs.UIKit` (single library)  
 **Type prefix:** `NV` (`NVCheckBox`, `NVRadioButton`)  
