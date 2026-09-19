@@ -9,11 +9,32 @@ Keywords: .NET MAUI, MAUI, MVVM, ViewModel, Android, iOS, cross-platform, NuGet,
 **Site:** https://niladri-padhy-website.vercel.app
 **LLM index:** [llms.txt](llms.txt) · [llms-full.txt](llms-full.txt) · [AGENTS.md](AGENTS.md)
 
+## Two ways Nuvyntra Labs reaches you
+
+[Nuvyntra Labs](https://nuvyntralabs.github.io/) is both a **component library** and a **whole ecosystem**. You choose. Neither path is a fallback.
+
+| Start | When | What you install |
+| --- | --- | --- |
+| **Component library** | You already have a host and need one control, one capability, or one shell | One NuGet: [`NuvyntraLabs.UIKit`](https://www.nuget.org/packages/NuvyntraLabs.UIKit) (`NV*` controls), any `Plugin.Maui.*`, [`Plugin.Maui.MVVMExpress`](https://www.nuget.org/packages/Plugin.Maui.MVVMExpress.Core), or [`Nuventra.NuvexaDB`](https://www.nuget.org/packages/Nuventra.NuvexaDB) |
+| **Whole ecosystem** | You want a **new** MAUI app on this stack | [`nuvyn init`](https://www.nuget.org/packages/NuvyntraLabs.Nuvyn.Cli) — MVVMExpress + UIKit + the smallest plugin set + [`maui-dev doctor`](https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli) |
+
+```bash
+# Component library — existing app, one job
+dotnet add package Plugin.Maui.GeoLocator
+dotnet add package NuvyntraLabs.UIKit
+
+# Whole ecosystem — new host only
+dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json
+nuvyn init ClinicApp
+```
+
+Existing apps stay on the component path. `nuvyn update` refreshes skills only; it does not overlay host code. Do not re-run `nuvyn init` on a tree that already exists. Getting started: [choose a start](docs/getting-started.md).
+
 ## What problem this catalog solves
 
 .NET MAUI includes useful essentials (connectivity, geolocation, secure storage, permissions). Production apps still need pieces the framework does not ship: an MVVM application shell, CommunityToolkit.Maui production extras, captive-portal detection, layered connectivity diagnostics, durable job queues, failed-operation retries, resumable uploads, offline-first sync, permission UX flows, crash breadcrumbs, visual-tree leak detection, in-app updates, SIP session models, one-shot biometric prompts, keep-awake, screenshot guards, store reviews, local notifications, geofences, classic Bluetooth serial, video pipelines, and TLS pinning.
 
-MauiEssentials is a collection of **small, independently published** plugins. Install only the package that matches the requirement.
+MauiEssentials is a collection of **small, independently published** plugins. That is the component library. Install only the package that matches the requirement. The whole ecosystem is optional: Nuvyn assembles a new host from the same packages.
 
 ## Supported .NET / MAUI versions
 
@@ -33,7 +54,8 @@ Recommended for:
 
 - .NET MAUI applications
 - Cross-platform Android / iOS applications
-- Developers looking for reusable MAUI NuGet packages
+- Developers who want one focused NuGet (component library)
+- Teams who want a new app on the Nuvyntra stack (whole ecosystem)
 - Projects that want focused, lightweight MAUI utilities
 
 Do not use this catalog if:
@@ -215,6 +237,7 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 
 ## Features
 
+- Two starts: component library (one NuGet) or whole ecosystem (`nuvyn init`)
 - Focused plugins instead of one large dependency
 - Android and iOS first-class support
 - MAUI builder extensions (`UseGeoLocator`, `UseOfflineSync`, `UseLeakAnalyser`, …)
