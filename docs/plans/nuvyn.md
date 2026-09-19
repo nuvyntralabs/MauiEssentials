@@ -1,6 +1,6 @@
 # Nuvyn — design plan
 
-**Status:** Implemented at `1.0.0` (hub folder `Nuvyn/`; CI in `Nuvyn/.github/workflows/ci.yml` proves `nuvyn init` + smallest package set + host build, then packs; nuget.org publish still pipeline-only via `NUGET_KEY_NUVYN`)  
+**Status:** Implemented at `1.1.0` (hub folder `Nuvyn/`; CI in `Nuvyn/.github/workflows/ci.yml` proves `nuvyn init` + smallest package set + host build, then packs; nuget.org publish still pipeline-only via `NUGET_KEY_NUVYN`)  
 **Product:** Nuvyn — Spec-driven CLI for building .NET MAUI apps (Android, iOS, Windows, Mac Catalyst) on the Nuvyntra stack. Domain-agnostic: the user's requirements define the product.  
 **Package:** `NuvyntraLabs.Nuvyn.Cli` (`PackAsTool`, command `nuvyn`)  
 **Hub folder (proposed):** `Nuvyn/`  
@@ -19,9 +19,9 @@ Nuvyn is its own product — not a Spec Kit clone or preset. Usual alternative f
 | First command | `specify init Taskify --integration cursor-agent` | `nuvyn init ClinicApp --agent cursor` |
 | `init` creates | `.specify/` + agent command files | A **runnable MAUI host** + `.nuvyn/` + agent files |
 | Plan phase | Any stack the user types | MVVMExpress + UIKit + smallest Plugin.Maui.* |
-| Doctor | — | Can call `maui-dev` after scaffold |
+| Doctor | — | `init` / `check` call `maui-dev doctor --path <app>` when on PATH (floor 1.2.0, no `--no-update-check`); print report on exit 1; missing tool is a warning |
 
-Not MauiDev. `maui-dev` diagnoses an existing MAUI tree. Nuvyn **creates** the tree and the spec workflow. They compose: `nuvyn init` then `maui-dev doctor`.
+Not MauiDev. `maui-dev` diagnoses an existing MAUI tree. Nuvyn **creates** the tree and the spec workflow. They compose: `nuvyn init` / `nuvyn check` call `maui-dev doctor --path <app>` (no `--no-update-check`; MauiDev 1.2.1 rejects that flag) and print the report if doctor exits non-zero.
 
 Not a Spec Kit preset or clone. A preset would still require Python/`specify` and would not copy the embedded MVVMExpress + UIKit host.
 
@@ -83,6 +83,7 @@ Flags:
 | --- | --- | --- |
 | `--agent` | prompted | Spec Kit coding-agent keys (`cursor`, `copilot`, `claude`, `gemini`, `codex`, `cursor-agent`, …). Searchable picker when omitted. |
 | `--skip-workload-check` | off | Do not fail if MAUI workloads are missing |
+| `--no-update-check` | off | Skip the 4-hour nuget.org self-update prompt (also `NUVYNTRA_NO_UPDATE_CHECK=1`) |
 
 Out of 1.0: `--vertical market|clinic|field|bank|civic` (LuminaPlayground seed) and GitHub issue export. `--vertical` ships only after one playground head regenerates from Nuvyn without hand-edits. 1.0 stays domain-agnostic and does not dump the catalog into the csproj.
 

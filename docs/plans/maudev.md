@@ -1,6 +1,6 @@
 # MauiDev — design plan
 
-**Status:** Repository and hub submodule `MauiDev` exist at `1.0.1`.  
+**Status:** Repository and hub submodule `MauiDev` exist at `1.2.2`.  
 **Product:** MauiDev — developer productivity toolkit for .NET MAUI  
 **Package:** `Plugin.Maui.MauiDev.Cli` (`PackAsTool`, command `maui-dev`). nuget.org reserved `MauiDev.Cli`.  
 **Extension:** `nuvyntralabs.maui-dev`  
@@ -23,7 +23,7 @@ Usual alternatives: maui-check, `dotnet workload`, Visual Studio MAUI installer,
 
 `doctor`, `analyze`, `resources`, `clean`, `package`
 
-Global: `--path`, `--format human|json|sarif`, `--ci`, `--fix`, `--dry-run`, `--warn-as-error`
+Global: `--path`, `--format human|json|sarif`, `--ci`, `--fix`, `--dry-run`, `--warn-as-error`, `--no-update-check`
 
 ## Release
 

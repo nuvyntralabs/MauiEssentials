@@ -50,7 +50,7 @@ Do not reimplement these as greenfield engines. Dedicated 1.1 commands **reuse**
 | Analyze | Regex heuristics `MD100`–`MD106` | Stays heuristic. Not a Roslyn analyzer. |
 | Pack | `package --validate` / `--pack` | Store-identity validate (`publish`); no feed push |
 
-Global options stay: `--path`, `--format human|json|sarif`, `--ci`, `--fix`, `--dry-run`, `--warn-as-error`, `--timeout`.
+Global options stay: `--path`, `--format human|json|sarif`, `--ci`, `--fix`, `--dry-run`, `--warn-as-error`, `--timeout`, `--no-update-check`.
 
 ## 4. Releases
 

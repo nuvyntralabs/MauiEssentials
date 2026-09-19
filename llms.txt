@@ -231,7 +231,9 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Performance
 - Docs: https://github.com/nuvyntralabs/Plugin.Maui.Performance#readme
 - Paper: https://nuvyntralabs.github.io/packages/plugin-maui-performance/
+- Version: 1.0.8
 - Install: `dotnet add package Plugin.Maui.Performance`
+- CLI: `dotnet tool install -g Plugin.Maui.Performance.Cli` then `maui-perf startup -f android`. Same 4-hour nuget.org update prompt as `maui-dev` / `nuvyn` (`--no-update-check`).
 
 ### Plugin.Maui.Diagnostics
 - Problem: crash, ANR, unhandled exceptions, and pre-crash breadcrumbs
@@ -581,10 +583,11 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli
 - GitHub: https://github.com/nuvyntralabs/MauiDev
 - Docs: https://nuvyntralabs.github.io/toolkits/maui-dev/
-- Version: `1.2.1`
+- Version: `1.2.2`
 - TFMs: `net10.0` (dotnet tool)
 - Install: `dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json` then `maui-dev doctor`
 - Commands: `doctor`, `analyze`, `resources`, `permissions`, `platform`, `signing`, `workload`, `version`, `dependencies`, `icons`, `publish`, `migrate`, `telemetry`, `benchmark`, `clean`, `package`
+- Update check: interactive nuget.org prompt every 4 hours (`[y/N]`). Skip: `--no-update-check`, `NUVYNTRA_NO_UPDATE_CHECK=1`, `--ci`, JSON/SARIF, non-TTY. Cache: `~/.nuvyntra/cli-updates.json`. Does not phone home.
 - Do not `dotnet add package Plugin.Maui.MauiDev.Cli` into an app. Do not use instead of LeakAnalyser, maui-perf, AppHealth, or Diagnostics.
 
 ### Nuvyn
@@ -592,10 +595,12 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/NuvyntraLabs.Nuvyn.Cli
 - GitHub: https://github.com/nuvyntralabs/Nuvyn
 - Docs: https://nuvyntralabs.github.io/toolkits/nuvyn/
-- Version: `1.0.0`
+- Version: `1.1.0`
 - TFMs: `net10.0` (dotnet tool)
 - Install: `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` then `nuvyn init ClinicApp --agent cursor`
 - Commands: `init`, `update`, `version`, `check`. Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.checklist` → `/nuvyn.task` → `/nuvyn.analysis` → `/nuvyn.implement` → `/nuvyn.converge`
+- Update check: interactive nuget.org prompt every 4 hours (`[y/N]`). Skip: `--no-update-check` or `NUVYNTRA_NO_UPDATE_CHECK=1`. Cache: `~/.nuvyntra/cli-updates.json`. Does not phone home.
+- Compose: `init` / `check` run `maui-dev doctor --path <app>` when MauiDev is on PATH (floor 1.2.0). Do not pass `--no-update-check` to doctor (1.2.1 rejects it). Print the report on non-zero exit. Missing MauiDev is a warning, not a Nuvyn failure.
 - Do not `dotnet add package NuvyntraLabs.Nuvyn.Cli` into an app. Do not overlay an existing project (no `--here` / `--force`). Use `nuvyn update` to refresh skills only. Do not use instead of MauiDev or a generic-stack spec CLI. `--vertical` is not in 1.0.
 
 ### NuvexaDB (related product)

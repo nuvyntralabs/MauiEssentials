@@ -762,7 +762,7 @@ builder.UseMauiPerformance(options =>
 using var checkout = MauiProfile.Scenario("Checkout");
 ```
 
-CLI wrapper: `dotnet tool install -g Plugin.Maui.Performance.Cli --source https://api.nuget.org/v3/index.json` then `maui-perf startup -f android`.
+CLI wrapper (`1.0.8`): `dotnet tool install -g Plugin.Maui.Performance.Cli --source https://api.nuget.org/v3/index.json` then `maui-perf startup -f android`. Interactive nuget.org update prompt every 4 hours (`--no-update-check` to skip). Cache: `~/.nuvyntra/cli-updates.json`.
 
 Alternatives: .NET EventCounters, Application Insights, custom Stopwatch.
 
@@ -1581,7 +1581,7 @@ Use when the app is Uno Platform (WinUI API). Do not use the WinUI nupkg. Do not
 
 ## MauiDev
 
-Developer productivity toolkit (`1.2.1`). `Plugin.Maui.MauiDev.Cli` is a PackAsTool (`maui-dev`). Pair with the `nuvyntralabs.maui-dev` VS Code / Cursor extension. Not an app PackageReference. nuget.org reserved `MauiDev.Cli`.
+Developer productivity toolkit (`1.2.2`). `Plugin.Maui.MauiDev.Cli` is a PackAsTool (`maui-dev`). Pair with the `nuvyntralabs.maui-dev` VS Code / Cursor extension. Not an app PackageReference. nuget.org reserved `MauiDev.Cli`.
 
 Install: `dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json`
 Commands: `maui-dev doctor`, `analyze`, `resources`, `permissions`, `platform`, `signing`, `workload`, `version`, `dependencies`, `icons`, `publish --validate`, `migrate`, `telemetry`, `benchmark`, `clean`, `package --validate`
@@ -1591,7 +1591,27 @@ Docs: https://nuvyntralabs.github.io/toolkits/maui-dev/
 
 `--ci` prints JSON. `doctor --fix` only deduplicates MAUI resource items and inserts missing `UseMaui`. Never pushes NuGet.
 
+On an interactive terminal the CLI asks every 4 hours whether to update from nuget.org (`[y/N]`, default no). Skip with `--no-update-check`, `NUVYNTRA_NO_UPDATE_CHECK=1`, `--ci`, JSON/SARIF, or a non-TTY. `--no-update-check` is 1.2.2+; 1.2.1 rejects it. Nuvyn calls `maui-dev doctor --path <app>` without that flag. Cache: `~/.nuvyntra/cli-updates.json`. The CLI does not phone home.
+
 Use when the developer needs environment or project-config diagnosis. Do not use instead of LeakAnalyser, maui-perf, AppHealth, or Diagnostics. Alternatives: maui-check, `dotnet workload`.
+
+---
+
+## Nuvyn
+
+Spec-driven CLI (`1.1.0`) for a **new** .NET MAUI app on the Nuvyntra stack. Package `NuvyntraLabs.Nuvyn.Cli` (`PackAsTool`, command `nuvyn`). Not an app PackageReference.
+
+Install: `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json`
+Then: `nuvyn init ClinicApp --agent cursor`. Commands: `init`, `update`, `version`, `check`.
+Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.checklist` → `/nuvyn.task` → `/nuvyn.analysis` → `/nuvyn.implement` → `/nuvyn.converge`
+NuGet: https://www.nuget.org/packages/NuvyntraLabs.Nuvyn.Cli
+GitHub: https://github.com/nuvyntralabs/Nuvyn
+Docs: https://nuvyntralabs.github.io/toolkits/nuvyn/
+Walkthrough: Nuvyn/USER-GUIDE.md
+
+Same 4-hour nuget.org update prompt as `maui-dev` / `maui-perf` (`--no-update-check` on `nuvyn` itself). Cache: `~/.nuvyntra/cli-updates.json`. Does not phone home. `nuvyn init` / `nuvyn check` call `maui-dev doctor --path <app>` when that tool is on PATH (floor 1.2.0). Do not forward `--no-update-check` (MauiDev 1.2.1 rejects it). Print the doctor report on non-zero exit. Missing MauiDev is a warning.
+
+Do not overlay an existing project (no `--here` / `--force`). Use `nuvyn update` to refresh skills only. Do not use instead of MauiDev or a generic-stack spec CLI.
 
 ---
 
