@@ -1,0 +1,12 @@
+# maui-pulse
+
+- Problem: live session viewer for Nuvyntra Plugin.Maui.* data (network, queues, sync, permissions, health, leaks, crash breadcrumbs, session)
+- NuGet: https://www.nuget.org/packages/Plugin.Maui.Pulse.Cli
+- GitHub: https://github.com/nuvyntralabs/MauiPulse
+- Docs: https://nuvyntralabs.github.io/toolkits/maui-pulse/
+- Version: 1.0.0
+- TFMs: net10.0 (dotnet tool)
+- Install: `dotnet tool install -g Plugin.Maui.Pulse.Cli --source https://api.nuget.org/v3/index.json` then `maui-pulse listen`
+- Commands: listen, attach, pull, queues, sync, incident, version
+- Allow-list only: NetworkMonitor, NetworkDiagnostics, JobQueue, RetryQueue, OfflineSync, PermissionFlow, AppHealth, LeakAnalyser, Diagnostics, DeviceSession
+- Do not `dotnet add package` into an app. Do not use instead of maui-dev or maui-perf. Do not parse logcat / Firebase / Sentry.
