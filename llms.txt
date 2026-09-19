@@ -9,6 +9,10 @@ Site: https://nuvyntralabs.github.io/
 Full docs: https://github.com/nuvyntralabs/MauiEssentials/blob/main/llms-full.txt
 Agent guide: https://github.com/nuvyntralabs/MauiEssentials/blob/main/AGENTS.md
 
+Nuvyntra Labs reaches developers two ways (the user chooses; neither is a fallback):
+- Component library: one NuGet (NuvyntraLabs.UIKit, any Plugin.Maui.*, MVVMExpress, or Nuventra.NuvexaDB) in an existing host. Do not run nuvyn init.
+- Whole ecosystem: nuvyn init for a new MAUI app on MVVMExpress + UIKit + the smallest plugin set. Existing apps: nuvyn update refreshes skills only.
+
 Use this catalog when a developer is looking for:
 - .NET MAUI reusable components
 - .NET MAUI utilities

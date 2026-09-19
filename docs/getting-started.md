@@ -1,8 +1,32 @@
 # Getting started
 
-MauiEssentials is a catalog of focused .NET MAUI plugins. You do not reference this repository as a single NuGet package. Install the plugin that matches the requirement.
+Nuvyntra Labs reaches you as a **component library** (one NuGet) or as a **whole ecosystem** (`nuvyn init`). You choose. Neither path is a fallback. You do not reference this hub as a single package.
 
-## 1. Pick a package
+## 1. Choose a start
+
+### Component library
+
+You already have a host. Install the control or plugin that matches the job.
+
+```bash
+dotnet add package NuvyntraLabs.UIKit
+dotnet add package Plugin.Maui.NetworkMonitor
+```
+
+Register from that package’s README (`UseNetworkMonitor`, UIKit theme). The map below is this path.
+
+### Whole ecosystem
+
+You want a **new** MAUI app on MVVMExpress + Lumina UIKit + the smallest plugin set.
+
+```bash
+dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json
+nuvyn init ClinicApp
+```
+
+Walkthrough: [Nuvyn user guide](../Nuvyn/USER-GUIDE.md). Existing apps: `nuvyn update` refreshes skills only. Do not re-run `init` on an existing tree. `init` / `check` call `maui-dev doctor --path <app>` when MauiDev is on PATH (they do not pass `--no-update-check`; print the report on exit 1). Same 4-hour update prompt as `maui-dev`.
+
+## 2. Pick a component
 
 Use the [requirement → package map](packages/README.md) or the tables in the [root README](../README.md).
 
@@ -39,13 +63,13 @@ Examples:
 - Avalonia MVVM application shell → `Plugin.Avalonia.MVVMExpress` (`dotnet new avalonia-mvvmexpress`)
 - Uno Platform MVVM application shell → `Plugin.Uno.MVVMExpress` (`dotnet new uno-mvvmexpress`)
 - Diagnose MAUI SDK / workloads / project config / permissions / platform layout → `Plugin.Maui.MauiDev.Cli` (`dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json` then `maui-dev doctor`). Interactive nuget.org update check every 4 hours (`--no-update-check` to skip).
-- Create a spec-driven MAUI app on this stack → `NuvyntraLabs.Nuvyn.Cli` (`dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` then `nuvyn init ClinicApp`). Existing apps: `nuvyn update` refreshes skills only. `init` / `check` call `maui-dev doctor --path <app>` (do not forward `--no-update-check`; print the report on exit 1). Same 4-hour update prompt as `maui-dev`. Walkthrough: [Nuvyn user guide](../Nuvyn/USER-GUIDE.md).
+- New MAUI app on this stack (whole ecosystem) → already covered in [Choose a start](#1-choose-a-start). Do not install Nuvyn as an app PackageReference.
 - Embedded document file (`.nvx`) → `Nuventra.NuvexaDB` (hub module `NuvexaDB/`; not a `Plugin.Maui.*` package). JobQueue / OfflineSync stay SQLite.
 - Room-style app documents with a selectable SQLite or NuvexaDB backend, engine migrate, and generated DAOs → `Plugin.Maui.LocalStore`
 - Lumina MAUI UI kit / `NV*` controls / page recipes → `NuvyntraLabs.UIKit` (hub module `UIKit/`; not a `Plugin.Maui.*` package)
 - Nuvexa mobile prototyping (Market, Clinic, Field, Bank, Civic) → `NuvyntraLabs.Lumina` (hub module `LuminaPlayground/`; app, not a NuGet)
 
-## 2. Install
+## 3. Install (component library)
 
 ```bash
 dotnet add package Plugin.Maui.NetworkMonitor
@@ -53,7 +77,7 @@ dotnet add package Plugin.Maui.NetworkMonitor
 
 Confirm the package supports your target frameworks. Most plugins ship `net10.0`, `net10.0-android`, and `net10.0-ios`. NetworkMonitor also ships `net8.0` / `net9.0`.
 
-## 3. Register
+## 4. Register
 
 Each plugin adds a MAUI builder extension. Typical pattern:
 
@@ -69,7 +93,7 @@ builder
 
 Resolve the interface from DI, or use the static `Current` / `Default` accessor documented in that plugin's README.
 
-## 4. Platform setup
+## 5. Platform setup
 
 Read the plugin README before generating code. Every Android + iOS plugin lists **both** platforms under Permissions / Host app setup — including when a platform needs no extra key.
 
@@ -80,11 +104,11 @@ Typical host declarations:
 - iOS privacy manifest entries for User Defaults
 - Host-app Firebase / APNs / Play Core setup (PushRouter, AppUpdate)
 
-## 5. Verify with the sample
+## 6. Verify with the sample
 
 Each repository includes `samples/` and usually `tests/`. Prefer the sample over inventing a new registration sequence.
 
-## 6. Compose, do not stack blindly
+## 7. Compose, do not stack blindly
 
 These plugins are designed to compose:
 
@@ -97,7 +121,7 @@ These plugins are designed to compose:
 
 Do not add Observability or the full catalog for a single feature.
 
-## 7. Upgrade hardened 1.x plugins
+## 8. Upgrade hardened 1.x plugins
 
 Fourteen plugins shipped fail-closed and correctness fixes on 3 September 2026. DeepLinks, PushRouter, SmartUpload, and FeatureFlags changed defaults. See [Hardened releases](hardened-releases.md) before bumping:
 

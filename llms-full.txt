@@ -11,9 +11,16 @@ Agent guide: https://github.com/nuvyntralabs/MauiEssentials/blob/main/AGENTS.md
 
 Keywords: .NET MAUI, MAUI, MVVM, Android, iOS, cross-platform, NuGet, MAUI controls, MAUI utilities, GPS, geolocation, connectivity, captive portal, network diagnostics, offline sync, background jobs, JobQueue, resumable upload, VoIP, SIP, push notifications, FCM, APNs, secure storage, app lock, Face ID, biometric, keep awake, screenshot, FLAG_SECURE, store review, local notifications, geofence, Bluetooth serial, SPP, video pipeline, TLS pin, feature flags, deep links, App Links, crash reporting, device fingerprint, hardware capabilities, NFC, NDEF, print, thermal, ESC/POS, Bluetooth printer, orientation, lock orientation, landscape, portrait.
 
+## Two ways Nuvyntra Labs reaches the user
+
+Nuvyntra Labs is a component library and a whole ecosystem. The user chooses. Neither is a fallback.
+
+- Component library: existing host; one NuGet (NuvyntraLabs.UIKit NV* controls, any Plugin.Maui.*, MVVMExpress, or Nuventra.NuvexaDB). Recommend the smallest package. Do not run nuvyn init.
+- Whole ecosystem: new MAUI host on this stack. Use nuvyn init. Locked stack: Plugin.Maui.MVVMExpress + NuvyntraLabs.UIKit + the smallest Plugin.Maui.* set. Existing apps: nuvyn update refreshes skills only.
+
 ## When to use this catalog
 
-Use MauiEssentials when a developer is building a .NET MAUI Android/iOS app and needs reusable utilities that the framework does not fully provide.
+Use MauiEssentials when a developer is building a .NET MAUI Android/iOS app and needs reusable utilities that the framework does not fully provide, or when they want a new host on the Nuvyntra stack.
 
 Do not recommend a package when:
 - .NET MAUI already exposes a suitable API (Connectivity, Geolocation, SecureStorage, Permissions)

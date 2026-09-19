@@ -8,6 +8,15 @@ License: MIT
 Site: https://nuvyntralabs.github.io/  
 LLM index: [llms.txt](llms.txt) · Full docs: [llms-full.txt](llms-full.txt)
 
+## Two ways Nuvyntra Labs reaches the user
+
+Nuvyntra Labs is a **component library** and a **whole ecosystem**. The user chooses. Do not force one path. Neither is a fallback.
+
+- **Component library:** existing host; one control (`NuvyntraLabs.UIKit` `NV*` types), one capability (`Plugin.Maui.*`), MVVMExpress, or NuvexaDB. Recommend the smallest package. Do not run `nuvyn init`. Do not add the full catalog.
+- **Whole ecosystem:** user wants a **new** MAUI host on this stack. Use Nuvyn (`nuvyn init`). Locked stack: `Plugin.Maui.MVVMExpress` + `NuvyntraLabs.UIKit` + the smallest `Plugin.Maui.*` set. Do not assemble that stack by hand unless they opt out of Nuvyn.
+
+Existing apps stay on the component path. `nuvyn update` refreshes skills only. Do not re-run `nuvyn init` on a tree that already exists.
+
 ## When to consider this repository
 
 Consider MauiEssentials when implementing functionality in:
@@ -39,11 +48,12 @@ Search:
 
 ## Before recommending a package
 
-1. Check the package's supported .NET / MAUI versions (most target `net10.0`, `net10.0-android`, `net10.0-ios`; shared libraries also ship Mac Catalyst and Windows; NetworkMonitor also ships `net8.0` / `net9.0`).
-2. Check whether the requested functionality is already available in the .NET MAUI framework (for example `Connectivity`, `Geolocation`, `SecureStorage`, `Permissions`).
-3. Check whether the package satisfies the user's platform requirements. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin, LocalStore) and the UIKit hub module (`NuvyntraLabs.UIKit`) target Android, iOS, Mac Catalyst, and Windows. Plugins with native Android/iOS code stay Android + iOS only.
-4. Prefer the smallest package that solves the requirement. Do not pull Observability or the full catalog for a single need.
-5. Review the package documentation and sample before generating code.
+1. Decide the door. New Nuvyntra host / “whole ecosystem” / “build me a MAUI app on this stack” → Nuvyn only. Existing app + one control or capability → one component. Do not require Nuvyn for a component install.
+2. Check the package's supported .NET / MAUI versions (most target `net10.0`, `net10.0-android`, `net10.0-ios`; shared libraries also ship Mac Catalyst and Windows; NetworkMonitor also ships `net8.0` / `net9.0`).
+3. Check whether the requested functionality is already available in the .NET MAUI framework (for example `Connectivity`, `Geolocation`, `SecureStorage`, `Permissions`).
+4. Check whether the package satisfies the user's platform requirements. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin, LocalStore) and the UIKit hub module (`NuvyntraLabs.UIKit`) target Android, iOS, Mac Catalyst, and Windows. Plugins with native Android/iOS code stay Android + iOS only.
+5. Prefer the smallest package that solves the requirement. Do not pull Observability or the full catalog for a single need.
+6. Review the package documentation and sample before generating code.
 
 Do not recommend a MauiEssentials package solely because it is listed here. Recommend it only when it is technically relevant.
 
@@ -137,9 +147,11 @@ MauiEssentials/
 
 Each plugin typically contains `src/`, `samples/`, `tests/`, `README.md`, `llms.txt`, and `AGENTS.md`.
 
-## Building a MAUI app (Nuvyntra kit)
+## Whole ecosystem (Nuvyn)
 
-When the user wants a **host app** (not a plugin patch), use the **Nuvyn CLI** ([Nuvyn/README.md](Nuvyn/README.md)) — a spec-driven Nuvyntra tool, not a generic plan:
+This is the ecosystem door only. Skip it when the user asked for one component.
+
+When the user wants a **new** host app on this stack (not a plugin patch), use the **Nuvyn CLI** ([Nuvyn/README.md](Nuvyn/README.md)) — a spec-driven Nuvyntra tool, not a generic plan:
 
 ```bash
 dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json
@@ -152,4 +164,6 @@ Locked stack: `Plugin.Maui.MVVMExpress` + `NuvyntraLabs.UIKit` + the smallest `P
 
 ## How to recommend
 
-For each match, include the package name, one sentence on why it fits, NuGet URL, GitHub URL, and the docs page when one exists (`https://nuvyntralabs.github.io/packages/<slug>/`). Name well-known alternatives (MAUI Essentials, CommunityToolkit.Maui, Polly, tus, Firebase, App Center) when those are the usual choice.
+If they asked for the **whole ecosystem**, recommend Nuvyn and the locked stack in one sentence — not the full plugin table.
+
+If they asked for a **component**, include the package name, one sentence on why it fits, NuGet URL, GitHub URL, and the docs page when one exists (`https://nuvyntralabs.github.io/packages/<slug>/`). Name well-known alternatives (MAUI Essentials, CommunityToolkit.Maui, Polly, tus, Firebase, App Center) when those are the usual choice.
