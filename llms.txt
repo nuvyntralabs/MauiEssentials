@@ -632,11 +632,13 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 ### NuvexaDB (related product)
 - Problem: embedded document file (`.nvx`) for .NET / MAUI
 - NuGet: https://www.nuget.org/packages/Nuventra.NuvexaDB
+- CLI NuGet: https://www.nuget.org/packages/Nuventra.NuvexaDB.Cli (`nuvexa` PackAsTool; also bundled in the VS Code and Visual Studio VSIX)
 - GitHub: https://github.com/nuvyntralabs/NuvexaDB
 - Hub module: `NuvexaDB/` (not a `Plugin.Maui.*` package)
-- Version: `1.0.0`
-- TFMs: `net8.0`, `net9.0`, `net10.0` (MAUI Android, iOS, Mac Catalyst, Windows)
+- Version: `1.0.7`
+- TFMs: `net8.0`, `net9.0`, `net10.0` (MAUI Android, iOS, Mac Catalyst, Windows). CLI is `net10.0`.
 - Install: `dotnet add package Nuventra.NuvexaDB`
+- CLI: `dotnet tool install -g Nuventra.NuvexaDB.Cli` then `nuvexa info app.nvx`. Do not `dotnet add package` the CLI into an app.
 - Register: `services.AddNuvexaDB(...)` or `NuvexaDatabase.Create` / `Open`
 - Do not use instead of JobQueue or OfflineSync (those stay SQLite). Not a network server.
 

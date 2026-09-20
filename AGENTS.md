@@ -140,7 +140,7 @@ MauiEssentials/
 ├── MauiDev/             → Plugin.Maui.MauiDev.Cli (`maui-dev` tool + VS Code extension)
 ├── Pulse/               → Plugin.Maui.Pulse (`UseMauiPulse()`) + Plugin.Maui.Pulse.Cli (`maui-pulse`)
 ├── Nuvyn/               → NuvyntraLabs.Nuvyn.Cli (`nuvyn` spec-driven MAUI app CLI)
-├── NuvexaDB/            → Nuventra.NuvexaDB (related product; embedded `.nvx` document file)
+├── NuvexaDB/            → Nuventra.NuvexaDB + Nuventra.NuvexaDB.Cli (`nuvexa`; also bundled in VS / VS Code VSIX)
 ├── UIKit/               → NuvyntraLabs.UIKit (Lumina MAUI controls + page recipes)
 └── LuminaPlayground/   → NuvyntraLabs.Lumina (Nuvexa mobile prototyping playground)
 

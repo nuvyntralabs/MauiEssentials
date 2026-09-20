@@ -11,4 +11,4 @@ When bumping NuvexaDB, work in the `NuvexaDB/` submodule.
 2. Run `python3 NuvexaDB/.github/scripts/check-versions.py --repo-root NuvexaDB --write`
 3. Confirm the checker is all OK. Then commit in NuvexaDB and ask about a GitHub Release.
 
-`--write` covers README `**Version:**`, VS Code, Visual Studio, Data Studio `app.manifest`, and all language bindings. .NET engine / Tools / CLI / Native / Explorer inherit `Directory.Build.props`. Do not set a second Version in those csprojs. Do not bump sample apps.
+`--write` covers README `**Version:**`, VS Code, Visual Studio, Data Studio `app.manifest`, and all language bindings. .NET engine / Tools / CLI (`PackAsTool`, omit snupkg) / Native / Explorer inherit `Directory.Build.props`. Do not set a second Version in those csprojs. Do not bump sample apps.

@@ -1661,14 +1661,16 @@ Do not overlay an existing project (no `--here` / `--force`). Use `nuvyn update`
 
 ## NuvexaDB (related product)
 
-Embedded document database (`1.0.0`). Package `Nuventra.NuvexaDB`. One portable `.nvx` file, optional AES-256-GCM (fail-closed: missing key throws `NuvexaEncryptionException`). Hub module `NuvexaDB/`, not a `Plugin.Maui.*` package.
+Embedded document database (`1.0.7`). Package `Nuventra.NuvexaDB` plus PackAsTool `Nuventra.NuvexaDB.Cli` (`nuvexa`). One portable `.nvx` file, optional AES-256-GCM (fail-closed: missing key throws `NuvexaEncryptionException`). Hub module `NuvexaDB/`, not a `Plugin.Maui.*` package.
 
 Install: `dotnet add package Nuventra.NuvexaDB`
+CLI: `dotnet tool install -g Nuventra.NuvexaDB.Cli` then `nuvexa info app.nvx`. Do not add the CLI as an app PackageReference.
 Register: `services.AddNuvexaDB(...)` or `NuvexaDatabase.Create` / `Open`
 Query: `db.users.find({ age: { $gte: 21 } }).sort({ name: 1 }).limit(20)` plus fluent filters, `$match`/`$lookup` aggregation, and `GetCollection<T>().Where(...)`.
 Files: `db.Files.UploadAsync` / `DownloadAsync` (`fs.files` / `fs.chunks`).
-Tools: Avalonia Explorer (`Plugin.Avalonia.MVVMExpress`), `nuvexa` CLI, VS Code and Visual Studio editors.
+Tools: Avalonia Explorer (`Plugin.Avalonia.MVVMExpress`), `nuvexa` CLI (`Nuventra.NuvexaDB.Cli`, also bundled in both VSIX packages), VS Code and Visual Studio editors.
 NuGet: https://www.nuget.org/packages/Nuventra.NuvexaDB
+CLI NuGet: https://www.nuget.org/packages/Nuventra.NuvexaDB.Cli
 GitHub: https://github.com/nuvyntralabs/NuvexaDB
 
 Do not use instead of JobQueue or OfflineSync (those stay SQLite). Not a network server. Custom binary engine is the source of truth — do not add SQLite/RocksDB to `Nuventra.NuvexaDB`. Alternatives: SQLite / sqlite-net, LiteDB, Realm.
