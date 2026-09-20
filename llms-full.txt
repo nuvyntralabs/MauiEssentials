@@ -1606,7 +1606,7 @@ Use when the developer needs environment or project-config diagnosis. Do not use
 
 ## maui-pulse
 
-Live session viewer (`1.0.0`) for Nuvyntra `Plugin.Maui.*` data only. Two packages: `Plugin.Maui.Pulse` (host Debug sink, `UseMauiPulse()`) and `Plugin.Maui.Pulse.Cli` (PackAsTool, command `maui-pulse`). Hub module `Pulse/`. Does not scrape logcat, Charles, Firebase, Sentry, or MAUI `Connectivity`.
+Live session viewer (`1.0.1`) for Nuvyntra `Plugin.Maui.*` data only. Two packages: `Plugin.Maui.Pulse` (host Debug sink, `UseMauiPulse()`) and `Plugin.Maui.Pulse.Cli` (PackAsTool, command `maui-pulse`). Hub module `Pulse/`. Does not scrape logcat, Charles, Firebase, Sentry, or MAUI `Connectivity`.
 
 Install CLI: `dotnet tool install -g Plugin.Maui.Pulse.Cli --source https://api.nuget.org/v3/index.json`
 Install host: `dotnet add package Plugin.Maui.Pulse` then `builder.UseMauiPulse()`. Still register the plugins you already use. Do not POST from the page.

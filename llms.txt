@@ -616,7 +616,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - User guide: Pulse/USER-GUIDE.md (integration)
 - Architecture: Pulse/README.md
 - Hub module: `Pulse/`
-- Version: `1.0.0`
+- Version: `1.0.1`
 - TFMs: `net10.0` (dotnet tool + host library)
 - Install CLI: `dotnet tool install -g Plugin.Maui.Pulse.Cli --source https://api.nuget.org/v3/index.json`
 - Install host: `dotnet add package Plugin.Maui.Pulse` then `builder.UseMauiPulse()`. Still register the plugins you already use. No per-event POST.
