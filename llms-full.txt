@@ -9,7 +9,7 @@ Site: https://nuvyntralabs.github.io/
 Short index: https://github.com/nuvyntralabs/MauiEssentials/blob/main/llms.txt
 Agent guide: https://github.com/nuvyntralabs/MauiEssentials/blob/main/AGENTS.md
 
-Keywords: .NET MAUI, MAUI, MVVM, Android, iOS, cross-platform, NuGet, MAUI controls, MAUI utilities, GPS, geolocation, connectivity, captive portal, network diagnostics, offline sync, background jobs, JobQueue, resumable upload, VoIP, SIP, push notifications, FCM, APNs, secure storage, app lock, Face ID, biometric, keep awake, screenshot, FLAG_SECURE, store review, local notifications, geofence, Bluetooth serial, SPP, video pipeline, TLS pin, feature flags, deep links, App Links, crash reporting, device fingerprint, hardware capabilities, NFC, NDEF, print, thermal, ESC/POS, Bluetooth printer, orientation, lock orientation, landscape, portrait.
+Keywords: .NET MAUI, MAUI, MVVM, Android, iOS, cross-platform, NuGet, MAUI controls, MAUI utilities, GPS, geolocation, connectivity, captive portal, network diagnostics, offline sync, background jobs, JobQueue, resumable upload, VoIP, SIP, push notifications, FCM, APNs, secure storage, app lock, Face ID, biometric, keep awake, screenshot, FLAG_SECURE, store review, local notifications, geofence, Bluetooth serial, SPP, video pipeline, TLS pin, feature flags, deep links, App Links, crash reporting, device fingerprint, hardware capabilities, NFC, NDEF, print, thermal, ESC/POS, Bluetooth printer, orientation, lock orientation, landscape, portrait, maui-pulse, UseMauiPulse.
 
 ## Two ways Nuvyntra Labs reaches the user
 
@@ -1588,7 +1588,7 @@ Use when the app is Uno Platform (WinUI API). Do not use the WinUI nupkg. Do not
 
 ## MauiDev
 
-Developer productivity toolkit (`1.2.2`). `Plugin.Maui.MauiDev.Cli` is a PackAsTool (`maui-dev`). Pair with the `nuvyntralabs.maui-dev` VS Code / Cursor extension. Not an app PackageReference. nuget.org reserved `MauiDev.Cli`.
+Developer productivity toolkit (`1.2.3`). `Plugin.Maui.MauiDev.Cli` is a PackAsTool (`maui-dev`). Pair with the `nuvyntralabs.maui-dev` VS Code / Cursor extension. Not an app PackageReference. nuget.org reserved `MauiDev.Cli`.
 
 Install: `dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json`
 Commands: `maui-dev doctor`, `analyze`, `resources`, `permissions`, `platform`, `signing`, `workload`, `version`, `dependencies`, `icons`, `publish --validate`, `migrate`, `telemetry`, `benchmark`, `clean`, `package --validate`
@@ -1604,9 +1604,46 @@ Use when the developer needs environment or project-config diagnosis. Do not use
 
 ---
 
+## maui-pulse
+
+Live session viewer (`1.0.0`) for Nuvyntra `Plugin.Maui.*` data only. Two packages: `Plugin.Maui.Pulse` (host Debug sink, `UseMauiPulse()`) and `Plugin.Maui.Pulse.Cli` (PackAsTool, command `maui-pulse`). Hub module `Pulse/`. Does not scrape logcat, Charles, Firebase, Sentry, or MAUI `Connectivity`.
+
+Install CLI: `dotnet tool install -g Plugin.Maui.Pulse.Cli --source https://api.nuget.org/v3/index.json`
+Install host: `dotnet add package Plugin.Maui.Pulse` then `builder.UseMauiPulse()`. Still register the plugins you already use. Do not POST from the page.
+USB Android: `adb reverse tcp:7878 tcp:7878`
+Then: `maui-pulse attach --package <applicationId> --android|--ios --port 7878`
+Commands: `listen`, `attach`, `pull`, `queues`, `sync`, `incident`, `version`
+Every session command requires `--package`. `listen` / `attach` also require `--android` or `--ios`.
+NuGet CLI: https://www.nuget.org/packages/Plugin.Maui.Pulse.Cli
+NuGet host: https://www.nuget.org/packages/Plugin.Maui.Pulse
+GitHub: https://github.com/nuvyntralabs/MauiPulse
+Docs: https://nuvyntralabs.github.io/toolkits/maui-pulse/
+User guide: Pulse/USER-GUIDE.md (integration)
+Architecture: Pulse/README.md
+
+Allow-list (host register → events Pulse binds):
+- Plugin.Maui.NetworkMonitor — `AddNetworkMonitor` → `StatusChanged`
+- Plugin.Maui.NetworkDiagnostics — `UseNetworkDiagnostics` → `Completed` (`RunAsync`)
+- Plugin.Maui.JobQueue — `UseMauiJobQueue` → `JobFailed` + `plugin.maui.jobqueue.db3`
+- Plugin.Maui.RetryQueue — `UseMauiRetryQueue` → `OperationFailed` + `plugin.maui.retryqueue.db3`
+- Plugin.Maui.OfflineSync — `UseOfflineSync` → `ConflictDetected` / `StatusChanged` / `SyncCompleted` + `offlinesync.db3`
+- Plugin.Maui.PermissionFlow — `UsePermissionFlow` → `FlowCompleted` / `PermissionChanged`
+- Plugin.Maui.AppHealth — `UseAppHealth` → `HealthChanged` (`StartWatching` / `InspectAsync`)
+- Plugin.Maui.LeakAnalyser — `UseLeakAnalyser` → `OnLeaked`
+- Plugin.Maui.Diagnostics — `UseMauiDiagnostics` → `AnrDetected` + `maui-diagnostics/`
+- Plugin.Maui.DeviceSession — `UseDeviceSession` → `SessionStarted`
+
+Missing plugins skip that lane. Observability is a pipe (Network / Health / Sync / Session only). Sample: `Pulse/samples/Pulse.Sample` (`com.test.androidapp` / `com.test.ios`) uses demo types so Pulse can extract without sibling repos.
+
+Same 4-hour nuget.org update prompt as `maui-dev` (`--no-update-check` / `NUVYNTRA_NO_UPDATE_CHECK=1`). Cache: `~/.nuvyntra/cli-updates.json`. Does not phone home.
+
+Use when the developer wants to watch a running MAUI app for allow-listed plugin events or inspect pulled `*.db3` / `maui-diagnostics/` files. Do not `dotnet add package Plugin.Maui.Pulse.Cli` into an app. Do not use instead of MauiDev or maui-perf. Alternatives: `adb logcat`, Charles / Proxyman, Firebase Performance, Sentry.
+
+---
+
 ## Nuvyn
 
-Spec-driven CLI (`1.1.0`) for a **new** .NET MAUI app on the Nuvyntra stack. Package `NuvyntraLabs.Nuvyn.Cli` (`PackAsTool`, command `nuvyn`). Not an app PackageReference.
+Spec-driven CLI (`1.1.1`) for a **new** .NET MAUI app on the Nuvyntra stack. Package `NuvyntraLabs.Nuvyn.Cli` (`PackAsTool`, command `nuvyn`). Not an app PackageReference.
 
 Install: `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json`
 Then: `nuvyn init ClinicApp --agent cursor`. Commands: `init`, `update`, `version`, `check`.

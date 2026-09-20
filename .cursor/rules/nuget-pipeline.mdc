@@ -7,7 +7,7 @@ alwaysApply: true
 
 Do not deploy packages to nuget.org or GitHub Packages from this workspace.
 
-This applies to **every plugin submodule** (LeakAnalyser, HttpForge, GeoLocator, and the rest), the UIKit hub module (`NuvyntraLabs.UIKit`), the NuvexaDB hub module (`Nuventra.NuvexaDB`), the Nuvyn CLI (`NuvyntraLabs.Nuvyn.Cli`), and the Pulse CLI (`Plugin.Maui.Pulse.Cli`).
+This applies to **every plugin submodule** (LeakAnalyser, HttpForge, GeoLocator, and the rest), the UIKit hub module (`NuvyntraLabs.UIKit`), the NuvexaDB hub module (`Nuventra.NuvexaDB`), the Nuvyn CLI (`NuvyntraLabs.Nuvyn.Cli`), and Pulse (`Plugin.Maui.Pulse` + `Plugin.Maui.Pulse.Cli`).
 
 - Do not run `dotnet nuget push`, pack-and-upload, or any other local feed push
 - Do not use a local `NUGET_KEY` to publish

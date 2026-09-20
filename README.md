@@ -147,13 +147,13 @@ git submodule update --init --recursive
 
 ## Developer tools
 
-These are not app PackageReferences. Install the CLI with `dotnet tool install`.
+Install the CLI with `dotnet tool install`. Pulse also has a host PackageReference (`Plugin.Maui.Pulse` / `UseMauiPulse()`). Do not `dotnet add package` the `*.Cli` tools into an app.
 
 | Tool | Purpose | Install |
 | --- | --- | --- |
 | [MauiDev](https://github.com/nuvyntralabs/MauiDev) (`maui-dev`) | Diagnose MAUI SDK, workloads, project configuration, permissions, platform layout, resources, and pack metadata. VS Code / Cursor extension: `nuvyntralabs.maui-dev`. Interactive nuget.org update check every 4 hours (`--no-update-check` to skip). | `dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json` · [NuGet](https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli) |
 | [Nuvyn](Nuvyn/) (`nuvyn`) | Spec-driven CLI for a **new** Nuvyntra MAUI app: `nuvyn init ClinicApp`, pick an AI agent, then `/nuvyn.specify` → `/nuvyn.plan` → `/nuvyn.implement`. | `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` |
-| [Pulse](Pulse/) (`maui-pulse`) | Live session viewer for **Plugin.Maui.\*** data only (network, queues, sync, permissions, health, leaks, crash breadcrumbs). Missing plugins skip that lane. | `dotnet tool install -g Plugin.Maui.Pulse.Cli --source https://api.nuget.org/v3/index.json` |
+| [Pulse](Pulse/) (`maui-pulse`) | Live session viewer for **Plugin.Maui.\*** data only. Host Debug sink is `UseMauiPulse()` in `Plugin.Maui.Pulse`. Missing plugins skip that lane. Integrate: [Pulse/USER-GUIDE.md](Pulse/USER-GUIDE.md). Architecture: [Pulse/README.md](Pulse/README.md). | CLI: `dotnet tool install -g Plugin.Maui.Pulse.Cli --source https://api.nuget.org/v3/index.json` · Host: `dotnet add package Plugin.Maui.Pulse` |
 
 `Plugin.Maui.MVVMExpress` is stable (`1.3.0`). Docs: [MVVMExpress](https://nuvyntralabs.github.io/packages/plugin-maui-mvvmexpress/). Scaffold: `dotnet new install Plugin.Maui.MVVMExpress.Templates` then `dotnet new mvvmexpress`. VS Code and Visual Studio extensions: [VS Code Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance) · [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance).
 
@@ -235,14 +235,14 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 | Avalonia MVVM ViewModels, Frame host, dialogs | Plugin.Avalonia.MVVMExpress |
 | Uno Platform MVVM ViewModels, Frame navigation, dialogs | Plugin.Uno.MVVMExpress |
 | Diagnose MAUI SDK / workloads / project config / permissions / platform / resources / pack (CLI + VS Code) | MauiDev (`dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json`) |
-| Live session view of Plugin.Maui.* network / queues / sync / crash breadcrumbs | Pulse (`dotnet tool install -g Plugin.Maui.Pulse.Cli --source https://api.nuget.org/v3/index.json`) |
+| Live session view of Plugin.Maui.* network / queues / sync / crash breadcrumbs | Pulse — host `UseMauiPulse()` (`Plugin.Maui.Pulse`) + CLI `maui-pulse attach --package <id> --android|--ios` (`dotnet tool install -g Plugin.Maui.Pulse.Cli --source https://api.nuget.org/v3/index.json`) |
 
 ## Features
 
 - Two starts: component library (one NuGet) or whole ecosystem (`nuvyn init`)
 - Focused plugins instead of one large dependency
 - Android and iOS first-class support
-- MAUI builder extensions (`UseGeoLocator`, `UseOfflineSync`, `UseLeakAnalyser`, …)
+- MAUI builder extensions (`UseGeoLocator`, `UseOfflineSync`, `UseLeakAnalyser`, `UseMauiPulse`, …)
 - Samples and tests in each repository
 - MIT license
 

@@ -609,15 +609,23 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 
 ### maui-pulse
 - Problem: live session viewer for Nuvyntra Plugin.Maui.* data only
-- NuGet: https://www.nuget.org/packages/Plugin.Maui.Pulse.Cli
+- CLI NuGet: https://www.nuget.org/packages/Plugin.Maui.Pulse.Cli (`maui-pulse`)
+- Host NuGet: https://www.nuget.org/packages/Plugin.Maui.Pulse (`UseMauiPulse()`)
 - GitHub: https://github.com/nuvyntralabs/MauiPulse
 - Docs: https://nuvyntralabs.github.io/toolkits/maui-pulse/
+- User guide: Pulse/USER-GUIDE.md (integration)
+- Architecture: Pulse/README.md
 - Hub module: `Pulse/`
 - Version: `1.0.0`
-- TFMs: `net10.0` (dotnet tool)
-- Install: `dotnet tool install -g Plugin.Maui.Pulse.Cli --source https://api.nuget.org/v3/index.json` then `maui-pulse listen`
+- TFMs: `net10.0` (dotnet tool + host library)
+- Install CLI: `dotnet tool install -g Plugin.Maui.Pulse.Cli --source https://api.nuget.org/v3/index.json`
+- Install host: `dotnet add package Plugin.Maui.Pulse` then `builder.UseMauiPulse()`. Still register the plugins you already use. No per-event POST.
+- Attach: `adb reverse tcp:7878 tcp:7878` then `maui-pulse attach --package <id> --android|--ios --port 7878`
+- `--package` is required on every session command. `listen` / `attach` also require `--android` or `--ios`. JSON for another app is dropped.
 - Commands: `listen`, `attach`, `pull`, `queues`, `sync`, `incident`, `version`
-- Allow-list: NetworkMonitor, NetworkDiagnostics, JobQueue, RetryQueue, OfflineSync, PermissionFlow, AppHealth, LeakAnalyser, Diagnostics, DeviceSession
+- Allow-list + host register: NetworkMonitor (`AddNetworkMonitor` / `StatusChanged`), NetworkDiagnostics (`UseNetworkDiagnostics` / `Completed`), JobQueue (`UseMauiJobQueue` / `JobFailed`), RetryQueue (`UseMauiRetryQueue` / `OperationFailed`), OfflineSync (`UseOfflineSync` / `ConflictDetected`), PermissionFlow (`UsePermissionFlow` / `FlowCompleted`), AppHealth (`UseAppHealth` / `HealthChanged`), LeakAnalyser (`UseLeakAnalyser` / `OnLeaked`), Diagnostics (`UseMauiDiagnostics` / `AnrDetected`), DeviceSession (`UseDeviceSession` / `SessionStarted`)
+- Files: `plugin.maui.jobqueue.db3`, `plugin.maui.retryqueue.db3`, `offlinesync.db3`, `maui-diagnostics/`
+- Sample: `Pulse/samples/Pulse.Sample` (`com.test.androidapp` / `com.test.ios`). Demo types stand in for sibling plugins.
 - Update check: same 4-hour nuget.org prompt as `maui-dev` (`--no-update-check` / `NUVYNTRA_NO_UPDATE_CHECK=1`)
 - Do not `dotnet add package Plugin.Maui.Pulse.Cli` into an app. Do not parse logcat, Firebase, or Sentry. Do not use instead of MauiDev or maui-perf. Missing plugins skip that lane.
 

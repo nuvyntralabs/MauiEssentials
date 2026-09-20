@@ -138,7 +138,7 @@ MauiEssentials/
 ├── AvaloniaMVVMExpress/ → Plugin.Avalonia.MVVMExpress
 ├── UnoMVVMExpress/      → Plugin.Uno.MVVMExpress
 ├── MauiDev/             → Plugin.Maui.MauiDev.Cli (`maui-dev` tool + VS Code extension)
-├── Pulse/               → Plugin.Maui.Pulse.Cli (`maui-pulse` live Plugin.Maui.* session CLI)
+├── Pulse/               → Plugin.Maui.Pulse (`UseMauiPulse()`) + Plugin.Maui.Pulse.Cli (`maui-pulse`)
 ├── Nuvyn/               → NuvyntraLabs.Nuvyn.Cli (`nuvyn` spec-driven MAUI app CLI)
 ├── NuvexaDB/            → Nuventra.NuvexaDB (related product; embedded `.nvx` document file)
 ├── UIKit/               → NuvyntraLabs.UIKit (Lumina MAUI controls + page recipes)
