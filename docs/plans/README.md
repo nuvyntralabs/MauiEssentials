@@ -3,12 +3,12 @@
 | Product | Plan | Status |
 | --- | --- | --- |
 | MauiDev CLI + VS Code extension | [maudev.md](maudev.md) | Implemented at `1.0.1` |
-| MauiDev next (1.1 / 1.2 commands) | [maudev-next.md](maudev-next.md) | Implemented at `1.2.2` (1.2 commands plus 4-hour nuget.org update check) |
+| MauiDev next (1.1 / 1.2 commands) | [maudev-next.md](maudev-next.md) | Implemented at `1.2.3` (1.2 commands plus 4-hour nuget.org update check; TFM union + workload host skip) |
 | Next-wave runtime plugins (9 packages; no barcode) | [next-wave-plugins.md](next-wave-plugins.md) | Published on nuget.org at `1.0.2`; catalog honesty pass for thin 1.0s |
 | NuvexaDB embedded `.nvx` document database | Hub module `NuvexaDB/` (`Nuventra.NuvexaDB`) | Implemented at `1.0.0` (related product; not `Plugin.Maui.*`) |
 | NuvyntraLabs.UIKit (MAUI controls + page recipes, `NV*` types) | [nuvyntralabs-uikit.md](nuvyntralabs-uikit.md) · [components](nuvyntralabs-uikit-components.md) | Implemented at `1.5.1` (201 controls + 66 recipes; Phase 7 harden; `NVInputField` replaces `NVEmailField`; related product; not `Plugin.Maui.*`; CI publishes nuget.org + GitHub Packages) |
 | NuvyntraLabs.UIKit next (1.1 deepen + 1.2 / 1.3 names) | [nuvyntralabs-uikit-next.md](nuvyntralabs-uikit-next.md) | 1.2 / 1.3 catalog + 1.4 deepen + 1.5 `NVInputField` rename shipped |
-| Nuvyn (Spec-driven CLI for Nuvyntra MAUI apps) | [nuvyn.md](nuvyn.md) | Implemented at `1.1.0` — `NuvyntraLabs.Nuvyn.Cli`, command `nuvyn`; `init` + `update` + host proof + 4-hour update check + optional `maui-dev doctor`; Spec Kit coding-agent set; CI packs and publishes from `Nuvyn/.github/workflows/ci.yml` |
+| Nuvyn (Spec-driven CLI for Nuvyntra MAUI apps) | [nuvyn.md](nuvyn.md) | Implemented at `1.1.1` — `NuvyntraLabs.Nuvyn.Cli`, command `nuvyn`; `init` + `update` + host proof + 4-hour update check + optional `maui-dev doctor`; Spec Kit coding-agent set; CI packs and publishes from `Nuvyn/.github/workflows/ci.yml` |
 
 ## MVVMExpress platform family plans
 

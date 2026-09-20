@@ -1,6 +1,6 @@
 # Nuvyn — design plan
 
-**Status:** Implemented at `1.1.0` (hub folder `Nuvyn/`; CI in `Nuvyn/.github/workflows/ci.yml` proves `nuvyn init` + smallest package set + host build, then packs; nuget.org publish still pipeline-only via `NUGET_KEY_NUVYN`)  
+**Status:** Implemented at `1.1.1` (hub folder `Nuvyn/`; CI in `Nuvyn/.github/workflows/ci.yml` proves `nuvyn init` + smallest package set + host build, then packs; nuget.org publish still pipeline-only via `NUGET_KEY_NUVYN`)  
 **Product:** Nuvyn — Spec-driven CLI for building .NET MAUI apps (Android, iOS, Windows, Mac Catalyst) on the Nuvyntra stack. Domain-agnostic: the user's requirements define the product.  
 **Package:** `NuvyntraLabs.Nuvyn.Cli` (`PackAsTool`, command `nuvyn`)  
 **Hub folder (proposed):** `Nuvyn/`  
