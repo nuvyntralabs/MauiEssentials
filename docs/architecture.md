@@ -2,7 +2,7 @@
 
 MauiEssentials is a **catalog**, not a monorepo product. Each plugin is an independent git repository, NuGet package, and submodule. Most plugins target .NET MAUI. `Plugin.Wpf.MVVMExpress`, `Plugin.WinUI.MVVMExpress`, `Plugin.Avalonia.MVVMExpress`, and `Plugin.Uno.MVVMExpress` are separate desktop families in the same catalog — they are not Windows TFMs of `Plugin.Maui.MVVMExpress` and do not PackageReference each other.
 
-Nuvyntra Labs presents two faces from this catalog. The **component library** is one plugin or UIKit in any host. The **whole ecosystem** is `nuvyn init` assembling a new host from the same packages. Nuvyn does not replace the catalog. Neither path is a fallback.
+Nuvyntra Labs presents two faces from this catalog. The **component library** is one plugin or UIKit in any host. The **whole ecosystem** is `nuvyn init` assembling a new host from the same packages. An existing MAUI app can attach the slash chain with `nuvyn adopt` without changing MVVM / UI / HTTP. Nuvyn does not replace the catalog. Neither path is a fallback.
 
 ```
 Component library                      Whole ecosystem
@@ -16,7 +16,7 @@ src / samples / tests / README
 llms.txt / AGENTS.md
 ```
 
-`MauiDev/` is a developer tool (`Plugin.Maui.MauiDev.Cli` / `maui-dev`), not a runtime plugin. nuget.org reserved the ID `MauiDev.Cli`. `Pulse/` is a developer tool: `Plugin.Maui.Pulse.Cli` (`maui-pulse`) plus the host Debug sink `Plugin.Maui.Pulse` (`UseMauiPulse()`). It is a live session viewer for allow-listed `Plugin.Maui.*` data only — it does not replace those plugins. `Nuvyn/` is a developer tool (`NuvyntraLabs.Nuvyn.Cli` / `nuvyn`): spec-driven init of a **new** MAUI host, not a runtime plugin. `maui-dev`, `maui-pulse`, `nuvyn`, and `maui-perf` share a 4-hour nuget.org self-update prompt and the cache file `~/.nuvyntra/cli-updates.json`; they do not phone home. Nuvyn shells `maui-dev doctor --path <app>` and does not forward `--no-update-check` (MauiDev 1.2.1 rejects it). `Biometric/` ships `Plugin.Maui.BiometricPlus` because nuget.org reserved `Plugin.Maui.Biometric`. `NuvexaDB/` is a related-product hub module (`Nuventra.NuvexaDB` engine + `Nuventra.NuvexaDB.Cli` / `nuvexa`) — an embedded `.nvx` document database, not a `Plugin.Maui.*` package. The CLI is a PackAsTool and is also bundled in the VS Code and Visual Studio VSIX. `UIKit/` is a related-product hub module (`NuvyntraLabs.UIKit`) — Lumina MAUI controls and page recipes, not a `Plugin.Maui.*` package. `LuminaPlayground/` is a related-product hub module (`NuvyntraLabs.Lumina`) — the Nuvexa mobile prototyping playground (five standalone MAUI apps), not a NuGet. JobQueue and OfflineSync remain the SQLite tools for durable jobs and sync.
+`MauiDev/` is a developer tool (`Plugin.Maui.MauiDev.Cli` / `maui-dev`), not a runtime plugin. nuget.org reserved the ID `MauiDev.Cli`. `Pulse/` is a developer tool: `Plugin.Maui.Pulse.Cli` (`maui-pulse`) plus the host Debug sink `Plugin.Maui.Pulse` (`UseMauiPulse()`). It is a live session viewer for allow-listed `Plugin.Maui.*` data only — it does not replace those plugins. `Nuvyn/` is a developer tool (`NuvyntraLabs.Nuvyn.Cli` / `nuvyn`): spec-driven init of a **new** MAUI host, or `nuvyn adopt` to attach the slash chain to an existing app (stack unchanged). It is not a runtime plugin. `maui-dev`, `maui-pulse`, `nuvyn`, and `maui-perf` share a 4-hour nuget.org self-update prompt and the cache file `~/.nuvyntra/cli-updates.json`; they do not phone home. Nuvyn shells `maui-dev doctor --path <app>` and does not forward `--no-update-check` (MauiDev 1.2.1 rejects it). `Biometric/` ships `Plugin.Maui.BiometricPlus` because nuget.org reserved `Plugin.Maui.Biometric`. `NuvexaDB/` is a related-product hub module (`Nuventra.NuvexaDB` engine + `Nuventra.NuvexaDB.Cli` / `nuvexa`) — an embedded `.nvx` document database, not a `Plugin.Maui.*` package. The CLI is a PackAsTool and is also bundled in the VS Code and Visual Studio VSIX. `UIKit/` is a related-product hub module (`NuvyntraLabs.UIKit`) — Lumina MAUI controls and page recipes, not a `Plugin.Maui.*` package. `LuminaPlayground/` is a related-product hub module (`NuvyntraLabs.Lumina`) — the Nuvexa mobile prototyping playground (five standalone MAUI apps), not a NuGet. JobQueue and OfflineSync remain the SQLite tools for durable jobs and sync.
 
 ## Design rules
 
@@ -56,11 +56,11 @@ llms.txt / AGENTS.md
 | One-shot biometric / PIN | Biometric | AppLock (workflow), DeviceInfoPlus (`HasBiometric`) |
 | Keep screen on | KeepAwake | — |
 | iOS capture overlay / Android FLAG_SECURE | ScreenGuard | AppLock (cover after background) |
-| Store review (iOS in-app; Android listing) | AppReview | AppUpdate (binary update) |
+| Store review (iOS in-app; Android ReviewManager) | AppReview | AppUpdate (binary update) |
 | Scheduled local notifications | LocalNotifications | PushRouter (remote FCM / APNs routing) |
-| Circular geofence (Android 1.0 in-memory + Raise()) | Geofence | GeoLocator (on-demand GPS) |
+| Circular geofence (Android GeofencingClient; persists across process death) | Geofence | GeoLocator (on-demand GPS) |
 | Classic Bluetooth SPP (iOS MFi only) | BluetoothSerial | BluetoothManager (BLE GATT), Printing (ESC/POS documents) |
-| Camera/gallery video pick + reject-if-over-budget | VideoPipeline | MediaPipeline (images), FileVault, SmartUpload |
+| Camera/gallery video pick + thumbnail + OS transcode | VideoPipeline | MediaPipeline (images), FileVault, SmartUpload |
 | HttpClient TLS / SPKI pin | TlsPin | ApiResilience (retry), HttpForge (typed clients) |
 | Form validation / `Validation.For` | FormValidation | — |
 | Soft keyboard hide / show / dismiss / avoidance | KeyboardManager | FormValidation |

@@ -28,7 +28,7 @@ dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/
 nuvyn init ClinicApp
 ```
 
-Existing apps stay on the component path. `nuvyn update` refreshes skills only; it does not overlay host code. Do not re-run `nuvyn init` on a tree that already exists. Getting started: [choose a start](docs/getting-started.md).
+Existing apps stay on the component path for packages. Attach the spec chain without changing MVVM / UI / HTTP with `nuvyn adopt`. `nuvyn update` refreshes skills only; it does not overlay host code. Do not re-run `nuvyn init` on a tree that already exists. Getting started: [choose a start](docs/getting-started.md).
 
 ## What problem this catalog solves
 
@@ -127,11 +127,11 @@ git submodule update --init --recursive
 | [Plugin.Maui.BiometricPlus](https://github.com/nuvyntralabs/Plugin.Maui.Biometric) | One-shot Face ID / fingerprint / device PIN prompt | [NuGet](https://www.nuget.org/packages/Plugin.Maui.BiometricPlus) |
 | [Plugin.Maui.KeepAwake](https://github.com/nuvyntralabs/Plugin.Maui.KeepAwake) | Keep the screen on (reference-counted) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.KeepAwake) |
 | [Plugin.Maui.ScreenGuard](https://github.com/nuvyntralabs/Plugin.Maui.ScreenGuard) | iOS is a capture overlay, not a screenshot block; Android FLAG_SECURE | [NuGet](https://www.nuget.org/packages/Plugin.Maui.ScreenGuard) |
-| [Plugin.Maui.AppReview](https://github.com/nuvyntralabs/Plugin.Maui.AppReview) | iOS in-app review + open listing; Android 1.0 opens the Play listing | [NuGet](https://www.nuget.org/packages/Plugin.Maui.AppReview) |
+| [Plugin.Maui.AppReview](https://github.com/nuvyntralabs/Plugin.Maui.AppReview) | iOS in-app review + open listing; Android Play Core ReviewManager on Play-installed builds | [NuGet](https://www.nuget.org/packages/Plugin.Maui.AppReview) |
 | [Plugin.Maui.LocalNotifications](https://github.com/nuvyntralabs/Plugin.Maui.LocalNotifications) | Schedule / cancel local notifications and tap routing | [NuGet](https://www.nuget.org/packages/Plugin.Maui.LocalNotifications) |
-| [Plugin.Maui.Geofence](https://github.com/nuvyntralabs/Plugin.Maui.Geofence) | Circular geofence (max 20; Android 1.0 is in-memory + `Raise()`) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.Geofence) |
+| [Plugin.Maui.Geofence](https://github.com/nuvyntralabs/Plugin.Maui.Geofence) | Circular geofence (max 20; Android GeofencingClient; persists across process death) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.Geofence) |
 | [Plugin.Maui.BluetoothSerial](https://github.com/nuvyntralabs/Plugin.Maui.BluetoothSerial) | Classic SPP / RFCOMM serial (Android first-class; iOS MFi; not BLE UART) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.BluetoothSerial) |
-| [Plugin.Maui.VideoPipeline](https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline) | Camera/gallery video pick, reject-if-over-budget, encrypt (no transcode in 1.0) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.VideoPipeline) |
+| [Plugin.Maui.VideoPipeline](https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline) | Camera/gallery video pick, thumbnail, OS transcode when over budget, encrypt (no FFmpeg) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.VideoPipeline) |
 | [Plugin.Maui.TlsPin](https://github.com/nuvyntralabs/Plugin.Maui.TlsPin) | HttpClient SPKI / public-key pin, fail-closed (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.TlsPin) |
 | [Plugin.Maui.LocalStore](https://github.com/nuvyntralabs/Plugin.Maui.LocalStore) | Room-style app documents; host picks SQLite or NuvexaDB; AutoMigrate + generated DAOs (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.LocalStore) |
 | [Plugin.Maui.FormValidation](https://github.com/nuvyntralabs/Plugin.Maui.FormValidation) | Mobile-first fluent form validation and `Validation.For` bindings (Android, iOS, Mac Catalyst, Windows) | [NuGet](https://www.nuget.org/packages/Plugin.Maui.FormValidation) |
@@ -152,7 +152,7 @@ Install the CLI with `dotnet tool install`. Pulse also has a host PackageReferen
 | Tool | Purpose | Install |
 | --- | --- | --- |
 | [MauiDev](https://github.com/nuvyntralabs/MauiDev) (`maui-dev`) | Diagnose MAUI SDK, workloads, project configuration, permissions, platform layout, resources, and pack metadata. VS Code / Cursor extension: `nuvyntralabs.maui-dev`. Interactive nuget.org update check every 4 hours (`--no-update-check` to skip). | `dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json` · [NuGet](https://www.nuget.org/packages/Plugin.Maui.MauiDev.Cli) |
-| [Nuvyn](Nuvyn/) (`nuvyn`) | Spec-driven CLI for a **new** Nuvyntra MAUI app: `nuvyn init ClinicApp`, pick an AI agent, then `/nuvyn.specify` → `/nuvyn.plan` → `/nuvyn.implement`. | `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` |
+| [Nuvyn](Nuvyn/) (`nuvyn`) | Spec-driven CLI: `nuvyn init ClinicApp` for a **new** host, or `nuvyn adopt` to attach the slash chain to an existing MAUI app (stack unchanged). Then `/nuvyn.specify` → `/nuvyn.plan` → `/nuvyn.implement`. | `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` |
 | [Pulse](Pulse/) (`maui-pulse`) | Live session viewer for **Plugin.Maui.\*** data only. Host Debug sink is `UseMauiPulse()` in `Plugin.Maui.Pulse`. Missing plugins skip that lane. Integrate: [Pulse/USER-GUIDE.md](Pulse/USER-GUIDE.md). Architecture: [Pulse/README.md](Pulse/README.md). | CLI: `dotnet tool install -g Plugin.Maui.Pulse.Cli --source https://api.nuget.org/v3/index.json` · Host: `dotnet add package Plugin.Maui.Pulse` |
 
 `Plugin.Maui.MVVMExpress` is stable (`1.3.0`). Docs: [MVVMExpress](https://nuvyntralabs.github.io/packages/plugin-maui-mvvmexpress/). Scaffold: `dotnet new install Plugin.Maui.MVVMExpress.Templates` then `dotnet new mvvmexpress`. VS Code and Visual Studio extensions: [VS Code Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VSCode&category=All%20categories&sortBy=Relevance) · [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=MVVMExpress&target=VS&category=All%20categories&vsVersion=&sortBy=Relevance).
@@ -173,7 +173,7 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 
 [NuvyntraLabs.Lumina](LuminaPlayground/) is a hub module (`LuminaPlayground/`): the Nuvexa mobile prototyping playground — five standalone MAUI apps (Market, Clinic, Field, Bank, Civic), 130 screens, static NuvexaDB seed, MVVMExpress + UIKit + HttpForge. It is an app, not a NuGet package.
 
-**Nuvyn** (`NuvyntraLabs.Nuvyn.Cli`) 1.1.0: spec-driven CLI for new MAUI apps on this stack. `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` then `nuvyn init ClinicApp` (picks an AI agent). Existing apps: `nuvyn update` refreshes skills without overlaying host code. `init` / `check` call `maui-dev doctor --path <app>` when MauiDev is on PATH (they do not pass `--no-update-check`; doctor output is printed on exit 1). On an interactive terminal it asks every 4 hours whether to update from nuget.org (`--no-update-check` skips Nuvyn’s own prompt). Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.checklist` → `/nuvyn.task` → `/nuvyn.analysis` → `/nuvyn.implement` → `/nuvyn.converge`. See [Nuvyn/README.md](Nuvyn/README.md) and the [user guide](Nuvyn/USER-GUIDE.md).
+**Nuvyn** (`NuvyntraLabs.Nuvyn.Cli`) 1.2.0: spec-driven CLI for new MAUI apps on this stack. `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` then `nuvyn init ClinicApp` (picks an AI agent). Existing MAUI apps: `nuvyn adopt` writes `.nuvyn/`, skills, and `adopt-report.md` only — it does not add MVVMExpress, UIKit, or HttpForge. `nuvyn update` refreshes skills without overlaying host code. `init` / `adopt` / `check` call `maui-dev doctor --path <app>` when MauiDev is on PATH (they do not pass `--no-update-check`; doctor output is printed on exit 1). On an interactive terminal it asks every 4 hours whether to update from nuget.org (`--no-update-check` skips Nuvyn’s own prompt). Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.checklist` → `/nuvyn.task` → `/nuvyn.analysis` → `/nuvyn.implement` → `/nuvyn.converge`. See [Nuvyn/README.md](Nuvyn/README.md) and the [user guide](Nuvyn/USER-GUIDE.md).
 
 ## Find a package by requirement
 
@@ -217,11 +217,11 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 | One-shot Face ID / fingerprint / device PIN prompt | Plugin.Maui.BiometricPlus |
 | Keep the screen on during scan / POS / video | Plugin.Maui.KeepAwake |
 | Block screenshots / recents (iOS is a capture overlay) | Plugin.Maui.ScreenGuard |
-| iOS in-app review / open listing (Android 1.0 opens Play listing) | Plugin.Maui.AppReview |
+| iOS in-app review / open listing (Android Play Core ReviewManager) | Plugin.Maui.AppReview |
 | Scheduled local notifications (not FCM) | Plugin.Maui.LocalNotifications |
-| Circular geofence (Android 1.0 is in-memory + Raise()) | Plugin.Maui.Geofence |
+| Circular geofence (Android GeofencingClient; persists across process death) | Plugin.Maui.Geofence |
 | Classic Bluetooth serial (SPP / RFCOMM; iOS MFi only) | Plugin.Maui.BluetoothSerial |
-| Camera/gallery video pick, reject-if-over-budget, encrypt | Plugin.Maui.VideoPipeline |
+| Camera/gallery video pick, thumbnail, OS transcode, encrypt | Plugin.Maui.VideoPipeline |
 | HttpClient TLS / SPKI pin | Plugin.Maui.TlsPin |
 | Local documents with a selectable SQLite or NuvexaDB backend | Plugin.Maui.LocalStore |
 | Form validation, email / phone / required, `Validation.For` | Plugin.Maui.FormValidation |
@@ -309,11 +309,11 @@ Each plugin README has Problem → Installation → Configuration → Code → E
 | One-shot biometric / PIN prompt | Biometric | — | Plugin.Fingerprint |
 | Keep screen on | KeepAwake | `DeviceDisplay` (read) | — |
 | Block screenshots / recents (iOS overlay) | ScreenGuard | — | — |
-| Store review (iOS in-app; Android listing) | AppReview | — | Play Core / StoreKit |
+| Store review (iOS in-app; Android ReviewManager) | AppReview | — | Play Core / StoreKit |
 | Scheduled local notifications | LocalNotifications | — | Plugin.LocalNotification |
-| Circular geofence | Geofence | `Geolocation` (on-demand) | — |
+| Circular geofence (persists across process death) | Geofence | `Geolocation` (on-demand) | — |
 | Classic Bluetooth SPP | BluetoothSerial | — | — |
-| Camera/gallery **video** pick + reject-if-over-budget | VideoPipeline | `MediaPicker` | — |
+| Camera/gallery **video** pick + thumbnail + OS transcode | VideoPipeline | `MediaPicker` | — |
 | HttpClient TLS pin | TlsPin | — | — |
 | HTTP retry / circuit breaker | ApiResilience | — | — (use Polly) |
 | Typed REST client / generated HttpClient | HttpForge | — | — (use Refit) |

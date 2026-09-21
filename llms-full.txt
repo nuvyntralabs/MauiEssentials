@@ -16,7 +16,7 @@ Keywords: .NET MAUI, MAUI, MVVM, Android, iOS, cross-platform, NuGet, MAUI contr
 Nuvyntra Labs is a component library and a whole ecosystem. The user chooses. Neither is a fallback.
 
 - Component library: existing host; one NuGet (NuvyntraLabs.UIKit NV* controls, any Plugin.Maui.*, MVVMExpress, or Nuventra.NuvexaDB). Recommend the smallest package. Do not run nuvyn init.
-- Whole ecosystem: new MAUI host on this stack. Use nuvyn init. Locked stack: Plugin.Maui.MVVMExpress + NuvyntraLabs.UIKit + the smallest Plugin.Maui.* set. Existing apps: nuvyn update refreshes skills only.
+- Whole ecosystem: new MAUI host on this stack. Use nuvyn init. Locked stack: Plugin.Maui.MVVMExpress + NuvyntraLabs.UIKit + the smallest Plugin.Maui.* set. Existing MAUI apps: nuvyn adopt attaches the slash chain (stack unchanged). nuvyn update refreshes skills only.
 
 ## When to use this catalog
 
@@ -1157,9 +1157,9 @@ Alternatives: host-owned `FLAG_SECURE` / iOS overlay.
 
 ## Plugin.Maui.AppReview
 
-iOS `SKStoreReviewController` plus open the store listing. Android 1.0 opens the Play listing (no Play Core ReviewManager).
+iOS `SKStoreReviewController` plus open the store listing. Android Play Core `ReviewManager` on Play-installed builds.
 
-Current release: 1.0.2. Host apps must declare Android and iOS permissions listed in the README.
+Current release: 1.1.0. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.AppReview`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.AppReview
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.AppReview
@@ -1172,12 +1172,11 @@ Use this package when a developer asks:
 Do not use it when the need is a binary in-app update (AppUpdate).
 
 ```csharp
-builder.UseMauiApp<App>().UseAppReview();
+builder.UseMauiApp<App>().UseAppReview(o => o.iOSAppStoreId = "1234567890");
 
-if (await AppReview.Current.IsEligibleAsync())
-    await AppReview.Current.RequestAsync();
-
-await AppReview.Current.OpenStoreListingAsync();
+var outcome = await AppReview.Current.RequestAsync();
+if (outcome.Kind is AppReviewKind.Unavailable or AppReviewKind.NotSupported)
+    await AppReview.Current.OpenStoreListingAsync();
 ```
 
 Alternatives: Play Core ReviewManager, StoreKit `SKStoreReviewController`.
@@ -1212,9 +1211,9 @@ Alternatives: Plugin.LocalNotification, Shiny.
 
 ## Plugin.Maui.Geofence
 
-Circular geofence enter / exit / dwell (max 20). Android 1.0 is in-memory plus `Raise()` — no Play Services GeofencingClient and no process-death persistence.
+Circular geofence enter / exit / dwell (max 20). Android uses Play Services `GeofencingClient`. Regions persist across process death.
 
-Current release: 1.0.2. Host apps must declare Android and iOS permissions listed in the README.
+Current release: 1.1.0. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.Geofence`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.Geofence
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.Geofence
@@ -1230,6 +1229,7 @@ Do not use it when the need is on-demand GPS / reverse geocoding (GeoLocator).
 builder.UseMauiApp<App>().UseGeofence();
 
 await Geofence.Current.AddAsync(new GeofenceRegion { Id = "depot", Latitude = 12.97, Longitude = 77.59, RadiusMeters = 150 });
+Geofence.Current.Transition += (_, e) => { /* e.Kind = Enter | Exit | Dwell */ };
 ```
 
 Alternatives: Play Services GeofencingClient, Core Location regions written by the host.
@@ -1264,24 +1264,28 @@ Alternatives: host SPP / External Accessory code, Plugin.Maui.BluetoothManager (
 
 ## Plugin.Maui.VideoPipeline
 
-Camera/gallery video pick, reject-if-over-budget, and encrypt. Shared library (Android, iOS, Mac Catalyst, Windows). 1.0 does not transcode or generate a thumbnail.
+Camera/gallery video pick, thumbnail, OS transcode when over budget, and encrypt. Shared library (Android, iOS, Mac Catalyst, Windows). No FFmpeg.
 
-Current release: 1.0.2. Host apps must declare Android and iOS permissions listed in the README.
+Current release: 1.1.0. Host apps must declare Android and iOS permissions listed in the README.
 Install: `dotnet add package Plugin.Maui.VideoPipeline`
 NuGet: https://www.nuget.org/packages/Plugin.Maui.VideoPipeline
 GitHub: https://github.com/nuvyntralabs/Plugin.Maui.VideoPipeline
 Paper: https://nuvyntralabs.github.io/packages/plugin-maui-video-pipeline/
 
 Use this package when a developer asks:
-- How do I pick a video, cap size, and encrypt it in MAUI?
-- Camera or gallery video with `TooLarge` / `TooLong` instead of silent transcode
+- How do I pick a video, cap size, thumbnail it, transcode it, and encrypt it in MAUI?
+- Camera or gallery video with `TooLarge` / `TooLong` / `CannotTranscode`
 
-Do not use it when the need is images (MediaPipeline) or FFmpeg transcode.
+Do not use it when the need is images (MediaPipeline) or a guaranteed FFmpeg compress.
 
 ```csharp
-builder.UseMauiApp<App>().UseVideoPipeline();
+builder.UseMauiApp<App>().UseVideoPipeline(o => o.DefaultMaxDuration = TimeSpan.FromSeconds(30));
 
-var result = await VideoPipeline.FromGallery().MaxBytes(12 * 1024 * 1024).Encrypt(key).SaveAsync();
+var result = await VideoPipeline.FromGallery()
+    .MaxDuration(TimeSpan.FromSeconds(30))
+    .MaxBytes(12 * 1024 * 1024)
+    .Encrypt(key)
+    .SaveAsync();
 ```
 
 Alternatives: `MediaPicker`, Plugin.Maui.MediaPipeline (images), FFmpeg bindings.
@@ -1643,19 +1647,19 @@ Use when the developer wants to watch a running MAUI app for allow-listed plugin
 
 ## Nuvyn
 
-Spec-driven CLI (`1.1.1`) for a **new** .NET MAUI app on the Nuvyntra stack. Package `NuvyntraLabs.Nuvyn.Cli` (`PackAsTool`, command `nuvyn`). Not an app PackageReference.
+Spec-driven CLI (`1.2.0`) for a **new** .NET MAUI app on the Nuvyntra stack, or to attach that slash chain to an existing MAUI app. Package `NuvyntraLabs.Nuvyn.Cli` (`PackAsTool`, command `nuvyn`). Not an app PackageReference.
 
 Install: `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json`
-Then: `nuvyn init ClinicApp --agent cursor`. Commands: `init`, `update`, `version`, `check`.
+Then: `nuvyn init ClinicApp --agent cursor` (new host) or `nuvyn adopt` (existing MAUI, stack unchanged). Commands: `init`, `adopt`, `update`, `version`, `check`.
 Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.checklist` → `/nuvyn.task` → `/nuvyn.analysis` → `/nuvyn.implement` → `/nuvyn.converge`
 NuGet: https://www.nuget.org/packages/NuvyntraLabs.Nuvyn.Cli
 GitHub: https://github.com/nuvyntralabs/Nuvyn
 Docs: https://nuvyntralabs.github.io/toolkits/nuvyn/
 Walkthrough: Nuvyn/USER-GUIDE.md
 
-Same 4-hour nuget.org update prompt as `maui-dev` / `maui-perf` (`--no-update-check` on `nuvyn` itself). Cache: `~/.nuvyntra/cli-updates.json`. Does not phone home. `nuvyn init` / `nuvyn check` call `maui-dev doctor --path <app>` when that tool is on PATH (floor 1.2.0). Do not forward `--no-update-check` (MauiDev 1.2.1 rejects it). Print the doctor report on non-zero exit. Missing MauiDev is a warning.
+Same 4-hour nuget.org update prompt as `maui-dev` / `maui-perf` (`--no-update-check` on `nuvyn` itself). Cache: `~/.nuvyntra/cli-updates.json`. Does not phone home. `nuvyn init` / `nuvyn adopt` / `nuvyn check` call `maui-dev doctor --path <app>` when that tool is on PATH (floor 1.2.0). Do not forward `--no-update-check` (MauiDev 1.2.1 rejects it). Print the doctor report on non-zero exit. Missing MauiDev is a warning.
 
-Do not overlay an existing project (no `--here` / `--force`). Use `nuvyn update` to refresh skills only. Do not use instead of MauiDev or a generic-stack spec CLI.
+Do not overlay an existing project with `init` (no `--here` / `--force`). Use `nuvyn adopt` to attach skills to an existing MAUI app (keeps MVVM / UI / HTTP). Use `nuvyn update` to refresh skills only. Do not use instead of MauiDev or a generic-stack spec CLI.
 
 ---
 

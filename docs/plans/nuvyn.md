@@ -1,6 +1,6 @@
 # Nuvyn — design plan
 
-**Status:** Implemented at `1.1.1` (hub folder `Nuvyn/`; CI in `Nuvyn/.github/workflows/ci.yml` proves `nuvyn init` + smallest package set + host build, then packs; nuget.org publish still pipeline-only via `NUGET_KEY_NUVYN`)  
+**Status:** Implemented at `1.2.0` (hub folder `Nuvyn/`; CI in `Nuvyn/.github/workflows/ci.yml` proves `nuvyn init` + smallest package set + host build, then packs; nuget.org publish still pipeline-only via `NUGET_KEY_NUVYN`)  
 **Product:** Nuvyn — Spec-driven CLI for building .NET MAUI apps (Android, iOS, Windows, Mac Catalyst) on the Nuvyntra stack. Domain-agnostic: the user's requirements define the product.  
 **Package:** `NuvyntraLabs.Nuvyn.Cli` (`PackAsTool`, command `nuvyn`)  
 **Hub folder (proposed):** `Nuvyn/`  
@@ -19,9 +19,9 @@ Nuvyn is its own product — not a Spec Kit clone or preset. Usual alternative f
 | First command | `specify init Taskify --integration cursor-agent` | `nuvyn init ClinicApp --agent cursor` |
 | `init` creates | `.specify/` + agent command files | A **runnable MAUI host** + `.nuvyn/` + agent files |
 | Plan phase | Any stack the user types | MVVMExpress + UIKit + smallest Plugin.Maui.* |
-| Doctor | — | `init` / `check` call `maui-dev doctor --path <app>` when on PATH (floor 1.2.0, no `--no-update-check`); print report on exit 1; missing tool is a warning |
+| Doctor | — | `init` / `adopt` / `check` call `maui-dev doctor --path <app>` when on PATH (floor 1.2.0, no `--no-update-check`); print report on exit 1; missing tool is a warning |
 
-Not MauiDev. `maui-dev` diagnoses an existing MAUI tree. Nuvyn **creates** the tree and the spec workflow. They compose: `nuvyn init` / `nuvyn check` call `maui-dev doctor --path <app>` (no `--no-update-check`; MauiDev 1.2.1 rejects that flag) and print the report if doctor exits non-zero.
+Not MauiDev. `maui-dev` diagnoses an existing MAUI tree. Nuvyn **creates** the tree (`init`) or attaches the spec workflow (`adopt`). They compose: `nuvyn init` / `nuvyn adopt` / `nuvyn check` call `maui-dev doctor --path <app>` (no `--no-update-check`; MauiDev 1.2.1 rejects that flag) and print the report if doctor exits non-zero.
 
 Not a Spec Kit preset or clone. A preset would still require Python/`specify` and would not copy the embedded MVVMExpress + UIKit host.
 
@@ -72,6 +72,7 @@ Then in the coding agent:
 | Command | Purpose |
 | --- | --- |
 | `nuvyn init <name>` | New directory only: MAUI host + `.nuvyn/` + agent files. Refuses if the folder already exists. |
+| `nuvyn adopt` | Existing MAUI tree: workflow + `adopt-report.md` only. Does not change MVVM, UI, or HTTP. |
 | `nuvyn version` | Tool version |
 | `nuvyn update` | Refresh `.nuvyn/templates`, `reference`, and agent skills; do not overwrite host code, `specs/`, or `.nuvyn/constitution.md` |
 | `nuvyn check` | dotnet + payload; inside a project, prove the host still uses the smallest set |

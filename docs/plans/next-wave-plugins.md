@@ -1,6 +1,6 @@
 # Next-wave plugins — design plan
 
-**Status:** Published on nuget.org at `1.0.2` (all nine). Catalog honesty pass: first paragraphs and NuGet descriptions match shipped 1.0. GeofencingClient, Play Core ReviewManager, and video transcode remain 1.1.  
+**Status:** Published on nuget.org at `1.0.2` (all nine). Geofence / AppReview / VideoPipeline 1.1 deepen implemented: GeofencingClient + persist, Play Core ReviewManager, thumbnail + OS transcode (no FFmpeg).  
 **Wave:** MauiEssentials next-wave runtime plugins (post MauiDev 1.2 / desktop MVVMExpress 1.0)  
 **Catalog:** [MauiEssentials](https://github.com/nuvyntralabs/MauiEssentials)  
 **Authoring rule:** one independent git repository, NuGet package, and hub submodule per plugin — same model as GeoLocator, AppLock, and BluetoothManager.
@@ -649,9 +649,9 @@ BLE UART bridges, HID, A2DP, pairing UI beyond the OS prompt, macOS, Windows RFC
 #### API (1.0)
 
 ```csharp
-builder.UseMauiApp<App>().UseVideoPipeline();
+builder.UseMauiApp<App>().UseVideoPipeline(o => o.DefaultMaxDuration = TimeSpan.FromSeconds(30));
 
-var artifact = await VideoPipeline.FromCameraAsync()
+var artifact = await VideoPipeline.FromCamera()
     .MaxDuration(TimeSpan.FromSeconds(30))
     .MaxResolution(1280, 720)
     .MaxBytes(8 * 1024 * 1024)
@@ -686,8 +686,8 @@ Trim UI, filters, audio ducking, HLS, live streaming, barcode-from-frame (exclud
 
 #### Acceptance
 
-- Tests: options validation, fake pipeline, encrypt envelope round-trip  
-- Sample: record / pick → show duration, size, thumbnail → optional “upload” mock  
+- Tests: options validation, fake pipeline, encrypt envelope round-trip, `DefaultMaxDuration`, `UseProcessor`  
+- Sample: record / pick → show duration, size, thumbnail → optional encrypt + “upload” mock  
 - Android + iOS device: a 10–20s clip comes down in size or fails with a typed “too large / cannot transcode” result — never a crash  
 
 ---
@@ -865,7 +865,7 @@ Do not publish from the hub. Do not share a nupkg across plugins.
 | N12 | TlsPin fail-closed; `ReportOnly` opt-in; `AllowUnpinnedHosts` default false | Proposed |
 | N13 | Shared TFMs only for VideoPipeline and TlsPin | Proposed |
 | N14 | Start every package at `1.0.0`; pipeline-only publish | Proposed |
-| N15 | Catalog and first paragraphs match shipped 1.0 (Android Geofence is `Raise()`, AppReview Android is listing, VideoPipeline is reject-if-over-budget). OS geofences / Play Core / transcode stay 1.1 | Done |
+| N15 | Catalog and first paragraphs match shipped 1.1: Android Geofence is `GeofencingClient` + persist, AppReview Android is Play Core `ReviewManager`, VideoPipeline is thumbnail + OS transcode (no FFmpeg). `Raise()` remains for Geofence samples. | Done |
 
 ---
 

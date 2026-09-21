@@ -24,7 +24,14 @@ dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/
 nuvyn init ClinicApp
 ```
 
-Walkthrough: [Nuvyn user guide](../Nuvyn/USER-GUIDE.md). Existing apps: `nuvyn update` refreshes skills only. Do not re-run `init` on an existing tree. `init` / `check` call `maui-dev doctor --path <app>` when MauiDev is on PATH (they do not pass `--no-update-check`; print the report on exit 1). Same 4-hour update prompt as `maui-dev`.
+Existing MAUI app (keep its stack):
+
+```bash
+cd FieldApp
+nuvyn adopt --agent cursor
+```
+
+Walkthrough: [Nuvyn user guide](../Nuvyn/USER-GUIDE.md). `nuvyn adopt` attaches the slash chain without changing MVVM / UI / HTTP. `nuvyn update` refreshes skills only. Do not re-run `init` on an existing tree. `init` / `adopt` / `check` call `maui-dev doctor --path <app>` when MauiDev is on PATH (they do not pass `--no-update-check`; print the report on exit 1). Same 4-hour update prompt as `maui-dev`.
 
 ## 2. Pick a component
 
@@ -46,11 +53,11 @@ Examples:
 - One-shot Face ID / fingerprint / device PIN → `Plugin.Maui.BiometricPlus`
 - Keep the screen on during scan / POS / video → `Plugin.Maui.KeepAwake`
 - Block screenshots / recents (iOS is a capture overlay) → `Plugin.Maui.ScreenGuard`
-- iOS in-app review / open listing (Android 1.0 opens Play listing) → `Plugin.Maui.AppReview`
+- iOS in-app review / open listing (Android Play Core ReviewManager) → `Plugin.Maui.AppReview`
 - Scheduled local notifications (not FCM) → `Plugin.Maui.LocalNotifications`
-- Circular geofence (Android 1.0 is in-memory + `Raise()`) → `Plugin.Maui.Geofence`
+- Circular geofence (Android GeofencingClient; persists across process death) → `Plugin.Maui.Geofence`
 - Classic Bluetooth serial (SPP / RFCOMM; iOS MFi only) → `Plugin.Maui.BluetoothSerial`
-- Camera/gallery video pick, reject-if-over-budget, encrypt → `Plugin.Maui.VideoPipeline`
+- Camera/gallery video pick, thumbnail, OS transcode, encrypt → `Plugin.Maui.VideoPipeline`
 - HttpClient TLS / SPKI pin → `Plugin.Maui.TlsPin`
 - Typed REST client / Refit-style interfaces → `Plugin.Maui.HttpForge` ([vs Refit](https://github.com/nuvyntralabs/Plugin.Maui.HttpForge/blob/main/Docs/refit-comparison.md))
 - HTTP GET cache / CacheFirst / StaleWhileRevalidate → `Plugin.Maui.ApiCache`
