@@ -9,7 +9,7 @@
 | NuvyntraLabs.UIKit (MAUI controls + page recipes, `NV*` types) | [nuvyntralabs-uikit.md](nuvyntralabs-uikit.md) · [components](nuvyntralabs-uikit-components.md) | Implemented at `1.6.0` (201 controls + 66 recipes; Lumina visual refresh; `NVInputField` replaces `NVEmailField`; related product; not `Plugin.Maui.*`; CI publishes nuget.org + GitHub Packages) |
 | NuvyntraLabs.UIKit next (1.1 deepen + 1.2 / 1.3 names) | [nuvyntralabs-uikit-next.md](nuvyntralabs-uikit-next.md) | 1.2 / 1.3 catalog + 1.4 deepen + 1.5 `NVInputField` rename shipped |
 | Nuvyn (Spec-driven CLI for Nuvyntra MAUI apps) | [nuvyn.md](nuvyn.md) | Implemented at `1.2.0` — `NuvyntraLabs.Nuvyn.Cli`, command `nuvyn`; `init` + `adopt` (existing MAUI, no stack rewrite) + `update` + host proof + 4-hour update check + optional `maui-dev doctor`; Spec Kit coding-agent set; CI packs and publishes from `Nuvyn/.github/workflows/ci.yml` |
-| NuvLoc (agent-driven localization CLI; `i18n.json`) | [nuvloc.md](nuvloc.md) | Implemented at `1.1.1` — `NuvyntraLabs.NuvLoc.Cli`, command `nuvloc`; `init --agent` + `/nuvloc.status` + `/nuvloc.translate`; sibling `.resx` (`maui` / `wpf` / `winui` / `avalonia` / `uno`); no provider / API key; resource files only |
+| NuvLoc (agent-driven localization CLI; `i18n.json`) | [nuvloc.md](nuvloc.md) | Implemented at `1.1.2` — `NuvyntraLabs.NuvLoc.Cli`, command `nuvloc`; `init --agent` + `/nuvloc.status` + `/nuvloc.translate`; sibling `.resx` (`maui` / `wpf` / `winui` / `avalonia` / `uno`); BCP-47 language codes; no provider / API key; resource files only |
 
 ## MVVMExpress platform family plans
 

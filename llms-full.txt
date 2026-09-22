@@ -1665,13 +1665,13 @@ Do not overlay an existing project with `init` (no `--here` / `--force`). Use `n
 
 ## NuvLoc
 
-Agent-driven localization CLI (`1.1.1`) for sibling `.resx` hosts (MAUI, WPF, WinUI, Avalonia, Uno). Package `NuvyntraLabs.NuvLoc.Cli` (`PackAsTool`, command `nuvloc`). Not an app PackageReference. The coding agent translates; there is no vendor API key.
+Agent-driven localization CLI (`1.1.2`) for sibling `.resx` hosts (MAUI, WPF, WinUI, Avalonia, Uno). Package `NuvyntraLabs.NuvLoc.Cli` (`PackAsTool`, command `nuvloc`). Not an app PackageReference. The coding agent translates; there is no vendor API key.
 
 Install: `dotnet tool install -g NuvyntraLabs.NuvLoc.Cli --source https://api.nuget.org/v3/index.json`
-Local: `dotnet pack NuvLoc/src/NuvyntraLabs.NuvLoc.Cli/NuvyntraLabs.NuvLoc.Cli.csproj -c Release -o NuvLoc/artifacts` then `dotnet tool install -g NuvyntraLabs.NuvLoc.Cli --add-source ./NuvLoc/artifacts --configfile ./NuvLoc/nuget.config --ignore-failed-sources --version 1.1.1`
+Local: `dotnet pack NuvLoc/src/NuvyntraLabs.NuvLoc.Cli/NuvyntraLabs.NuvLoc.Cli.csproj -c Release -o NuvLoc/artifacts` then `dotnet tool install -g NuvyntraLabs.NuvLoc.Cli --add-source ./NuvLoc/artifacts --configfile ./NuvLoc/nuget.config --ignore-failed-sources --version 1.1.2`
 Uninstall: `dotnet tool uninstall -g NuvyntraLabs.NuvLoc.Cli`
 Then: `nuvloc init --configfile i18n.json --agent cursor`. Slash: `/nuvloc.status`, `/nuvloc.translate`. CI: `nuvloc check`.
-Config: `platform` (`maui` / `wpf` / `winui` / `avalonia` / `uno`), `source` (e.g. `Resources/Strings/AppResources.resx`), `languages`. Writes `AppResources.{lang}.resx` beside the source.
+Config: `platform` (`maui` / `wpf` / `winui` / `avalonia` / `uno`), `source` (e.g. `Resources/Strings/AppResources.resx`), `languages` (BCP-47; tested `es`, `fr`, `de`, `ja`, `pt-BR`, `zh-Hans`, …; non-BCP-47 skips that culture file and prints the reason). Writes `AppResources.{lang}.resx` beside the source.
 NuGet: https://www.nuget.org/packages/NuvyntraLabs.NuvLoc.Cli
 GitHub: https://github.com/nuvyntralabs/NuvLoc
 

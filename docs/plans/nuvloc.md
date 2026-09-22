@@ -1,6 +1,6 @@
 # NuvLoc — design plan
 
-**Status:** Implemented at `1.1.1` (hub submodule `NuvLoc/`; GitHub `nuvyntralabs/NuvLoc`).  
+**Status:** Implemented at `1.1.2` (hub submodule `NuvLoc/`; GitHub `nuvyntralabs/NuvLoc`).  
 **Product:** NuvLoc — agent-driven localization CLI (sibling `.resx`: MAUI, WPF, WinUI, Avalonia, Uno)  
 **Package:** `NuvyntraLabs.NuvLoc.Cli` (`PackAsTool`, command `nuvloc`)  
 **Catalog slug:** `nuvloc`  
@@ -103,7 +103,7 @@ dotnet tool install -g NuvyntraLabs.NuvLoc.Cli \
   --add-source ./artifacts \
   --configfile ./nuget.config \
   --ignore-failed-sources \
-  --version 1.1.1
+  --version 1.1.2
 ```
 
 `--configfile ./nuget.config` plus `--ignore-failed-sources` avoids a 401 from an extra machine-wide feed. Uninstall: `dotnet tool uninstall -g NuvyntraLabs.NuvLoc.Cli`.
@@ -154,7 +154,7 @@ Default file name: `i18n.json`. `--configfile` overrides the path (relative to c
 | --- | --- | --- |
 | `platform` | **yes** | `maui`, `wpf`, `winui`, `avalonia`, or `uno` (sibling `.resx`). Unknown id → exit 2. WinUI / Uno PRI `.resw` folders are out of scope. |
 | `source` | **yes** | Path to the English resource file, relative to the config file. Must exist. |
-| `languages` | **yes** | Non-empty BCP-47 list (`es`, `fr`, `pt-BR`). Reject `en` / `en-US` if that is the source culture. |
+| `languages` | **yes** | Non-empty [BCP-47](https://www.rfc-editor.org/rfc/rfc5646.html) list. Tested popular codes: `es`, `fr`, `de`, `it`, `nl`, `ja`, `ko`, `zh-Hans`, `pt-BR`, `ar`, `hi`, `ru`. Other BCP-47 codes also work; if one fails, open a NuvLoc issue. Reject `en` / `en-US` / `en-GB` and non-BCP-47 tags (`foo`, `english`, `es_MX`): print the error and reason, skip that culture `.resx`. Canonicalize (`PT-br` → `pt-BR`). Table: [NuvLoc README](../../NuvLoc/README.md#valid-bcp-47-cultures). |
 
 **Not in the file:** `provider`, `model`, `apiKey`, output pattern. Target path is derived: `AppResources.resx` → `AppResources.{lang}.resx` beside the source.
 
@@ -183,7 +183,7 @@ nuvloc init --configfile i18n.json --agent cursor
 3. `platform` / `source` / `languages` missing or wrong type
 4. `source` file does not exist (resolved relative to the config file)
 5. `source` extension is not a 1.0 adapter (`.resx` for `maui`)
-6. `languages` is empty or contains the source culture
+6. `languages` is empty, contains the source culture, or a code that is not a predefined BCP-47 culture
 
 On success:
 
@@ -214,7 +214,7 @@ If `i18n.json` is missing, **do not invent one and continue.** Print a stub exam
 
 There is **no** `nuvloc translate` CLI command in 1.0. That would pull the design back to a provider key. Both slash commands ship in 1.0.
 
-`--format human|json` on `plan` / `status` / `check`. `--ci` on `check` (no prompts). `--lang` restricts cultures. Exit codes: `0` pass, `1` failed check, `2` usage / bad config.
+`--format human|json` on `plan` / `status` / `check`. `--ci` on `check` (no prompts). `--lang` restricts cultures; unknown or invalid codes exit 2. Exit codes: `0` pass, `1` failed check, `2` usage / bad config.
 
 CI runs `nuvloc check`. It does not run an agent. Gaps fail the build; a developer (or a Cursor cloud job) runs `/nuvloc.translate` to fill them.
 

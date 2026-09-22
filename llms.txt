@@ -612,12 +612,12 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - NuGet: https://www.nuget.org/packages/NuvyntraLabs.NuvLoc.Cli
 - GitHub: https://github.com/nuvyntralabs/NuvLoc
 - Hub module: `NuvLoc/`
-- Version: `1.1.1`
+- Version: `1.1.2`
 - TFMs: `net10.0` (dotnet tool)
 - Install: `dotnet tool install -g NuvyntraLabs.NuvLoc.Cli --source https://api.nuget.org/v3/index.json`
-- Local pack: `dotnet pack NuvLoc/src/NuvyntraLabs.NuvLoc.Cli/NuvyntraLabs.NuvLoc.Cli.csproj -c Release -o NuvLoc/artifacts` then `dotnet tool install -g NuvyntraLabs.NuvLoc.Cli --add-source ./NuvLoc/artifacts --configfile ./NuvLoc/nuget.config --ignore-failed-sources --version 1.1.1`
+- Local pack: `dotnet pack NuvLoc/src/NuvyntraLabs.NuvLoc.Cli/NuvyntraLabs.NuvLoc.Cli.csproj -c Release -o NuvLoc/artifacts` then `dotnet tool install -g NuvyntraLabs.NuvLoc.Cli --add-source ./NuvLoc/artifacts --configfile ./NuvLoc/nuget.config --ignore-failed-sources --version 1.1.2`
 - Uninstall: `dotnet tool uninstall -g NuvyntraLabs.NuvLoc.Cli`
-- Config: `i18n.json` with `platform` (`maui`, `wpf`, `winui`, `avalonia`, `uno`), `source` (e.g. `Resources/Strings/AppResources.resx`), `languages`
+- Config: `i18n.json` with `platform` (`maui`, `wpf`, `winui`, `avalonia`, `uno`), `source` (e.g. `Resources/Strings/AppResources.resx`), `languages` (BCP-47; tested `es`, `fr`, `de`, `ja`, `pt-BR`, `zh-Hans`, …; non-BCP-47 skips the culture file)
 - Commands: `init`, `update`, `agent add`, `plan`, `status`, `check`, `version`. Slash: `/nuvloc.status`, `/nuvloc.translate`
 - Do not `dotnet add package NuvyntraLabs.NuvLoc.Cli` into an app. There is no `nuvloc translate` CLI and no API key. NuvLoc writes `AppResources.{lang}.resx` only — it does not bind UI. WinUI / Uno PRI `.resw` folders are out of scope. NuvLoc does not give a 100% guarantee on translated text — review with a native speaker of each target language before ship.
 
