@@ -58,7 +58,7 @@ One problem: **from `i18n.json` (source file + language list), produce and maint
 8. **Review is required.** Completeness ≠ correctness. Every README, skill, `init` success line, and human `status` / `check` report must say that NuvLoc does not give a 100% guarantee on translated text and that a native-language expert should review before ship. Do not bury this in a footnote.
 9. **Resource files only.** NuvLoc writes culture `.resx` files. It does not bind UI. XAML `x:Static`, a markup extension, or code is the host’s choice. No `UseI18n`.
 10. **One CLI, adapters later.** v1 adapter = MAUI `.resx`. `platform` in `i18n.json` selects the adapter.
-11. **Pipeline-only publish.** `NUGET_KEY_NUVYN` or a dedicated `NUGET_KEY_NUVLOC` — decide at first CI. Never `dotnet nuget push` from this workspace.
+11. **Pipeline-only publish.** `NUGET_KEY_NUVLOC` only. Never `dotnet nuget push` from this workspace.
 12. **No CLI telemetry.** 4-hour nuget.org self-update prompt is allowed (`--no-update-check` / `NUVYNTRA_NO_UPDATE_CHECK=1`). Cache: `~/.nuvyntra/cli-updates.json`.
 
 ---
@@ -349,7 +349,7 @@ Shipped at 1.1.0:
 4. Payload: `rules.md` + `/nuvloc.translate` + `/nuvloc.status`. Both include the disclaimer.
 5. Tests + `samples/NuvLocSample` (`AppResources.resx`; not in `NuvLoc.slnx`)
 6. Hub submodule + catalog row (Labs developer tool, next to Nuvyn)
-7. CI: unit tests, Linux pack, nuget.org when `NUGET_KEY_NUVLOC` or `NUGET_KEY_NUVYN` is set. No live model calls.
+7. CI: unit tests, Linux pack, nuget.org when `NUGET_KEY_NUVLOC` is set. No live model calls.
 
 ---
 
@@ -375,4 +375,4 @@ Settled:
 - `.nuvloc/cache.json` is written only by `nuvloc check --write-cache` (after `/nuvloc.translate`). CI `check` does not write the cache.
 - Cursor destination: `.cursor/skills/nuvloc-translate/SKILL.md` and `.cursor/skills/nuvloc-status/SKILL.md` (Nuvyn Skill format).
 - Local install: `--configfile ./nuget.config --ignore-failed-sources` so a 401 extra feed does not abort.
-- CI tries `NUGET_KEY_NUVLOC`, then `NUGET_KEY_NUVYN`.
+- CI uses `NUGET_KEY_NUVLOC` only.
