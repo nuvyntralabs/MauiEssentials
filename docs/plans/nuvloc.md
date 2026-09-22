@@ -1,6 +1,6 @@
 # NuvLoc — design plan
 
-**Status:** Implemented at `1.1.0` (hub submodule `NuvLoc/`; GitHub `nuvyntralabs/NuvLoc`).  
+**Status:** Implemented at `1.1.1` (hub submodule `NuvLoc/`; GitHub `nuvyntralabs/NuvLoc`).  
 **Product:** NuvLoc — agent-driven localization CLI (sibling `.resx`: MAUI, WPF, WinUI, Avalonia, Uno)  
 **Package:** `NuvyntraLabs.NuvLoc.Cli` (`PackAsTool`, command `nuvloc`)  
 **Catalog slug:** `nuvloc`  
@@ -103,7 +103,7 @@ dotnet tool install -g NuvyntraLabs.NuvLoc.Cli \
   --add-source ./artifacts \
   --configfile ./nuget.config \
   --ignore-failed-sources \
-  --version 1.1.0
+  --version 1.1.1
 ```
 
 `--configfile ./nuget.config` plus `--ignore-failed-sources` avoids a 401 from an extra machine-wide feed. Uninstall: `dotnet tool uninstall -g NuvyntraLabs.NuvLoc.Cli`.
@@ -349,7 +349,7 @@ Shipped at 1.1.0:
 4. Payload: `rules.md` + `/nuvloc.translate` + `/nuvloc.status`. Both include the disclaimer.
 5. Tests + `samples/NuvLocSample` (`AppResources.resx`; not in `NuvLoc.slnx`)
 6. Hub submodule + catalog row (Labs developer tool, next to Nuvyn)
-7. CI: unit tests, Linux pack, nuget.org when `NUGET_KEY_NUVLOC` is set. No live model calls.
+7. CI: same fail-fast order as Nuvyn / MauiDev / Pulse — version alignment → `NUGET_KEY_NUVLOC` + unpublished version → tests → pack → nuget.org + GitHub Packages. No live model calls.
 
 ---
 
