@@ -607,6 +607,20 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Compose: `init` / `adopt` / `check` run `maui-dev doctor --path <app>` when MauiDev is on PATH (floor 1.2.0). Do not pass `--no-update-check` to doctor (1.2.1 rejects it). Print the report on non-zero exit. Missing MauiDev is a warning, not a Nuvyn failure.
 - Do not `dotnet add package NuvyntraLabs.Nuvyn.Cli` into an app. Do not overlay an existing project with `init` (no `--here` / `--force`). Use `nuvyn adopt` to attach skills to an existing MAUI app (keeps MVVM / UI / HTTP). Use `nuvyn update` to refresh skills only. Do not use instead of MauiDev or a generic-stack spec CLI. `--vertical` is not in 1.0.
 
+### NuvLoc
+- Problem: write sibling culture `.resx` files from `i18n.json` using the coding agent (no vendor API key)
+- NuGet: https://www.nuget.org/packages/NuvyntraLabs.NuvLoc.Cli
+- GitHub: https://github.com/nuvyntralabs/NuvLoc
+- Hub module: `NuvLoc/`
+- Version: `1.1.0`
+- TFMs: `net10.0` (dotnet tool)
+- Install: `dotnet tool install -g NuvyntraLabs.NuvLoc.Cli --source https://api.nuget.org/v3/index.json`
+- Local pack: `dotnet pack NuvLoc/src/NuvyntraLabs.NuvLoc.Cli/NuvyntraLabs.NuvLoc.Cli.csproj -c Release -o NuvLoc/artifacts` then `dotnet tool install -g NuvyntraLabs.NuvLoc.Cli --add-source ./NuvLoc/artifacts --configfile ./NuvLoc/nuget.config --ignore-failed-sources --version 1.1.0`
+- Uninstall: `dotnet tool uninstall -g NuvyntraLabs.NuvLoc.Cli`
+- Config: `i18n.json` with `platform` (`maui`, `wpf`, `winui`, `avalonia`, `uno`), `source` (e.g. `Resources/Strings/AppResources.resx`), `languages`
+- Commands: `init`, `update`, `agent add`, `plan`, `status`, `check`, `version`. Slash: `/nuvloc.status`, `/nuvloc.translate`
+- Do not `dotnet add package NuvyntraLabs.NuvLoc.Cli` into an app. There is no `nuvloc translate` CLI and no API key. NuvLoc writes `AppResources.{lang}.resx` only — it does not bind UI. WinUI / Uno PRI `.resw` folders are out of scope. NuvLoc does not give a 100% guarantee on translated text — review with a native speaker of each target language before ship.
+
 ### maui-pulse
 - Problem: live session viewer for Nuvyntra Plugin.Maui.* data only
 - CLI NuGet: https://www.nuget.org/packages/Plugin.Maui.Pulse.Cli (`maui-pulse`)

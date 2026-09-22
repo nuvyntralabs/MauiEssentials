@@ -175,3 +175,6 @@
 [submodule "Pulse"]
 	path = Pulse
 	url = https://github.com/nuvyntralabs/MauiPulse.git
+[submodule "NuvLoc"]
+	path = NuvLoc
+	url = https://github.com/nuvyntralabs/NuvLoc.git
