@@ -1,6 +1,6 @@
 # NuvyntraLabs.UIKit — unique component catalog
 
-**Status:** Implemented at `1.5.1` (201 controls + 66 recipes; Phase 7 harden; `NVEmailField` renamed to `NVInputField`)  
+**Status:** Implemented at `1.6.0` (201 controls + 66 recipes; Lumina visual refresh; `NVEmailField` renamed to `NVInputField`)  
 **Product:** NuvyntraLabs.UIKit  
 **Package:** `NuvyntraLabs.UIKit` (single library)  
 **Type prefix:** `NV` (`NVCheckBox`, `NVRadioButton`)  
@@ -56,7 +56,7 @@ Vendor catalogs overlap heavily. This kit ships **one** type per problem.
 
 Vendor-shaped 1.0 (96) plus the everyday mobile surface (basics → advanced) so one kit can compose a typical app.
 
-### 2.1 Foundation (8)
+### 2.1 Foundation (9)
 
 | ID | Type | Role |
 | --- | --- | --- |
@@ -68,6 +68,7 @@ Vendor-shaped 1.0 (96) plus the everyday mobile surface (basics → advanced) so
 | NV-FND-06 | `NVDensity` | Compact / comfortable / spacious |
 | NV-FND-07 | `NVVisualState` | Rest / hover / press / focus / disabled / error |
 | NV-FND-08 | `NVAccessibility` | Focus ring, live region, contrast helpers |
+| NV-FND-09 | `NVChrome` | Shared paint recipes (lift, shadow, glow, field, pill) |
 
 ### 2.2 Primitives (12)
 

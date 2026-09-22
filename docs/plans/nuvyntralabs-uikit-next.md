@@ -1,6 +1,6 @@
 # NuvyntraLabs.UIKit — next catalog (1.1+)
 
-**Status:** 1.2.0 and 1.3.0 catalog names shipped (24 controls + 9 recipes). 1.1 deepen shipped as **1.4.0**. `NVEmailField` renamed to `NVInputField` in **1.5.0**. Phase 7 harden (RTL, contrast, type scale, overlay keys) shipped as **1.5.1**.  
+**Status:** 1.2.0 and 1.3.0 catalog names shipped (24 controls + 9 recipes). 1.1 deepen shipped as **1.4.0**. `NVEmailField` renamed to `NVInputField` in **1.5.0**. Phase 7 harden (RTL, contrast, type scale, overlay keys) shipped as **1.5.1**. Lumina visual refresh shipped as **1.6.0**.  
 **Product:** NuvyntraLabs.UIKit  
 **Package:** `NuvyntraLabs.UIKit` (still **one** library; no `NuvyntraLabs.UIKit.Next` split)  
 **Type prefix:** `NV`  
