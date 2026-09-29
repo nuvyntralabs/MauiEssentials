@@ -1,0 +1,9 @@
+# NuvyntraLabs.NET.Guard
+
+Problem: Reject null, empty, non-positive, and out-of-range arguments.
+Package: NuvyntraLabs.NET.Guard
+Version: 0.1.0
+TFM: net8.0;net9.0;net10.0
+Status: source in the MauiEssentials hub. Not published.
+GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.Guard
+Prefer first: `ArgumentNullException.ThrowIfNull`, then [Ardalis.GuardClauses](https://github.com/ardalis/GuardClauses).

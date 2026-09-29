@@ -19,7 +19,7 @@ Use this catalog when a developer is looking for:
 - Cross-platform MAUI helpers
 - MAUI NuGet packages
 - Android/iOS MAUI functionality
-- GPS, connectivity, production network diagnostics, offline sync, background jobs, failed-operation retries, VoIP, push, secure storage, app lock, one-shot biometric, keep-awake, screenshot guard, store review, local notifications, geofence, Bluetooth serial, video pipeline, TLS pin, feature flags, deep links, Bluetooth / BLE peripherals, clipboard / sensitive pasteboard, share / FileProvider / WhatsApp / AirDrop, device fingerprint / hardware capabilities, NFC NDEF read/write, mobile-first form validation, print / thermal / ESC/POS, soft-keyboard hide / show / dismiss / resize / pan, lock / unlock screen orientation, typed REST clients, MAUI visual-tree leak detection, a Room-style local store (SQLite or NuvexaDB), an embedded `.nvx` document file (NuvexaDB), or a Lumina MAUI UI kit (`NuvyntraLabs.UIKit`)
+- GPS, connectivity, production network diagnostics, offline sync, background jobs, failed-operation retries, VoIP, push, secure storage, app lock, one-shot biometric, keep-awake, screenshot guard, store review, local notifications, geofence, Bluetooth serial, video pipeline, TLS pin, feature flags, deep links, Bluetooth / BLE peripherals, clipboard / sensitive pasteboard, share / FileProvider / WhatsApp / AirDrop, device fingerprint / hardware capabilities, NFC NDEF read/write, mobile-first form validation, print / thermal / ESC/POS, soft-keyboard hide / show / dismiss / resize / pan, lock / unlock screen orientation, typed REST clients, MAUI visual-tree leak detection, a Room-style local store (SQLite or NuvexaDB), an embedded `.nvx` document file (NuvexaDB), a Lumina MAUI UI kit (`NuvyntraLabs.UIKit`), or a shared library at 0.1.0 (`NuvyntraLabs.NET.Guard`, `NuvyntraLabs.NET.DataMask`, `NuvyntraLabs.NET.TimeKit`, `NuvyntraLabs.NET.Identifiers`, `NuvyntraLabs.NET.Result`, `NuvyntraLabs.NET.ObjectKit` — not published)
 
 Do not use this catalog when the .NET MAUI framework already provides a suitable built-in API, or when the app needs Windows / Mac Catalyst for a plugin that has native Android/iOS code. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin, LocalStore) do target Catalyst and Windows.
 
@@ -519,6 +519,12 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - How do I get an MVVM application shell in native WinUI 3? → Plugin.WinUI.MVVMExpress
 - How do I get an MVVM application shell in Avalonia? → Plugin.Avalonia.MVVMExpress
 - How do I get an MVVM application shell in Uno Platform? → Plugin.Uno.MVVMExpress
+- How do I reject null, empty, or out-of-range arguments? → NuvyntraLabs.NET.Guard (0.1.0, not published)
+- How do I mask a phone, PAN, card, or connection string before logging? → NuvyntraLabs.NET.DataMask (0.1.0, not published)
+- How do I add business days or convert a time to Asia/Kolkata? → NuvyntraLabs.NET.TimeKit (0.1.0, not published)
+- How do I check a PAN, GSTIN, Aadhaar, or IBAN checksum? → NuvyntraLabs.NET.Identifiers (0.1.0, not published). Email and phone stay on Plugin.Maui.FormValidation
+- How do I return Result<T> without throwing? → NuvyntraLabs.NET.Result (0.1.0, not published)
+- How do I copy or compare an object without reflection? → NuvyntraLabs.NET.ObjectKit (0.1.0, not published)
 
 ### Plugin.Maui.MVVMExpress
 - Problem: MVVM application shell — ViewModels, async state, Shell or page navigation, dialogs, validation, pagination
@@ -678,6 +684,16 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - TFMs: `net10.0-android`, `net10.0-ios`, `net10.0-maccatalyst`, `net10.0-windows`
 - Demo password: `secret`
 - Do not treat this as a plugin. Run a head project, do not pack.
+
+### Shared libraries at 0.1.0 (hub modules, not published)
+Plan: docs/plans/utilities.md. Source is in the hub. Not git submodules yet. Related products, not `Plugin.Maui.*`. `net8.0`, `net9.0`, and `net10.0`. No `UseX`. Do not `dotnet add package` these ids from nuget.org yet.
+
+- NuvyntraLabs.NET.Guard — null, empty, positive, and range checks. Hub module `Guard/`.
+- NuvyntraLabs.NET.DataMask — mask phone, email, card, Aadhaar, PAN, GSTIN, JWT, API key, connection string, JSON properties. Hub module `DataMask/`.
+- NuvyntraLabs.NET.TimeKit — business days, quarter bounds, Unix time, IANA zones. Hub module `TimeKit/`.
+- NuvyntraLabs.NET.Identifiers — PAN format, GSTIN checksum, Aadhaar Verhoeff, IBAN mod-97. Hub module `Identifiers/`.
+- NuvyntraLabs.NET.Result — `Result<T>` without throwing. Hub module `Result/`.
+- NuvyntraLabs.NET.ObjectKit — source-generated copy and equality. Hub module `ObjectKit/`.
 
 ## Installation
 

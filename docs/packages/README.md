@@ -64,6 +64,12 @@ Requirement → package matching for MauiEssentials.
 | Embedded document file (`.nvx`), AES-256-GCM, Avalonia Explorer. Hub module; not a `Plugin.Maui.*` package. JobQueue / OfflineSync stay SQLite. | Nuventra.NuvexaDB | https://www.nuget.org/packages/Nuventra.NuvexaDB | https://github.com/nuvyntralabs/NuvexaDB |
 | Browse / NQL / backup a `.nvx` from the terminal (`nuvexa`). Same CLI the VS Code and Visual Studio VSIX bundle. Do not add as an app PackageReference. | Nuventra.NuvexaDB.Cli | https://www.nuget.org/packages/Nuventra.NuvexaDB.Cli | https://github.com/nuvyntralabs/NuvexaDB |
 | Lumina MAUI UI kit (`NV*` controls and page recipes, basics → advanced + 1.2 / 1.3 chrome). Hub module; not a `Plugin.Maui.*` package. 1.6.0 catalog (`NVInputField` replaces `NVEmailField`; richer Lumina chrome). | NuvyntraLabs.UIKit | https://www.nuget.org/packages/NuvyntraLabs.UIKit | https://github.com/nuvyntralabs/NuvyntraLabs.UIKit |
+| Null, empty, positive, and range checks. Hub module `Guard/`, 0.1.0, not published. Plan: [utilities.md](../plans/utilities.md). | NuvyntraLabs.NET.Guard | — | — |
+| Mask phone, email, card, Aadhaar, PAN, GSTIN, JWT, API key, connection string, or JSON properties before logging. Hub module `DataMask/`, 0.1.0, not published. | NuvyntraLabs.NET.DataMask | — | — |
+| Business days, month and quarter bounds, Unix time, IANA zones. Hub module `TimeKit/`, 0.1.0, not published. | NuvyntraLabs.NET.TimeKit | — | — |
+| PAN format, GSTIN checksum, Aadhaar Verhoeff, IBAN mod-97. Hub module `Identifiers/`, 0.1.0, not published. Email and phone stay on FormValidation. | NuvyntraLabs.NET.Identifiers | — | — |
+| `Result<T>` for a call that can fail without throwing. Hub module `Result/`, 0.1.0, not published. | NuvyntraLabs.NET.Result | — | — |
+| Source-generated structural copy and equality. Hub module `ObjectKit/`, 0.1.0, not published. | NuvyntraLabs.NET.ObjectKit | — | — |
 
 Docs: `https://nuvyntralabs.github.io/packages/<slug>/` — slugs are listed in [llms.txt](../../llms.txt).
 

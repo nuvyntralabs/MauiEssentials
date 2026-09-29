@@ -44,7 +44,7 @@ MauiEssentials is a collection of **small, independently published** plugins. Th
 | Android | `net10.0-android` (API 21+) | `net9.0-android`, `net10.0-android` |
 | iOS | `net10.0-ios` (iOS 15+) | `net9.0-ios`, `net10.0-ios` |
 
-SecureSession, AppLock, and Biometric require Android API 23+. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin, LocalStore) also target Mac Catalyst and Windows. Plugins with native Android/iOS code stay Android + iOS.
+SecureSession, AppLock, and Biometric require Android API 23+. Shared libraries (ApiCache, ApiResilience, HttpForge, FeatureFlags, FormValidation, JobQueue, RetryQueue, SecureStoragePlus, MediaPipeline, VideoPipeline, SmartUpload, MVVMExpress, LeakAnalyser, TlsPin, LocalStore) also target Mac Catalyst and Windows. Plugins with native Android/iOS code stay Android + iOS. The six `NuvyntraLabs.NET` hub modules target `net8.0`, `net9.0`, and `net10.0`.
 
 ## When should you use MauiEssentials?
 
@@ -174,6 +174,17 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 
 [NuvyntraLabs.Lumina](LuminaPlayground/) is a hub module (`LuminaPlayground/`): the Nuvexa mobile prototyping playground — five standalone MAUI apps (Market, Clinic, Field, Bank, Civic), 130 screens, static NuvexaDB seed, MVVMExpress + UIKit + HttpForge. It is an app, not a NuGet package.
 
+Six shared libraries are hub modules at `0.1.0`. Source is in this hub. They are not published, and they are not git submodules yet. Do not `dotnet add package` them from nuget.org yet. They are not `Plugin.Maui.*` packages: `net8.0`, `net9.0`, and `net10.0`, no `UseX`. Plan: [docs/plans/utilities.md](docs/plans/utilities.md).
+
+| Hub module | Package | Problem |
+| --- | --- | --- |
+| [Guard](Guard/) | `NuvyntraLabs.NET.Guard` | Null, empty, positive, and range checks |
+| [DataMask](DataMask/) | `NuvyntraLabs.NET.DataMask` | Mask a phone, email, card, Aadhaar, PAN, GSTIN, JWT, API key, connection string, or JSON property before logging |
+| [TimeKit](TimeKit/) | `NuvyntraLabs.NET.TimeKit` | Business days, month and quarter bounds, Unix time, IANA zones |
+| [Identifiers](Identifiers/) | `NuvyntraLabs.NET.Identifiers` | PAN format, GSTIN checksum, Aadhaar Verhoeff, IBAN mod-97 |
+| [Result](Result/) | `NuvyntraLabs.NET.Result` | `Result<T>` without throwing |
+| [ObjectKit](ObjectKit/) | `NuvyntraLabs.NET.ObjectKit` | Source-generated structural copy and equality |
+
 **Nuvyn** (`NuvyntraLabs.Nuvyn.Cli`) 1.2.0: spec-driven CLI for new MAUI apps on this stack. `dotnet tool install -g NuvyntraLabs.Nuvyn.Cli --source https://api.nuget.org/v3/index.json` then `nuvyn init ClinicApp` (picks an AI agent). Existing MAUI apps: `nuvyn adopt` writes `.nuvyn/`, skills, and `adopt-report.md` only — it does not add MVVMExpress, UIKit, or HttpForge. `nuvyn update` refreshes skills without overlaying host code. `init` / `adopt` / `check` call `maui-dev doctor --path <app>` when MauiDev is on PATH (they do not pass `--no-update-check`; doctor output is printed on exit 1). On an interactive terminal it asks every 4 hours whether to update from nuget.org (`--no-update-check` skips Nuvyn’s own prompt). Slash chain: `/nuvyn.constitution` → `/nuvyn.specify` → `/nuvyn.clarify` → `/nuvyn.plan` → `/nuvyn.checklist` → `/nuvyn.task` → `/nuvyn.analysis` → `/nuvyn.implement` → `/nuvyn.converge`. See [Nuvyn/README.md](Nuvyn/README.md) and the [user guide](Nuvyn/USER-GUIDE.md).
 
 ## Find a package by requirement
@@ -237,6 +248,12 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 | Uno Platform MVVM ViewModels, Frame navigation, dialogs | Plugin.Uno.MVVMExpress |
 | Diagnose MAUI SDK / workloads / project config / permissions / platform / resources / pack (CLI + VS Code) | MauiDev (`dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json`) |
 | Live session view of Plugin.Maui.* network / queues / sync / crash breadcrumbs | Pulse — host `UseMauiPulse()` (`Plugin.Maui.Pulse`) + CLI `maui-pulse attach --package <id> --android|--ios` (`dotnet tool install -g Plugin.Maui.Pulse.Cli --source https://api.nuget.org/v3/index.json`) |
+| Null, empty, positive, and range checks | [NuvyntraLabs.NET.Guard](Guard/) — hub module, 0.1.0, not published |
+| Mask a phone, PAN, card, or connection string before logging | [NuvyntraLabs.NET.DataMask](DataMask/) — hub module, 0.1.0, not published |
+| Business days, quarter bounds, IANA time zones | [NuvyntraLabs.NET.TimeKit](TimeKit/) — hub module, 0.1.0, not published |
+| PAN, GSTIN, Aadhaar, or IBAN checksum | [NuvyntraLabs.NET.Identifiers](Identifiers/) — hub module, 0.1.0, not published. Email and phone stay on FormValidation |
+| `Result<T>` without throwing | [NuvyntraLabs.NET.Result](Result/) — hub module, 0.1.0, not published |
+| Source-generated object copy and equality | [NuvyntraLabs.NET.ObjectKit](ObjectKit/) — hub module, 0.1.0, not published |
 
 ## Features
 

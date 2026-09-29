@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <RootNamespace>NuvyntraLabs.NET.TimeKit</RootNamespace>
+    <AssemblyName>NuvyntraLabs.NET.TimeKit</AssemblyName>
+    <PackageId>NuvyntraLabs.NET.TimeKit</PackageId>
+    <Title>NuvyntraLabs.NET.TimeKit</Title>
+    <Description>Business-day arithmetic, month and quarter bounds, Unix time, and IANA time zones.</Description>
+    <PackageTags>nuvyntra;timekit;business-days;timezone</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/nuvyntralabs/NuvyntraLabs.NET.TimeKit</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/nuvyntralabs/NuvyntraLabs.NET.TimeKit</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <IsPackable>true</IsPackable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>

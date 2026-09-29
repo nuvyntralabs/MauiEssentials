@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <RootNamespace>NuvyntraLabs.NET.Identifiers</RootNamespace>
+    <AssemblyName>NuvyntraLabs.NET.Identifiers</AssemblyName>
+    <PackageId>NuvyntraLabs.NET.Identifiers</PackageId>
+    <Title>NuvyntraLabs.NET.Identifiers</Title>
+    <Description>Validate PAN format, GSTIN checksum, Aadhaar Verhoeff checksum, and IBAN.</Description>
+    <PackageTags>nuvyntra;identifiers;pan;gstin;aadhaar;iban</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/nuvyntralabs/NuvyntraLabs.NET.Identifiers</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/nuvyntralabs/NuvyntraLabs.NET.Identifiers</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <IsPackable>true</IsPackable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>

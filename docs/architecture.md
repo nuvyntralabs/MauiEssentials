@@ -67,6 +67,12 @@ llms.txt / AGENTS.md
 | Soft keyboard hide / show / dismiss / avoidance | KeyboardManager | FormValidation |
 | Screen orientation lock / per-page landscape | DeviceOrientationPlus | — |
 | Themed MAUI controls / page recipes | UIKit (`NuvyntraLabs.UIKit`) | FormValidation, KeyboardManager, MVVMExpress (host, not PackageReference) |
+| Null, empty, positive, and range checks | Guard (`NuvyntraLabs.NET.Guard`, hub module, 0.1.0) | Host only. Plugins do not reference it |
+| Mask a phone, PAN, card, or connection string | DataMask (`NuvyntraLabs.NET.DataMask`, hub module, 0.1.0) | Diagnostics breadcrumbs stay on the host |
+| Business days and IANA zones | TimeKit (`NuvyntraLabs.NET.TimeKit`, hub module, 0.1.0) | — |
+| PAN, GSTIN, Aadhaar, IBAN checksum | Identifiers (`NuvyntraLabs.NET.Identifiers`, hub module, 0.1.0) | FormValidation (email, phone, required) |
+| `Result<T>` without throwing | Result (`NuvyntraLabs.NET.Result`, hub module, 0.1.0) | — |
+| Source-generated object copy and equality | ObjectKit (`NuvyntraLabs.NET.ObjectKit`, hub module, 0.1.0) | — |
 
 ## Observability
 

@@ -1,0 +1,9 @@
+# NuvyntraLabs.NET.TimeKit
+
+Problem: Add business days, find month and quarter bounds, and convert a `DateTimeOffset` to an IANA time zone.
+Package: NuvyntraLabs.NET.TimeKit
+Version: 0.1.0
+TFM: net8.0;net9.0;net10.0
+Status: source in the MauiEssentials hub. Not published.
+GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.TimeKit
+Prefer first: [NodaTime](https://nodatime.org/) when the host needs a chronology.
