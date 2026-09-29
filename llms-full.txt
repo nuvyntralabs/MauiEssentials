@@ -1729,18 +1729,42 @@ Run a head project (`NuvyntraLabs.Lumina.Market`, …). Do not pack or `dotnet n
 
 ## Shared libraries at 0.1.1 (hub modules, not published)
 
-Related products in this catalog. Each library is its own repository and a hub submodule. Not `Plugin.Maui.*`. `net8.0`, `net9.0`, and `net10.0`. No `UseX`, no MAUI framework reference. Plan: `docs/plans/utilities.md`. Do not `dotnet add package` these ids from nuget.org yet.
+Related products in this catalog. Each library is its own repository and a hub submodule. Not `Plugin.Maui.*`. `net8.0`, `net9.0`, and `net10.0`. No `UseX`, no MAUI framework reference. Plan: `docs/plans/utilities.md`. Do not `dotnet add package` these ids from nuget.org yet. Publishing is pipeline-only.
 
-| Hub module | Package | Problem |
-| --- | --- | --- |
-| Guard/ | NuvyntraLabs.NET.Guard | Null, empty, positive, and range checks |
-| DataMask/ | NuvyntraLabs.NET.DataMask | Mask phone, email, card, Aadhaar, PAN, GSTIN, JWT, API key, connection string, JSON properties |
-| TimeKit/ | NuvyntraLabs.NET.TimeKit | Business days, quarter bounds, Unix time, IANA zones |
-| Identifiers/ | NuvyntraLabs.NET.Identifiers | PAN format, GSTIN checksum, Aadhaar Verhoeff, IBAN mod-97 |
-| Result/ | NuvyntraLabs.NET.Result | `Result<T>` without throwing |
-| ObjectKit/ | NuvyntraLabs.NET.ObjectKit | Source-generated copy and equality |
+| Hub module | Package | Problem | Docs |
+| --- | --- | --- | --- |
+| Guard/ | NuvyntraLabs.NET.Guard | Null, empty, positive, and range checks | https://nuvyntralabs.github.io/packages/nuvyntralabs-net-guard/ |
+| DataMask/ | NuvyntraLabs.NET.DataMask | Mask phone, email, card, Aadhaar, PAN, GSTIN, JWT, API key, connection string, JSON properties | https://nuvyntralabs.github.io/packages/nuvyntralabs-net-datamask/ |
+| TimeKit/ | NuvyntraLabs.NET.TimeKit | Business days, quarter bounds, Unix time, IANA zones | https://nuvyntralabs.github.io/packages/nuvyntralabs-net-timekit/ |
+| Identifiers/ | NuvyntraLabs.NET.Identifiers | PAN format, GSTIN checksum, Aadhaar Verhoeff, IBAN mod-97 | https://nuvyntralabs.github.io/packages/nuvyntralabs-net-identifiers/ |
+| Result/ | NuvyntraLabs.NET.Result | `Result<T>` without throwing | https://nuvyntralabs.github.io/packages/nuvyntralabs-net-result/ |
+| ObjectKit/ | NuvyntraLabs.NET.ObjectKit | Source-generated copy and equality | https://nuvyntralabs.github.io/packages/nuvyntralabs-net-objectkit/ |
 
 Email and phone validation stay on Plugin.Maui.FormValidation. These libraries do not reference each other or any `Plugin.Maui.*` package.
+
+### NuvyntraLabs.NET.Guard
+`Guard.NotNull`, `Guard.NotEmpty` (whitespace is empty), `Guard.Positive`, `Guard.InRange`. Each method returns the checked value. Throws `ArgumentNullException`, `ArgumentException`, or `ArgumentOutOfRangeException`. `CallerArgumentExpression` names the argument. Prefer `ArgumentNullException.ThrowIfNull`, then Ardalis.GuardClauses.
+GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.Guard
+
+### NuvyntraLabs.NET.DataMask
+`DataMask.Phone`, `Email`, `Card`, `Aadhaar`, `Pan`, `Gstin`, `Jwt`, `ApiKey`, `ConnectionString`, `Json`. `null` returns `""`. Unrecognized input is masked entirely. These methods do not throw. Extensions (`MaskPhone`, `MaskEmail`, `MaskCard`, `MaskAadhaar`, `MaskPan`, `MaskGstin`) are in `NuvyntraLabs.NET.DataMask.Extensions`. Prefer Microsoft.Extensions.Compliance.Redaction when the host already classifies data.
+GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.DataMask
+
+### NuvyntraLabs.NET.TimeKit
+`IsWeekend` (Saturday and Sunday), `IsBusinessDay`, `AddBusinessDays`, `StartOfMonth`, `EndOfQuarter`, `ToUnixTimestamp`, `ToTimeZone`. `WeekendCalendar` is the default. `HolidayCalendar` wraps another calendar with host-supplied `DateOnly` holidays. `AddBusinessDays(0)` returns the same date. An unknown zone id throws `TimeZoneNotFoundException`. Prefer NodaTime when the host needs a chronology.
+GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.TimeKit
+
+### NuvyntraLabs.NET.Identifiers
+`Pan.IsValid` (format only, no checksum), `Gstin.IsValid` (mod-36), `Aadhaar.IsValid` (Verhoeff), `Iban.IsValid` (mod-97). Each returns `bool` and does not throw or mask. Email and phone stay on Plugin.Maui.FormValidation.
+GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.Identifiers
+
+### NuvyntraLabs.NET.Result
+`Result<T>.Success` / `Failure`, `Result.Success` / `Failure`, `Error`, `ValidationError` (code `validation`), `NotFoundError` (code `not_found`). `Match` is the only functional method. `Value` throws on failure. No `Map`, `Bind`, or ASP.NET ProblemDetails adapter. Prefer ErrorOr when the host wants a larger result library.
+GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.Result
+
+### NuvyntraLabs.NET.ObjectKit
+`[Copyable]` on a non-generic, non-nested, concrete `partial` class with a public parameterless constructor. Generates `Copy` and equality for public string, enum, and value-type properties. The build fails (OBK001–OBK009) when the type cannot be copied. No reflection fallback. Prefer Mapperly for object-to-object mapping.
+GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.ObjectKit
 
 ---
 

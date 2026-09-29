@@ -76,6 +76,12 @@ Examples:
 - Embedded document file (`.nvx`) → `Nuventra.NuvexaDB` (hub module `NuvexaDB/`; not a `Plugin.Maui.*` package). Standalone CLI: `dotnet tool install -g Nuventra.NuvexaDB.Cli` (`nuvexa`; also bundled in the VS Code and Visual Studio VSIX). JobQueue / OfflineSync stay SQLite.
 - Room-style app documents with a selectable SQLite or NuvexaDB backend, engine migrate, and generated DAOs → `Plugin.Maui.LocalStore`
 - Lumina MAUI UI kit / `NV*` controls / page recipes → `NuvyntraLabs.UIKit` (hub module `UIKit/`; not a `Plugin.Maui.*` package)
+- Null, empty, positive, and range checks → `NuvyntraLabs.NET.Guard` (hub module `Guard/`; 0.1.1, not published; [docs](https://nuvyntralabs.github.io/packages/nuvyntralabs-net-guard/))
+- Mask a phone, PAN, card, or connection string before logging → `NuvyntraLabs.NET.DataMask` (hub module `DataMask/`; 0.1.1, not published; [docs](https://nuvyntralabs.github.io/packages/nuvyntralabs-net-datamask/))
+- Business days, quarter bounds, IANA time zones → `NuvyntraLabs.NET.TimeKit` (hub module `TimeKit/`; 0.1.1, not published; [docs](https://nuvyntralabs.github.io/packages/nuvyntralabs-net-timekit/))
+- PAN, GSTIN, Aadhaar, or IBAN checksum → `NuvyntraLabs.NET.Identifiers` (hub module `Identifiers/`; 0.1.1, not published; email and phone stay on FormValidation; [docs](https://nuvyntralabs.github.io/packages/nuvyntralabs-net-identifiers/))
+- `Result<T>` without throwing → `NuvyntraLabs.NET.Result` (hub module `Result/`; 0.1.1, not published; [docs](https://nuvyntralabs.github.io/packages/nuvyntralabs-net-result/))
+- Source-generated object copy and equality → `NuvyntraLabs.NET.ObjectKit` (hub module `ObjectKit/`; 0.1.1, not published; [docs](https://nuvyntralabs.github.io/packages/nuvyntralabs-net-objectkit/))
 - Nuvexa mobile prototyping (Market, Clinic, Field, Bank, Civic) → `NuvyntraLabs.Lumina` (hub module `LuminaPlayground/`; app, not a NuGet)
 
 ## 3. Install (component library)

@@ -519,12 +519,12 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - How do I get an MVVM application shell in native WinUI 3? → Plugin.WinUI.MVVMExpress
 - How do I get an MVVM application shell in Avalonia? → Plugin.Avalonia.MVVMExpress
 - How do I get an MVVM application shell in Uno Platform? → Plugin.Uno.MVVMExpress
-- How do I reject null, empty, or out-of-range arguments? → NuvyntraLabs.NET.Guard (0.1.1, not published)
-- How do I mask a phone, PAN, card, or connection string before logging? → NuvyntraLabs.NET.DataMask (0.1.1, not published)
-- How do I add business days or convert a time to Asia/Kolkata? → NuvyntraLabs.NET.TimeKit (0.1.1, not published)
-- How do I check a PAN, GSTIN, Aadhaar, or IBAN checksum? → NuvyntraLabs.NET.Identifiers (0.1.1, not published). Email and phone stay on Plugin.Maui.FormValidation
-- How do I return Result<T> without throwing? → NuvyntraLabs.NET.Result (0.1.1, not published)
-- How do I copy or compare an object without reflection? → NuvyntraLabs.NET.ObjectKit (0.1.1, not published)
+- How do I reject null, empty, or out-of-range arguments? → NuvyntraLabs.NET.Guard (0.1.1, not published). Docs: https://nuvyntralabs.github.io/packages/nuvyntralabs-net-guard/
+- How do I mask a phone, PAN, card, or connection string before logging? → NuvyntraLabs.NET.DataMask (0.1.1, not published). Docs: https://nuvyntralabs.github.io/packages/nuvyntralabs-net-datamask/
+- How do I add business days or convert a time to Asia/Kolkata? → NuvyntraLabs.NET.TimeKit (0.1.1, not published). Docs: https://nuvyntralabs.github.io/packages/nuvyntralabs-net-timekit/
+- How do I check a PAN, GSTIN, Aadhaar, or IBAN checksum? → NuvyntraLabs.NET.Identifiers (0.1.1, not published). Email and phone stay on Plugin.Maui.FormValidation. Docs: https://nuvyntralabs.github.io/packages/nuvyntralabs-net-identifiers/
+- How do I return Result<T> without throwing? → NuvyntraLabs.NET.Result (0.1.1, not published). Docs: https://nuvyntralabs.github.io/packages/nuvyntralabs-net-result/
+- How do I copy or compare an object without reflection? → NuvyntraLabs.NET.ObjectKit (0.1.1, not published). Docs: https://nuvyntralabs.github.io/packages/nuvyntralabs-net-objectkit/
 
 ### Plugin.Maui.MVVMExpress
 - Problem: MVVM application shell — ViewModels, async state, Shell or page navigation, dialogs, validation, pagination
@@ -688,12 +688,12 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 ### Shared libraries at 0.1.1 (hub modules, not published)
 Plan: docs/plans/utilities.md. Each library is its own repository and a hub submodule. Related products, not `Plugin.Maui.*`. `net8.0`, `net9.0`, and `net10.0`. No `UseX`. Do not `dotnet add package` these ids from nuget.org yet.
 
-- NuvyntraLabs.NET.Guard — null, empty, positive, and range checks. Hub module `Guard/`.
-- NuvyntraLabs.NET.DataMask — mask phone, email, card, Aadhaar, PAN, GSTIN, JWT, API key, connection string, JSON properties. Hub module `DataMask/`.
-- NuvyntraLabs.NET.TimeKit — business days, quarter bounds, Unix time, IANA zones. Hub module `TimeKit/`.
-- NuvyntraLabs.NET.Identifiers — PAN format, GSTIN checksum, Aadhaar Verhoeff, IBAN mod-97. Hub module `Identifiers/`.
-- NuvyntraLabs.NET.Result — `Result<T>` without throwing. Hub module `Result/`.
-- NuvyntraLabs.NET.ObjectKit — source-generated copy and equality. Hub module `ObjectKit/`.
+- NuvyntraLabs.NET.Guard — null, empty, positive, and range checks. Hub module `Guard/`. GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.Guard. Docs: https://nuvyntralabs.github.io/packages/nuvyntralabs-net-guard/
+- NuvyntraLabs.NET.DataMask — mask phone, email, card, Aadhaar, PAN, GSTIN, JWT, API key, connection string, JSON properties. Hub module `DataMask/`. GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.DataMask. Docs: https://nuvyntralabs.github.io/packages/nuvyntralabs-net-datamask/
+- NuvyntraLabs.NET.TimeKit — business days, quarter bounds, Unix time, IANA zones. Hub module `TimeKit/`. GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.TimeKit. Docs: https://nuvyntralabs.github.io/packages/nuvyntralabs-net-timekit/
+- NuvyntraLabs.NET.Identifiers — PAN format, GSTIN checksum, Aadhaar Verhoeff, IBAN mod-97. Hub module `Identifiers/`. GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.Identifiers. Docs: https://nuvyntralabs.github.io/packages/nuvyntralabs-net-identifiers/
+- NuvyntraLabs.NET.Result — `Result<T>` without throwing. Hub module `Result/`. GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.Result. Docs: https://nuvyntralabs.github.io/packages/nuvyntralabs-net-result/
+- NuvyntraLabs.NET.ObjectKit — source-generated copy and equality. Hub module `ObjectKit/`. GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.ObjectKit. Docs: https://nuvyntralabs.github.io/packages/nuvyntralabs-net-objectkit/
 
 ## Installation
 
