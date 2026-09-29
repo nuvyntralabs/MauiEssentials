@@ -174,7 +174,7 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 
 [NuvyntraLabs.Lumina](LuminaPlayground/) is a hub module (`LuminaPlayground/`): the Nuvexa mobile prototyping playground — five standalone MAUI apps (Market, Clinic, Field, Bank, Civic), 130 screens, static NuvexaDB seed, MVVMExpress + UIKit + HttpForge. It is an app, not a NuGet package.
 
-Six shared libraries are hub submodules at `0.1.0`. Each is its own repository. They are not published. Do not `dotnet add package` them from nuget.org yet. They are not `Plugin.Maui.*` packages: `net8.0`, `net9.0`, and `net10.0`, no `UseX`. Plan: [docs/plans/utilities.md](docs/plans/utilities.md).
+Six shared libraries are hub submodules at `0.1.1`. Each is its own repository. They are not published. Do not `dotnet add package` them from nuget.org yet. They are not `Plugin.Maui.*` packages: `net8.0`, `net9.0`, and `net10.0`, no `UseX`. Plan: [docs/plans/utilities.md](docs/plans/utilities.md).
 
 | Hub module | Package | Problem |
 | --- | --- | --- |
@@ -248,12 +248,12 @@ Six shared libraries are hub submodules at `0.1.0`. Each is its own repository. 
 | Uno Platform MVVM ViewModels, Frame navigation, dialogs | Plugin.Uno.MVVMExpress |
 | Diagnose MAUI SDK / workloads / project config / permissions / platform / resources / pack (CLI + VS Code) | MauiDev (`dotnet tool install -g Plugin.Maui.MauiDev.Cli --source https://api.nuget.org/v3/index.json`) |
 | Live session view of Plugin.Maui.* network / queues / sync / crash breadcrumbs | Pulse — host `UseMauiPulse()` (`Plugin.Maui.Pulse`) + CLI `maui-pulse attach --package <id> --android|--ios` (`dotnet tool install -g Plugin.Maui.Pulse.Cli --source https://api.nuget.org/v3/index.json`) |
-| Null, empty, positive, and range checks | [NuvyntraLabs.NET.Guard](Guard/) — hub module, 0.1.0, not published |
-| Mask a phone, PAN, card, or connection string before logging | [NuvyntraLabs.NET.DataMask](DataMask/) — hub module, 0.1.0, not published |
-| Business days, quarter bounds, IANA time zones | [NuvyntraLabs.NET.TimeKit](TimeKit/) — hub module, 0.1.0, not published |
-| PAN, GSTIN, Aadhaar, or IBAN checksum | [NuvyntraLabs.NET.Identifiers](Identifiers/) — hub module, 0.1.0, not published. Email and phone stay on FormValidation |
-| `Result<T>` without throwing | [NuvyntraLabs.NET.Result](Result/) — hub module, 0.1.0, not published |
-| Source-generated object copy and equality | [NuvyntraLabs.NET.ObjectKit](ObjectKit/) — hub module, 0.1.0, not published |
+| Null, empty, positive, and range checks | [NuvyntraLabs.NET.Guard](Guard/) — hub module, 0.1.1, not published |
+| Mask a phone, PAN, card, or connection string before logging | [NuvyntraLabs.NET.DataMask](DataMask/) — hub module, 0.1.1, not published |
+| Business days, quarter bounds, IANA time zones | [NuvyntraLabs.NET.TimeKit](TimeKit/) — hub module, 0.1.1, not published |
+| PAN, GSTIN, Aadhaar, or IBAN checksum | [NuvyntraLabs.NET.Identifiers](Identifiers/) — hub module, 0.1.1, not published. Email and phone stay on FormValidation |
+| `Result<T>` without throwing | [NuvyntraLabs.NET.Result](Result/) — hub module, 0.1.1, not published |
+| Source-generated object copy and equality | [NuvyntraLabs.NET.ObjectKit](ObjectKit/) — hub module, 0.1.1, not published |
 
 ## Features
 

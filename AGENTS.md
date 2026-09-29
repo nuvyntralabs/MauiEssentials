@@ -144,12 +144,12 @@ MauiEssentials/
 ├── NuvexaDB/            → Nuventra.NuvexaDB + Nuventra.NuvexaDB.Cli (`nuvexa`; also bundled in VS / VS Code VSIX)
 ├── UIKit/               → NuvyntraLabs.UIKit (Lumina MAUI controls + page recipes)
 ├── LuminaPlayground/   → NuvyntraLabs.Lumina (Nuvexa mobile prototyping playground)
-├── Guard/               → NuvyntraLabs.NET.Guard (hub module, 0.1.0; not published)
-├── DataMask/            → NuvyntraLabs.NET.DataMask (hub module, 0.1.0; not published)
-├── TimeKit/             → NuvyntraLabs.NET.TimeKit (hub module, 0.1.0; not published)
-├── Identifiers/         → NuvyntraLabs.NET.Identifiers (hub module, 0.1.0; not published)
-├── Result/              → NuvyntraLabs.NET.Result (hub module, 0.1.0; not published)
-└── ObjectKit/           → NuvyntraLabs.NET.ObjectKit (hub module, 0.1.0; not published)
+├── Guard/               → NuvyntraLabs.NET.Guard (hub module, 0.1.1; not published)
+├── DataMask/            → NuvyntraLabs.NET.DataMask (hub module, 0.1.1; not published)
+├── TimeKit/             → NuvyntraLabs.NET.TimeKit (hub module, 0.1.1; not published)
+├── Identifiers/         → NuvyntraLabs.NET.Identifiers (hub module, 0.1.1; not published)
+├── Result/              → NuvyntraLabs.NET.Result (hub module, 0.1.1; not published)
+└── ObjectKit/           → NuvyntraLabs.NET.ObjectKit (hub module, 0.1.1; not published)
 
 ```
 

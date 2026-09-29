@@ -1727,7 +1727,7 @@ Run a head project (`NuvyntraLabs.Lumina.Market`, …). Do not pack or `dotnet n
 
 ---
 
-## Shared libraries at 0.1.0 (hub modules, not published)
+## Shared libraries at 0.1.1 (hub modules, not published)
 
 Related products in this catalog. Each library is its own repository and a hub submodule. Not `Plugin.Maui.*`. `net8.0`, `net9.0`, and `net10.0`. No `UseX`, no MAUI framework reference. Plan: `docs/plans/utilities.md`. Do not `dotnet add package` these ids from nuget.org yet.
 

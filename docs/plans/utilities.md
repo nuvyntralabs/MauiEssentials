@@ -1,11 +1,11 @@
 # Shared utilities — design plan
 
-**Status:** Hub submodules at 0.1.0 (`Guard/`, `DataMask/`, `TimeKit/`, `Identifiers/`, `Result/`, `ObjectKit/`). Each is its own repository. Not published.  
+**Status:** Hub submodules at 0.1.1 (`Guard/`, `DataMask/`, `TimeKit/`, `Identifiers/`, `Result/`, `ObjectKit/`). Each is its own repository. Not published.  
 **Catalog:** [MauiEssentials](https://github.com/nuvyntralabs/MauiEssentials) — related products, same standing as UIKit and NuvexaDB. Shared `net8.0`, `net9.0`, and `net10.0` class libraries a MAUI host references directly. These are not `Plugin.Maui.*` packages and they do not register with the MAUI builder.  
 **Author:** Niladri Prasad Padhy  
 **License:** MIT  
 **TFM:** `net8.0`, `net9.0`, `net10.0`  
-**First publish:** `0.1.0` after Wave 1 tests are green. Pipeline-only.
+**First publish:** `0.1.1` after Wave 1 tests are green. Pipeline-only.
 
 This plan turns the utility-library list into a ship order. Wave 1 is three small products. Later waves stay separate repositories. The short names in discussion (`DataMask`, `TimeKit`, `Guard`) are product names. NuGet ids stay on the catalog prefix.
 
@@ -291,7 +291,7 @@ Match a MauiEssentials related-product `Directory.Build.props` (UIKit is the ref
 - `IsAotCompatible` true, `EnableTrimAnalyzer` true
 - MIT, author Niladri Prasad Padhy, company Nuvyntra Labs
 - README and LICENSE packed
-- `Version` `0.1.0` until the first nuget.org publish
+- `Version` `0.1.1` until the first nuget.org publish
 - Package tags include `nuvyntra` and the product name
 - Description names the problem, not “part of MauiEssentials”
 
@@ -301,7 +301,7 @@ Samples are a single `net10.0` console project per repository, used by the READM
 
 ## 13. Catalog entries
 
-The six products are MauiEssentials submodules at `0.1.0`. Each repository is public. They are not published to nuget.org, so the hub rows do not include an install line.
+The six products are MauiEssentials submodules at `0.1.1`. Each repository is public. They are not published to nuget.org, so the hub rows do not include an install line.
 
 When the first nupkg is published, the same change adds the install line:
 
