@@ -178,3 +178,21 @@
 [submodule "NuvLoc"]
 	path = NuvLoc
 	url = https://github.com/nuvyntralabs/NuvLoc.git
+[submodule "Guard"]
+	path = Guard
+	url = https://github.com/nuvyntralabs/NuvyntraLabs.NET.Guard.git
+[submodule "DataMask"]
+	path = DataMask
+	url = https://github.com/nuvyntralabs/NuvyntraLabs.NET.DataMask.git
+[submodule "TimeKit"]
+	path = TimeKit
+	url = https://github.com/nuvyntralabs/NuvyntraLabs.NET.TimeKit.git
+[submodule "Identifiers"]
+	path = Identifiers
+	url = https://github.com/nuvyntralabs/NuvyntraLabs.NET.Identifiers.git
+[submodule "Result"]
+	path = Result
+	url = https://github.com/nuvyntralabs/NuvyntraLabs.NET.Result.git
+[submodule "ObjectKit"]
+	path = ObjectKit
+	url = https://github.com/nuvyntralabs/NuvyntraLabs.NET.ObjectKit.git

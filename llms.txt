@@ -686,7 +686,7 @@ ApiResilience 1.0.8 encrypts the offline queue. FileVault 1.0.8 always clears th
 - Do not treat this as a plugin. Run a head project, do not pack.
 
 ### Shared libraries at 0.1.0 (hub modules, not published)
-Plan: docs/plans/utilities.md. Source is in the hub. Not git submodules yet. Related products, not `Plugin.Maui.*`. `net8.0`, `net9.0`, and `net10.0`. No `UseX`. Do not `dotnet add package` these ids from nuget.org yet.
+Plan: docs/plans/utilities.md. Each library is its own repository and a hub submodule. Related products, not `Plugin.Maui.*`. `net8.0`, `net9.0`, and `net10.0`. No `UseX`. Do not `dotnet add package` these ids from nuget.org yet.
 
 - NuvyntraLabs.NET.Guard — null, empty, positive, and range checks. Hub module `Guard/`.
 - NuvyntraLabs.NET.DataMask — mask phone, email, card, Aadhaar, PAN, GSTIN, JWT, API key, connection string, JSON properties. Hub module `DataMask/`.

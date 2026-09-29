@@ -1,6 +1,6 @@
 # Shared utilities — design plan
 
-**Status:** Hub modules at 0.1.0 (`Guard/`, `DataMask/`, `TimeKit/`, `Identifiers/`, `Result/`, `ObjectKit/`). Not published. Not separate git submodules yet.  
+**Status:** Hub submodules at 0.1.0 (`Guard/`, `DataMask/`, `TimeKit/`, `Identifiers/`, `Result/`, `ObjectKit/`). Each is its own repository. Not published.  
 **Catalog:** [MauiEssentials](https://github.com/nuvyntralabs/MauiEssentials) — related products, same standing as UIKit and NuvexaDB. Shared `net8.0`, `net9.0`, and `net10.0` class libraries a MAUI host references directly. These are not `Plugin.Maui.*` packages and they do not register with the MAUI builder.  
 **Author:** Niladri Prasad Padhy  
 **License:** MIT  
@@ -301,9 +301,9 @@ Samples are a single `net10.0` console project per repository, used by the READM
 
 ## 13. Catalog entries
 
-The six products are in the MauiEssentials hub at `0.1.0`. They are not published, so the hub rows do not include a nuget.org install line.
+The six products are MauiEssentials submodules at `0.1.0`. Each repository is public. They are not published to nuget.org, so the hub rows do not include an install line.
 
-When the first repository exists, the same change that adds the submodule updates the status cell and adds the install line:
+When the first nupkg is published, the same change adds the install line:
 
 - `README.md` related-products section and requirement map
 - `docs/packages/README.md`

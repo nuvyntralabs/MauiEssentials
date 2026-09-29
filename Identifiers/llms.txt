@@ -1,9 +1,0 @@
-# NuvyntraLabs.NET.Identifiers
-
-Problem: Validate a PAN, a GSTIN checksum, an Aadhaar Verhoeff checksum, or an IBAN.
-Package: NuvyntraLabs.NET.Identifiers
-Version: 0.1.0
-TFM: net8.0;net9.0;net10.0
-Status: source in the MauiEssentials hub. Not published.
-GitHub: https://github.com/nuvyntralabs/NuvyntraLabs.NET.Identifiers
-Prefer first: `Plugin.Maui.FormValidation` for email, phone, and required fields.

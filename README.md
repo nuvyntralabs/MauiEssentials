@@ -174,7 +174,7 @@ Docs: `https://nuvyntralabs.github.io/packages/<slug>/` (see [llms.txt](llms.txt
 
 [NuvyntraLabs.Lumina](LuminaPlayground/) is a hub module (`LuminaPlayground/`): the Nuvexa mobile prototyping playground — five standalone MAUI apps (Market, Clinic, Field, Bank, Civic), 130 screens, static NuvexaDB seed, MVVMExpress + UIKit + HttpForge. It is an app, not a NuGet package.
 
-Six shared libraries are hub modules at `0.1.0`. Source is in this hub. They are not published, and they are not git submodules yet. Do not `dotnet add package` them from nuget.org yet. They are not `Plugin.Maui.*` packages: `net8.0`, `net9.0`, and `net10.0`, no `UseX`. Plan: [docs/plans/utilities.md](docs/plans/utilities.md).
+Six shared libraries are hub submodules at `0.1.0`. Each is its own repository. They are not published. Do not `dotnet add package` them from nuget.org yet. They are not `Plugin.Maui.*` packages: `net8.0`, `net9.0`, and `net10.0`, no `UseX`. Plan: [docs/plans/utilities.md](docs/plans/utilities.md).
 
 | Hub module | Package | Problem |
 | --- | --- | --- |
