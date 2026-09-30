@@ -10,7 +10,7 @@
 | NuvyntraLabs.UIKit next (1.1 deepen + 1.2 / 1.3 names) | [nuvyntralabs-uikit-next.md](nuvyntralabs-uikit-next.md) | 1.2 / 1.3 catalog + 1.4 deepen + 1.5 `NVInputField` rename shipped |
 | Nuvyn (Spec-driven CLI for Nuvyntra MAUI apps) | [nuvyn.md](nuvyn.md) | Implemented at `1.2.0` — `NuvyntraLabs.Nuvyn.Cli`, command `nuvyn`; `init` + `adopt` (existing MAUI, no stack rewrite) + `update` + host proof + 4-hour update check + optional `maui-dev doctor`; Spec Kit coding-agent set; CI packs and publishes from `Nuvyn/.github/workflows/ci.yml` |
 | NuvLoc (agent-driven localization CLI; `i18n.json`) | [nuvloc.md](nuvloc.md) | Implemented at `1.1.2` — `NuvyntraLabs.NuvLoc.Cli`, command `nuvloc`; `init --agent` + `/nuvloc.status` + `/nuvloc.translate`; sibling `.resx` (`maui` / `wpf` / `winui` / `avalonia` / `uno`); BCP-47 language codes; no provider / API key; resource files only |
-| Shared libraries — Guard, DataMask, TimeKit, Identifiers, Result, ObjectKit | [utilities.md](utilities.md) | Hub submodules at 0.1.1 in `Guard/`, `DataMask/`, `TimeKit/`, `Identifiers/`, `Result/`, `ObjectKit/`. Each is its own repository. Not published. Not `Plugin.Maui.*`. |
+| Shared libraries — Guard, DataMask, TimeKit, Identifiers, Result, ObjectKit | [utilities.md](utilities.md) | Hub submodules at 0.1.1 in `Guard/`, `DataMask/`, `TimeKit/`, `Identifiers/`, `Result/`, `ObjectKit/`. Each is its own repository. Not published. Not `Plugin.Maui.*`. Future (not started): Money, IFSC / UPI / PIN on Identifiers, ObjectKit property diff. |
 
 ## MVVMExpress platform family plans
 

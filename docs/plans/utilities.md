@@ -1,6 +1,6 @@
 # Shared utilities — design plan
 
-**Status:** Hub submodules at 0.1.1 (`Guard/`, `DataMask/`, `TimeKit/`, `Identifiers/`, `Result/`, `ObjectKit/`). Each is its own repository. Not published.  
+**Status:** Hub submodules at 0.1.1 (`Guard/`, `DataMask/`, `TimeKit/`, `Identifiers/`, `Result/`, `ObjectKit/`). Each is its own repository. Not published. Future roadmap (not started): `NuvyntraLabs.NET.Money`, IFSC / UPI / PIN on Identifiers, and a source-generated property diff on ObjectKit. See section 12.  
 **Catalog:** [MauiEssentials](https://github.com/nuvyntralabs/MauiEssentials) — related products, same standing as UIKit and NuvexaDB. Shared `net8.0`, `net9.0`, and `net10.0` class libraries a MAUI host references directly. These are not `Plugin.Maui.*` packages and they do not register with the MAUI builder.  
 **Author:** Niladri Prasad Padhy  
 **License:** MIT  
@@ -65,6 +65,9 @@ Usual alternatives stay in the README of each package:
 | 2 | Identifiers | `NuvyntraLabs.NET.Identifiers` | PAN format, GSTIN checksum, Aadhaar Verhoeff, IBAN mod-97 | The only part of ValidationKit worth a package. Depends on nothing in Wave 1. |
 | 2 | Result | `NuvyntraLabs.NET.Result` | `Result<T>` for a MAUI call that can fail without throwing | Only if Wave 1 is published and a host still refuses ErrorOr. No ASP.NET adapter in this catalog. |
 | 3 | ObjectKit | `NuvyntraLabs.NET.ObjectKit` | Source-generated structural copy and equality | Reflection deep-clone and property paths are out. Start this only after a generator prototype trims clean. |
+| Future | Money | `NuvyntraLabs.NET.Money` | Minor units, allocate a total, GST CGST/SGST/IGST split to paise | Not started. New repository. NodaMoney until a host needs the GST split. |
+| Future | Identifiers | `NuvyntraLabs.NET.Identifiers` | IFSC, UPI VPA, Indian PIN code | Not started. Same repository. No bank or post-office directory. |
+| Future | ObjectKit | `NuvyntraLabs.NET.ObjectKit` | Source-generated property diff for an audit log | Not started. Same repository. Compare-Net-Objects stays out. |
 
 Wave 1 packages ship independently. Wave 2 does not start because Wave 1 exists. It starts when a host hits the checksum or Result gap and the Wave 1 APIs are frozen.
 
@@ -121,6 +124,10 @@ Result is one package. A MAUI page checks `IsSuccess`. There is no ASP.NET Core 
 | Nuvyntra.UriKit | Out | `Uri` and `QueryHelpers` (ASP.NET) already merge and normalize. A BCL-only query builder is a gist, not a product. |
 | Nuvyntra.RegexKit | Out | Patterns ship inside DataMask and Identifiers. There is no public regex catalog. |
 | Nuvyntra.Toolkit (meta) | Out | See locked decision 2. |
+| Nuvyntra.Money | Future | `NuvyntraLabs.NET.Money`. Minor units, allocate, and a GST line split. Not started. See section 12. |
+| Nuvyntra.Tax | Fold into Money | CGST/SGST/IGST is part of Money. A second tax package splits one invoice problem. |
+| Identifiers IFSC, UPI, PIN | Future, same package | Format checks only. No embedded bank or PIN directory. |
+| ObjectKit diff | Future, same package | Source-generated property diff. Not a new repository. |
 
 ## 6. Wave 1 — Guard
 
@@ -243,6 +250,8 @@ Password strength, email, phone, and URL stay out. Those rules are product polic
 
 Identifiers does not reference DataMask. The GSTIN and PAN patterns are duplicated on purpose. A shared regex package is decision 9.
 
+IFSC, UPI VPA, and Indian PIN checks are on the future roadmap (section 12). They are not in 0.1.1.
+
 ## 10. Wave 2 — Result
 
 Ship this only if a real host asks and ErrorOr is still the wrong weight. v1 surface:
@@ -283,7 +292,77 @@ Runtime `DeepClone`, recursive `Equals`, and string property paths (`"Address.Ci
 
 Object mapping stays on Mapperly. ObjectKit does not grow `CreateMap`.
 
-## 12. Packaging
+A source-generated property diff is on the future roadmap (section 12). It is not in 0.1.1. v1 does not emit `Diff`.
+
+## 12. Future roadmap
+
+Not started. Do not create a `Money/` repository, and do not add these methods, until Waves 1–3 are published and a host hits the gap. Section 3 still applies: one problem, one repository, zero package dependencies, AOT and trim clean, no umbrella package.
+
+| Item | Where it lands | Problem |
+| --- | --- | --- |
+| Money | New submodule `Money/` → `github.com/nuvyntralabs/NuvyntraLabs.NET.Money` | Currency-safe amounts and an Indian GST line split |
+| IFSC, UPI, PIN | Existing `Identifiers/` | Format checks a payment or address form repeats |
+| Property diff | Existing `ObjectKit/` | Which public properties changed, for an audit log |
+
+### Money
+
+`NuvyntraLabs.NET.Money` is amounts a host can add and split without losing a minor unit. GST arithmetic ships here because an invoice line is one problem. It does not validate a GSTIN. Identifiers owns that, and Money does not reference Identifiers.
+
+```csharp
+Money amount = Money.FromMinor(125050, Currency.Inr); // ₹1,250.50
+Money[] shares = amount.Allocate(3);
+GstSplit split = Gst.Split(taxable, rate: 18m, intraState: true);
+```
+
+| Rule | Decision |
+| --- | --- |
+| Numeric type | `decimal` only. No `double`. |
+| Currency | An ISO 4217 code the host passes. `Currency.Inr` is a named value. No FX rate table. |
+| Rounding | An argument. Default is half away from zero to minor units (paise). Banker's rounding is opt-in. Invoice totals use half-up. |
+| `Allocate` | Splits a total across `n` parts. Remainder minor units go to the earliest parts. The parts sum to the original amount. |
+| GST | Host passes the rate. Intra-state returns CGST and SGST. Inter-state returns IGST. Each component is rounded half-up to paise. No rate catalog. |
+| Prefer first | [NodaMoney](https://github.com/NodaOrg/NodaMoney) when the host does not need the GST split. |
+
+### Identifiers
+
+Same package. Each new method returns `bool`, does not throw, and does not mask.
+
+| Method | Rule |
+| --- | --- |
+| `Ifsc.IsValid` | 11 characters: four letters, `0`, six alphanumeric. Format only. No RBI bank directory. |
+| `Upi.IsValid` | VPA shape `local@handle`. No handle directory. |
+| `Pin.IsValid` | Six digits, first digit `1`–`9`. No post-office database. |
+
+Email and phone stay on `Plugin.Maui.FormValidation`.
+
+### ObjectKit
+
+Same package. The generator emits `Diff` for a `[Copyable]` type: property name, left value, and right value for members that are not equal. Member rules match `Copy`. If the generator cannot see a member, the build fails. There is no reflection fallback.
+
+Nested reference types stay out until the copy rules allow them. [Compare-Net-Objects](https://github.com/GregFinzer/Compare-Net-Objects) uses reflection and stays the alternative this catalog does not wrap. Mapperly stays the mapper.
+
+### Still not a package
+
+These show up in day-to-day apps. They already have a library. Do not reopen them as a `NuvyntraLabs.NET` product.
+
+| Job | Library |
+| --- | --- |
+| Slugs, pluralization, relative time | [Humanizer](https://github.com/Humanizr/Humanizer) |
+| Retry, timeout, circuit breaker | [Polly](https://github.com/App-vNext/Polly), or `Plugin.Maui.ApiResilience` in a MAUI host |
+| Object mapping | [Mapperly](https://github.com/riok/mapperly) |
+| Chronology beyond business days | [NodaTime](https://nodatime.org/) |
+| Cron next run | [Cronos](https://github.com/HangfireIO/Cronos) |
+| TOTP / authenticator codes | [Otp.NET](https://github.com/kspearrin/Otp.NET) |
+| Phone parsing (country, E.164) | [libphonenumber-csharp](https://github.com/twcclegg/libphonenumber-csharp) |
+| CSV | [CsvHelper](https://github.com/JoshClose/CsvHelper) |
+| User HTML | [HtmlSanitizer](https://github.com/mganss/HtmlSanitizer) |
+| Short public ids | [Sqids](https://github.com/sqids/sqids-dotnet) |
+| Fake test data | [Bogus](https://github.com/bchavez/Bogus) |
+| CLI tables and prompts | [Spectre.Console](https://spectreconsole.net/) |
+
+String, collection, JSON, file, hash, enum, random, URI, and regex kits stay out. See section 5.
+
+## 13. Packaging
 
 Match a MauiEssentials related-product `Directory.Build.props` (UIKit is the reference):
 
@@ -299,7 +378,7 @@ Tests are xUnit, in the product repository, with no shared test project across p
 
 Samples are a single `net10.0` console project per repository, used by the README. A MAUI sample is not required: these libraries have no MAUI types.
 
-## 13. Catalog entries
+## 14. Catalog entries
 
 The six products are MauiEssentials submodules at `0.1.1`. Each repository is public. They are not published to nuget.org, so the hub rows do not include an install line.
 
@@ -311,7 +390,7 @@ When the first nupkg is published, the same change adds the install line:
 - `llms.txt`, `llms-full.txt`, and `AGENTS.md`
 - Hub CI dispatch list, if that workflow dispatches product repositories
 
-## 14. Explicitly out
+## 15. Explicitly out
 
 - An umbrella `Toolkit` package or a single repository that holds every kit
 - Reflection mappers, reflection deep clone, and property-path access
@@ -322,3 +401,5 @@ When the first nupkg is published, the same change adds the install line:
 - Scanning arbitrary log text for numbers that might be cards
 - A `Plugin.Maui.*` id, a `UseX` registration, or a MAUI `FrameworkReference` on these libraries
 - `PackageReference`s from UIKit, NuvexaDB, or `Plugin.Maui.*` into these libraries
+- Wrapping Humanizer, Polly, NodaTime, NodaMoney (without the GST split), Cronos, Otp.NET, libphonenumber-csharp, CsvHelper, HtmlSanitizer, Sqids, Bogus, Spectre.Console, Mapperly, or Compare-Net-Objects
+- A `Money/` repository, IFSC / UPI / PIN methods, or ObjectKit `Diff` before section 12 says to start them
